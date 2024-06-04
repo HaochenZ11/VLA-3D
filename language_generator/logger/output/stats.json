@@ -1,0 +1,35 @@
+{
+  "sqh_kitchen": {
+    "all_statements": 123,
+    "above_statements": 0,
+    "below_statements": 0,
+    "between_statements": 13,
+    "near_statements": 13,
+    "on_statements": 0,
+    "in_statements": 0,
+    "closest_statements": 50,
+    "farthest_statements": 50,
+    "color_references": 31,
+    "size_references": 97,
+    "color_statements": 17,
+    "size_statements": 51,
+    "unique_objects": 0
+  },
+  "00009-vLpv2VX547B": {
+    "all_statements": 17743,
+    "above_statements": 157,
+    "below_statements": 137,
+    "between_statements": 5430,
+    "near_statements": 2094,
+    "on_statements": 166,
+    "in_statements": 48,
+    "closest_statements": 5715,
+    "farthest_statements": 5715,
+    "color_references": 1655,
+    "size_references": 13154,
+    "color_statements": 980,
+    "size_statements": 7892,
+    "unique_objects": 0
+  },
+  "unique_objects": 107
+}

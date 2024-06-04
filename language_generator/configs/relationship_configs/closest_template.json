@@ -1,0 +1,23 @@
+{
+  "relation": "closest",
+  "relation_type": "ordered",
+  "templates": [
+      {
+        "sentences": [
+          "the %target_size%%target_color%%target% that %target_verb%%target_order%%relation% the %other%%anchor_size%%anchor_color%%anchor%"
+        ],
+        "conditions": []
+      }
+    ],
+
+  "synonyms": {
+    "relation": [
+      "closest to"
+    ]
+  },
+  "order": {
+      "0": [" "],
+      "1": [" second "],
+      "2": [" third "]
+    }
+}

@@ -1,0 +1,4472 @@
+{
+    "1": {
+        "scannet_id": 2,
+        "scannet_class": "books",
+        "nyu_class": "book"
+    },
+    "2": {
+        "scannet_id": 42,
+        "scannet_class": "bottle",
+        "nyu_class": "bottle"
+    },
+    "3": {
+        "scannet_id": 15,
+        "scannet_class": "cabinet",
+        "nyu_class": "cabinet"
+    },
+    "4": {
+        "scannet_id": 11,
+        "scannet_class": "ceiling",
+        "nyu_class": "ceiling"
+    },
+    "5": {
+        "scannet_id": 1,
+        "scannet_class": "chair",
+        "nyu_class": "chair"
+    },
+    "6": {
+        "scannet_id": 447,
+        "scannet_class": "traffic cone",
+        "nyu_class": "cone"
+    },
+    "7": {
+        "scannet_id": 59,
+        "scannet_class": "kitchen counter",
+        "nyu_class": "counter"
+    },
+    "8": {
+        "scannet_id": 114,
+        "scannet_class": "dishwasher",
+        "nyu_class": "dishwasher"
+    },
+    "9": {
+        "scannet_id": 267,
+        "scannet_class": "faucet",
+        "nyu_class": "faucet"
+    },
+    "10": {
+        "scannet_id": 145,
+        "scannet_class": "fire extinguisher",
+        "nyu_class": "fire extinguisher"
+    },
+    "11": {
+        "scannet_id": 3,
+        "scannet_class": "floor",
+        "nyu_class": "floor"
+    },
+    "12": {
+        "scannet_id": 8,
+        "scannet_class": "trash can",
+        "nyu_class": "garbage bin"
+    },
+    "13": {
+        "scannet_id": 58,
+        "scannet_class": "microwave",
+        "nyu_class": "microwave"
+    },
+    "14": {
+        "scannet_id": 61,
+        "scannet_class": "paper towel dispenser",
+        "nyu_class": "paper towel dispenser"
+    },
+    "15": {
+        "scannet_id": 107,
+        "scannet_class": "paper",
+        "nyu_class": "paper"
+    },
+    "16": {
+        "scannet_id": 176,
+        "scannet_class": "coffee kettle",
+        "nyu_class": "pot"
+    },
+    "17": {
+        "scannet_id": 53,
+        "scannet_class": "refrigerator",
+        "nyu_class": "refridgerator"
+    },
+    "18": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stove burner"
+    },
+    "19": {
+        "scannet_id": 7,
+        "scannet_class": "table",
+        "nyu_class": "table"
+    },
+    "20": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "unknown"
+    },
+    "21": {
+        "scannet_id": 0,
+        "scannet_class": "wall",
+        "nyu_class": "wall"
+    },
+    "22": {
+        "scannet_id": 154,
+        "scannet_class": "bowl",
+        "nyu_class": "bowl"
+    },
+    "23": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "magnet"
+    },
+    "24": {
+        "scannet_id": 21,
+        "scannet_class": "sink",
+        "nyu_class": "sink"
+    },
+    "25": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "air vent"
+    },
+    "26": {
+        "scannet_id": 12,
+        "scannet_class": "box",
+        "nyu_class": "box"
+    },
+    "27": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door knob"
+    },
+    "28": {
+        "scannet_id": 4,
+        "scannet_class": "door",
+        "nyu_class": "door"
+    },
+    "29": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "scissor"
+    },
+    "30": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tape dispenser"
+    },
+    "31": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "telephone cord"
+    },
+    "32": {
+        "scannet_id": 51,
+        "scannet_class": "telephone",
+        "nyu_class": "telephone"
+    },
+    "33": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "track light"
+    },
+    "34": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cork board"
+    },
+    "35": {
+        "scannet_id": 52,
+        "scannet_class": "cup",
+        "nyu_class": "cup"
+    },
+    "36": {
+        "scannet_id": 16,
+        "scannet_class": "desk",
+        "nyu_class": "desk"
+    },
+    "37": {
+        "scannet_id": 64,
+        "scannet_class": "laptop",
+        "nyu_class": "laptop"
+    },
+    "38": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "air duct"
+    },
+    "39": {
+        "scannet_id": 104,
+        "scannet_class": "basket",
+        "nyu_class": "basket"
+    },
+    "40": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "camera"
+    },
+    "41": {
+        "scannet_id": 148,
+        "scannet_class": "pipe",
+        "nyu_class": "pipe"
+    },
+    "42": {
+        "scannet_id": 17,
+        "scannet_class": "shelf",
+        "nyu_class": "shelves"
+    },
+    "43": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stacked chairs"
+    },
+    "44": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "styrofoam object"
+    },
+    "45": {
+        "scannet_id": 29,
+        "scannet_class": "whiteboard",
+        "nyu_class": "whiteboard"
+    },
+    "46": {
+        "scannet_id": 49,
+        "scannet_class": "computer tower",
+        "nyu_class": "computer"
+    },
+    "47": {
+        "scannet_id": 41,
+        "scannet_class": "keyboard",
+        "nyu_class": "keyboard"
+    },
+    "48": {
+        "scannet_id": 146,
+        "scannet_class": "ladder",
+        "nyu_class": "ladder"
+    },
+    "49": {
+        "scannet_id": 14,
+        "scannet_class": "monitor",
+        "nyu_class": "monitor"
+    },
+    "50": {
+        "scannet_id": 158,
+        "scannet_class": "stand",
+        "nyu_class": "stand"
+    },
+    "51": {
+        "scannet_id": 83,
+        "scannet_class": "bar",
+        "nyu_class": "bar"
+    },
+    "52": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "motion camera"
+    },
+    "53": {
+        "scannet_id": 189,
+        "scannet_class": "projector screen",
+        "nyu_class": "projector screen"
+    },
+    "54": {
+        "scannet_id": 113,
+        "scannet_class": "speaker",
+        "nyu_class": "speaker"
+    },
+    "55": {
+        "scannet_id": 39,
+        "scannet_class": "bag",
+        "nyu_class": "bag"
+    },
+    "56": {
+        "scannet_id": 95,
+        "scannet_class": "clock",
+        "nyu_class": "clock"
+    },
+    "57": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "green screen"
+    },
+    "58": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mantel"
+    },
+    "59": {
+        "scannet_id": 6,
+        "scannet_class": "window",
+        "nyu_class": "window"
+    },
+    "60": {
+        "scannet_id": 124,
+        "scannet_class": "ball",
+        "nyu_class": "ball"
+    },
+    "61": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hole puncher"
+    },
+    "62": {
+        "scannet_id": 72,
+        "scannet_class": "light",
+        "nyu_class": "light"
+    },
+    "63": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "manilla envelope"
+    },
+    "64": {
+        "scannet_id": 10,
+        "scannet_class": "picture",
+        "nyu_class": "picture"
+    },
+    "65": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mail shelf"
+    },
+    "66": {
+        "scannet_id": 67,
+        "scannet_class": "printer",
+        "nyu_class": "printer"
+    },
+    "67": {
+        "scannet_id": 297,
+        "scannet_class": "stapler",
+        "nyu_class": "stapler"
+    },
+    "68": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fax machine"
+    },
+    "69": {
+        "scannet_id": 522,
+        "scannet_class": "folder",
+        "nyu_class": "folder"
+    },
+    "70": {
+        "scannet_id": 229,
+        "scannet_class": "jar",
+        "nyu_class": "jar"
+    },
+    "71": {
+        "scannet_id": 402,
+        "scannet_class": "magazine",
+        "nyu_class": "magazine"
+    },
+    "72": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ruler"
+    },
+    "73": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cable modem"
+    },
+    "74": {
+        "scannet_id": 77,
+        "scannet_class": "fan",
+        "nyu_class": "fan"
+    },
+    "75": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "file"
+    },
+    "76": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hand sanitizer"
+    },
+    "77": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "paper rack"
+    },
+    "78": {
+        "scannet_id": 258,
+        "scannet_class": "vase",
+        "nyu_class": "vase"
+    },
+    "79": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "air conditioner"
+    },
+    "80": {
+        "scannet_id": 131,
+        "scannet_class": "blinds",
+        "nyu_class": "blinds"
+    },
+    "81": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flower"
+    },
+    "82": {
+        "scannet_id": 28,
+        "scannet_class": "plant",
+        "nyu_class": "plant"
+    },
+    "83": {
+        "scannet_id": 20,
+        "scannet_class": "couch",
+        "nyu_class": "sofa"
+    },
+    "84": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stereo"
+    },
+    "85": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "books"
+    },
+    "86": {
+        "scannet_id": 403,
+        "scannet_class": "exit sign",
+        "nyu_class": "exit sign"
+    },
+    "87": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "room divider"
+    },
+    "88": {
+        "scannet_id": 25,
+        "scannet_class": "bookshelf",
+        "nyu_class": "bookshelf"
+    },
+    "89": {
+        "scannet_id": 27,
+        "scannet_class": "curtain",
+        "nyu_class": "curtain"
+    },
+    "90": {
+        "scannet_id": 213,
+        "scannet_class": "projector",
+        "nyu_class": "projector"
+    },
+    "91": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "modem"
+    },
+    "92": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wire"
+    },
+    "93": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "water purifier"
+    },
+    "94": {
+        "scannet_id": 147,
+        "scannet_class": "column",
+        "nyu_class": "column"
+    },
+    "95": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hooks"
+    },
+    "96": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hanging hooks"
+    },
+    "97": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pen"
+    },
+    "98": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electrical outlet"
+    },
+    "99": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "doll"
+    },
+    "100": {
+        "scannet_id": 407,
+        "scannet_class": "blackboard eraser",
+        "nyu_class": "eraser"
+    },
+    "101": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pencil holder"
+    },
+    "102": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "water carboy"
+    },
+    "103": {
+        "scannet_id": 103,
+        "scannet_class": "mouse",
+        "nyu_class": "mouse"
+    },
+    "104": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cable rack"
+    },
+    "105": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wire rack"
+    },
+    "106": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flipboard"
+    },
+    "107": {
+        "scannet_id": 442,
+        "scannet_class": "map",
+        "nyu_class": "map"
+    },
+    "108": {
+        "scannet_id": 137,
+        "scannet_class": "paper cutter",
+        "nyu_class": "paper cutter"
+    },
+    "109": {
+        "scannet_id": 503,
+        "scannet_class": "tape",
+        "nyu_class": "tape"
+    },
+    "110": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "thermostat"
+    },
+    "111": {
+        "scannet_id": 295,
+        "scannet_class": "heater",
+        "nyu_class": "heater"
+    },
+    "112": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "circuit breaker box"
+    },
+    "113": {
+        "scannet_id": 123,
+        "scannet_class": "paper towel roll",
+        "nyu_class": "paper towel"
+    },
+    "114": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stamp"
+    },
+    "115": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "duster"
+    },
+    "116": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "poster case"
+    },
+    "117": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "whiteboard marker"
+    },
+    "118": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ethernet jack"
+    },
+    "119": {
+        "scannet_id": 9,
+        "scannet_class": "pillow",
+        "nyu_class": "pillow"
+    },
+    "120": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hair brush"
+    },
+    "121": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "makeup brush"
+    },
+    "122": {
+        "scannet_id": 26,
+        "scannet_class": "mirror",
+        "nyu_class": "mirror"
+    },
+    "123": {
+        "scannet_id": 56,
+        "scannet_class": "shower curtain",
+        "nyu_class": "shower curtain"
+    },
+    "124": {
+        "scannet_id": 38,
+        "scannet_class": "toilet",
+        "nyu_class": "toilet"
+    },
+    "125": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toiletries bag"
+    },
+    "126": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toothbrush holder"
+    },
+    "127": {
+        "scannet_id": 255,
+        "scannet_class": "toothbrush",
+        "nyu_class": "toothbrush"
+    },
+    "128": {
+        "scannet_id": 386,
+        "scannet_class": "toothpaste",
+        "nyu_class": "toothpaste"
+    },
+    "129": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "platter"
+    },
+    "130": {
+        "scannet_id": 236,
+        "scannet_class": "carpet",
+        "nyu_class": "rug"
+    },
+    "131": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "squeeze tube"
+    },
+    "132": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower cap"
+    },
+    "133": {
+        "scannet_id": 250,
+        "scannet_class": "soap",
+        "nyu_class": "soap"
+    },
+    "134": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "towel rod"
+    },
+    "135": {
+        "scannet_id": 19,
+        "scannet_class": "towel",
+        "nyu_class": "towel"
+    },
+    "136": {
+        "scannet_id": 57,
+        "scannet_class": "bathtub",
+        "nyu_class": "bathtub"
+    },
+    "137": {
+        "scannet_id": 212,
+        "scannet_class": "candle",
+        "nyu_class": "candle"
+    },
+    "138": {
+        "scannet_id": 78,
+        "scannet_class": "tissue box",
+        "nyu_class": "tissue box"
+    },
+    "139": {
+        "scannet_id": 33,
+        "scannet_class": "toilet paper",
+        "nyu_class": "toilet paper"
+    },
+    "140": {
+        "scannet_id": 115,
+        "scannet_class": "container",
+        "nyu_class": "container"
+    },
+    "141": {
+        "scannet_id": 40,
+        "scannet_class": "clothes",
+        "nyu_class": "clothes"
+    },
+    "142": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electric toothbrush"
+    },
+    "143": {
+        "scannet_id": 99,
+        "scannet_class": "mat",
+        "nyu_class": "floor mat"
+    },
+    "144": {
+        "scannet_id": 23,
+        "scannet_class": "lamp",
+        "nyu_class": "lamp"
+    },
+    "145": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "drum"
+    },
+    "146": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flower pot"
+    },
+    "147": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "banana"
+    },
+    "148": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "candlestick"
+    },
+    "149": {
+        "scannet_id": 36,
+        "scannet_class": "shoes",
+        "nyu_class": "shoe"
+    },
+    "150": {
+        "scannet_id": 45,
+        "scannet_class": "stool",
+        "nyu_class": "stool"
+    },
+    "151": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "urn"
+    },
+    "152": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "earplugs"
+    },
+    "153": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mailshelf"
+    },
+    "154": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "placemat"
+    },
+    "155": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "excercise ball"
+    },
+    "156": {
+        "scannet_id": 184,
+        "scannet_class": "alarm clock",
+        "nyu_class": "alarm clock"
+    },
+    "157": {
+        "scannet_id": 24,
+        "scannet_class": "bed",
+        "nyu_class": "bed"
+    },
+    "158": {
+        "scannet_id": 44,
+        "scannet_class": "nightstand",
+        "nyu_class": "night stand"
+    },
+    "159": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "deoderant"
+    },
+    "160": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "headphones"
+    },
+    "161": {
+        "scannet_id": 444,
+        "scannet_class": "headboard",
+        "nyu_class": "headboard"
+    },
+    "162": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "basketball hoop"
+    },
+    "163": {
+        "scannet_id": 220,
+        "scannet_class": "footrest",
+        "nyu_class": "foot rest"
+    },
+    "164": {
+        "scannet_id": 85,
+        "scannet_class": "laundry hamper",
+        "nyu_class": "laundry basket"
+    },
+    "165": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sock"
+    },
+    "166": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "football"
+    },
+    "167": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mens suit"
+    },
+    "168": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cable box"
+    },
+    "169": {
+        "scannet_id": 48,
+        "scannet_class": "dresser",
+        "nyu_class": "dresser"
+    },
+    "170": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dvd player"
+    },
+    "171": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shaver"
+    },
+    "172": {
+        "scannet_id": 46,
+        "scannet_class": "tv",
+        "nyu_class": "television"
+    },
+    "173": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "contact lens solution bottle"
+    },
+    "174": {
+        "scannet_id": 217,
+        "scannet_class": "drawer",
+        "nyu_class": "drawer"
+    },
+    "175": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "remote control"
+    },
+    "176": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cologne"
+    },
+    "177": {
+        "scannet_id": 207,
+        "scannet_class": "stuffed animal",
+        "nyu_class": "stuffed animal"
+    },
+    "178": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lint roller"
+    },
+    "179": {
+        "scannet_id": 135,
+        "scannet_class": "tray",
+        "nyu_class": "tray"
+    },
+    "180": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lock"
+    },
+    "181": {
+        "scannet_id": 133,
+        "scannet_class": "purse",
+        "nyu_class": "purse"
+    },
+    "182": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy bottle"
+    },
+    "183": {
+        "scannet_id": 211,
+        "scannet_class": "crate",
+        "nyu_class": "crate"
+    },
+    "184": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vasoline"
+    },
+    "185": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "gift wrapping roll"
+    },
+    "186": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wall decoration"
+    },
+    "187": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hookah"
+    },
+    "188": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "radio"
+    },
+    "189": {
+        "scannet_id": 134,
+        "scannet_class": "bicycle",
+        "nyu_class": "bicycle"
+    },
+    "190": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pen box"
+    },
+    "191": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mask"
+    },
+    "192": {
+        "scannet_id": 262,
+        "scannet_class": "shorts",
+        "nyu_class": "shorts"
+    },
+    "193": {
+        "scannet_id": 162,
+        "scannet_class": "hat",
+        "nyu_class": "hat"
+    },
+    "194": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hockey glove"
+    },
+    "195": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hockey stick"
+    },
+    "196": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vuvuzela"
+    },
+    "197": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dvd"
+    },
+    "198": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chessboard"
+    },
+    "199": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "suitcase"
+    },
+    "200": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "calculator"
+    },
+    "201": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flashcard"
+    },
+    "202": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "staple remover"
+    },
+    "203": {
+        "scannet_id": 347,
+        "scannet_class": "umbrella",
+        "nyu_class": "umbrella"
+    },
+    "204": {
+        "scannet_id": 82,
+        "scannet_class": "bench",
+        "nyu_class": "bench"
+    },
+    "205": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "yoga mat"
+    },
+    "206": {
+        "scannet_id": 22,
+        "scannet_class": "backpack",
+        "nyu_class": "backpack"
+    },
+    "207": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cd"
+    },
+    "208": {
+        "scannet_id": 112,
+        "scannet_class": "sign",
+        "nyu_class": "sign"
+    },
+    "209": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hangers"
+    },
+    "210": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "notebook"
+    },
+    "211": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hanger"
+    },
+    "212": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "security camera"
+    },
+    "213": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "folders"
+    },
+    "214": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing hanger"
+    },
+    "215": {
+        "scannet_id": 130,
+        "scannet_class": "stairs",
+        "nyu_class": "stairs"
+    },
+    "216": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass rack"
+    },
+    "217": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "saucer"
+    },
+    "218": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tag"
+    },
+    "219": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dolly"
+    },
+    "220": {
+        "scannet_id": 196,
+        "scannet_class": "machine",
+        "nyu_class": "machine"
+    },
+    "221": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "trolly"
+    },
+    "222": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shopping baskets"
+    },
+    "223": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "gate"
+    },
+    "224": {
+        "scannet_id": 410,
+        "scannet_class": "book rack",
+        "nyu_class": "bookrack"
+    },
+    "225": {
+        "scannet_id": 94,
+        "scannet_class": "blackboard",
+        "nyu_class": "blackboard"
+    },
+    "226": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coffee bag"
+    },
+    "227": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coffee packet"
+    },
+    "228": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hot water heater"
+    },
+    "229": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "muffins"
+    },
+    "230": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "napkin dispenser"
+    },
+    "231": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plaque"
+    },
+    "232": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic tub"
+    },
+    "233": {
+        "scannet_id": 150,
+        "scannet_class": "plate",
+        "nyu_class": "plate"
+    },
+    "234": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coffee machine"
+    },
+    "235": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "napkin holder"
+    },
+    "236": {
+        "scannet_id": 30,
+        "scannet_class": "radiator",
+        "nyu_class": "radiator"
+    },
+    "237": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coffee grinder"
+    },
+    "238": {
+        "scannet_id": 157,
+        "scannet_class": "oven",
+        "nyu_class": "oven"
+    },
+    "239": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plant pot"
+    },
+    "240": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "scarf"
+    },
+    "241": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spice rack"
+    },
+    "242": {
+        "scannet_id": 71,
+        "scannet_class": "stove",
+        "nyu_class": "stove"
+    },
+    "243": {
+        "scannet_id": 474,
+        "scannet_class": "tea kettle",
+        "nyu_class": "tea kettle"
+    },
+    "244": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "napkin"
+    },
+    "245": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bag of chips"
+    },
+    "246": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bread"
+    },
+    "247": {
+        "scannet_id": 257,
+        "scannet_class": "cutting board",
+        "nyu_class": "cutting board"
+    },
+    "248": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dish brush"
+    },
+    "249": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "serving spoon"
+    },
+    "250": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sponge"
+    },
+    "251": {
+        "scannet_id": 181,
+        "scannet_class": "toaster",
+        "nyu_class": "toaster"
+    },
+    "252": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cooking pan"
+    },
+    "253": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "kitchen items"
+    },
+    "254": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ladel"
+    },
+    "255": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spatula"
+    },
+    "256": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spice stand"
+    },
+    "257": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "trivet"
+    },
+    "258": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "knife rack"
+    },
+    "259": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "knife"
+    },
+    "260": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "baking dish"
+    },
+    "261": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dish scrubber"
+    },
+    "262": {
+        "scannet_id": 288,
+        "scannet_class": "drying rack",
+        "nyu_class": "drying rack"
+    },
+    "263": {
+        "scannet_id": 551,
+        "scannet_class": "coffee mug",
+        "nyu_class": "vessel"
+    },
+    "264": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "kichen towel"
+    },
+    "265": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tin foil"
+    },
+    "266": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "kitchen utensil"
+    },
+    "267": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "utensil"
+    },
+    "268": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "blender"
+    },
+    "269": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "garbage bag"
+    },
+    "270": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sink protector"
+    },
+    "271": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "box of ziplock bags"
+    },
+    "272": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spice bottle"
+    },
+    "273": {
+        "scannet_id": 166,
+        "scannet_class": "water pitcher",
+        "nyu_class": "pitcher"
+    },
+    "274": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pizza box"
+    },
+    "275": {
+        "scannet_id": 191,
+        "scannet_class": "toaster oven",
+        "nyu_class": "toaster oven"
+    },
+    "276": {
+        "scannet_id": 223,
+        "scannet_class": "step stool",
+        "nyu_class": "step stool"
+    },
+    "277": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vegetable peeler"
+    },
+    "278": {
+        "scannet_id": 160,
+        "scannet_class": "washing machine",
+        "nyu_class": "washing machine"
+    },
+    "279": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "can opener"
+    },
+    "280": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "can of food"
+    },
+    "281": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "paper towel holder"
+    },
+    "282": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spoon stand"
+    },
+    "283": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spoon"
+    },
+    "284": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden kitchen utensils"
+    },
+    "285": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bag of flour"
+    },
+    "286": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fruit"
+    },
+    "287": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sheet of metal"
+    },
+    "288": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "waffle maker"
+    },
+    "289": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cake"
+    },
+    "290": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cell phone"
+    },
+    "291": {
+        "scannet_id": 90,
+        "scannet_class": "tv stand",
+        "nyu_class": "tv stand"
+    },
+    "292": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tablecloth"
+    },
+    "293": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wine glass"
+    },
+    "294": {
+        "scannet_id": 378,
+        "scannet_class": "statue",
+        "nyu_class": "sculpture"
+    },
+    "295": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wall stand"
+    },
+    "296": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "iphone"
+    },
+    "297": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coke bottle"
+    },
+    "298": {
+        "scannet_id": 151,
+        "scannet_class": "piano",
+        "nyu_class": "piano"
+    },
+    "299": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wine rack"
+    },
+    "300": {
+        "scannet_id": 142,
+        "scannet_class": "guitar",
+        "nyu_class": "guitar"
+    },
+    "301": {
+        "scannet_id": 88,
+        "scannet_class": "light switch",
+        "nyu_class": "light switch"
+    },
+    "302": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shirts in hanger"
+    },
+    "303": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "router"
+    },
+    "304": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass pot"
+    },
+    "305": {
+        "scannet_id": 127,
+        "scannet_class": "cart",
+        "nyu_class": "cart"
+    },
+    "306": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vacuum cleaner"
+    },
+    "307": {
+        "scannet_id": 140,
+        "scannet_class": "bin",
+        "nyu_class": "bin"
+    },
+    "308": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coins"
+    },
+    "309": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hand sculpture"
+    },
+    "310": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ipod"
+    },
+    "311": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "jersey"
+    },
+    "312": {
+        "scannet_id": 79,
+        "scannet_class": "blanket",
+        "nyu_class": "blanket"
+    },
+    "313": {
+        "scannet_id": 183,
+        "scannet_class": "ironing board",
+        "nyu_class": "ironing board"
+    },
+    "314": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pen stand"
+    },
+    "315": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mens tie"
+    },
+    "316": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass baking dish"
+    },
+    "317": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "utensils"
+    },
+    "318": {
+        "scannet_id": 332,
+        "scannet_class": "frying pan",
+        "nyu_class": "frying pan"
+    },
+    "319": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shopping cart"
+    },
+    "320": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic bowl"
+    },
+    "321": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden container"
+    },
+    "322": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "onion"
+    },
+    "323": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "potato"
+    },
+    "324": {
+        "scannet_id": 55,
+        "scannet_class": "jacket",
+        "nyu_class": "jacket"
+    },
+    "325": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dvds"
+    },
+    "326": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "surge protector"
+    },
+    "327": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tumbler"
+    },
+    "328": {
+        "scannet_id": 161,
+        "scannet_class": "broom",
+        "nyu_class": "broom"
+    },
+    "329": {
+        "scannet_id": 416,
+        "scannet_class": "can",
+        "nyu_class": "can"
+    },
+    "330": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "crock pot"
+    },
+    "331": {
+        "scannet_id": 108,
+        "scannet_class": "person",
+        "nyu_class": "person"
+    },
+    "332": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "salt shaker"
+    },
+    "333": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wine bottle"
+    },
+    "334": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "apple"
+    },
+    "335": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "eye glasses"
+    },
+    "336": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "menorah"
+    },
+    "337": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bicycle helmet"
+    },
+    "338": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fire alarm"
+    },
+    "339": {
+        "scannet_id": 239,
+        "scannet_class": "water fountain",
+        "nyu_class": "water fountain"
+    },
+    "340": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "humidifier"
+    },
+    "341": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "necklace"
+    },
+    "342": {
+        "scannet_id": 502,
+        "scannet_class": "chandelier",
+        "nyu_class": "chandelier"
+    },
+    "343": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "barrel"
+    },
+    "344": {
+        "scannet_id": 280,
+        "scannet_class": "chest",
+        "nyu_class": "chest"
+    },
+    "345": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decanter"
+    },
+    "346": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden utensils"
+    },
+    "347": {
+        "scannet_id": 219,
+        "scannet_class": "globe",
+        "nyu_class": "globe"
+    },
+    "348": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sheets"
+    },
+    "349": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fork"
+    },
+    "350": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "napkin ring"
+    },
+    "351": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "gift wrapping"
+    },
+    "352": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bed sheets"
+    },
+    "353": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spot light"
+    },
+    "354": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lighting track"
+    },
+    "355": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cannister"
+    },
+    "356": {
+        "scannet_id": 37,
+        "scannet_class": "coffee table",
+        "nyu_class": "coffee table"
+    },
+    "357": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mortar and pestle"
+    },
+    "358": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stack of plates"
+    },
+    "359": {
+        "scannet_id": 65,
+        "scannet_class": "ottoman",
+        "nyu_class": "ottoman"
+    },
+    "360": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "server"
+    },
+    "361": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "salt container"
+    },
+    "362": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "utensil container"
+    },
+    "363": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "phone jack"
+    },
+    "364": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "switchbox"
+    },
+    "365": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "casserole dish"
+    },
+    "366": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "oven handle"
+    },
+    "367": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "whisk"
+    },
+    "368": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dish cover"
+    },
+    "369": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electric mixer"
+    },
+    "370": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative platter"
+    },
+    "371": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "drawer handle"
+    },
+    "372": {
+        "scannet_id": 199,
+        "scannet_class": "fireplace",
+        "nyu_class": "fireplace"
+    },
+    "373": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stroller"
+    },
+    "374": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bookend"
+    },
+    "375": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "table runner"
+    },
+    "376": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "typewriter"
+    },
+    "377": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ashtray"
+    },
+    "378": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "key"
+    },
+    "379": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "suit jacket"
+    },
+    "380": {
+        "scannet_id": 93,
+        "scannet_class": "range hood",
+        "nyu_class": "range hood"
+    },
+    "381": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cleaning wipes"
+    },
+    "382": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "six pack of beer"
+    },
+    "383": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative plate"
+    },
+    "384": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "watch"
+    },
+    "385": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "balloon"
+    },
+    "386": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ipad"
+    },
+    "387": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coaster"
+    },
+    "388": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "whiteboard eraser"
+    },
+    "389": {
+        "scannet_id": 409,
+        "scannet_class": "doll",
+        "nyu_class": "toy"
+    },
+    "390": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toys basket"
+    },
+    "391": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy truck"
+    },
+    "392": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "classroom board"
+    },
+    "393": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chart stand"
+    },
+    "394": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "picture of fish"
+    },
+    "395": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic box"
+    },
+    "396": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pencil"
+    },
+    "397": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "carton"
+    },
+    "398": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "walkie talkie"
+    },
+    "399": {
+        "scannet_id": 315,
+        "scannet_class": "binders",
+        "nyu_class": "binder"
+    },
+    "400": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coat hanger"
+    },
+    "401": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "filing shelves"
+    },
+    "402": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic crate"
+    },
+    "403": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic rack"
+    },
+    "404": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic tray"
+    },
+    "405": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flag"
+    },
+    "406": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "poster board"
+    },
+    "407": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lunch bag"
+    },
+    "408": {
+        "scannet_id": 69,
+        "scannet_class": "board",
+        "nyu_class": "board"
+    },
+    "409": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "leg of a girl"
+    },
+    "410": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "file holder"
+    },
+    "411": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chart"
+    },
+    "412": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass pane"
+    },
+    "413": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cardboard tube"
+    },
+    "414": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bassinet"
+    },
+    "415": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy car"
+    },
+    "416": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy shelf"
+    },
+    "417": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy bin"
+    },
+    "418": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toys shelf"
+    },
+    "419": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "educational display"
+    },
+    "420": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "placard"
+    },
+    "421": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soft toy group"
+    },
+    "422": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soft toy"
+    },
+    "423": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy cube"
+    },
+    "424": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy cylinder"
+    },
+    "425": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy rectangle"
+    },
+    "426": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy triangle"
+    },
+    "427": {
+        "scannet_id": 111,
+        "scannet_class": "bucket",
+        "nyu_class": "bucket"
+    },
+    "428": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chalkboard"
+    },
+    "429": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "game table"
+    },
+    "430": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "storage shelvesbooks"
+    },
+    "431": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy cuboid"
+    },
+    "432": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy tree"
+    },
+    "433": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden toy"
+    },
+    "434": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy box"
+    },
+    "435": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy phone"
+    },
+    "436": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy sink"
+    },
+    "437": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toyhouse"
+    },
+    "438": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "notecards"
+    },
+    "439": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy trucks"
+    },
+    "440": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wall hand sanitizer dispenser"
+    },
+    "441": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cap stand"
+    },
+    "442": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "music stereo"
+    },
+    "443": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toys rack"
+    },
+    "444": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "display board"
+    },
+    "445": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lid of jar"
+    },
+    "446": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stacked bins  boxes"
+    },
+    "447": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stacked plastic racks"
+    },
+    "448": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "storage rack"
+    },
+    "449": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "roll of paper towels"
+    },
+    "450": {
+        "scannet_id": 569,
+        "scannet_class": "cable",
+        "nyu_class": "cables"
+    },
+    "451": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "power surge"
+    },
+    "452": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cardboard sheet"
+    },
+    "453": {
+        "scannet_id": 116,
+        "scannet_class": "stair rail",
+        "nyu_class": "banister"
+    },
+    "454": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "show piece"
+    },
+    "455": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pepper shaker"
+    },
+    "456": {
+        "scannet_id": 253,
+        "scannet_class": "kitchen island",
+        "nyu_class": "kitchen island"
+    },
+    "457": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "excercise equipment"
+    },
+    "458": {
+        "scannet_id": 278,
+        "scannet_class": "treadmill",
+        "nyu_class": "treadmill"
+    },
+    "459": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ornamental plant"
+    },
+    "460": {
+        "scannet_id": 221,
+        "scannet_class": "piano bench",
+        "nyu_class": "piano bench"
+    },
+    "461": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sheet music"
+    },
+    "462": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "grandfather clock"
+    },
+    "463": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "iron grill"
+    },
+    "464": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pen holder"
+    },
+    "465": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy doll"
+    },
+    "466": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "globe stand"
+    },
+    "467": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "telescope"
+    },
+    "468": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "magazine holder"
+    },
+    "469": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "file container"
+    },
+    "470": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "paper holder"
+    },
+    "471": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flower box"
+    },
+    "472": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pyramid"
+    },
+    "473": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "desk mat"
+    },
+    "474": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cordless phone"
+    },
+    "475": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "desk drawer"
+    },
+    "476": {
+        "scannet_id": 349,
+        "scannet_class": "envelope",
+        "nyu_class": "envelope"
+    },
+    "477": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "window frame"
+    },
+    "478": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "id card"
+    },
+    "479": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "file stand"
+    },
+    "480": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "paper weight"
+    },
+    "481": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy plane"
+    },
+    "482": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "money"
+    },
+    "483": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "papers"
+    },
+    "484": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "comforter"
+    },
+    "485": {
+        "scannet_id": 464,
+        "scannet_class": "crib",
+        "nyu_class": "crib"
+    },
+    "486": {
+        "scannet_id": 336,
+        "scannet_class": "dollhouse",
+        "nyu_class": "doll house"
+    },
+    "487": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy chair"
+    },
+    "488": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy sofa"
+    },
+    "489": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic chair"
+    },
+    "490": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy house"
+    },
+    "491": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "child carrier"
+    },
+    "492": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cloth bag"
+    },
+    "493": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cradle"
+    },
+    "494": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "baby chair"
+    },
+    "495": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chart roll"
+    },
+    "496": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toys box"
+    },
+    "497": {
+        "scannet_id": 97,
+        "scannet_class": "rail",
+        "nyu_class": "railing"
+    },
+    "498": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing dryer"
+    },
+    "499": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing washer"
+    },
+    "500": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "laundry detergent jug"
+    },
+    "501": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing detergent"
+    },
+    "502": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of soap"
+    },
+    "503": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "box of paper"
+    },
+    "504": {
+        "scannet_id": 489,
+        "scannet_class": "trolley",
+        "nyu_class": "trolley"
+    },
+    "505": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hand sanitizer dispenser"
+    },
+    "506": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soap holder"
+    },
+    "507": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "water dispenser"
+    },
+    "508": {
+        "scannet_id": 515,
+        "scannet_class": "photo",
+        "nyu_class": "photo"
+    },
+    "509": {
+        "scannet_id": 152,
+        "scannet_class": "water cooler",
+        "nyu_class": "water cooler"
+    },
+    "510": {
+        "scannet_id": 228,
+        "scannet_class": "foosball table",
+        "nyu_class": "foosball table"
+    },
+    "511": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "crayon"
+    },
+    "512": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hoola hoop"
+    },
+    "513": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "horse toy"
+    },
+    "514": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic toy container"
+    },
+    "515": {
+        "scannet_id": 290,
+        "scannet_class": "pool table",
+        "nyu_class": "pool table"
+    },
+    "516": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "game system"
+    },
+    "517": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pool sticks"
+    },
+    "518": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "console system"
+    },
+    "519": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "video game"
+    },
+    "520": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pool ball"
+    },
+    "521": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "trampoline"
+    },
+    "522": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tricycle"
+    },
+    "523": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wii"
+    },
+    "524": {
+        "scannet_id": 102,
+        "scannet_class": "seat",
+        "nyu_class": "furniture"
+    },
+    "525": {
+        "scannet_id": 505,
+        "scannet_class": "alarm",
+        "nyu_class": "alarm"
+    },
+    "526": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy table"
+    },
+    "527": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ornamental item"
+    },
+    "528": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "copper vessel"
+    },
+    "529": {
+        "scannet_id": 587,
+        "scannet_class": "stick",
+        "nyu_class": "stick"
+    },
+    "530": {
+        "scannet_id": 374,
+        "scannet_class": "car",
+        "nyu_class": "car"
+    },
+    "531": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mezuza"
+    },
+    "532": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy cash register"
+    },
+    "533": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lid"
+    },
+    "534": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "paper bundle"
+    },
+    "535": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "business cards"
+    },
+    "536": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clipboard"
+    },
+    "537": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flatbed scanner"
+    },
+    "538": {
+        "scannet_id": 358,
+        "scannet_class": "paper tray",
+        "nyu_class": "paper tray"
+    },
+    "539": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mouse pad"
+    },
+    "540": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "display case"
+    },
+    "541": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tree sculpture"
+    },
+    "542": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "basketball"
+    },
+    "543": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fiberglass case"
+    },
+    "544": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "framed certificate"
+    },
+    "545": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cordless telephone"
+    },
+    "546": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shofar"
+    },
+    "547": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "trophy"
+    },
+    "548": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cleaner"
+    },
+    "549": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cloth drying stand"
+    },
+    "550": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electric box"
+    },
+    "551": {
+        "scannet_id": 534,
+        "scannet_class": "furnace",
+        "nyu_class": "furnace"
+    },
+    "552": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "piece of wood"
+    },
+    "553": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden pillar"
+    },
+    "554": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "drying stand"
+    },
+    "555": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cane"
+    },
+    "556": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing drying rack"
+    },
+    "557": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "iron box"
+    },
+    "558": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "excercise machine"
+    },
+    "559": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sheet"
+    },
+    "560": {
+        "scannet_id": 326,
+        "scannet_class": "rope",
+        "nyu_class": "rope"
+    },
+    "561": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sticks"
+    },
+    "562": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden planks"
+    },
+    "563": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toilet plunger"
+    },
+    "564": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bar of soap"
+    },
+    "565": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toilet bowl brush"
+    },
+    "566": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "light bulb"
+    },
+    "567": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "drain"
+    },
+    "568": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "faucet handle"
+    },
+    "569": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "nailclipper"
+    },
+    "570": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shaving cream"
+    },
+    "571": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "rolled carpet"
+    },
+    "572": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing iron"
+    },
+    "573": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "window cover"
+    },
+    "574": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "charger and wire"
+    },
+    "575": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "quilt"
+    },
+    "576": {
+        "scannet_id": 401,
+        "scannet_class": "futon",
+        "nyu_class": "mattress"
+    },
+    "577": {
+        "scannet_id": 168,
+        "scannet_class": "hair dryer",
+        "nyu_class": "hair dryer"
+    },
+    "578": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "stones"
+    },
+    "579": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pepper grinder"
+    },
+    "580": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cat cage"
+    },
+    "581": {
+        "scannet_id": 129,
+        "scannet_class": "dish rack",
+        "nyu_class": "dish rack"
+    },
+    "582": {
+        "scannet_id": 500,
+        "scannet_class": "curtain rod",
+        "nyu_class": "curtain rod"
+    },
+    "583": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "calendar"
+    },
+    "584": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "head phones"
+    },
+    "585": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cd disc"
+    },
+    "586": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "head phone"
+    },
+    "587": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "usb drive"
+    },
+    "588": {
+        "scannet_id": 324,
+        "scannet_class": "water heater",
+        "nyu_class": "water heater"
+    },
+    "589": {
+        "scannet_id": 457,
+        "scannet_class": "cooking pan",
+        "nyu_class": "pan"
+    },
+    "590": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tuna cans"
+    },
+    "591": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "baby gate"
+    },
+    "592": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "spoon sets"
+    },
+    "593": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cans of cat food"
+    },
+    "594": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cat"
+    },
+    "595": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flower basket"
+    },
+    "596": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fruit platter"
+    },
+    "597": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "grapefruit"
+    },
+    "598": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "kiwi"
+    },
+    "599": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hand blender"
+    },
+    "600": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "knobs"
+    },
+    "601": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vessels"
+    },
+    "602": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cell phone charger"
+    },
+    "603": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wire basket"
+    },
+    "604": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tub of tupperware"
+    },
+    "605": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "candelabra"
+    },
+    "606": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "litter box"
+    },
+    "607": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shovel"
+    },
+    "608": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cat bed"
+    },
+    "609": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door way"
+    },
+    "610": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "belt"
+    },
+    "611": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "surge protect"
+    },
+    "612": {
+        "scannet_id": 580,
+        "scannet_class": "glass",
+        "nyu_class": "glass"
+    },
+    "613": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "console controller"
+    },
+    "614": {
+        "scannet_id": 275,
+        "scannet_class": "shoe rack",
+        "nyu_class": "shoe rack"
+    },
+    "615": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door frame"
+    },
+    "616": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "computer disk"
+    },
+    "617": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "briefcase"
+    },
+    "618": {
+        "scannet_id": 523,
+        "scannet_class": "mail trays",
+        "nyu_class": "mail tray"
+    },
+    "619": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "file pad"
+    },
+    "620": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "letter stand"
+    },
+    "621": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic cup of coffee"
+    },
+    "622": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass box"
+    },
+    "623": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ping pong ball"
+    },
+    "624": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ping pong racket"
+    },
+    "625": {
+        "scannet_id": 341,
+        "scannet_class": "ping pong table",
+        "nyu_class": "ping pong table"
+    },
+    "626": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tennis racket"
+    },
+    "627": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ping pong racquet"
+    },
+    "628": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "xbox"
+    },
+    "629": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electric toothbrush base"
+    },
+    "630": {
+        "scannet_id": 292,
+        "scannet_class": "toilet brush",
+        "nyu_class": "toilet brush"
+    },
+    "631": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toiletries"
+    },
+    "632": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "razor"
+    },
+    "633": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of contact lens solution"
+    },
+    "634": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "contact lens case"
+    },
+    "635": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cream"
+    },
+    "636": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass container"
+    },
+    "637": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "container of skin cream"
+    },
+    "638": {
+        "scannet_id": 84,
+        "scannet_class": "soap dish",
+        "nyu_class": "soap dish"
+    },
+    "639": {
+        "scannet_id": 159,
+        "scannet_class": "scale",
+        "nyu_class": "scale"
+    },
+    "640": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soap stand"
+    },
+    "641": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cactus"
+    },
+    "642": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door  window  reflection"
+    },
+    "643": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ceramic frog"
+    },
+    "644": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "incense candle"
+    },
+    "645": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "storage space"
+    },
+    "646": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door lock"
+    },
+    "647": {
+        "scannet_id": 205,
+        "scannet_class": "toilet paper holder",
+        "nyu_class": "toilet paper holder"
+    },
+    "648": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tissue"
+    },
+    "649": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "personal care liquid"
+    },
+    "650": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower head"
+    },
+    "651": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower knob"
+    },
+    "652": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "knob"
+    },
+    "653": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cream tube"
+    },
+    "654": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "perfume box"
+    },
+    "655": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "perfume"
+    },
+    "656": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "back scrubber"
+    },
+    "657": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door facing trimreflection"
+    },
+    "658": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "doorreflection"
+    },
+    "659": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "light switchreflection"
+    },
+    "660": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "medicine tube"
+    },
+    "661": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wallet"
+    },
+    "662": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soap tray"
+    },
+    "663": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door curtain"
+    },
+    "664": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower pipe"
+    },
+    "665": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "face wash cream"
+    },
+    "666": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flashlight"
+    },
+    "667": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower base"
+    },
+    "668": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "window shelf"
+    },
+    "669": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower hose"
+    },
+    "670": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toothpaste holder"
+    },
+    "671": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soap box"
+    },
+    "672": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "incense holder"
+    },
+    "673": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "conch shell"
+    },
+    "674": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "roll of toilet paper"
+    },
+    "675": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shower tube"
+    },
+    "676": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of listerine"
+    },
+    "677": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of hand wash liquid"
+    },
+    "678": {
+        "scannet_id": 538,
+        "scannet_class": "teapot",
+        "nyu_class": "tea pot"
+    },
+    "679": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lazy susan"
+    },
+    "680": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "avocado"
+    },
+    "681": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fruit stand"
+    },
+    "682": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fruitplate"
+    },
+    "683": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "oil container"
+    },
+    "684": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "package of water"
+    },
+    "685": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of liquid"
+    },
+    "686": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "door way arch"
+    },
+    "687": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "jug"
+    },
+    "688": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bulb"
+    },
+    "689": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bagel"
+    },
+    "690": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bag of bagels"
+    },
+    "691": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "banana peel"
+    },
+    "692": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bag of oreo"
+    },
+    "693": {
+        "scannet_id": 269,
+        "scannet_class": "thermos",
+        "nyu_class": "flask"
+    },
+    "694": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "collander"
+    },
+    "695": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "brick"
+    },
+    "696": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "torch"
+    },
+    "697": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dog bowl"
+    },
+    "698": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden plank"
+    },
+    "699": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "eggs"
+    },
+    "700": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "grill"
+    },
+    "701": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dog"
+    },
+    "702": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chimney"
+    },
+    "703": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dog cage"
+    },
+    "704": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "orange plastic cap"
+    },
+    "705": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass set"
+    },
+    "706": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vessel set"
+    },
+    "707": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mellon"
+    },
+    "708": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "aluminium foil"
+    },
+    "709": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "orange"
+    },
+    "710": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "peach"
+    },
+    "711": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tea coaster"
+    },
+    "712": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "butterfly sculpture"
+    },
+    "713": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "corkscrew"
+    },
+    "714": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "heating tray"
+    },
+    "715": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "food processor"
+    },
+    "716": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "corn"
+    },
+    "717": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "squash"
+    },
+    "718": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "watermellon"
+    },
+    "719": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vegetables"
+    },
+    "720": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "celery"
+    },
+    "721": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass dish"
+    },
+    "722": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hot dogs"
+    },
+    "723": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "plastic dish"
+    },
+    "724": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vegetable"
+    },
+    "725": {
+        "scannet_id": 526,
+        "scannet_class": "sticker",
+        "nyu_class": "sticker"
+    },
+    "726": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "chapstick"
+    },
+    "727": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sifter"
+    },
+    "728": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fruit basket"
+    },
+    "729": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glove"
+    },
+    "730": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "measuring cup"
+    },
+    "731": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "water filter"
+    },
+    "732": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wine accessory"
+    },
+    "733": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dishes"
+    },
+    "734": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "file box"
+    },
+    "735": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ornamental pot"
+    },
+    "736": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dog toy"
+    },
+    "737": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "salt and pepper"
+    },
+    "738": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electrical kettle"
+    },
+    "739": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "kitchen container plastic"
+    },
+    "740": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pineapple"
+    },
+    "741": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "suger jar"
+    },
+    "742": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "steamer"
+    },
+    "743": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "charger"
+    },
+    "744": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mug holder"
+    },
+    "745": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "orange juicer"
+    },
+    "746": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "juicer"
+    },
+    "747": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bag of hot dog buns"
+    },
+    "748": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hamburger bun"
+    },
+    "749": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mug hanger"
+    },
+    "750": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of ketchup"
+    },
+    "751": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy kitchen"
+    },
+    "752": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "food wrapped on a tray"
+    },
+    "753": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "kitchen utensils"
+    },
+    "754": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "oven mitt"
+    },
+    "755": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of comet"
+    },
+    "756": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wooden utensil"
+    },
+    "757": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative dish"
+    },
+    "758": {
+        "scannet_id": 493,
+        "scannet_class": "shower faucet handle",
+        "nyu_class": "handle"
+    },
+    "759": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "label"
+    },
+    "760": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "flask set"
+    },
+    "761": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cooking pot cover"
+    },
+    "762": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tupperware"
+    },
+    "763": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "garlic"
+    },
+    "764": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tissue roll"
+    },
+    "765": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lemon"
+    },
+    "766": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wine"
+    },
+    "767": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative bottle"
+    },
+    "768": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wire tray"
+    },
+    "769": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tea cannister"
+    },
+    "770": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "clothing hamper"
+    },
+    "771": {
+        "scannet_id": 164,
+        "scannet_class": "guitar case",
+        "nyu_class": "guitar case"
+    },
+    "772": {
+        "scannet_id": 96,
+        "scannet_class": "wardrobe closet",
+        "nyu_class": "wardrobe"
+    },
+    "773": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "boomerang"
+    },
+    "774": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "button"
+    },
+    "775": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "karate belts"
+    },
+    "776": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "medal"
+    },
+    "777": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "window seat"
+    },
+    "778": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "window box"
+    },
+    "779": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "necklace holder"
+    },
+    "780": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "beeper"
+    },
+    "781": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "webcam"
+    },
+    "782": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "fish tank"
+    },
+    "783": {
+        "scannet_id": 63,
+        "scannet_class": "suitcase",
+        "nyu_class": "luggage"
+    },
+    "784": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "life jacket"
+    },
+    "785": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shoelace"
+    },
+    "786": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pen cup"
+    },
+    "787": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "eyeball plastic ball"
+    },
+    "788": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy pyramid"
+    },
+    "789": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "model boat"
+    },
+    "790": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "certificate"
+    },
+    "791": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "puppy toy"
+    },
+    "792": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wire board"
+    },
+    "793": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "quill"
+    },
+    "794": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "canister"
+    },
+    "795": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy boat"
+    },
+    "796": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "antenna"
+    },
+    "797": {
+        "scannet_id": 323,
+        "scannet_class": "beanbag chair",
+        "nyu_class": "bean bag"
+    },
+    "798": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lint comb"
+    },
+    "799": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "travel bag"
+    },
+    "800": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wall divider"
+    },
+    "801": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy chest"
+    },
+    "802": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "headband"
+    },
+    "803": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "luggage rack"
+    },
+    "804": {
+        "scannet_id": 501,
+        "scannet_class": "bunk bed",
+        "nyu_class": "bunk bed"
+    },
+    "805": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lego"
+    },
+    "806": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "yarmulka"
+    },
+    "807": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "package of bedroom sheets"
+    },
+    "808": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bedding package"
+    },
+    "809": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "comb"
+    },
+    "810": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dollar bill"
+    },
+    "811": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pig"
+    },
+    "812": {
+        "scannet_id": 86,
+        "scannet_class": "storage bin",
+        "nyu_class": "storage bin"
+    },
+    "813": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "storage chest"
+    },
+    "814": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "slide"
+    },
+    "815": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "playpen"
+    },
+    "816": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "electronic drumset"
+    },
+    "817": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "ipod dock"
+    },
+    "818": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "microphone"
+    },
+    "819": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "music keyboard"
+    },
+    "820": {
+        "scannet_id": 192,
+        "scannet_class": "music stand",
+        "nyu_class": "music stand"
+    },
+    "821": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "microphone stand"
+    },
+    "822": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "album"
+    },
+    "823": {
+        "scannet_id": 463,
+        "scannet_class": "kinect",
+        "nyu_class": "kinect"
+    },
+    "824": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "inkwell"
+    },
+    "825": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "baseball"
+    },
+    "826": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative bowl"
+    },
+    "827": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "book holder"
+    },
+    "828": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy horse"
+    },
+    "829": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "desser"
+    },
+    "830": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy apple"
+    },
+    "831": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy dog"
+    },
+    "832": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "scenary"
+    },
+    "833": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "drawer knob"
+    },
+    "834": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shoe hanger"
+    },
+    "835": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tent"
+    },
+    "836": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "figurine"
+    },
+    "837": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "soccer ball"
+    },
+    "838": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hand weight"
+    },
+    "839": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "magic 8ball"
+    },
+    "840": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bottle of perfume"
+    },
+    "841": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sleeping bag"
+    },
+    "842": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decoration item"
+    },
+    "843": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "envelopes"
+    },
+    "844": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "trinket"
+    },
+    "845": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hand fan"
+    },
+    "846": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sculpture of the chrysler building"
+    },
+    "847": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sculpture of the eiffel tower"
+    },
+    "848": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "sculpture of the empire state building"
+    },
+    "849": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "jeans"
+    },
+    "850": {
+        "scannet_id": 435,
+        "scannet_class": "garage door",
+        "nyu_class": "garage door"
+    },
+    "851": {
+        "scannet_id": 235,
+        "scannet_class": "case",
+        "nyu_class": "case"
+    },
+    "852": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "rags"
+    },
+    "853": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative item"
+    },
+    "854": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "toy stroller"
+    },
+    "855": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "shelf frame"
+    },
+    "856": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "cat house"
+    },
+    "857": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "can of beer"
+    },
+    "858": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "dog bed"
+    },
+    "859": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lamp shade"
+    },
+    "860": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "bracelet"
+    },
+    "861": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "reflection of window shutters"
+    },
+    "862": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative egg"
+    },
+    "863": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "indoor fountain"
+    },
+    "864": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "photo album"
+    },
+    "865": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "decorative candle"
+    },
+    "866": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "walkietalkie"
+    },
+    "867": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "serving dish"
+    },
+    "868": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "floor trim"
+    },
+    "869": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mini display platform"
+    },
+    "870": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "american flag"
+    },
+    "871": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "vhs tapes"
+    },
+    "872": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "throw"
+    },
+    "873": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "newspapers"
+    },
+    "874": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "mantle"
+    },
+    "875": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "package of bottled water"
+    },
+    "876": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "serving platter"
+    },
+    "877": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "display platter"
+    },
+    "878": {
+        "scannet_id": 586,
+        "scannet_class": "centerpiece",
+        "nyu_class": "centerpiece"
+    },
+    "879": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "tea box"
+    },
+    "880": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "gold piece"
+    },
+    "881": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "wreathe"
+    },
+    "882": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "lectern"
+    },
+    "883": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "hammer"
+    },
+    "884": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "matchbox"
+    },
+    "885": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "pepper"
+    },
+    "886": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "yellow pepper"
+    },
+    "887": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "duck"
+    },
+    "888": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "eggplant"
+    },
+    "889": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "glass ware"
+    },
+    "890": {
+        "scannet_id": 307,
+        "scannet_class": "sewing machine",
+        "nyu_class": "sewing machine"
+    },
+    "891": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "rolled up rug"
+    },
+    "892": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "doily"
+    },
+    "893": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "coffee pot"
+    },
+    "894": {
+        "scannet_id": 5,
+        "scannet_class": "object",
+        "nyu_class": "torah"
+    }
+}

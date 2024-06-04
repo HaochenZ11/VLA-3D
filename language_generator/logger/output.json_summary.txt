@@ -1,0 +1,13 @@
+Total amount of all statements: 0 
+Total amount of above statements: 0 
+Total amount of below statements: 0 
+Total amount of between statements: 0 
+Total amount of near statements: 0 
+Total amount of closest statements: 0 
+Total amount of farthest statements: 0 
+Total amount of color references: 0 
+Total amount of size references: 0 
+Total amount of color statements: 0 
+Total amount of size statements: 0 
+Total amount of unique objects: 0 
+Scene with most statements: None with a total of 0 statements

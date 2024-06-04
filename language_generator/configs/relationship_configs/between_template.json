@@ -1,0 +1,21 @@
+{
+  "relation": "between",
+  "relation_type": "ternary",
+  "templates": [
+      {
+        "sentences": [
+          "the %target_size%%target_color%%target% that %target_verb% %relation% the %other1%%anchor1_size%%anchor1_color%%anchor1% and the %other2%%anchor2_size%%anchor2_color%%anchor2%"
+        ],
+        "aux_sentences": [
+          "the %target_size%%target_color%%target% that %target_verb% %relation% both of the %anchor1%"
+        ],
+        "conditions": []
+      }
+    ],
+
+  "synonyms": {
+    "relation": [
+      "in between"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "3d_data_preprocess/scannet/referit3d"]
+	path = 3d_data_preprocess/scannet/referit3d
+	url = git@github.com:referit3d/referit3d.git

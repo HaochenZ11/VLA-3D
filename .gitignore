@@ -1,0 +1,15 @@
+.idea/
+.vscode/
+__pycache__/
+venv/
+language_generator/.idea/
+
+processed_data/
+
+/matterport/
+/habitat-matterport-3dresearch/
+
+*.ply
+*.glb
+*.bin
+*.gltf

@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "all_statements": 17866,
+    "above_statements": 157,
+    "below_statements": 137,
+    "between_statements": 5443,
+    "near_statements": 2107,
+    "closest_statements": 5765,
+    "farthest_statements": 5765,
+    "on_statements": 166,
+    "in_statements": 48,
+    "color_references": 1686,
+    "size_references": 13251,
+    "color_statements": 997,
+    "size_statements": 7943,
+    "unique_objects": 0
+  },
+  "max_all_statements": {
+    "key": "00009-vLpv2VX547B",
+    "value": 17743
+  },
+  "min_all_statements": {
+    "key": "sqh_kitchen",
+    "value": 123
+  }
+}
