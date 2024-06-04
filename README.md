@@ -183,19 +183,19 @@ The table below shows the number of different types of statements. Note that the
 
 | Statement Type | Total Statements | 
 |----------|-------------|
-| Above    | 21,864 | 
-| Below    | 21,864 | 
-| Closest  | 1,041,942 | 
-| Farthest | 1,041,942 |
-| Between  | 1,441,365 |  
-| Near     | 294,371 |
-| In       | 3977 |
-| On       | 24,922 |
-| Mentions color | 226,544 |
-| Mentions size | 1,671,873 |
-| **Total** | **~3,280,688** |
+| Above    | 43,732 | 
+| Below    | 85,876 | 
+| Closest  | 2,084,272 | 
+| Farthest | 2,084,272 |
+| Between  | 4,324,803 |  
+| Near     | 883,482 |
+| In       | 11,943 |
+| On       | 24,925 |
+| Mentions color | 541,417 |
+| Mentions size | 4,040,448 |
+| **Total** | **~7,698,214** |
 
-The scene with the most statements is from the HM3D dataset and the scene with the least statements is from the Scannet dataset. In total, 480 unique object classes are referred to in the language statements.
+The scene with the most statements is from the HM3D dataset and the scene with the least statements is from the Scannet dataset. In total, 447 unique object classes are referred to in the language statements.
 
 The scripts to generate the language data are found under [language_generator/](language_generator/).
 
