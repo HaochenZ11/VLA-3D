@@ -1,7 +1,7 @@
 # VLA-3D Dataset
 
 ## Introduction
-This dataset is a 3D object referential dataset designed for visual-language grounding that can be used for the higher-level task of visual-language navigation (VLN). This dataset contains 3M+ language statements that are synthetically generated for 6115 3D scenes from a combination of datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [data_sample](data_sample/). Access to the full dataset can be found [HERE]().
+This dataset is a 3D object referential dataset designed for visual-language grounding that can be used for the higher-level task of visual-language navigation (VLN). This dataset contains 3M+ language statements that are synthetically generated for 6115 3D scenes from a combination of datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Access to the full dataset can be found [HERE]().
 
 ## Raw Data
 Following a template-based synthetic language generation method similar to [ReferIt3D](https://referit3d.github.io/) [1], referential natural-language statements were generated that refer to objects in scenes from four 3D scan datasets:
@@ -11,7 +11,9 @@ Following a template-based synthetic language generation method similar to [Refe
 - [Unity](https://docs.unity3d.com/Manual/index.html) [5]: 18 scenes
 - [ARKitScenes](https://github.com/apple/ARKitScenes) [6]: 4494 scenes
 
-All of the datasets are real-world with the exception of Unity, where scenes were generated synthetically. The statements are generated per room/region for datasets that have multiple rooms or regions in one scene. The number of objects in each scene ranges from 4 to 2264.
+All of the datasets are real-world with the exception of Unity, where scenes were generated synthetically. The statements are generated per room/region for datasets that have multiple rooms or regions in one scene. The number of objects in each scene ranges from 4 to 2264. A sample visualization of a region from the dataset is visualized with a) a scene graph and b) a corresponding referential statement in the figure below. 
+
+![Alt text](/figures/hm3d_sample_vis.png?raw=true "Sample Data Visualization")
 
 ## Dataset Format
 The overall file structure for the dataset is:
@@ -36,42 +38,6 @@ The overall file structure for the dataset is:
 The format of the generated scene graphs are in JSON, where all objects along with their attributes and inter-object relations are stored per-region within the file for each scene. Objects attributes include semantic class labels, bounding box, size, dominant colors and heading direction (if any). Details can be found in [Dataset Generation](#Dataset-Generation) below.
 
 The format of the generated language is also in JSON, where each JSON object consists of the language statement, information on the referred target object and anchor objects, relation type, and distractor objects. The referred objects are stored with their object_id, class label, center point, size (volume of bounding box), and top-three dominant colors.
-
-```json
-"the microwave that is above the counter": [
-        {
-          "target_index": "52",
-          "anchor_index": "3",
-          "target_class": "microwave",
-          "anchor_class": "counter",
-          "target_position": [
-            2.99822132430086,
-            1.91045239044837,
-            1.64645612239838
-          ],
-          "anchor_position": [
-            2.89699238297117,
-            2.50017713897663,
-            0.972237706184387
-          ],
-          "target_colors": [
-            "blue",
-            "black",
-            "white"
-          ],
-          "anchor_colors": [
-            "white",
-            "N/A",
-            "N/A"
-          ],
-          "target_size": 0.1489406698540899,
-          "anchor_size": 0.3506467178580467,
-          "distractor_ids": [],
-          "relation_type": "above"
-        }
-      ]
-```
-
 
 ## Dataset Generation
 The dataset generation pipeline consists of three main steps: 1) [3D Scan Processing](#3d-scan-data-processing), 2) [Scene Graph Generation](#scene-graph-generation), and 3) [Language Generation](#language-generation). The overall pipeline is shown in the figure below.
@@ -179,7 +145,7 @@ An object filter is used to ensure that referential language statements are both
 
 ![Alt text](/figures/language_generation_diagram.png?raw=true "Language Generation Diagram")
 
-The table below shows the number of different types of statements. Note that the statement types are not necessarily mutually exclusive with each other.
+The table below shows the number of different types of statements with synonyms included. Note that the statement types are not necessarily mutually exclusive with each other.
 
 | Statement Type | Total Statements | 
 |----------|-------------|
@@ -195,7 +161,7 @@ The table below shows the number of different types of statements. Note that the
 | Mentions size | 4,040,448 |
 | **Total** | **~7,698,214** |
 
-The scene with the most statements is from the HM3D dataset and the scene with the least statements is from the Scannet dataset. In total, 447 unique object classes are referred to in the language statements.
+The scene with the most statements is from the HM3D dataset and the scene with the least statements is from the Scannet dataset. In total, 447 unique object classes are referred to in the language statements and 3.2M+ unique statements (without relation synonyms) exist in the dataset.
 
 The scripts to generate the language data are found under [language_generator/](language_generator/).
 
