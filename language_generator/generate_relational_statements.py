@@ -1,10 +1,8 @@
 import argparse
 import json
-import random
-import pandas as pd
-from pathlib import Path
 import os
 import multiprocessing as mp
+from tqdm import tqdm
 
 from relationship_classes.Binary_Relation import Binary
 from relationship_classes.Ordered_Relation import Ordered
@@ -13,8 +11,6 @@ from object_filtering.ObjectFilter import ObjectFilter
 from logger.Logger import Logger
 from utils import purge_existing_language_data
 from timeit import default_timer as timer
-from collections import defaultdict
-from tqdm import tqdm
 
 
 
@@ -134,7 +130,7 @@ def process_file(scene_path):
 
 
     # Save dataset of statements and object ground truth data
-    with open(os.path.join(subdir, f"{scene_name}_label_data_new.json"), "w") as outfile:
+    with open(os.path.join(subdir, f"{scene_name}_label_data.json"), "w") as outfile:
         json.dump(scene_language_data, outfile)
 
     # Save dataset of just statements
@@ -143,7 +139,7 @@ def process_file(scene_path):
         for statement in scene_language_data['regions'][region]:
             if statement != "region":
                 all_statements.append(statement)
-    with open(os.path.join(subdir, f"{scene_name}_statement_new.json"), "w") as outfile:
+    with open(os.path.join(subdir, f"{scene_name}_statement.json"), "w") as outfile:
         json.dump(all_statements, outfile)
     
     print(f"Completed {scene_path[1]}")

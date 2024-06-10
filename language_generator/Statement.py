@@ -11,14 +11,17 @@ class Statement:
         self.target_object_name = None
         self.target_object_name = None
 
-        self.target_color_used = False
-        self.target_size_used = False
-        self.anchor_color_used = False
-        self.anchor_size_used = False
-        self.anchor1_color_used = False
-        self.anchor1_size_used = False
-        self.anchor2_color_used = False
-        self.anchor2_size_used = False
+        if self.relationship_type == "binary" or self.relationship_type == "ordered":
+            self.anchor_object_name = None
+            self.anchor_object_name = None
+            self.anchor_object_name = None
+        elif self.relationship_type == "ternary":
+            self.anchor1_object_name = None
+            self.anchor1_object_name = None
+            self.anchor1_object_name = None
+            self.anchor2_object_name = None
+            self.anchor2_object_name = None
+            self.anchor2_object_name = None
 
     def replace(self, a, b):
         self.sentence = self.sentence.replace(a, b)

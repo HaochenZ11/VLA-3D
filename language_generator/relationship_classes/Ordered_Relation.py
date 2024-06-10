@@ -81,7 +81,7 @@ class Ordered(Relationship):
                                                           "target_position": target_pos, "anchor_position": anchor_pos,
                                                           "target_colors": target_color, "anchor_colors": anchor_color,
                                                           "target_size": target_size, "anchor_size": anchor_size,
-                                                          "target_color_used": statement.anchor_color_used, "target_size_used": statement.anchor_size_used,
+                                                          "target_color_used": statement.target_color_used, "target_size_used": statement.target_size_used,
                                                           "anchor_color_used": statement.anchor_color_used, "anchor_size_used": statement.anchor_size_used,
                                                           "distractor_ids": distractors, "relation": self.relation,
                                                           "relation_type": self.relation_type})
@@ -135,8 +135,10 @@ class Ordered(Relationship):
 
                             statement = Statement(sentence, self.relation, self.relation_type)
 
-                            statement.anchor_color_used = len(anchor_color) > 1
-                            statement.anchor_size_used = len(anchor_size) > 1
+                            statement.anchor_color_used = anchor_color
+                            statement.anchor_size_used = anchor_size
+                            statement.target_color_used = ""
+                            statement.target_size_used = ""
 
                             if (target_class == anchor_class):
                                 continue

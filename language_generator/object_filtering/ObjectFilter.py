@@ -1,8 +1,3 @@
-from collections import Counter
-import pandas as pd
-import numpy as np
-import time
-
 class ObjectFilter:
     '''
     Class for ObjectFilter object responsible for filtering and ranking objects in scene by their attributes
@@ -58,11 +53,11 @@ class ObjectFilter:
 
         object_list = object_list.sort_values(by=['size'])
         if object_list.iloc[0]['nyu_label'] == object_name and object_list.iloc[0]['center'] == self.objects['center'][object]:
-            if 1.2 * object_list.iloc[0]['volume'] < object_list.iloc[1]['volume']:
+            if 1.2 * object_list.iloc[0]['largest_face_area'] < object_list.iloc[1]['largest_face_area']:
                 color, size = [""], ["small "]
 
         if object_list.iloc[-1]['nyu_label'] == object_name and object_list.iloc[-1]['center'] == self.objects['center'][object]:
-            if object_list.iloc[-1]['volume'] > 1.2 * object_list.iloc[-2]['volume']:
+            if object_list.iloc[-1]['largest_face_area'] > 1.2 * object_list.iloc[-2]['largest_face_area']:
                 color, size = [""], ["big "]
 
         return color, size
@@ -81,14 +76,17 @@ class ObjectFilter:
 
         filtered_target_anchors = {}
 
+        anchor_list = []
         for a_id, targets in target_anchors.items():
-                for t_class, t_ids in targets.items():
-                    if t_class == target_class:
-                        filtered_target_anchors[a_id] = t_ids
+            anchor_list.append(a_id)
+            for t_class, t_ids in targets.items():
+                if t_class == target_class:
+                    filtered_target_anchors[a_id] = t_ids
 
         target_list = filtered_target_anchors[anchor]
-        anchor_list = list(filtered_target_anchors.keys())
 
+        #Making anchor unique in the scene
+        # anchor_list = list(filtered_target_anchors.keys())
 
         target_color, target_size, anchor_color, anchor_size = [""], [""], [""], [""]
 
@@ -120,20 +118,25 @@ class ObjectFilter:
 
             #TODO: sort further by color
             if len(anchor_list) > 1:
-                sorted_anchor_list = sorted(anchor_list, key=lambda x: self.objects[x]['volume'])
+
+                #Sort by largest surface area
+                sorted_anchor_list = sorted(anchor_list, key=lambda x: self.objects[x]['largest_face_area'])
 
                 if sorted_anchor_list[0] == anchor:
-                    if 1.2 * self.objects[sorted_anchor_list[0]]['volume'] < self.objects[sorted_anchor_list[1]]['volume']:
+                    if 1.2 * self.objects[sorted_anchor_list[0]]['largest_face_area'] < self.objects[sorted_anchor_list[1]]['largest_face_area']:
                         #TODO: relative size
                         anchor_color, anchor_size = [""], ["small "]
                         anchor_list = [anchor]
 
                 if sorted_anchor_list[-1] == anchor:
-                    if self.objects[sorted_anchor_list[-1]]['volume'] > 1.2 * self.objects[sorted_anchor_list[-2]]['volume']:
+                    if self.objects[sorted_anchor_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor_list[-2]]['largest_face_area']:
                         #TODO: relative size
                         anchor_color, anchor_size = [""], ["big "]
                         anchor_list = [anchor]
 
+        #Unique anchor
+        if len(anchor_list) > 1:
+            return [], [], [], []
 
         if len(target_list) == 1 and (len(anchor_list) == 1 or target_class == "space"):
 
@@ -158,15 +161,15 @@ class ObjectFilter:
             #TODO: sort further by color
             if len(target_list) > 1:
 
-                sorted_target_list = sorted(target_list, key=lambda x: self.objects[x]['volume'])
+                sorted_target_list = sorted(anchor_list, key=lambda x: self.objects[x]['largest_face_area'])
 
                 if sorted_target_list[0] == target:
-                    if 1.2 * self.objects[sorted_target_list[0]]['volume'] < self.objects[sorted_target_list[1]]['volume']:
+                    if 1.2 * self.objects[sorted_target_list[0]]['largest_face_area'] < self.objects[sorted_target_list[1]]['largest_face_area']:
                         target_color, target_size = [""], ["small "]
                         target_list = [target]
 
                 if sorted_target_list[-1] == target:
-                    if self.objects[sorted_target_list[-1]]['volume'] > 1.2 * self.objects[sorted_target_list[-2]]['volume']:
+                    if self.objects[sorted_target_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_target_list[-2]]['largest_face_area']:
                         target_color, target_size = [""], ["big "]
                         target_list = [target]
 
@@ -189,15 +192,18 @@ class ObjectFilter:
 
         filtered_target_anchors = {}
 
+        anchor_list = []
         for a_id, targets in target_anchors.items():
+            anchor_list.append(a_id)
             for t_class, t_ids in targets.items():
                 if t_class == target_class:
                     filtered_target_anchors[a_id] = t_ids
 
 
         target_list = filtered_target_anchors[anchor]
-        anchor_list = list(filtered_target_anchors.keys())
 
+        #Making anchor unique in the scene
+        # anchor_list = list(filtered_target_anchors.keys())
 
         order, anchor_color, anchor_size = "", [""], [""]
 
@@ -227,16 +233,16 @@ class ObjectFilter:
 
             #TODO: sort further by color
             if len(anchor_list) > 1:
-                sorted_anchor_list = sorted(anchor_list, key=lambda x: self.objects[x]['volume'])
+                sorted_anchor_list = sorted(anchor_list, key=lambda x: self.objects[x]['largest_face_area'])
 
                 if sorted_anchor_list[0] == anchor:
-                    if 1.2 * self.objects[sorted_anchor_list[0]]['volume'] < self.objects[sorted_anchor_list[1]]['volume']:
+                    if 1.2 * self.objects[sorted_anchor_list[0]]['largest_face_area'] < self.objects[sorted_anchor_list[1]]['largest_face_area']:
                         #TODO: relative size
                         anchor_color, anchor_size = [""], ["small "]
                         anchor_list = [anchor]
 
                 if sorted_anchor_list[-1] == anchor:
-                    if self.objects[sorted_anchor_list[-1]]['volume'] > 1.2 * self.objects[sorted_anchor_list[-2]]['volume']:
+                    if self.objects[sorted_anchor_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor_list[-2]]['largest_face_area']:
                         #TODO: relative size
                         anchor_color, anchor_size = [""], ["big "]
                         anchor_list = [anchor]
@@ -282,9 +288,9 @@ class ObjectFilter:
 
 
         target_list = list(filtered_target_anchors.keys())
+        anchor1_list = list(self.objects.keys())
+        anchor2_list = list(self.objects.keys())
 
-        # anchor1_list = self.objects.iloc[filtered_target_anchors[target][0][0]]
-        # anchor2_list = self.objects.iloc[filtered_target_anchors[target][0][1]]
 
 
         target_color, target_size, anchor1_color, anchor1_size, anchor2_color, anchor2_size = [""], [""], [""], [""], [""], [""]
@@ -294,8 +300,89 @@ class ObjectFilter:
 
         other_same_targets = target_list.copy()
         other_same_targets.remove(target)
-        # other_same_anchors1 = anchor1_list.drop(anchor1)
-        # other_same_anchors2 = anchor2_list.drop(anchor2)
+        other_same_anchor1 = anchor1_list.copy()
+        other_same_anchor1.remove(anchor1)
+        other_same_anchor2 = anchor2_list.copy()
+        other_same_anchor2.remove(anchor2)
+
+
+
+        #ANCHO1 FILTERING
+        if len(anchor1_list) > 1:
+            for color in self.objects[anchor1]['color_labels']:
+                if color != 'N/A':
+                    unique_color = True
+                    for i in other_same_anchor1:
+                        if color in self.objects[i]['color_labels']:
+                            unique_color = False
+                            # continue
+
+                    if unique_color:
+                        anchor1_color, anchor1_size = [color + " "], [""]
+                        anchor1_list = [anchor1]
+                        break
+
+            #TODO: sort further by color
+            if len(anchor1_list) > 1:
+
+                #Sort by largest surface area
+                sorted_anchor1_list = sorted(anchor1_list, key=lambda x: self.objects[x]['largest_face_area'])
+
+                if sorted_anchor1_list[0] == anchor1:
+                    if 1.2 * self.objects[sorted_anchor1_list[0]]['largest_face_area'] < self.objects[sorted_anchor1_list[1]]['largest_face_area']:
+                        #TODO: relative size
+                        anchor1_color, anchor1_size = [""], ["small "]
+                        anchor1_list = [anchor1]
+
+                if sorted_anchor1_list[-1] == anchor1:
+                    if self.objects[sorted_anchor1_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor1_list[-2]]['largest_face_area']:
+                        #TODO: relative size
+                        anchor1_color, anchor1_size = [""], ["big "]
+                        anchor1_list = [anchor1]
+
+        # Unique anchor
+        if len(anchor1_list) > 1:
+            return [], [], [], [], [], []
+
+
+
+
+        if len(anchor2_list) > 1:
+            for color in self.objects[anchor2]['color_labels']:
+                if color != 'N/A':
+                    unique_color = True
+                    for i in other_same_anchor2:
+                        if color in self.objects[i]['color_labels']:
+                            unique_color = False
+                            # continue
+
+                    if unique_color:
+                        anchor2_color, anchor2_size = [color + " "], [""]
+                        anchor2_list = [anchor2]
+                        break
+
+            #TODO: sort further by color
+            if len(anchor2_list) > 1:
+
+                #Sort by largest surface area
+                sorted_anchor2_list = sorted(anchor2_list, key=lambda x: self.objects[x]['largest_face_area'])
+
+                if sorted_anchor2_list[0] == anchor2:
+                    if 1.2 * self.objects[sorted_anchor2_list[0]]['largest_face_area'] < self.objects[sorted_anchor2_list[1]]['largest_face_area']:
+                        #TODO: relative size
+                        anchor2_color, anchor2_size = [""], ["small "]
+                        anchor2_list = [anchor2]
+
+                if sorted_anchor2_list[-1] == anchor2:
+                    if self.objects[sorted_anchor2_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor2_list[-2]]['largest_face_area']:
+                        #TODO: relative size
+                        anchor2_color, anchor2_size = [""], ["big "]
+                        anchor2_list = [anchor2]
+
+        # Unique anchor
+        if len(anchor2_list) > 1:
+            return [], [], [], [], [], []
+
 
 
         #TARGET FILTERING
@@ -314,15 +401,15 @@ class ObjectFilter:
                         break
             #TODO: sort further by color
             if len(target_list) > 1:
-                sorted_target_list = sorted(target_list, key=lambda x: self.objects[x]['volume'])
+                sorted_target_list = sorted(target_list, key=lambda x: self.objects[x]['largest_face_area'])
 
                 if sorted_target_list[0] == target:
-                    if 1.2 * self.objects[sorted_target_list[0]]['volume'] < self.objects[sorted_target_list[1]]['volume']:
+                    if 1.2 * self.objects[sorted_target_list[0]]['largest_face_area'] < self.objects[sorted_target_list[1]]['largest_face_area']:
                         target_color, target_size = [""], ["small "]
                         target_list = [target]
 
                 if sorted_target_list[-1] == target:
-                    if self.objects[sorted_target_list[-1]]['volume'] > 1.2 * self.objects[sorted_target_list[-2]]['volume']:
+                    if self.objects[sorted_target_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_target_list[-2]]['largest_face_area']:
                         target_color, target_size = [""], ["big "]
                         target_list = [target]
 
@@ -330,17 +417,6 @@ class ObjectFilter:
                 return target_color, target_size, anchor1_color, anchor1_size, anchor2_color, anchor2_size
 
         return [], [], [], [], [], []
-
-
-
-
-
-
-
-
-
-
-
 
 
 

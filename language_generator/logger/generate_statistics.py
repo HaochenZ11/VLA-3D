@@ -38,10 +38,10 @@ def summarize_stats(stats):
     return summary, max_all_statements, min_all_statements
 
 
-def generate_stats(target_file, stats, object_set):
+def generate_stats(target_file, stats, object_set, colors_set, sizes_set):
     with open(target_file) as f:
         data = json.load(f)
-    
+
     stats[data['scene_name']] = {
         "all_statements": 0,
         "above_statements": 0,
@@ -60,7 +60,7 @@ def generate_stats(target_file, stats, object_set):
     }
 
     scene_stats = stats[data['scene_name']]
-    
+
     for regions, statements in data['regions'].items():
         scene_stats['all_statements'] += len(statements)
 
@@ -71,68 +71,75 @@ def generate_stats(target_file, stats, object_set):
             for label in labels:
                 scene_stats[f"{label['relation']}_statements"] += 1
 
-                if label['target_color_used']:
+                if len(label['target_color_used']) > 0:
                     scene_stats['color_references'] += 1
-                if label['target_size_used']:
+                    colors_set.add(label['target_color_used'])
+                if len(label['target_size_used']) > 0:
                     scene_stats['size_references'] += 1
+                    sizes_set.add(label['target_size_used'])
 
                 object_set.add(label['target_class'])
 
                 if label['relation_type'] == 'ternary':
-                    if label['anchor1_color_used']:
+                    if len(label['anchor1_color_used']) > 0:
                         scene_stats['color_references'] += 1
-                    if label['anchor1_size_used']:
-                        scene_stats['size_references'] += 1
-                    if label['anchor2_color_used']:
+                        colors_set.add(label['anchor1_color_used'])
+                    if len(label['anchor2_color_used']) > 0:
                         scene_stats['color_references'] += 1
-                    if label['anchor2_size_used']:
+                        colors_set.add(label['anchor2_color_used'])
+                    if len(label['anchor1_size_used']) > 0:
                         scene_stats['size_references'] += 1
-                    if label['target_color_used'] or label['anchor1_color_used'] or label['anchor2_color_used']:
+                        sizes_set.add(label['anchor1_size_used'])
+                    if len(label['anchor2_size_used']) > 0:
+                        scene_stats['size_references'] += 1
+                        sizes_set.add(label['anchor2_size_used'])
+                    if len(label['target_color_used']) > 0 or len(label['anchor1_color_used']) > 0 or len(
+                            label['anchor2_color_used']) > 0:
                         scene_stats['color_statements'] += 1
-                    if label['target_size_used'] or label['anchor1_size_used'] or label['anchor2_size_used']:
+                    if len(label['target_size_used']) > 0 or len(label['anchor1_size_used']) > 0 or len(
+                            label['anchor2_size_used']) > 0:
                         scene_stats['size_statements'] += 1
 
                     object_set.add(label['anchor1_class'])
                     object_set.add(label['anchor2_class'])
 
                 else:
-                    if label['anchor_color_used']:
+                    if len(label['anchor_color_used']) > 0:
                         scene_stats['color_references'] += 1
-                    if label['anchor_size_used']:
+                        colors_set.add(label['anchor_color_used'])
+                    if len(label['anchor_size_used']) > 0:
                         scene_stats['size_references'] += 1
-                    if label['target_color_used'] or label['anchor_color_used']:
+                        sizes_set.add(label['anchor_size_used'])
+                    if len(label['target_color_used']) > 0 or len(label['anchor_color_used']) > 0:
                         scene_stats['color_statements'] += 1
-                    if label['target_size_used'] or label['anchor_size_used']:
+                    if len(label['target_size_used']) > 0 or len(label['anchor_size_used']) > 0:
                         scene_stats['size_statements'] += 1
 
                     object_set.add(label['anchor_class'])
 
 
-
-    
-
 if __name__ == '__main__':
 
     total_start_time = timer()
 
-    target_dir = "data/test_dataset"
+    target_dir = "../sample_data"
 
     target_paths = []
-
 
     # Open the JSON file
     scene_dirs = next(os.walk(target_dir))[1]
     for dir in scene_dirs:
         scene_path = os.path.join(target_dir, dir)
-        file_path = os.path.join(scene_path,  f'{dir}_label_data_new.json')
+        file_path = os.path.join(scene_path, f'{dir}_label_data.json')
         target_paths.append(file_path)
-
 
     stats = {}
     object_set = set()
+    colors_set = set()
+    sizes_set = set()
 
     for target_file in target_paths:
-        generate_stats(target_file, stats, object_set)
+        generate_stats(target_file, stats, object_set, colors_set, sizes_set)
 
     summary, max_all_statements, min_all_statements = summarize_stats(stats)
 
@@ -141,10 +148,18 @@ if __name__ == '__main__':
     print("Min all_statements:", min_all_statements)
 
     stats["unique_objects"] = len(object_set)
+    stats["unique_colors"] = len(colors_set)
+    stats["unique_sizes"] = len(sizes_set)
+
+    summary["unique_objects"] = len(object_set)
+    summary["unique_colors"] = len(colors_set)
+    summary["unique_sizes"] = len(sizes_set)
 
     print("Unique objects:", len(object_set))
+    print("Unique colors:", len(colors_set))
+    print("Unique sizes:", len(sizes_set))
 
-    print(f"Took {timer( ) - total_start_time} to preprocess")
+    print(f"Took {timer() - total_start_time} to preprocess")
 
     log_output_dir = "logger/output"
 
@@ -157,5 +172,8 @@ if __name__ == '__main__':
         json.dump({
             'summary': summary,
             'max_all_statements': max_all_statements,
-            'min_all_statements': min_all_statements
+            'min_all_statements': min_all_statements,
+            'colors_used': list(colors_set),
+            'sizes_used': list(sizes_set),
+            'object_set': list(object_set)
         }, f)

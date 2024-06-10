@@ -156,21 +156,21 @@ class Ternary(Relationship):
 
                                         statement = Statement(sentence, self.relation_type, self.relation)
 
-                                        statement.target_color_used = len(target_color) > 0
-                                        statement.target_size_used = len(target_size) > 0
-                                        statement.anchor1_color_used = len(anchor1_color) > 0
-                                        statement.anchor1_size_used = len(anchor1_size) > 0
-                                        statement.anchor2_color_used = len(anchor2_color) > 0
-                                        statement.anchor2_size_used = len(anchor2_size) > 0
+                                        statement.target_color_used = target_color
+                                        statement.target_size_used = target_size
+                                        statement.anchor1_color_used = anchor1_color
+                                        statement.anchor1_size_used = anchor1_size
+                                        statement.anchor2_color_used = anchor2_color
+                                        statement.anchor2_size_used = anchor2_size
 
                                         if (self.objects[anchor1]['nyu_label']==self.objects[anchor2]['nyu_label'] and not
-                                        (statement.anchor1_color_used or statement.anchor1_size_used or statement.anchor2_color_used or statement.anchor2_size_used)):
+                                        (len(anchor1_color) > 0 or len(anchor1_size) > 0 or len(anchor2_color) > 0 or len(anchor2_size) > 0)):
                                             statement.sentence = aux_sentence
                                         elif (self.objects[target]['nyu_label']==self.objects[anchor1]['nyu_label'] and not
-                                        (statement.target_color_used or statement.target_size_used or statement.anchor1_color_used or statement.anchor1_size_used)):
+                                        (len(target_color) > 0 or len(target_size) > 0 or len(anchor1_color) > 0 or len(anchor1_size) > 0)):
                                             statement.replace("%other1%", "other ")
                                         elif (self.objects[target]['nyu_label']==self.objects[anchor2]['nyu_label'] and not
-                                        (statement.target_color_used or statement.target_size_used or statement.anchor2_color_used or statement.anchor2_size_used)):
+                                        (len(target_color) > 0 or len(target_size) > 0 or len(anchor2_color) > 0 or len(anchor2_size) > 0)):
                                             statement.replace("%other2%", "other ")
 
 

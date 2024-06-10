@@ -4,7 +4,6 @@ import multiprocessing as mp
 from timeit import default_timer as timer
 
 
-
 def group_by_nyu_label(relation_dict):
     # Initialize a dictionary to hold the grouped relationships
     grouped_relationships = {}
@@ -58,15 +57,16 @@ def group_by_nyu_label(relation_dict):
                         if target_label not in grouped_relationships[region_id][relation][anchor_label][anchor_id]:
                             grouped_relationships[region_id][relation][anchor_label][anchor_id][target_label] = []
 
-                        grouped_relationships[region_id][relation][anchor_label][anchor_id][target_label].append(target_id)
+                        grouped_relationships[region_id][relation][anchor_label][anchor_id][target_label].append(
+                            target_id)
 
     return grouped_relationships
 
+
 def index_by_object_id(relation_dict):
     object_index = {}
-    
-    regions = relation_dict['regions']
 
+    regions = relation_dict['regions']
 
     for region_id, region in regions.items():
         if region_id not in object_index:
@@ -74,10 +74,14 @@ def index_by_object_id(relation_dict):
 
         for obj in region['objects']:
             object_index[region_id][obj['object_id']] = obj
-
+            if 'size' not in obj:
+                print(obj)
+            obj['largest_face_area'] = max(
+                obj['size'][0] * obj['size'][1],
+                obj['size'][0] * obj['size'][2],
+                obj['size'][1] * obj['size'][2])
 
     return object_index
-
 
 
 def process_file(target_file):
@@ -88,7 +92,6 @@ def process_file(target_file):
     print(target_file)
     grouped_relationships = group_by_nyu_label(relation_dict)
     objects = index_by_object_id(relation_dict)
-
 
     # Save the output to a JSON file
     grouped_output_file = target_file.replace('.json', '_grouped.json')
@@ -105,10 +108,9 @@ if __name__ == '__main__':
 
     total_start_time = timer()
 
-    target_dir = "/home/navigation/Dataset/VLA_Dataset/"
+    target_dir = "../sample_data"
 
     target_paths = []
-
 
     # Open the JSON file
     scene_dirs = next(os.walk(target_dir))[1]
@@ -123,5 +125,5 @@ if __name__ == '__main__':
 
     with mp.Pool(mp.cpu_count()) as pool:
         pool.map(process_file, target_paths)
-    
-    print(f"Took {timer()-total_start_time} to preprocess")
+
+    print(f"Took {timer() - total_start_time} to preprocess")

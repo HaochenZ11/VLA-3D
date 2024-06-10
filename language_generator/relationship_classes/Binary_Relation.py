@@ -134,14 +134,14 @@ class Binary(Relationship):
 
                                 statement = Statement(sentence, self.relation_type, self.relation)
 
-                                statement.target_color_used = len(target_color) > 0
-                                statement.target_size_used = len(target_size) > 0
-                                statement.anchor_color_used = len(anchor_color) > 0
-                                statement.anchor_size_used = len(anchor_size) > 0
+                                statement.target_color_used = target_color
+                                statement.target_size_used = target_size
+                                statement.anchor_color_used = anchor_color
+                                statement.anchor_size_used = anchor_size
 
 
                                 if (target_class == anchor_class and not
-                                (statement.target_color_used or statement.target_size_used or statement.anchor1_color_used or statement.anchor1_size_used)):
+                                (len(target_color) > 0 or len(target_size) > 0 or len(anchor_color) > 0 or len(anchor_size) > 0)):
                                     statement.replace("%other%", "other ")
 
                                 statement.replace("%other%", "")
