@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 class Relationship(ABC):
-    def __init__(self, region_graph, objects, language_master_template, object_filter):
+    def __init__(self, region_graph, objects, objects_class_region, language_master_template, object_filter):
         """
         Parses arguments from command line for input scene graph and language template
             Params:
@@ -12,6 +12,7 @@ class Relationship(ABC):
         self.language_master_template = language_master_template
         self.object_filter = object_filter
         self.objects = objects
+        self.objects_class_region = objects_class_region
 
     @abstractmethod
     def generate_statements(self, generation_configs, max_statements=None):

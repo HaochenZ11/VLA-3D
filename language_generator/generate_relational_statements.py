@@ -28,36 +28,36 @@ def parse_args():
 
     return args
 
-def create_relationship_statement_generator(relationship_template, spatial_relations, objects, language_template, object_filter):
+def create_relationship_statement_generator(relationship_template, spatial_relations, objects, objects_class_region, language_template, object_filter):
     with open(relationship_template) as r:
         relationship_template_dict = json.load(r)
 
     relation_type = relationship_template_dict["relation_type"]
 
     if relation_type == 'binary':
-        generator = Binary(spatial_relations, relationship_template_dict, objects, language_template, object_filter)
+        generator = Binary(spatial_relations, relationship_template_dict, objects, objects_class_region, language_template, object_filter)
     elif relation_type == 'ternary':
-        generator = Ternary(spatial_relations, relationship_template_dict, objects, language_template, object_filter)
+        generator = Ternary(spatial_relations, relationship_template_dict, objects, objects_class_region, language_template, object_filter)
     elif relation_type == 'ordered':
-        generator = Ordered(spatial_relations, relationship_template_dict, objects, language_template, object_filter)
+        generator = Ordered(spatial_relations, relationship_template_dict, objects, objects_class_region, language_template, object_filter)
     else:
         raise Exception("relationship type must be binary, ternary, or ordered")
 
     return generator
 
 
-def get_region_statements(region, spatial_relations, objects, relationship_templates, generation_configs):
+def get_region_statements(region, spatial_relations, objects, objects_class_region, relationship_templates, generation_configs):
     statements = {}
 
     if len(region['objects']) == 0:
         return statements
 
 
-    object_filter = ObjectFilter(spatial_relations, objects)
+    object_filter = ObjectFilter(spatial_relations, objects, objects_class_region)
 
     relation_statement_generators = []
     for rt in relationship_templates:
-        generator = create_relationship_statement_generator(rt, spatial_relations, objects, language_template, object_filter)
+        generator = create_relationship_statement_generator(rt, spatial_relations, objects, objects_class_region, language_template, object_filter)
         relation_statement_generators.append(generator)
 
     # Generate the statements for each relation
@@ -68,7 +68,7 @@ def get_region_statements(region, spatial_relations, objects, relationship_templ
 
     return statements
 
-def get_scene_statement(scene_graph, spatial_relations_file, objects_file, relationship_templates, logger, generation_configs):
+def get_scene_statement(scene_graph, spatial_relations_file, objects_file, object_class_file, relationship_templates, logger, generation_configs):
     # Generate language data by iterating through all regions in a scene
     scene_language_data = {}
 
@@ -88,13 +88,16 @@ def get_scene_statement(scene_graph, spatial_relations_file, objects_file, relat
         spatial_relations = json.load(sr)
     with open(objects_file) as o:
         objects = json.load(o)
+    with open(object_class_file) as oc:
+        object_classes = json.load(oc)
 
     for region_idx in scene_graph['regions']:
         scene_graph_region = scene_graph['regions'][region_idx]
         spatial_relations_region = spatial_relations[region_idx]
         objects_region = objects[region_idx]
+        objects_class_region = object_classes[region_idx]
 
-        region_statements = get_region_statements(scene_graph_region, spatial_relations_region, objects_region, relationship_templates, generation_configs)
+        region_statements = get_region_statements(scene_graph_region, spatial_relations_region, objects_region, objects_class_region, relationship_templates, generation_configs)
 
         scene_language_data["regions"][region_idx] = region_statements
 
@@ -123,10 +126,11 @@ def process_file(scene_path):
         scene_graph = json.load(sg)
 
     spatial_relations_file = file_path.replace(".json", "_grouped.json")
-    objects_file = file_path.replace(".json", "_objects.json")
+    objects_file = file_path.replace(".json", "_object_data.json")
+    object_class_file = file_path.replace(".json", "_object_class.json")
 
 
-    scene_language_data = get_scene_statement(scene_graph, spatial_relations_file, objects_file, relationship_templates, logger.log_buffer, generation_configs)
+    scene_language_data = get_scene_statement(scene_graph, spatial_relations_file, objects_file, object_class_file, relationship_templates, logger.log_buffer, generation_configs)
 
 
     # Save dataset of statements and object ground truth data
@@ -174,7 +178,7 @@ if __name__ == '__main__':
             scene_graph = json.load(sg)
 
         spatial_relations_file = scene_data_root.replace(".json", "_grouped.json")
-        objects_file = scene_data_root.replace(".json", "_objects.json")
+        objects_file = scene_data_root.replace(".json", "_object_data.json")
 
         scene_language_data = get_scene_statement(scene_graph, spatial_relations_file, objects_file, relationship_templates, logger.log_buffer, generation_configs)
 
@@ -230,6 +234,8 @@ if __name__ == '__main__':
         with mp.Pool(mp.cpu_count()) as pool:
             for _ in tqdm(pool.imap(process_file, scene_paths), total=len(scene_paths)):
                 pass
+
+        # process_file(scene_paths[0])
 
 
         logger.generate_logs(scene_data_root=scene_data_root)

@@ -13,7 +13,7 @@ class Ternary(Relationship):
     '''
     Class for in Between object relationships in scene
     '''
-    def __init__(self, region_graph, relation_language_template, objects, language_master_template, object_filter):
+    def __init__(self, region_graph, relation_language_template, objects, objects_class_region, language_master_template, object_filter):
         """
         Parses arguments from command line for input scene graph and language template
            Params:
@@ -23,7 +23,7 @@ class Ternary(Relationship):
                object_filter(ObjectFilter): ObjectFilter object with the scene object data
         """
 
-        super().__init__(region_graph, objects, language_master_template, object_filter)
+        super().__init__(region_graph, objects, objects_class_region, language_master_template, object_filter)
 
 
         self.relation_language_template = relation_language_template
@@ -52,7 +52,7 @@ class Ternary(Relationship):
             conditions = t_set["conditions"]
 
             for target_class, target_ids in self.target_anchors.items():
-                if target_class == 'space' and not generation_configs['include_spaces']:
+                if target_class in generation_configs['exclude_classes'] or (target_class == 'space' and not generation_configs['include_spaces']):
                     continue
 
                 for target_id, anchors_ids in target_ids.items():
@@ -61,11 +61,11 @@ class Ternary(Relationship):
                         anchor1_class = self.objects[anchors_set[0]]['nyu_label']
                         anchor2_class = self.objects[anchors_set[1]]['nyu_label']
 
-                        if anchor1_class == 'space' or anchor2_class == 'space':
+                        if anchor1_class == 'space' or anchor2_class == 'space' or anchor1_class in generation_configs[
+                            'exclude_classes'] or anchor2_class in generation_configs['exclude_classes']:
                             continue
 
-                        distractors = (list(target_ids.keys())).copy()
-                        distractors.remove(target_id)
+                        distractors = self.object_filter.get_distractors(target_id, target_class)
 
                         if self.condition_check(target_id, anchors_set, conditions):
                             statement_candidates = self.get_statement_candidates(t_set, target_id, anchors_set, target_class)

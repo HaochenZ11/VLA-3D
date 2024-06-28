@@ -9,7 +9,7 @@ class Ordered(Relationship):
     '''
     Class for Above object relationships in scene
     '''
-    def __init__(self, region_graph, relation_language_template, objects, language_master_template, object_filter):
+    def __init__(self, region_graph, relation_language_template, objects, objects_class_region, language_master_template, object_filter):
         """
         Parses arguments from command line for input scene graph and language template
            Params:
@@ -19,7 +19,7 @@ class Ordered(Relationship):
                object_filter(ObjectFilter): ObjectFilter object with the scene object data
         """
 
-        super().__init__(region_graph, objects, language_master_template, object_filter)
+        super().__init__(region_graph, objects, objects_class_region, language_master_template, object_filter)
 
         self.relation_language_template = relation_language_template
         self.relation = self.relation_language_template['relation']
@@ -58,8 +58,7 @@ class Ordered(Relationship):
                             continue
 
                         for target_id in target_ids:
-                            distractors = target_ids.copy()
-                            distractors.remove(target_id)
+                            distractors = self.object_filter.get_distractors(target_id, target_class)
 
                             if self.condition_check(target_class, anchor_class, conditions):
                                 statement_candidates = self.get_statement_candidates(t_set, target_id, anchor_id, target_class, anchor_class)

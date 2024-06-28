@@ -2,7 +2,7 @@ class ObjectFilter:
     '''
     Class for ObjectFilter object responsible for filtering and ranking objects in scene by their attributes
     '''
-    def __init__(self, spatial_relations, objects):
+    def __init__(self, spatial_relations, objects, objects_class_region):
         """
         All children od the Relationship class must generate statements
             Params:
@@ -10,13 +10,13 @@ class ObjectFilter:
         """
         self.spatial_relations = spatial_relations
         self.objects = objects
+        self.objects_class_region = objects_class_region
 
 
-    def get_distractors(self, target):
-        object_name = self.objects['nyu_label'][target]
-        object_list = self.objects[self.objects['nyu_label'] == object_name]
-        other_same_objects = object_list.drop(target)
-        return list(other_same_objects["object_id"])
+    def get_distractors(self, object_id, object_class):
+        distractors = self.objects_class_region[object_class].copy()
+        distractors.remove(object_id)
+        return distractors
 
 
     def filter_objects(self, object, filters=None):
@@ -76,14 +76,13 @@ class ObjectFilter:
 
         filtered_target_anchors = {}
 
-        anchor_list = []
         for a_id, targets in target_anchors.items():
-            anchor_list.append(a_id)
             for t_class, t_ids in targets.items():
                 if t_class == target_class:
                     filtered_target_anchors[a_id] = t_ids
 
         target_list = filtered_target_anchors[anchor]
+        anchor_list = self.objects_class_region[anchor_class]
 
         #Making anchor unique in the scene
         # anchor_list = list(filtered_target_anchors.keys())
@@ -192,15 +191,14 @@ class ObjectFilter:
 
         filtered_target_anchors = {}
 
-        anchor_list = []
         for a_id, targets in target_anchors.items():
-            anchor_list.append(a_id)
             for t_class, t_ids in targets.items():
                 if t_class == target_class:
                     filtered_target_anchors[a_id] = t_ids
 
 
         target_list = filtered_target_anchors[anchor]
+        anchor_list = self.objects_class_region[anchor_class]
 
         #Making anchor unique in the scene
         # anchor_list = list(filtered_target_anchors.keys())
@@ -288,9 +286,8 @@ class ObjectFilter:
 
 
         target_list = list(filtered_target_anchors.keys())
-        anchor1_list = list(self.objects.keys())
-        anchor2_list = list(self.objects.keys())
-
+        anchor1_list = self.objects_class_region[anchor1_object_name]
+        anchor2_list = self.objects_class_region[anchor2_object_name]
 
 
         target_color, target_size, anchor1_color, anchor1_size, anchor2_color, anchor2_size = [""], [""], [""], [""], [""], [""]

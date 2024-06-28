@@ -63,25 +63,32 @@ def group_by_nyu_label(relation_dict):
     return grouped_relationships
 
 
-def index_by_object_id(relation_dict):
+def index_by_object_id_and_class(relation_dict):
     object_index = {}
+    object_class = {}
 
     regions = relation_dict['regions']
 
     for region_id, region in regions.items():
         if region_id not in object_index:
             object_index[region_id] = {}
+        if region_id not in object_class:
+            object_class[region_id] = {}
 
         for obj in region['objects']:
             object_index[region_id][obj['object_id']] = obj
-            if 'size' not in obj:
-                print(obj)
+
             obj['largest_face_area'] = max(
                 obj['size'][0] * obj['size'][1],
                 obj['size'][0] * obj['size'][2],
                 obj['size'][1] * obj['size'][2])
 
-    return object_index
+            if obj['nyu_label'] not in object_class[region_id]:
+                object_class[region_id][obj['nyu_label']] = []
+
+            object_class[region_id][obj['nyu_label']].append(obj['object_id'])
+
+    return object_index, object_class
 
 
 def process_file(target_file):
@@ -91,7 +98,7 @@ def process_file(target_file):
 
     print(target_file)
     grouped_relationships = group_by_nyu_label(relation_dict)
-    objects = index_by_object_id(relation_dict)
+    object_index, object_class  = index_by_object_id_and_class(relation_dict)
 
     # Save the output to a JSON file
     grouped_output_file = target_file.replace('.json', '_grouped.json')
@@ -99,16 +106,20 @@ def process_file(target_file):
         json.dump(grouped_relationships, file)
 
     # Save the object data to a JSON file
-    object_output_file = target_file.replace('.json', '_objects.json')
+    object_output_file = target_file.replace('.json', '_object_data.json')
     with open(object_output_file, 'w') as file:
-        json.dump(objects, file)
+        json.dump(object_index, file)
+
+    object_class_output_file = target_file.replace('.json', '_object_class.json')
+    with open(object_class_output_file, 'w') as file:
+        json.dump(object_class, file)
 
 
 if __name__ == '__main__':
 
     total_start_time = timer()
 
-    target_dir = "../sample_data"
+    target_dir = "./sample_data"
 
     target_paths = []
 
