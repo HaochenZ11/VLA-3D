@@ -86,15 +86,37 @@ class Ternary(Relationship):
                                 anchor2_size = self.objects[anchors_set[1]]["volume"]
 
 
-                                statements[statement.sentence].append({"target_index": target_id, "anchor1_index": anchors_set[0], "anchor2_index": anchors_set[1],
-                                                              "target_class": target_class, "anchor1_class": anchor1_class, "anchor2_class": anchor2_class,
-                                                              "target_position": target_pos, "anchor1_position": anchor1_pos, "anchor2_position": anchor2_pos,
-                                                              "target_colors": target_color, "anchor1_colors": anchor1_color, "anchor2_colors": anchor2_color,
-                                                              "target_size": target_size, "anchor1_size": anchor1_size, "anchor2_size": anchor2_size,
-                                                              "target_color_used": statement.target_color_used, "target_size_used": statement.target_size_used,
-                                                              "anchor1_color_used": statement.anchor1_color_used, "anchor1_size_used": statement.anchor1_size_used,
-                                                              "anchor2_color_used": statement.anchor2_color_used, "anchor2_size_used": statement.anchor2_size_used,
-                                                              "distractor_ids": distractors, "relation": self.relation, "relation_type": self.relation_type})
+                                statements[statement.sentence].append({
+                                    "target_index": target_id,
+                                    "target_class": target_class,
+                                    "target_position": target_pos,
+                                    "target_colors": target_color,
+                                    "target_size": target_size,
+                                    "target_color_used": statement.target_color_used,
+                                    "target_size_used": statement.target_size_used,
+                                    "distractor_ids": distractors, "relation": self.relation,
+                                    "relation_type": self.relation_type,
+                                    "anchors": {
+                                        "anchor_1": {
+                                            "index": anchors_set[0],
+                                            "class": anchor1_class,
+                                            "position": anchor1_pos,
+                                            "color": anchor1_color,
+                                            "size": anchor1_size,
+                                            "color_used": statement.anchor1_color_used,
+                                            "size_used": statement.anchor1_size_used
+                                        },
+                                        "anchor_2": {
+                                            "index": anchors_set[1],
+                                            "class": anchor2_class,
+                                            "position": anchor2_pos,
+                                            "color": anchor2_color,
+                                            "size": anchor2_size,
+                                            "color_used": statement.anchor2_color_used,
+                                            "size_used": statement.anchor2_size_used
+                                        }
+                                    }
+                                })
 
 
             if max_statements is not None and len(statements) == max_statements:

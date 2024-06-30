@@ -74,16 +74,29 @@ class Ordered(Relationship):
                                     target_size = self.objects[target_id]["volume"]
                                     anchor_size = self.objects[anchor_id]["volume"]
 
-                                    statements[statement.sentence].append({"target_index": target_id, "anchor_index": anchor_id,
-                                                          "target_class": target_class, "anchor_class": anchor_class,
-                                                          # "target_nyu_id": target_nyu_id, "anchor_nyu_id": anchor_nyu_id,
-                                                          "target_position": target_pos, "anchor_position": anchor_pos,
-                                                          "target_colors": target_color, "anchor_colors": anchor_color,
-                                                          "target_size": target_size, "anchor_size": anchor_size,
-                                                          "target_color_used": statement.target_color_used, "target_size_used": statement.target_size_used,
-                                                          "anchor_color_used": statement.anchor_color_used, "anchor_size_used": statement.anchor_size_used,
-                                                          "distractor_ids": distractors, "relation": self.relation,
-                                                          "relation_type": self.relation_type})
+                                    statements[statement.sentence].append({
+                                        "target_index": target_id,
+                                        "target_class": target_class,
+                                        "target_position": target_pos,
+                                        "target_colors": target_color,
+                                        "target_size": target_size,
+                                        "target_color_used": statement.target_color_used,
+                                        "target_size_used": statement.target_size_used,
+                                        "distractor_ids": distractors,
+                                        "relation": self.relation,
+                                        "relation_type": self.relation_type,
+                                        "anchors": {
+                                            "anchor_1": {
+                                                "index": anchor_id,
+                                                "class": anchor_class,
+                                                "position": anchor_pos,
+                                                "color": anchor_color,
+                                                "size": anchor_size,
+                                                "color_used": statement.anchor_color_used,
+                                                "size_used": statement.anchor_size_used
+                                            }
+                                        }
+                                    })
 
             if max_statements is not None and len(statements) == max_statements:
                 return statements
