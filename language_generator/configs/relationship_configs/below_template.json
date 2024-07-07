@@ -12,7 +12,10 @@
 
   "synonyms": {
     "relation": [
-      "below"
+      "below",
+      "under",
+      "beneath",
+      "underneath"
     ]
   }
 }

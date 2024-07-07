@@ -1,0 +1,415 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+air conditioner 02,air conditioner,79,40,air conditioner,otherprop
+air conditioner 03,air conditioner,79,40,air conditioner,otherprop
+air conditioner 04,air conditioner,79,40,air conditioner,otherprop
+ash can,unknown,20,40,unknown,otherprop
+ash can (1),unknown,20,40,unknown,otherprop
+ash can (2),unknown,20,40,unknown,otherprop
+ash can (3),unknown,20,40,unknown,otherprop
+ash can (4),unknown,20,40,unknown,otherprop
+ash can (5),unknown,20,40,unknown,otherprop
+ashbin,trash can,12,40,garbage bin,otherprop
+ashbin 1,trash can,12,40,garbage bin,otherprop
+ashbin 2,trash can,12,40,garbage bin,otherprop
+ashtray,ashtray,377,40,ashtray,otherprop
+balcony door,balcony door,28,8,door,door
+balcony door 1,balcony door,28,8,door,door
+balcony doorframe,door frame,615,38,door frame,otherstructure
+bathroom,shower,20,38,unknown,otherstructure
+bathshelf,shelf,42,15,shelves,shelves
+bathwall,wall,21,38,wall,otherstructure
+bed01a,mattress,576,38,mattress,otherstructure
+bed01b,quilt,575,40,quilt,otherprop
+bed01frame,unknown,20,40,unknown,otherprop
+bed02a,mattress,576,38,mattress,otherstructure
+bed02b,quilt,575,40,quilt,otherprop
+bed02frame,bed,157,4,bed,bed
+bedroom light,bedroom light,62,35,light,lamp
+bedroom light 1,bedroom light,62,35,light,lamp
+bedside light 01,lamp,144,35,lamp,lamp
+bedside light 01 (1),lamp,144,35,lamp,lamp
+bedside light 02,lamp,144,35,lamp,lamp
+bedside light 02 (1),lamp,144,35,lamp,lamp
+bedside light 03,lamp,144,35,lamp,lamp
+bedside light 03 (1),lamp,144,35,lamp,lamp
+bedsidechest02 open,night stand,158,32,night stand,night stand
+bedsidechest02 open door,unknown,20,40,unknown,otherprop
+bedsidechest03 open,night stand,158,32,night stand,night stand
+bedsidechest03 open 1,night stand,158,32,night stand,night stand
+bedsidechest03 open doorA,unknown,20,40,unknown,otherprop
+bedsidechest03 open doorB,unknown,20,40,unknown,otherprop
+bedsidechest03 open doorC,unknown,20,40,unknown,otherprop
+bedsidesofa01,bed bench,204,39,bench,otherfurniture
+bedsidesofa02,bed bench,204,39,bench,otherfurniture
+bedsidewall,wall,21,38,wall,otherstructure
+book1,book,1,23,book,books
+book2,book,1,23,book,books
+book3,book,1,23,book,books
+book4,book,1,23,book,books
+book5,book,1,23,book,books
+book6,book,1,23,book,books
+bottle01,bottle,2,40,bottle,otherprop
+bottle02,bottle,2,40,bottle,otherprop
+bottle03,bottle,2,40,bottle,otherprop
+bottle04,bottle,2,40,bottle,otherprop
+bottle05,bottle,2,40,bottle,otherprop
+bottle06,bottle,2,40,bottle,otherprop
+bottle07,bottle,2,40,bottle,otherprop
+bottle08,bottle,2,40,bottle,otherprop
+bottle09,bottle,2,40,bottle,otherprop
+bottle10,bottle,2,40,bottle,otherprop
+bottle11,bottle,2,40,bottle,otherprop
+bottle12,bottle,2,40,bottle,otherprop
+bottle13,bottle,2,40,bottle,otherprop
+bottle14,bottle,2,40,bottle,otherprop
+bottle15,bottle,2,40,bottle,otherprop
+bowl,bowl,22,40,bowl,otherprop
+bowl 1,bowl,22,40,bowl,otherprop
+bowl 2,bowl,22,40,bowl,otherprop
+bowl 3,bowl,22,40,bowl,otherprop
+bowl 4,bowl,22,40,bowl,otherprop
+bowl 5,bowl,22,16,bowl,curtain
+bowl 6,bowl,22,40,bowl,otherprop
+carpet01,carpet,130,20,rug,floor mat
+carpet02,carpet,130,20,rug,floor mat
+carpet03,carpet,130,20,rug,floor mat
+carpet04,carpet,130,20,rug,floor mat
+carpet05,carpet,130,20,rug,floor mat
+celling,celling,4,22,ceiling,ceiling
+celling down light,ceiling light,62,35,light,lamp
+celling down light 1,ceiling light,62,35,light,lamp
+celling down light 10,ceiling light,62,35,light,lamp
+celling down light 11,ceiling light,62,35,light,lamp
+celling down light 12,ceiling light,62,35,light,lamp
+celling down light 13,ceiling light,62,35,light,lamp
+celling down light 14,ceiling light,62,35,light,lamp
+celling down light 15,ceiling light,62,35,light,lamp
+celling down light 16,ceiling light,62,35,light,lamp
+celling down light 17,ceiling light,62,35,light,lamp
+celling down light 18,ceiling light,62,35,light,lamp
+celling down light 19,ceiling light,62,35,light,lamp
+celling down light 2,ceiling light,62,35,light,lamp
+celling down light 20,ceiling light,62,35,light,lamp
+celling down light 21,ceiling light,62,35,light,lamp
+celling down light 22,ceiling light,62,35,light,lamp
+celling down light 23,ceiling light,62,35,light,lamp
+celling down light 24,ceiling light,62,35,light,lamp
+celling down light 25,ceiling light,62,35,light,lamp
+celling down light 26,ceiling light,62,35,light,lamp
+celling down light 27,ceiling light,62,35,light,lamp
+celling down light 28,ceiling light,62,35,light,lamp
+celling down light 29,ceiling light,62,35,light,lamp
+celling down light 3,ceiling light,62,35,light,lamp
+celling down light 30,ceiling light,62,35,light,lamp
+celling down light 31,ceiling light,62,35,light,lamp
+celling down light 32,ceiling light,62,35,light,lamp
+celling down light 33,ceiling light,62,35,light,lamp
+celling down light 34,ceiling light,62,35,light,lamp
+celling down light 35,ceiling light,62,35,light,lamp
+celling down light 4,ceiling light,62,35,light,lamp
+celling down light 5,ceiling light,62,35,light,lamp
+celling down light 6,ceiling light,62,35,light,lamp
+celling down light 7,ceiling light,62,35,light,lamp
+celling down light 8,ceiling light,62,35,light,lamp
+celling down light 9,ceiling light,62,35,light,lamp
+chair A,chair,5,5,chair,chair
+chair A (1),chair,5,5,chair,chair
+chair A (2),chair,5,5,chair,chair
+chair A (3),chair,5,5,chair,chair
+chair C,chair,5,5,chair,chair
+chair C (1),chair,5,5,chair,chair
+chair C (2),chair,5,5,chair,chair
+chair C (3),chair,5,5,chair,chair
+chair C (4),chair,5,5,chair,chair
+chair C (5),chair,5,5,chair,chair
+chair D,chair,5,5,chair,chair
+chair D (1),chair,5,5,chair,chair
+chair F,chair,5,5,chair,chair
+chair F (1),chair,5,5,chair,chair
+circular light,circular light,62,35,light,lamp
+circular light (1),circular light,62,35,light,lamp
+clock,clock,56,40,clock,otherprop
+clock 1,clock,56,40,clock,otherprop
+commode,toilet,124,33,toilet,toilet
+condiment,spice jar,272,40,spice bottle,otherprop
+condiment 1,spice jar,272,40,spice bottle,otherprop
+condiment 2,spice jar,272,40,spice bottle,otherprop
+condiment 3,spice jar,272,40,spice bottle,otherprop
+condiment 4,spice jar,272,40,spice bottle,otherprop
+condiment 5,spice jar,272,40,spice bottle,otherprop
+condiment 6,spice jar,272,40,spice bottle,otherprop
+cooker,stove,242,40,stove,otherprop
+courtyard,unknown,20,40,unknown,otherprop
+courtyard wall,unknown,20,40,unknown,otherprop
+Cube,cube,20,40,unknown,otherprop
+Cube 1,cube,20,40,unknown,otherprop
+Cube 2,cube,20,40,unknown,otherprop
+Cube 3,cube,20,40,unknown,otherprop
+cup,cup,35,40,cup,otherprop
+cup (1),cup,35,40,cup,otherprop
+cup 1,cup,35,40,cup,otherprop
+cup 10,cup,35,40,cup,otherprop
+cup 2,cup,35,40,cup,otherprop
+cup 3,cup,35,40,cup,otherprop
+cup 4,cup,35,40,cup,otherprop
+cup 5,cup,35,40,cup,otherprop
+cup 6,cup,35,40,cup,otherprop
+cup 7,cup,35,40,cup,otherprop
+cup 8,cup,35,40,cup,otherprop
+cup 9,cup,35,40,cup,otherprop
+cupboard 01doorA,unknown,20,40,unknown,otherprop
+cupboard 01doorA 1,unknown,20,40,unknown,otherprop
+cupboard 01doorA 2,unknown,20,40,unknown,otherprop
+cupboard 01doorA 3,unknown,20,40,unknown,otherprop
+cupboard 01doorB,unknown,20,40,unknown,otherprop
+cupboard 01doorB 1,unknown,20,40,unknown,otherprop
+cupboard 01doorB 2,unknown,20,40,unknown,otherprop
+cupboard 01open,kitchen cabinet,3,3,cabinet,cabinet
+cupboard 02 door,unknown,20,40,unknown,otherprop
+cupboard 02 door 1,unknown,20,40,unknown,otherprop
+cupboard 02 door 2,unknown,20,40,unknown,otherprop
+cupboard 02 open,cupboard,3,3,cabinet,cabinet
+cupboard 03 doorA 1,unknown,20,40,unknown,otherprop
+cupboard 03 doorA 2,unknown,20,40,unknown,otherprop
+cupboard 03 doorA 3,unknown,20,40,unknown,otherprop
+cupboard 03 doorB,unknown,20,40,unknown,otherprop
+cupboard 03 doorB 1,unknown,20,40,unknown,otherprop
+cupboard 03 open,cupboard,3,3,cabinet,cabinet
+cupboard 04 doorA,unknown,20,40,unknown,otherprop
+cupboard 04 doorB,unknown,20,40,unknown,otherprop
+cupboard 04 doorC,unknown,20,40,unknown,otherprop
+cupboard 04 doorE,unknown,20,40,unknown,otherprop
+cupboard 04 doorF,unknown,20,40,unknown,otherprop
+cupboard 04 open,cupboard,3,3,cabinet,cabinet
+curtain B,curtain,89,16,curtain,curtain
+curtain B (1),curtain,89,16,curtain,curtain
+curtain C,curtain,89,16,curtain,curtain
+curtain1a,curtain,89,16,curtain,curtain
+curtain1a (1),curtain,89,16,curtain,curtain
+curtain1b,curtain,89,16,curtain,curtain
+curtain1b (1),curtain,89,16,curtain,curtain
+dining table A,dining table,19,7,table,table
+dish,dish,233,40,plate,otherprop
+dish 1,dish,233,40,plate,otherprop
+dish 2,dish,233,40,plate,otherprop
+dish 3,dish,233,40,plate,otherprop
+dish 4,dish,233,40,plate,otherprop
+dish 5,dish,233,40,plate,otherprop
+dish 6,dish,233,40,plate,otherprop
+doorframe 1,door frame,28,8,door,door
+doorframe 2,doorframe,615,38,door frame,otherstructure
+doorframe 3,door frame,615,38,door frame,otherstructure
+doorframe 4,door frame,28,8,door,door
+drawer openA,drawer,174,40,drawer,otherprop
+drawer openA 1,drawer,174,40,drawer,otherprop
+drawer openA 2,drawer,174,40,drawer,otherprop
+drawer openA 3,drawer,174,40,drawer,otherprop
+drawer openA 4,drawer,174,40,drawer,otherprop
+drawer openA 5,drawer,174,40,drawer,otherprop
+drawer openA 6,drawer,174,40,drawer,otherprop
+drawer openA 7,drawer,174,40,drawer,otherprop
+drawer openA 8,drawer,174,40,drawer,otherprop
+dread board,cutting board,247,40,cutting board,otherprop
+dumbbell,dumbbell,838,40,hand weight,otherprop
+dumbbell 1,dumbbell,838,40,hand weight,otherprop
+Electric Cooker,cooker,16,40,pot,otherprop
+Electric Cooker 1,cooker,16,40,pot,otherprop
+electric cupboard door,oven door,238,39,oven,otherfurniture
+electric cupboard open,oven,238,39,oven,otherfurniture
+electric kettle,kettle,738,40,electrical kettle,otherprop
+electric kettle 1,kettle,738,40,electrical kettle,otherprop
+face cream A,face cream,637,40,container of skin cream,otherprop
+face cream A 1,face cream,637,40,container of skin cream,otherprop
+face cream B,face cream,637,40,container of skin cream,otherprop
+face cream B 1,face cream,637,40,container of skin cream,otherprop
+floor,floor,11,2,floor,floor
+forcer open,cabinet,3,3,cabinet,cabinet
+forcer open doorA,unknown,20,40,unknown,otherprop
+forcer open doorB,unknown,20,40,unknown,otherprop
+forcer open doorC,unknown,20,40,unknown,otherprop
+forcer open doorD,unknown,20,40,unknown,otherprop
+forcer open drawerA,unknown,20,40,unknown,otherprop
+forcer open drawerB,unknown,20,40,unknown,otherprop
+forcer open drawerC,unknown,20,40,unknown,otherprop
+forcer open drawerD,unknown,20,40,unknown,otherprop
+fork,fork,349,40,fork,otherprop
+fork 2,fork,349,40,fork,otherprop
+fork 3,fork,349,40,fork,otherprop
+fork 4,fork,349,40,fork,otherprop
+fork 5,fork,349,40,fork,otherprop
+fork 6,fork,349,40,fork,otherprop
+hand wash basin,sink,24,34,sink,sink
+handiwork01,sculpture,853,40,decorative item,otherprop
+handiwork02,sculpture,853,40,decorative item,otherprop
+handiwork04,pottery,853,40,decorative item,otherprop
+handwashbox open,sink cabinet,3,3,cabinet,cabinet
+handwashbox open doorA,unknown,20,40,unknown,otherprop
+handwashbox open doorB,unknown,20,40,unknown,otherprop
+housecelling,ceiling,4,22,ceiling,ceiling
+housewall,wall,21,38,wall,otherstructure
+icebox boxA,unknown,20,40,unknown,otherprop
+icebox boxB,unknown,20,40,unknown,otherprop
+icebox doorA open,unknown,20,40,unknown,otherprop
+icebox doorB open,unknown,20,40,unknown,otherprop
+icebox open,refridgerator,17,24,refridgerator,refridgerator
+kitchen door 1,kitchen door,28,38,door,otherstructure
+kitchen door 2,kitchen door,28,8,door,door
+kitchen door 3,kitchen door,28,8,door,door
+kitchen door frame,kitchen door frame,615,38,door frame,otherstructure
+kitchen knife,kitchen knife,259,40,knife,otherprop
+kitchen knife 1,kitchen knife,259,40,knife,otherprop
+kitchen knife 2,kitchen knife,259,40,knife,otherprop
+kitchen light,kitchen light,62,40,light,otherprop
+knife,knife,259,40,knife,otherprop
+knife shelf,knife rack,258,40,knife rack,otherprop
+knife03,knife,259,40,knife,otherprop
+knifebox,unknown,20,40,unknown,otherprop
+lamp,lamp,144,35,lamp,lamp
+lamp (1),lamp,144,35,lamp,lamp
+lamp (10),lamp,144,35,lamp,lamp
+lamp (2),lamp,144,35,lamp,lamp
+lamp (3),lamp,144,35,lamp,lamp
+lamp (4),lamp,144,35,lamp,lamp
+lamp (5),lamp,144,35,lamp,lamp
+lamp (6),lamp,144,35,lamp,lamp
+lamp (7),lamp,144,35,lamp,lamp
+lamp (8),lamp,144,35,lamp,lamp
+lamp (9),lamp,144,35,lamp,lamp
+microwave oven door,microwave,13,40,microwave,otherprop
+microwave oven open,microwave,13,40,microwave,otherprop
+mirror,mirror,122,19,mirror,mirror
+oil,oil bottle,683,40,oil container,otherprop
+oil 1,oil bottle,683,40,oil container,otherprop
+oil control,lotion,683,40,oil container,otherprop
+oil control (1),lotion,683,40,oil container,otherprop
+oil control (2),lotion,683,40,oil container,otherprop
+outside door001,outside door,28,8,door,door
+outside door002,outside door,28,8,door,door
+parlor light,ceiling light,62,35,light,lamp
+photo01,picture,64,11,picture,picture
+photo02,picture,64,11,picture,picture
+photoframe01,photo,64,40,picture,otherprop
+photoframe02,photo,64,40,picture,otherprop
+photoframe03,photo,64,40,picture,otherprop
+photoframe04,photo,64,40,picture,otherprop
+pillow1,pillow,119,18,pillow,pillow
+pillow10,pillow,119,18,pillow,pillow
+pillow11,pillow,119,18,pillow,pillow
+pillow2,pillow,119,18,pillow,pillow
+pillow3,pillow,119,18,pillow,pillow
+pillow4,pillow,119,18,pillow,pillow
+pillow7,pillow,119,18,pillow,pillow
+plant01,potted plant,82,40,plant,otherprop
+plant03,potted plant,82,40,plant,otherprop
+plant04,potted plant,82,40,plant,otherprop
+plant05,potted plant,82,40,plant,otherprop
+plant06,potted plant,82,40,plant,otherprop
+plant07,potted plant,82,40,plant,otherprop
+plant08,potted plant,82,40,plant,otherprop
+plate,plate,233,40,plate,otherprop
+plate 1,plate,233,40,plate,otherprop
+plate 2,plate,233,40,plate,otherprop
+plate 3,plate,233,40,plate,otherprop
+plate 4,plate,233,40,plate,otherprop
+plate 6,plate,233,40,plate,otherprop
+plate 8,plate,233,40,plate,otherprop
+road,unknown,20,40,unknown,otherprop
+roomdoor,door,28,8,door,door
+roomdoor 1,door,28,8,door,door
+roomdoor 2,door,28,8,door,door
+shower,shower head,650,39,shower head,otherfurniture
+slipper01,slipper,149,40,shoe,otherprop
+slipper02,slipper,149,40,shoe,otherprop
+small table,table,19,7,table,table
+smallbox1,box,26,29,box,box
+smallbox2,box,26,29,box,box
+smallbox3,box,26,29,box,box
+smallbox4,box,26,29,box,box
+smallbox5,box,26,29,box,box
+smalldesk,desk,36,39,desk,otherfurniture
+smalldesk 1,desk,36,39,desk,otherfurniture
+smalldesk02,desk,36,39,desk,otherfurniture
+smoke cleaner,range hood,380,38,range hood,otherstructure
+sofa A,sofa,83,6,sofa,sofa
+sofa A 1,sofa,83,6,sofa,sofa
+sofa B,sofa,83,6,sofa,sofa
+sofa C,sofa,83,6,sofa,sofa
+sofapillow01,pillow,119,18,pillow,pillow
+sofapillow02,pillow,119,18,pillow,pillow
+sofapillow03,pillow,119,18,pillow,pillow
+sofapillow05,pillow,119,18,pillow,pillow
+sofapillow06,pillow,119,18,pillow,pillow
+sofapillow07,pillow,119,18,pillow,pillow
+sofapillow09,pillow,119,18,pillow,pillow
+sofapillow10,pillow,119,18,pillow,pillow
+sofapillow11,pillow,119,18,pillow,pillow
+sofapillow13,pillow,119,18,pillow,pillow
+sofapillow14,pillow,119,18,pillow,pillow
+sound1,speaker,54,40,speaker,otherprop
+sound2,speaker,54,40,speaker,otherprop
+sound4,speaker,54,40,speaker,otherprop
+sound5,speaker,54,40,speaker,otherprop
+sound6,speaker,54,40,speaker,otherprop
+sound7,speaker,54,40,speaker,otherprop
+spoon,spoon,283,40,spoon,otherprop
+spoon 1,spoon,283,40,spoon,otherprop
+spoon 10,spoon,283,40,spoon,otherprop
+spoon 2,spoon,283,40,spoon,otherprop
+spoon 3,spoon,283,40,spoon,otherprop
+spoon 4,spoon,283,40,spoon,otherprop
+spoon 5,spoon,283,40,spoon,otherprop
+spoon 6,spoon,283,40,spoon,otherprop
+spoon 7,spoon,283,40,spoon,otherprop
+spoon 8,spoon,283,40,spoon,otherprop
+spoon 9,spoon,283,40,spoon,otherprop
+teadesk,coffee table,356,7,coffee table,table
+toiletchest,bathroom cabinet,3,3,cabinet,cabinet
+toiletchest door,unknown,20,40,unknown,otherprop
+toiletglass,toilet glass,612,40,glass,otherprop
+toiletpaper,toilet paper,139,40,toilet paper,otherprop
+toiletwindow,window,59,9,window,window
+towel,towel,113,27,paper towel,towel
+tray,tray,179,40,tray,otherprop
+tree A,tree,82,40,plant,otherprop
+tree A (1),tree,82,40,plant,otherprop
+tree A (10),tree,82,40,plant,otherprop
+tree A (11),tree,82,40,plant,otherprop
+tree A (12),tree,82,40,plant,otherprop
+tree A (14),tree,82,40,plant,otherprop
+tree A (15),tree,82,40,plant,otherprop
+tree A (16),tree,82,40,plant,otherprop
+tree A (17),tree,82,40,plant,otherprop
+tree A (18),tree,82,40,plant,otherprop
+tree A (19),tree,82,40,plant,otherprop
+tree A (2),tree,82,40,plant,otherprop
+tree A (20),tree,82,40,plant,otherprop
+tree A (3),tree,82,40,plant,otherprop
+tree A (4),tree,82,40,plant,otherprop
+tree A (5),tree,82,40,plant,otherprop
+tree A (6),tree,82,40,plant,otherprop
+tree A (7),tree,82,40,plant,otherprop
+tree A (8),tree,82,40,plant,otherprop
+tree A (9),tree,82,40,plant,otherprop
+tv 1,tv,172,25,television,television
+tv 2,tv,172,25,television,television
+tv 3,tv,172,25,television,television
+tvdesk,tv stand,291,39,tv stand,otherfurniture
+tvdesk1,tv cabinet,3,3,cabinet,cabinet
+TVwall,wall,21,38,wall,otherstructure
+umbrella,umbrella,203,40,umbrella,otherprop
+vcd2,dvd player,170,40,dvd player,otherprop
+vcd3,dvd player,170,40,dvd player,otherprop
+vcd4,dvd player,170,40,dvd player,otherprop
+wardrobe doorA,unknown,20,40,unknown,otherprop
+wardrobe doorB,unknown,20,40,unknown,otherprop
+wardrobe doorC,unknown,20,40,unknown,otherprop
+wardrobe doorD,unknown,20,40,unknown,otherprop
+wardrobe drawer,unknown,20,40,unknown,otherprop
+wardrobe drawer 1,unknown,20,40,unknown,otherprop
+wardrobe drawer 2,unknown,20,40,unknown,otherprop
+wardrobe drawer 3,unknown,20,40,unknown,otherprop
+wardrobe open,wardrobe,772,17,wardrobe,dresser
+wardrobe open 1,wardrobe,772,17,wardrobe,dresser
+wensk,notecards,438,40,notecards,otherprop
+windows,windows,59,9,window,window
+woodwall,wall,21,38,wall,otherstructure

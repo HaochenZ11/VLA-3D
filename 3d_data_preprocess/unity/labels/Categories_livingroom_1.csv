@@ -1,0 +1,100 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Book 1,book,1,23,book,books
+Book 2,book,1,23,book,books
+Book 3,book,1,23,book,books
+Books 2,books,85,23,books,books
+Books 2 (1),books,85,23,books,books
+Bottle 1,bottle,2,40,bottle,otherprop
+cabinet,cabinet,3,3,cabinet,cabinet
+Cabinet tv,tv cabinet,3,3,cabinet,cabinet
+Candle 1,unknown,20,40,unknown,otherprop
+Candle 2,unknown,20,40,unknown,otherprop
+Candle lamp,lamp,144,35,lamp,lamp
+Carpet,carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (1),ceiling lamp,144,35,lamp,lamp
+Ceiling lamp 2,ceiling lamp,144,35,lamp,lamp
+Ceiling lamp 2 (1),ceiling lamp,144,35,lamp,lamp
+Chair 1,chair,5,5,chair,chair
+Chair 2,chair,5,5,chair,chair
+Chair 2 (1),chair,5,5,chair,chair
+Chair 2 (2),chair,5,5,chair,chair
+Chair 2 (3),chair,5,5,chair,chair
+Chair 2 (4),chair,5,5,chair,chair
+Chair 2 (5),chair,5,5,chair,chair
+Chair 2 (6),chair,5,5,chair,chair
+Chair 2 (7),chair,5,5,chair,chair
+Crock,bowl,22,40,bowl,otherprop
+Curtain,curtain,89,16,curtain,curtain
+Curtain (1),curtain,89,16,curtain,curtain
+Deck chair,deck chair,5,5,chair,chair
+Deck chair (1),deck chair,5,5,chair,chair
+Dish 1,dish,867,40,serving dish,otherprop
+Dish 2,dish,867,40,serving dish,otherprop
+door,door,28,8,door,door
+door A,door,28,8,door,door
+door B,door,28,8,door,door
+door C,door,28,8,door,door
+door D,door,28,8,door,door
+Exterior,unknown,20,40,unknown,otherprop
+Figure 1,bird decoration,842,40,decoration item,otherprop
+Figure 2,ball candle holder,842,40,decoration item,otherprop
+Figure 3,pyramid candle holder,842,40,decoration item,otherprop
+Floor,floor,11,2,floor,floor
+Focus,focus light,62,35,light,lamp
+Focus (1),focus light,62,35,light,lamp
+Focus (2),focus light,62,35,light,lamp
+Focus (3),focus light,62,35,light,lamp
+Focus (4),focus light,62,35,light,lamp
+Focus (5),focus light,62,35,light,lamp
+Focus (6),focus light,62,35,light,lamp
+Focus (7),focus light,62,35,light,lamp
+Focus (8),focus light,62,35,light,lamp
+Focus (9),focus light,62,35,light,lamp
+frame door,door frame ,615,38,door frame,otherstructure
+Grating,air vent,25,38,air vent,otherstructure
+Grating (1),air vent,25,38,air vent,otherstructure
+Grating (2),air vent,25,38,air vent,otherstructure
+Grating (3),air vent,25,38,air vent,otherstructure
+Lamp,lamp,144,35,lamp,lamp
+Pen,pen,97,40,pen,otherprop
+Picture 1,picture,64,11,picture,picture
+Picture 2,picture,64,11,picture,picture
+Picture 3,picture,64,11,picture,picture
+Picture 4,picture,64,11,picture,picture
+Picture 5,picture,64,11,picture,picture
+Picture 6,picture,64,11,picture,picture
+Picture 7,picture,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 3,pillow,119,18,pillow,pillow
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 2,potted plant,82,40,plant,otherprop
+plant 3,potted plant,82,40,plant,otherprop
+Plant 4,potted plant,82,40,plant,otherprop
+Plant 5,potted plant,82,40,plant,otherprop
+Plant 6,potted plant,82,40,plant,otherprop
+plant support,plant stand,50,40,stand,otherprop
+Puff,ottoman,359,39,ottoman,otherfurniture
+Shelf,shelf,88,10,bookshelf,book shelf
+Sofa,sofa,83,6,sofa,sofa
+Sofa pillows,sofa pillows,119,18,pillow,pillow
+Switch,light switch,301,40,light switch,otherprop
+Table 1,round table,19,7,table,table
+Table 2,round table,19,7,table,table
+Table 3,table,19,7,table,table
+Trophy,trophy decoration,547,40,trophy,otherprop
+Tv,tv remote,175,40,remote control,otherprop
+Tv remote,tv remote,175,40,remote control,otherprop
+Vase 1,vase,78,40,vase,otherprop
+Vase 2,vase,78,40,vase,otherprop
+Vase 2 (1),vase,78,40,vase,otherprop
+Vase 3,vase,78,40,vase,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+Wall 5,wall,21,1,wall,wall
+window,window,59,9,window,window
+window frame,window frame,477,38,window frame,otherstructure

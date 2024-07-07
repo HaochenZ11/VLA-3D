@@ -1,0 +1,85 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Bathroom furniture 1,unknown,20,40,unknown,otherprop
+Bathroom walls,bathroom walls,21,1,wall,wall
+bed,bed,157,4,bed,bed
+bedside table,bedside table,158,32,night stand,night stand
+bedside table (1),bedside table,158,32,night stand,night stand
+Bench,bench,204,39,bench,otherfurniture
+Bin,trash bin,12,40,garbage bin,otherprop
+blanket,blanket,312,40,blanket,otherprop
+Book,book,1,40,book,otherprop
+ceiling,ceiling,4,22,ceiling,ceiling
+ceiling 1,ceiling,4,22,ceiling,ceiling
+ceiling 2,ceiling,4,22,ceiling,ceiling
+ceiling 3,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,ceiling lamp,144,35,lamp,lamp
+Chair,chair,5,5,chair,chair
+chair 2,chair,5,5,chair,chair
+Closet,desk cabinet,3,3,cabinet,cabinet
+curtains,curtains,89,16,curtain,curtain
+curtains (1),curtains,89,16,curtain,curtain
+door,door,28,8,door,door
+door wall,wall,21,1,wall,wall
+floor,floor,11,2,floor,floor
+floor (1),floor,11,2,floor,floor
+floor (2),floor,11,2,floor,floor
+Focus,focus light,62,35,light,lamp
+Focus (1),focus light,62,35,light,lamp
+Focus (2),focus light,62,35,light,lamp
+Focus (3),focus light,62,35,light,lamp
+frame door,door frame,615,38,door frame,otherstructure
+glass,window,59,9,window,window
+Glasses,eye glasses,335,40,eye glasses,otherprop
+headboard,unknown,20,40,unknown,otherprop
+Heated towel,towel rack,134,39,towel rod,otherfurniture
+Lamp1,lamp,144,35,lamp,lamp
+Lamp2,lamp,144,35,lamp,lamp
+Lamp2 (1),lamp,144,35,lamp,lamp
+Magazine,magazine,71,40,magazine,otherprop
+Mirror,mirror,122,19,mirror,mirror
+Paper 1,paper,15,26,paper,paper
+Paper 2,paper,15,26,paper,paper
+Paper 3,paper,15,26,paper,paper
+Paper holder,paper holder,470,40,paper holder,otherprop
+Phone,phone,32,40,telephone,otherprop
+Picture 1,picture,64,11,picture,picture
+Picture 2,picture,64,11,picture,picture
+Picture 3,painting,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 1 (1),pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 2 (1),pillow,119,18,pillow,pillow
+Shower bath,shower,123,28,shower curtain,shower curtain
+Sing,sign,208,40,sign,otherprop
+Sink,sink,24,34,sink,sink
+Sink (1),sink,24,34,sink,sink
+Soap,soap,133,40,soap,otherprop
+Soap 2,soap,133,40,soap,otherprop
+suitcase,suitcase,199,40,suitcase,otherprop
+switch1,light switch,301,40,light switch,otherprop
+switch2,light switch,301,40,light switch,otherprop
+Tap,shower tap,9,39,faucet,otherfurniture
+Toilet,toilet,124,33,toilet,toilet
+Towel,towel,135,27,towel,towel
+Towel 2,towel,135,27,towel,towel
+towel 3,towel,135,27,towel,towel
+towel rack,towel rack,134,39,towel rod,otherfurniture
+Trash can,trash can,12,40,garbage bin,otherprop
+Tv,tv,172,25,television,television
+Vase1,vase,78,40,vase,otherprop
+Vase2,vase,78,40,vase,otherprop
+Wall lamp,wall lamp,144,35,lamp,lamp
+wall1,wall,21,1,wall,wall
+wall10,wall,21,1,wall,wall
+wall11,wall,21,1,wall,wall
+wall12,wall,21,1,wall,wall
+wall12 (1),wall,21,1,wall,wall
+wall13,wall,21,1,wall,wall
+wall14,wall,21,1,wall,wall
+wall15,wall,21,1,wall,wall
+wall2,wall,21,1,wall,wall
+wall2 (1),wall,21,1,wall,wall
+wall4,wall,21,1,wall,wall
+wall5,wall,21,1,wall,wall
+wall6,wall,21,1,wall,wall
+wall7,wall,21,1,wall,wall

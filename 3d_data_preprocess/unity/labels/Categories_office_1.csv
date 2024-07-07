@@ -1,0 +1,101 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+bench,bench,204,39,bench,otherfurniture
+bench (1),bench,204,39,bench,otherfurniture
+Bin,trash bin,12,40,garbage bin,otherprop
+books 1,book,1,23,book,books
+books 2,book,1,23,book,books
+Bottle,bottle,2,40,bottle,otherprop
+Bottle (1),bottle,2,40,bottle,otherprop
+Box 2,box,26,29,box,box
+Box1,box,26,29,box,box
+Box1 (1),box,26,40,box,otherprop
+Building,building,20,38,unknown,otherstructure
+Building (1),building,20,38,unknown,otherstructure
+Building (2),building,20,38,unknown,otherstructure
+Cactus,potted cactus,641,40,cactus,otherprop
+Cactus (1),potted cactus,641,40,cactus,otherprop
+Cactus 2,potted cactus,641,40,cactus,otherprop
+ceiling,ceiling,4,22,ceiling,ceiling
+Chair,chair,5,5,chair,chair
+Chair (1),chair,5,5,chair,chair
+Chair (2),chair,5,5,chair,chair
+Chair (3),chair,5,5,chair,chair
+Chair (4),chair,5,5,chair,chair
+Chair (5),chair,5,5,chair,chair
+Chair 2,chair,5,5,chair,chair
+Chair 2 (1),chair,5,5,chair,chair
+Chair 2 (2),chair,5,5,chair,chair
+Chair 2 (3),chair,5,5,chair,chair
+Chair 2 (4),chair,5,5,chair,chair
+Chair 2 (5),chair,5,5,chair,chair
+Clock,clock,56,40,clock,otherprop
+computer,computer monitor,49,40,monitor,otherprop
+door,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+door wall 1,wall,21,1,wall,wall
+door wall 2,wall,21,1,wall,wall
+File Cabinet,file cabinet,3,3,cabinet,cabinet
+Files 1,folder,69,26,folder,paper
+Files 2,folder,69,26,folder,paper
+Files 3,folder,69,26,folder,paper
+Files 3 (1),folder,69,26,folder,paper
+Files 4,folder,69,26,folder,paper
+Floor,floor,11,2,floor,floor
+Focus light,focus light,62,35,light,lamp
+Focus light (1),focus light,62,35,light,lamp
+Focus light (2),focus light,62,35,light,lamp
+Focus light (3),focus light,62,35,light,lamp
+Focus light (4),focus light,62,35,light,lamp
+Focus light (5),focus light,62,35,light,lamp
+Focus light (6),focus light,62,35,light,lamp
+Focus light (7),focus light,62,35,light,lamp
+Glasses,eye glasses,335,40,eye glasses,otherprop
+keyboard,keyboard,47,40,keyboard,otherprop
+Lamp 1,lamp,144,35,lamp,lamp
+Laptop,laptop,37,40,laptop,otherprop
+machine coffee,coffee machine,234,40,coffee machine,otherprop
+Marker 1,marker,117,40,whiteboard marker,otherprop
+Marker 2,marker,117,40,whiteboard marker,otherprop
+Marker 3,marker,117,40,whiteboard marker,otherprop
+Mouse,computer mouse,103,40,mouse,otherprop
+Mouse (1),computer mouse,103,40,mouse,otherprop
+Mouse (2),computer mouse,103,40,mouse,otherprop
+Mouse (3),computer mouse,103,40,mouse,otherprop
+Mouse (4),computer mouse,103,40,mouse,otherprop
+Mouse (5),computer mouse,103,40,mouse,otherprop
+Notebook,book,1,23,book,books
+Paper 1,paper,483,26,papers,paper
+Paper 2,paper,483,26,papers,paper
+Paper 3,paper,483,26,papers,paper
+Paper box,paper box,503,29,box of paper,box
+Paper box (1),paper box,503,29,box of paper,box
+Paper box 2,paper box,503,29,box of paper,box
+paper cup,paper cup,35,40,cup,otherprop
+paper cup (1),paper cup,35,40,cup,otherprop
+paper cup (2),paper cup,35,40,cup,otherprop
+paper1,paper,483,26,papers,paper
+paper1 (1),paper,483,26,papers,paper
+paper1 (2),paper,483,26,papers,paper
+paper2,paper,483,26,papers,paper
+Papers,file,75,26,file,paper
+Papers (1),file,75,26,file,paper
+Pen,pen,97,40,pen,otherprop
+Phone 1,phone,32,40,telephone,otherprop
+Phone 2,phone,32,40,telephone,otherprop
+Phone 3,phone,32,40,telephone,otherprop
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 2,potted plant,82,40,plant,otherprop
+Plant 3,potted plant,82,40,plant,otherprop
+Plant 4,potted plant,82,40,plant,otherprop
+Proyector screen,projector screen,53,40,projector screen,otherprop
+Shelving,shelf,42,15,shelves,shelves
+Shelving (1),shelf,42,15,shelves,shelves
+Table 1,table,19,7,table,table
+Table 2,table,19,7,table,table
+Terrain,terrain,20,38,unknown,otherstructure
+Wall 3,wall,21,1,wall,wall
+water,water tank,20,40,unknown,otherprop
+Water cooler,water cooler,507,40,water dispenser,otherprop
+window wall 1,wall,21,1,wall,wall
+windows 1,window,59,9,window,window
+World map,map wall decal,186,40,wall decoration,otherprop

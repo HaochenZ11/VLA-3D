@@ -1,0 +1,112 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Box,box,26,40,box,otherprop
+Building 1,building,20,38,unknown,otherstructure
+Building 1 (1),building,20,38,unknown,otherstructure
+Cabinet 1,cabinet,3,3,cabinet,cabinet
+Cabinet 1 (1),cabinet,3,3,cabinet,cabinet
+Cabinet 1 (2),cabinet,3,3,cabinet,cabinet
+Cabinet 1 (3),cabinet,3,3,cabinet,cabinet
+Calendar,calendar,583,40,calendar,otherprop
+CCTV,security camera,212,40,security camera,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (1),ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (2),ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (3),ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (4),ceiling lamp,144,35,lamp,lamp
+Chair 1,chair,5,5,chair,chair
+Chair 1 (1),chair,5,5,chair,chair
+Chair 1 (2),chair,5,5,chair,chair
+Chair 1 (3),chair,5,5,chair,chair
+Clock,clock,56,40,clock,otherprop
+Coffee,coffee cup,35,40,cup,otherprop
+Coffee (1),coffee cup,35,40,cup,otherprop
+Coffee (2),coffee cup,35,40,cup,otherprop
+Coffee (3),coffee cup,35,40,cup,otherprop
+Coffee (4),coffee cup,35,40,cup,otherprop
+Column,column,94,38,column,otherstructure
+Column (1),column,94,38,column,otherstructure
+Column (2),column,94,38,column,otherstructure
+Column (3),column,94,38,column,otherstructure
+Column (4),column,94,38,column,otherstructure
+Computer,computer,46,40,computer,otherprop
+Computer (1),computer,46,40,computer,otherprop
+Computer (2),computer,46,40,computer,otherprop
+cover,unknown,20,40,unknown,otherprop
+Cup,cup,35,40,cup,otherprop
+Door,door,28,8,door,door
+door frame,door frame,615,8,door frame,door
+drawers,drawers,174,3,drawer,cabinet
+drawers2,drawers,174,3,drawer,cabinet
+Eraser,eraser,100,40,eraser,otherprop
+Exit picture,exit sign,86,40,exit sign,otherprop
+File 1,unknown,20,40,unknown,otherprop
+File 2,unknown,20,40,unknown,otherprop
+File 3,unknown,20,40,unknown,otherprop
+File 4,folder,69,26,folder,paper
+File 5,folder,69,26,folder,paper
+Files 4,file,75,26,file,paper
+Files 4 (1),file,75,26,file,paper
+Files 4 (2),unknown,20,40,unknown,otherprop
+Files 4 (3),unknown,20,40,unknown,otherprop
+Fire alarm,fire alarm,338,40,fire alarm,otherprop
+Fire Hose,fire hose,10,40,fire extinguisher,otherprop
+Floor,floor,11,2,floor,floor
+folder,folder,69,23,folder,books
+Glass partition,glass wall,800,38,wall divider,otherstructure
+Glass partition 2,glass wall,800,38,wall divider,otherstructure
+Headphones,headphones,160,40,headphones,otherprop
+Keyboard,keyboard,47,40,keyboard,otherprop
+Keyboard (1),keyboard,47,40,keyboard,otherprop
+Keyboard (2),keyboard,47,40,keyboard,otherprop
+Laptop 1,laptop,37,40,laptop,otherprop
+Machine coffee,coffee machine,234,40,coffee machine,otherprop
+Marker 1,marker,117,40,whiteboard marker,otherprop
+Marker 2,marker,117,40,whiteboard marker,otherprop
+Marker 3,marker,117,40,whiteboard marker,otherprop
+Monitor,computer monitor,49,25,monitor,television
+Monitor (1),computer monitor,49,25,monitor,television
+Monitor (2),computer monitor,49,25,monitor,television
+Mouse,computer mouse,103,40,mouse,otherprop
+Mouse (1),computer mouse,103,40,mouse,otherprop
+Mouse (2),computer mouse,103,40,mouse,otherprop
+Mouse (3),computer mouse,103,40,mouse,otherprop
+Mouse pad,mouse pad,539,40,mouse pad,otherprop
+Mouse pad (1),mouse pad,539,40,mouse pad,otherprop
+Mouse pad (2),mouse pad,539,40,mouse pad,otherprop
+Mouse pad (3),mouse pad,539,40,mouse pad,otherprop
+Notebook 1,notebook,210,23,notebook,books
+Notebook 2,notebook,210,23,notebook,books
+Notice board,notice board,408,40,board,otherprop
+Paper,paper,15,26,paper,paper
+Pen,pen,97,40,pen,otherprop
+Phone,phone,290,40,cell phone,otherprop
+Phone 2,phone,290,40,cell phone,otherprop
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 1 (1),potted plant,82,40,plant,otherprop
+Plant 2,potted plant,82,40,plant,otherprop
+Posit 1,sticky notes,15,26,paper,paper
+Posit 2,sticky notes,15,26,paper,paper
+poster,poster,406,11,poster board,picture
+Poster 1,poster,406,11,poster board,picture
+Poster 2,poster,406,11,poster board,picture
+poster 2,poster,406,11,poster board,picture
+Reports,files,75,26,file,paper
+Reports (1),unknown,20,40,unknown,otherprop
+Reports (2),unknown,20,40,unknown,otherprop
+Reports (3),unknown,20,40,unknown,otherprop
+Reports (4),unknown,20,40,unknown,otherprop
+Reports (5),unknown,20,40,unknown,otherprop
+Switch,light switch,301,40,light switch,otherprop
+Table 1,table,19,7,table,table
+Trashcan,trash can,12,40,garbage bin,otherprop
+Vending machine,vending machine,20,40,unknown,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+Water bottle,water bottle,2,40,bottle,otherprop
+Whiteboard,whiteboard,45,30,whiteboard,white board
+window A,window,59,9,window,window
+window B,window,59,9,window,window
+window frame,window frame,477,9,window frame,window

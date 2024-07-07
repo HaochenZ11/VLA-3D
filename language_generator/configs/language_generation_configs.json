@@ -19,7 +19,7 @@
     "./configs/relationship_configs/near_template.json",
     "./configs/relationship_configs/on_template.json"
   ],
-  "scene_data_root": "../sample_data",
+  "scene_data_root": "/home/navigation/Dataset/VLA_Dataset",
   "language_data_prefix": "language_data",
   "statement_data_prefix": "statement_data",
   "language_template": "./configs/language_configs/language_template.json",

@@ -117,7 +117,7 @@ def process_file(scene_path):
 
     subdir, file_path = scene_path
 
-    scene_name = os.path.basename(file_path).split('.')[0]
+    scene_name = os.path.basename(file_path).replace("_scene_graph.json", "")
         # if not os.path.exists(os.path.join(subdir, f"{scene_name}_label_data.json")):
 
         # print(f"Skipping {scene_name} ({counter.value}/{len(scene_paths)})")
@@ -125,26 +125,26 @@ def process_file(scene_path):
     with open(file_path) as sg:
         scene_graph = json.load(sg)
 
-    spatial_relations_file = file_path.replace(".json", "_grouped.json")
-    objects_file = file_path.replace(".json", "_object_data.json")
-    object_class_file = file_path.replace(".json", "_object_class.json")
+    spatial_relations_file = file_path.replace("_scene_graph.json", "_grouped.json")
+    objects_file = file_path.replace("_scene_graph.json", "_object_data.json")
+    object_class_file = file_path.replace("_scene_graph.json", "_object_class.json")
 
 
     scene_language_data = get_scene_statement(scene_graph, spatial_relations_file, objects_file, object_class_file, relationship_templates, logger.log_buffer, generation_configs)
 
 
     # Save dataset of statements and object ground truth data
-    with open(os.path.join(subdir, f"{scene_name}_label_data.json"), "w") as outfile:
-        json.dump(scene_language_data, outfile)
+    with open(os.path.join(subdir, f"{scene_name}_referential_statements.json"), "w") as outfile:
+        json.dump(scene_language_data, outfile, indent=4)
 
     # Save dataset of just statements
-    all_statements = []
-    for region in scene_language_data['regions']:
-        for statement in scene_language_data['regions'][region]:
-            if statement != "region":
-                all_statements.append(statement)
-    with open(os.path.join(subdir, f"{scene_name}_statement.json"), "w") as outfile:
-        json.dump(all_statements, outfile)
+    # all_statements = []
+    # for region in scene_language_data['regions']:
+    #     for statement in scene_language_data['regions'][region]:
+    #         if statement != "region":
+    #             all_statements.append(statement)
+    # with open(os.path.join(subdir, f"{scene_name}_statement.json"), "w") as outfile:
+    #     json.dump(all_statements, outfile)
     
     print(f"Completed {scene_path[1]}")
 
@@ -177,8 +177,8 @@ if __name__ == '__main__':
         with open(scene_data_root) as sg:
             scene_graph = json.load(sg)
 
-        spatial_relations_file = scene_data_root.replace(".json", "_grouped.json")
-        objects_file = scene_data_root.replace(".json", "_object_data.json")
+        spatial_relations_file = scene_data_root.replace("_scene_graph.json", "_grouped.json")
+        objects_file = scene_data_root.replace("_scene_graph.json", "_object_data.json")
 
         scene_language_data = get_scene_statement(scene_graph, spatial_relations_file, objects_file, relationship_templates, logger.log_buffer, generation_configs)
 
@@ -208,26 +208,27 @@ if __name__ == '__main__':
         scene_paths = []
 
         scene_dirs = next(os.walk(scene_data_root))[1]
-        for dir in scene_dirs:
-            scene_path = os.path.join(scene_data_root, dir)
-            for file in os.listdir(scene_path):
+        for dataset in scene_dirs:
+            for dir in os.listdir(os.path.join(scene_data_root, dataset)):
+                scene_path = os.path.join(scene_data_root, dataset, dir)
+                for file in os.listdir(scene_path):
 
-                already_processed = False
-                if not generation_configs["purge_existing_data"]:
-                    for file1 in os.listdir(os.path.join(scene_data_root, dir)):
-                        if 'label_data_new' in file1 or 'statement_new' in file1:
-                            already_processed = True
-                            break
+                    already_processed = False
+                    if not generation_configs["purge_existing_data"]:
+                        for file1 in os.listdir(os.path.join(scene_data_root, dir)):
+                            if 'label_data_new' in file1 or 'statement_new' in file1:
+                                already_processed = True
+                                break
 
-                if already_processed:
-                    break
+                    if already_processed:
+                        break
 
-                if (file != f'{dir}.json'):
-                    continue
+                    if (file != f'{dir}_scene_graph.json'):
+                        continue
 
 
-                file_path = os.path.join(scene_path, file)
-                scene_paths.append((scene_path, file_path))
+                    file_path = os.path.join(scene_path, file)
+                    scene_paths.append((scene_path, file_path))
         
         print(f"Processing a total of {len(scene_paths)} scenes")
 

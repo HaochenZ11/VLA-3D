@@ -1,0 +1,231 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+ash can,trash can,12,39,garbage bin,otherfurniture
+ash tray,ash tray,377,40,ashtray,otherprop
+balcony,balcony railing,497,38,railing,otherstructure
+balcony door,balcony door,28,8,door,door
+balcony door (1),balcony door,28,8,door,door
+balcony door hanger,unknown,20,40,unknown,otherprop
+balcony frame,unknown,20,40,unknown,otherprop
+balcony frame (1),unknown,20,40,unknown,otherprop
+balcony frame (10),unknown,20,40,unknown,otherprop
+balcony frame (11),unknown,20,40,unknown,otherprop
+balcony frame (12),unknown,20,40,unknown,otherprop
+balcony frame (13),unknown,20,40,unknown,otherprop
+balcony frame (14),unknown,20,40,unknown,otherprop
+balcony frame (15),unknown,20,40,unknown,otherprop
+balcony frame (16),unknown,20,40,unknown,otherprop
+balcony frame (2),unknown,20,40,unknown,otherprop
+balcony frame (3),unknown,20,40,unknown,otherprop
+balcony frame (4),unknown,20,40,unknown,otherprop
+balcony frame (5),unknown,20,40,unknown,otherprop
+balcony frame (6),unknown,20,40,unknown,otherprop
+balcony frame (7),unknown,20,40,unknown,otherprop
+balcony frame (8),unknown,20,40,unknown,otherprop
+balcony frame (9),unknown,20,40,unknown,otherprop
+bath room,shower,20,38,unknown,otherstructure
+bed A quilt,quilt,575,40,quilt,otherprop
+bed Aa,bed,157,4,bed,bed
+bed Ab,mattress,576,4,mattress,bed
+bed B,bed,157,4,bed,bed
+bed B quilt,quilt,575,40,quilt,otherprop
+bedroom light,bedroom light,62,38,light,otherstructure
+bedroom light (1),bedroom light,62,38,light,otherstructure
+bedroom light (2),bedroom light,62,38,light,otherstructure
+bedside chest A,nightstand,158,32,night stand,night stand
+bedside chest A (1),nightstand,158,32,night stand,night stand
+bedside chest B,nightstand,158,32,night stand,night stand
+bedside chest B (1),nightstand,158,32,night stand,night stand
+bedside lamp A,lamp,144,35,lamp,lamp
+bedside lamp A (1),lamp,144,35,lamp,lamp
+bedside lamp A (2),lamp,144,35,lamp,lamp
+book A,book,1,40,book,otherprop
+book B,book,1,40,book,otherprop
+carpet A,carpet,130,40,rug,otherprop
+carpet B,carpet,130,40,rug,otherprop
+carpet C,carpet,130,40,rug,otherprop
+celling light,ceiling light,62,38,light,otherstructure
+celling light (1),ceiling light,62,38,light,otherstructure
+celling light (10),ceiling light,62,38,light,otherstructure
+celling light (11),ceiling light,62,38,light,otherstructure
+celling light (12),ceiling light,62,38,light,otherstructure
+celling light (13),ceiling light,62,38,light,otherstructure
+celling light (14),ceiling light,62,38,light,otherstructure
+celling light (15),ceiling light,62,38,light,otherstructure
+celling light (16),ceiling light,62,38,light,otherstructure
+celling light (17),ceiling light,62,38,light,otherstructure
+celling light (18),ceiling light,62,38,light,otherstructure
+celling light (19),ceiling light,62,38,light,otherstructure
+celling light (2),ceiling light,62,38,light,otherstructure
+celling light (20),ceiling light,62,38,light,otherstructure
+celling light (21),ceiling light,62,38,light,otherstructure
+celling light (22),ceiling light,62,38,light,otherstructure
+celling light (23),ceiling light,62,38,light,otherstructure
+celling light (24),ceiling light,62,38,light,otherstructure
+celling light (25),ceiling light,62,38,light,otherstructure
+celling light (26),ceiling light,62,38,light,otherstructure
+celling light (27),ceiling light,62,38,light,otherstructure
+celling light (28),ceiling light,62,38,light,otherstructure
+celling light (29),ceiling light,62,38,light,otherstructure
+celling light (3),ceiling light,62,38,light,otherstructure
+celling light (30),ceiling light,62,38,light,otherstructure
+celling light (31),ceiling light,62,38,light,otherstructure
+celling light (32),ceiling light,62,38,light,otherstructure
+celling light (33),ceiling light,62,38,light,otherstructure
+celling light (34),ceiling light,62,38,light,otherstructure
+celling light (35),ceiling light,62,38,light,otherstructure
+celling light (36),ceiling light,62,38,light,otherstructure
+celling light (37),ceiling light,62,38,light,otherstructure
+celling light (38),ceiling light,62,38,light,otherstructure
+celling light (39),ceiling light,62,38,light,otherstructure
+celling light (4),ceiling light,62,38,light,otherstructure
+celling light (40),ceiling light,62,38,light,otherstructure
+celling light (41),ceiling light,62,38,light,otherstructure
+celling light (42),ceiling light,62,38,light,otherstructure
+celling light (43),ceiling light,62,38,light,otherstructure
+celling light (44),ceiling light,62,38,light,otherstructure
+celling light (5),ceiling light,62,38,light,otherstructure
+celling light (6),ceiling light,62,38,light,otherstructure
+celling light (7),ceiling light,62,38,light,otherstructure
+celling light (8),ceiling light,62,38,light,otherstructure
+celling light (9),ceiling light,62,38,light,otherstructure
+clock,clock,56,40,clock,otherprop
+Clock,clock,56,40,clock,otherprop
+clock (1),clock,56,40,clock,otherprop
+commode,toilet,124,33,toilet,toilet
+countyard ground,countyard ground,20,40,unknown,otherprop
+Cube,cube,20,40,unknown,otherprop
+Cube (1),cube,20,40,unknown,otherprop
+curtain A,curtain,89,16,curtain,curtain
+curtain A (1),curtain,89,16,curtain,curtain
+curtain A (2),curtain,89,16,curtain,curtain
+curtain A (3),curtain,89,16,curtain,curtain
+curtain top,unknown,20,40,unknown,otherprop
+curtain top (1),unknown,20,40,unknown,otherprop
+desk light A,desk light,62,38,light,otherstructure
+desk light A (1),desk light,62,38,light,otherstructure
+desk light A (2),desk light,62,38,light,otherstructure
+dining chair,dining chair,5,5,chair,chair
+dining chair (1),dining chair,5,5,chair,chair
+dining chair (2),dining chair,5,5,chair,chair
+dining chair (3),dining chair,5,5,chair,chair
+dining table,dining table,19,7,table,table
+Dish 1,dish,867,40,serving dish,otherprop
+Dish 1 (1),dish,867,40,serving dish,otherprop
+Dish 2,dish,867,40,serving dish,otherprop
+door A,door,28,8,door,door
+door A (1),door,28,8,door,door
+door B,door,28,8,door,door
+door B (1),door,28,8,door,door
+door C,door,28,8,door,door
+door frame A,door frame,615,38,door frame,otherstructure
+door frame B,door frame,615,38,door frame,otherstructure
+door frame B (1),door frame,615,38,door frame,otherstructure
+door frame B (2),door frame,615,38,door frame,otherstructure
+dressing chair,dressing chair,5,5,chair,chair
+dressing chair (1),dressing chair,5,5,chair,chair
+dressing table,dressing table,19,7,table,table
+DVD,dvd,170,40,dvd player,otherprop
+DVD (1),dvd,170,40,dvd player,otherprop
+gate,gate,223,38,gate,otherstructure
+gate (1),gate,223,38,gate,otherstructure
+glass and wine,wine glass,293,40,wine glass,otherprop
+glass and wine (1),wine glass,293,40,wine glass,otherprop
+handiwork A,sculpture,842,40,decoration item,otherprop
+house floor,floor,11,2,floor,floor
+house top,ceiling,4,22,ceiling,ceiling
+house wall,wall,21,1,wall,wall
+kettle,kettle,738,40,electrical kettle,otherprop
+kettle (1),kettle,738,40,electrical kettle,otherprop
+kitchen desk,kitchen cabinet,3,3,cabinet,cabinet
+kitchen desk B,kitchen island,36,14,desk,desk
+Magazine,magazine,71,40,magazine,otherprop
+Magazine (1),magazine,71,40,magazine,otherprop
+makeup A,lipstick,20,40,unknown,otherprop
+makeup A (1),lipstick,20,40,unknown,otherprop
+paint A,painting,64,11,picture,picture
+parlor desk A,side table,19,7,table,table
+parlor light,ceiling light,62,38,light,otherstructure
+parlor light (1),ceiling light,62,38,light,otherstructure
+photo A,photo,508,40,photo,otherprop
+photo A (1),photo,508,40,photo,otherprop
+Picture 1,picture,64,11,picture,picture
+Picture 2,picture,64,11,picture,picture
+Picture 3,picture,64,11,picture,picture
+Picture 4,picture,64,11,picture,picture
+Picture 5,picture,64,11,picture,picture
+Picture 7,picture,64,11,picture,picture
+pillow A,pillow,119,18,pillow,pillow
+pillow A (1),pillow,119,18,pillow,pillow
+pillow B,pillow,119,18,pillow,pillow
+pillow B (1),pillow,119,18,pillow,pillow
+pillow C,pillow,119,18,pillow,pillow
+pillow C (1),pillow,119,18,pillow,pillow
+Plant 3,potted plant,82,40,plant,otherprop
+Plant 6,potted plant,82,40,plant,otherprop
+Plant 6 (1),potted plant,82,40,plant,otherprop
+Plant 6 (2),potted plant,82,40,plant,otherprop
+plant A,potted plant,82,40,plant,otherprop
+plant A (1),potted plant,82,40,plant,otherprop
+plant A (2),potted plant,82,40,plant,otherprop
+plant A (3),potted plant,82,40,plant,otherprop
+road,unknown,20,40,unknown,otherprop
+shower,shower head,650,39,shower head,otherfurniture
+slipper,slipper,149,40,shoe,otherprop
+smoke cleaner,range hood,380,38,range hood,otherstructure
+sofa A_A,sofa,83,6,sofa,sofa
+sofa A_B,ottoman,359,39,ottoman,otherfurniture
+sofa A_C,sofa cushion,83,6,sofa,sofa
+sofa A_C (1),sofa cushion,83,6,sofa,sofa
+sofa A_C (2),sofa cushion,83,6,sofa,sofa
+sofa A_C (3),sofa cushion,83,6,sofa,sofa
+sofapillow A,pillow,119,18,pillow,pillow
+sofapillow B,pillow,119,18,pillow,pillow
+sofapillow B (1),pillow,119,18,pillow,pillow
+sofapillow C,pillow,119,18,pillow,pillow
+sound A,speaker,54,40,speaker,otherprop
+sound B,speaker,54,40,speaker,otherprop
+sound B (1),speaker,54,40,speaker,otherprop
+sound C,speaker,54,40,speaker,otherprop
+stair,stair,215,38,stairs,otherstructure
+stoke,stove,242,39,stove,otherfurniture
+teatable A,coffee table,356,7,coffee table,table
+toilet mirror,mirror,122,19,mirror,mirror
+toilet paper,toilet paper,139,40,toilet paper,otherprop
+toilet window,window,59,9,window,window
+towel,towel,135,27,towel,towel
+TV A,tv,172,25,television,television
+TV B,tv,172,25,television,television
+TV desk A,tv cabinet,3,3,cabinet,cabinet
+TV desk B,tv stand,291,39,tv stand,otherfurniture
+TV wall A,wall,21,1,wall,wall
+TV wall A (1),wall,21,1,wall,wall
+TV wall B,wall,21,1,wall,wall
+Vase 3,vase,78,40,vase,otherprop
+wardrobe A,wardrobe,772,39,wardrobe,otherfurniture
+wash basin,sink,24,34,sink,sink
+window A,window,59,9,window,window
+window B,window,59,9,window,window
+window C,window,59,9,window,window
+window D,window,59,9,window,window
+window E,window,59,9,window,window
+window F,window,59,9,window,window
+wine A,wine bottle,333,40,wine bottle,otherprop
+wine A (1),wine bottle,333,40,wine bottle,otherprop
+wine A (2),wine bottle,333,40,wine bottle,otherprop
+wine A (3),wine bottle,333,40,wine bottle,otherprop
+wine A (4),wine bottle,333,40,wine bottle,otherprop
+wine A (5),wine bottle,333,40,wine bottle,otherprop
+wine B,wine bottle,333,40,wine bottle,otherprop
+wine B (1),wine bottle,333,40,wine bottle,otherprop
+wine B (2),wine bottle,333,40,wine bottle,otherprop
+wine B (3),wine bottle,333,40,wine bottle,otherprop
+wine B (5),wine bottle,333,40,wine bottle,otherprop
+wine C,wine bottle,333,40,wine bottle,otherprop
+wine C (1),wine bottle,333,40,wine bottle,otherprop
+wine C (2),wine bottle,333,40,wine bottle,otherprop
+wine C (3),wine bottle,333,40,wine bottle,otherprop
+wine C (4),wine bottle,333,40,wine bottle,otherprop
+wine C (5),wine bottle,333,40,wine bottle,otherprop
+wine C (6),wine bottle,333,40,wine bottle,otherprop
+wine glass,wine glass,293,40,wine glass,otherprop
+wine glass (1),wine glass,293,40,wine glass,otherprop

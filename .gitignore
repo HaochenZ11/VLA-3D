@@ -9,7 +9,6 @@ processed_data/
 /matterport/
 /habitat-matterport-3dresearch/
 
-*.ply
 *.glb
 *.bin
 *.gltf

@@ -196,8 +196,8 @@ class ScannetPreprocessor:
             vertex, region_indices_out, object_indices_out = sort_pointcloud(torch.from_numpy(vertex))
             # print(vertex.shape)
 
-            torch.save(region_indices_out, f'{scan_name}_region_split.pt')
-            torch.save(object_indices_out, f'{scan_name}_object_split.pt')
+            torch.save(region_indices_out, f'{scan_name}_region_split.npy')
+            torch.save(object_indices_out, f'{scan_name}_object_split.npy')
             write_ply_file(vertex[:, :6], f'{scan_name}_pc_result.ply')
 
 if __name__=='__main__':

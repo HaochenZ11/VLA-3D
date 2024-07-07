@@ -31,7 +31,8 @@ class ARKitPreprocessor:
         output_folder: str, # the path to store the processed results
         floor_height: float, # the floor height for generating free space
         color_standard: str, # colors standars to use for domain color calculation (css21, css3, html4, css2)
-        generate_freespace=False
+        generate_freespace=False,
+        skipped_scenes = []
     ):
         self.input_folder = input_folder
         self.mapping_file = mapping_file
@@ -39,6 +40,7 @@ class ARKitPreprocessor:
         self.floor_height = floor_height
         self.anchor_colors_array, self.anchor_colors_array_hsv, self.anchor_colors_name = generate_color_anchors(color_standard)
         self.tree = KDTree(self.anchor_colors_array_hsv)
+        self.skipped_scenes = skipped_scenes
 
         self.generate_freespace = generate_freespace
 
@@ -111,7 +113,7 @@ class ARKitPreprocessor:
             
 
     def create_arkit(self):
-        scan_names = os.listdir(self.input_folder)
+        scan_names = [scan for scan in os.listdir(self.input_folder) if scan not in self.skipped_scenes]
         cat_mapping = {}
         with open(self.mapping_file, 'r', newline='') as f:
             reader = csv.reader(f, delimiter=',')
@@ -261,8 +263,8 @@ class ARKitPreprocessor:
 
             vertex, region_indices_out, object_indices_out = sort_pointcloud(vertex)
 
-            torch.save(region_indices_out, f'{scan_name}_region_split.pt')
-            torch.save(object_indices_out, f'{scan_name}_object_split.pt')
+            torch.save(region_indices_out, f'{scan_name}_region_split.npy')
+            torch.save(object_indices_out, f'{scan_name}_object_split.npy')
             write_ply_file(vertex[:, :6], f'{scan_name}_pc_result.ply')
 
 
@@ -298,6 +300,7 @@ if __name__ == '__main__':
         '42897868',
         '42897871',
         '47204424',
+        '41069021' # missing .pt for some reason
     ]
 
     print('====================Start processing arkit training set====================')

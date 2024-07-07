@@ -1,0 +1,96 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Bag 1,bag,55,37,bag,bag
+Bath,bathtub,136,36,bathtub,bath tub
+Bed,bed,157,4,bed,bed
+Bed furniture,bed frame,157,4,bed,bed
+bedside,night stand,158,32,night stand,night stand
+bedside (1),night stand,158,32,night stand,night stand
+Bench,bench,204,39,bench,otherfurniture
+Bin,trash bin,12,40,garbage bin,otherprop
+Blanket,blanket,312,40,blanket,otherprop
+Cabinet,TV cabinet,3,3,cabinet,cabinet
+Camera,camera,40,40,camera,otherprop
+Carpet,carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling 2,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (1),ceiling lamp,144,35,lamp,lamp
+Chair,chair,5,5,chair,chair
+Chair (1),chair,5,5,chair,chair
+Curtain,curtain,89,16,curtain,curtain
+Curtain (1),curtain,89,16,curtain,curtain
+door,door,28,8,door,door
+door 1,door,28,8,door,door
+door 2,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+Door poster,unknown,20,40,unknown,otherprop
+Exterior,unknown,20,40,unknown,otherprop
+Fireplace,fireplace,372,38,fireplace,otherstructure
+Floor,floor,11,2,floor,floor
+Focus light,focus light,62,35,light,lamp
+Focus light (1),focus light,62,35,light,lamp
+Focus light (2),focus light,62,35,light,lamp
+Focus light (3),focus light,62,35,light,lamp
+Focus light (4),focus light,62,35,light,lamp
+Focus light (5),focus light,62,35,light,lamp
+Focus light (6),focus light,62,35,light,lamp
+Focus light (7),focus light,62,35,light,lamp
+Focus light (8),focus light,62,35,light,lamp
+Glass 1,glass,612,40,glass,otherprop
+Glasses,eye glasses,335,40,eye glasses,otherprop
+handle,handle,758,40,handle,otherprop
+Hanger,hanger,211,40,hanger,otherprop
+Hanger (1),hanger,211,40,hanger,otherprop
+Heated Towel,towel rack,134,39,towel rod,otherfurniture
+Hotel card,card,20,40,unknown,otherprop
+Lamp 1,lamp,144,35,lamp,lamp
+Lamp 1 (1),lamp,144,35,lamp,lamp
+Map,map,107,40,map,otherprop
+Mirror,mirror,122,19,mirror,mirror
+Paper holder,paper holder,470,40,paper holder,otherprop
+Perfume,perfume bottle,655,40,perfume,otherprop
+Phone,phone,32,40,telephone,otherprop
+picture,picture,64,11,picture,picture
+Picture 1,picture,64,11,picture,picture
+Picture 2,picture,64,11,picture,picture
+Picture 3,picture,64,11,picture,picture
+Picture 4,picture,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 1 (1),pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 2 (1),pillow,119,18,pillow,pillow
+Pillow 3,pillow,119,18,pillow,pillow
+Pillow 3 (1),pillow,119,18,pillow,pillow
+sink,sink,24,34,sink,sink
+sink furniture,sink cabinet,3,3,cabinet,cabinet
+Small mirror 1,mirror,122,19,mirror,mirror
+Soap,soap bottle,133,40,soap,otherprop
+Soaps,soap dish,638,40,soap dish,otherprop
+Switcher,light switch,301,40,light switch,otherprop
+Switcher (1),light switch,301,40,light switch,otherprop
+Switcher (2),light switch,301,40,light switch,otherprop
+Table 1,table,19,7,table,table
+Tap,tap,9,39,faucet,otherfurniture
+Tap 2,shower tap,9,39,faucet,otherfurniture
+Toilet,toilet,124,33,toilet,toilet
+Toilet floor,floor,11,2,floor,floor
+Toilet paper,toilet paper,139,40,toilet paper,otherprop
+Toilet paper (1),toilet paper,139,40,toilet paper,otherprop
+Tourist guide,map,107,40,map,otherprop
+Towel 1,towel,135,27,towel,towel
+Towel 2,towel,135,27,towel,towel
+Towel 4,towel,135,27,towel,towel
+Towel rail,towel rail,134,40,towel rod,otherprop
+Tulips,flowers,81,40,flower,otherprop
+Tv,tv,172,25,television,television
+TV Remote,tv remote,175,40,remote control,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+Wall 5,wall,21,1,wall,wall
+Wall 6,wall,21,1,wall,wall
+Wall 7,wall,21,1,wall,wall
+wardrobe,wardrobe,772,39,wardrobe,otherfurniture
+Water bottle,water bottle,2,40,bottle,otherprop
+Window,window,59,9,window,window

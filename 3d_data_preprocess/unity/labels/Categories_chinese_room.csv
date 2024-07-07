@@ -1,0 +1,102 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Antique book,book,1,40,book,otherprop
+Bamboo,potted bamboo,82,40,plant,otherprop
+Book 1,book,1,40,book,otherprop
+Book 2,book,1,40,book,otherprop
+branch,potted branch,82,40,plant,otherprop
+Cabinet,cabinet,3,3,cabinet,cabinet
+Carpet,carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,ceiling lamp,144,35,lamp,lamp
+Ceiling lamp (1),ceiling lamp,144,35,lamp,lamp
+Chair 1,chair,5,5,chair,chair
+Chair 1 (2),chair,5,5,chair,chair
+Chair 1 (3),chair,5,5,chair,chair
+Chair 1 (4),chair,5,5,chair,chair
+Chair 1 (5),chair,5,5,chair,chair
+Chair 1 (6),chair,5,5,chair,chair
+Chopsticks,chopsticks,20,40,unknown,otherprop
+Decorative circle,circle decoration,842,40,decoration item,otherprop
+door,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+Figure 1,elephant figurine,842,40,decoration item,otherprop
+Figure 2,horse figurine,842,40,decoration item,otherprop
+Figure 3,tower decoration,842,40,decoration item,otherprop
+Floor,floor,11,2,floor,floor
+Focus light,focus light,62,35,light,lamp
+Focus light (1),focus light,62,35,light,lamp
+Focus light (10),focus light,62,35,light,lamp
+Focus light (11),focus light,62,35,light,lamp
+Focus light (12),focus light,62,35,light,lamp
+Focus light (13),focus light,62,35,light,lamp
+Focus light (14),focus light,62,35,light,lamp
+Focus light (15),focus light,62,35,light,lamp
+Focus light (16),focus light,62,35,light,lamp
+Focus light (17),focus light,62,35,light,lamp
+Focus light (18),focus light,62,35,light,lamp
+Focus light (19),focus light,62,35,light,lamp
+Focus light (2),focus light,62,35,light,lamp
+Focus light (3),focus light,62,35,light,lamp
+Focus light (4),focus light,62,35,light,lamp
+Focus light (5),focus light,62,35,light,lamp
+Focus light (6),focus light,62,35,light,lamp
+Focus light (7),focus light,62,35,light,lamp
+Focus light (8),focus light,62,35,light,lamp
+Focus light (9),focus light,62,35,light,lamp
+Folding screen,folding screen,20,40,unknown,otherprop
+Glass,bowl,22,40,bowl,otherprop
+Glass (1),bowl,22,40,bowl,otherprop
+Glasses,eye glasses,335,40,eye glasses,otherprop
+Partition wall,partition wall,21,1,wall,wall
+picture 1,painting,64,11,picture,picture
+Picture 2,painting,64,11,picture,picture
+picture 2,painting,64,11,picture,picture
+picture 3,painting,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 1 (10),pillow,119,18,pillow,pillow
+Pillow 1 (2),pillow,119,18,pillow,pillow
+Pillow 1 (3),pillow,119,18,pillow,pillow
+Pillow 1 (4),pillow,119,18,pillow,pillow
+Pillow 1 (5),pillow,119,18,pillow,pillow
+Pillow 1 (6),pillow,119,18,pillow,pillow
+Pillow 1 (7),pillow,119,18,pillow,pillow
+Pillow 1 (8),pillow,119,18,pillow,pillow
+Pillow 1 (9),pillow,119,18,pillow,pillow
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 1 (1),potted plant,82,40,plant,otherprop
+Plant 2,potted plant,82,40,plant,otherprop
+Plant 3,potted plant,82,40,plant,otherprop
+Small table,side table,19,7,table,table
+Sofa,sofa,83,6,sofa,sofa
+Sofa seating,unknown,20,40,unknown,otherprop
+Stool,stool,150,40,stool,otherprop
+Stool (1),stool,150,40,stool,otherprop
+Stool (2),stool,150,40,stool,otherprop
+Switch,light switch,301,38,light switch,otherstructure
+Switch (1),light switch,301,38,light switch,otherstructure
+Symbol,symbol decoraion,842,40,decoration item,otherprop
+Symbol (1),symbol decoraion,842,40,decoration item,otherprop
+Table 1,table,19,7,table,table
+Table 2,table,19,7,table,table
+Tablecloth,tablecloth,292,40,tablecloth,otherprop
+Tea table,tea table,19,7,table,table
+Tree,tree,541,40,tree sculpture,otherprop
+Tree (1),tree,541,40,tree sculpture,otherprop
+Tree (2),tree,541,40,tree sculpture,otherprop
+Tree (3),tree,541,40,tree sculpture,otherprop
+Tree (4),tree,541,40,tree sculpture,otherprop
+Tree (5),tree,541,40,tree sculpture,otherprop
+Tree (6),tree,541,40,tree sculpture,otherprop
+Tree (7),tree,541,40,tree sculpture,otherprop
+Tv,tv,172,25,television,television
+Tv remote,tv remote,175,40,remote control,otherprop
+Vase,vase,78,40,vase,otherprop
+Vase 1,vase,78,40,vase,otherprop
+Vase 2,vase,78,40,vase,otherprop
+Vase 3,vase,78,40,vase,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+Window,window,59,9,window,window
+Window (1),window,59,9,window,window

@@ -1,0 +1,4466 @@
+{
+    "scene_name": "47204840",
+    "regions": {
+        "0": {
+            "the fireplace that is between both of the tables": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is in between both of the tables": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is in the middle of both of the tables": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is between the sofa and the table": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "0",
+                            "class": "sofa",
+                            "position": [
+                                -0.8847286519782817,
+                                2.820139867313476,
+                                -0.8151715099811554
+                            ],
+                            "color": [
+                                "gray",
+                                "brown",
+                                "maroon"
+                            ],
+                            "size": 1.3048886845010141,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is in between the sofa and the table": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "0",
+                            "class": "sofa",
+                            "position": [
+                                -0.8847286519782817,
+                                2.820139867313476,
+                                -0.8151715099811554
+                            ],
+                            "color": [
+                                "gray",
+                                "brown",
+                                "maroon"
+                            ],
+                            "size": 1.3048886845010141,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is in the middle of the sofa and the table": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "0",
+                            "class": "sofa",
+                            "position": [
+                                -0.8847286519782817,
+                                2.820139867313476,
+                                -0.8151715099811554
+                            ],
+                            "color": [
+                                "gray",
+                                "brown",
+                                "maroon"
+                            ],
+                            "size": 1.3048886845010141,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is between the table and the television": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is in between the table and the television": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the fireplace that is in the middle of the table and the television": [
+                {
+                    "target_index": "3",
+                    "target_class": "fireplace",
+                    "target_position": [
+                        1.0792443169216395,
+                        3.7453244376919157,
+                        -0.6639344990253448
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "black",
+                        "aqua"
+                    ],
+                    "target_size": 0.6292661753359982,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "between",
+                    "relation_type": "ternary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": ""
+                        },
+                        "anchor_2": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is closest to the small table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is nearest to the small table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second closest to the small table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second nearest to the small table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is closest to the big table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is nearest to the big table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second closest to the big table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second nearest to the big table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is closest to the black table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is nearest to the black table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second closest to the black table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second nearest to the black table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is closest to the fireplace": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is nearest to the fireplace": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second closest to the fireplace": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second nearest to the fireplace": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third closest to the fireplace": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third nearest to the fireplace": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is closest to the fireplace": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is nearest to the fireplace": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second closest to the fireplace": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second nearest to the fireplace": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is closest to the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is nearest to the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second closest to the television": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second nearest to the television": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third closest to the television": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third nearest to the television": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is closest to the television": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is nearest to the television": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second closest to the television": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second nearest to the television": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "closest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest from the small table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is most distant from the small table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest away from the small table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest from the small table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second most distant from the small table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest away from the small table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "1",
+                            "class": "table",
+                            "position": [
+                                -0.628616208890724,
+                                1.2396757955503994,
+                                -0.9589380025863647
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.05774846750669003,
+                            "color_used": "",
+                            "size_used": "small "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest from the big table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is most distant from the big table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest away from the big table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest from the big table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second most distant from the big table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest away from the big table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "2",
+                            "class": "table",
+                            "position": [
+                                -0.3500412798670293,
+                                4.194660104284085,
+                                -0.8701274991035461
+                            ],
+                            "color": [
+                                "gray",
+                                "aqua",
+                                "brown"
+                            ],
+                            "size": 0.25376759151187633,
+                            "color_used": "",
+                            "size_used": "big "
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest from the black table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is most distant from the black table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest away from the black table": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest from the black table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second most distant from the black table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest away from the black table": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is farthest from the fireplace": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is most distant from the fireplace": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is farthest away from the fireplace": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second farthest from the fireplace": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second most distant from the fireplace": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second farthest away from the fireplace": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third farthest from the fireplace": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third most distant from the fireplace": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third farthest away from the fireplace": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest from the fireplace": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is most distant from the fireplace": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest away from the fireplace": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest from the fireplace": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second most distant from the fireplace": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest away from the fireplace": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "3",
+                            "class": "fireplace",
+                            "position": [
+                                1.0792443169216395,
+                                3.7453244376919157,
+                                -0.6639344990253448
+                            ],
+                            "color": [
+                                "gray",
+                                "black",
+                                "aqua"
+                            ],
+                            "size": 0.6292661753359982,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is farthest from the television": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is most distant from the television": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is farthest away from the television": [
+                {
+                    "target_index": "1",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.628616208890724,
+                        1.2396757955503994,
+                        -0.9589380025863647
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.05774846750669003,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "2",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second farthest from the television": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second most distant from the television": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is second farthest away from the television": [
+                {
+                    "target_index": "2",
+                    "target_class": "table",
+                    "target_position": [
+                        -0.3500412798670293,
+                        4.194660104284085,
+                        -0.8701274991035461
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "aqua",
+                        "brown"
+                    ],
+                    "target_size": 0.25376759151187633,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "4"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third farthest from the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third most distant from the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is third farthest away from the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest from the television": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is most distant from the television": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is farthest away from the television": [
+                {
+                    "target_index": "0",
+                    "target_class": "sofa",
+                    "target_position": [
+                        -0.8847286519782817,
+                        2.820139867313476,
+                        -0.8151715099811554
+                    ],
+                    "target_colors": [
+                        "gray",
+                        "brown",
+                        "maroon"
+                    ],
+                    "target_size": 1.3048886845010141,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "6"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest from the television": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second most distant from the television": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the sofa that is second farthest away from the television": [
+                {
+                    "target_index": "6",
+                    "target_class": "sofa",
+                    "target_position": [
+                        1.646969569725383,
+                        1.4343831838574637,
+                        -0.8058465123176575
+                    ],
+                    "target_colors": [
+                        "brown",
+                        "gray",
+                        "maroon"
+                    ],
+                    "target_size": 1.558315309492041,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "0"
+                    ],
+                    "relation": "farthest",
+                    "relation_type": "ordered",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the television that is near the black table": [
+                {
+                    "target_index": "5",
+                    "target_class": "television",
+                    "target_position": [
+                        2.4017462182100293,
+                        3.6206627919874306,
+                        -0.45068351179361343
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.024298726093454417,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the television that is next to the black table": [
+                {
+                    "target_index": "5",
+                    "target_class": "television",
+                    "target_position": [
+                        2.4017462182100293,
+                        3.6206627919874306,
+                        -0.45068351179361343
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.024298726093454417,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the television that is close to the black table": [
+                {
+                    "target_index": "5",
+                    "target_class": "television",
+                    "target_position": [
+                        2.4017462182100293,
+                        3.6206627919874306,
+                        -0.45068351179361343
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.024298726093454417,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the television that is adjacent to the black table": [
+                {
+                    "target_index": "5",
+                    "target_class": "television",
+                    "target_position": [
+                        2.4017462182100293,
+                        3.6206627919874306,
+                        -0.45068351179361343
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.024298726093454417,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the television that is beside the black table": [
+                {
+                    "target_index": "5",
+                    "target_class": "television",
+                    "target_position": [
+                        2.4017462182100293,
+                        3.6206627919874306,
+                        -0.45068351179361343
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.024298726093454417,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is near the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is next to the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is close to the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is adjacent to the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the table that is beside the television": [
+                {
+                    "target_index": "4",
+                    "target_class": "table",
+                    "target_position": [
+                        2.3916712154017836,
+                        3.666921674464924,
+                        -0.9619214832782745
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.15684705036934382,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [
+                        "1",
+                        "2"
+                    ],
+                    "relation": "near",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "5",
+                            "class": "television",
+                            "position": [
+                                2.4017462182100293,
+                                3.6206627919874306,
+                                -0.45068351179361343
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.024298726093454417,
+                            "color_used": "",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "the television that is on the black table": [
+                {
+                    "target_index": "5",
+                    "target_class": "television",
+                    "target_position": [
+                        2.4017462182100293,
+                        3.6206627919874306,
+                        -0.45068351179361343
+                    ],
+                    "target_colors": [
+                        "black",
+                        "aqua",
+                        "N/A"
+                    ],
+                    "target_size": 0.024298726093454417,
+                    "target_color_used": "",
+                    "target_size_used": "",
+                    "distractor_ids": [],
+                    "relation": "on",
+                    "relation_type": "binary",
+                    "anchors": {
+                        "anchor_1": {
+                            "index": "4",
+                            "class": "table",
+                            "position": [
+                                2.3916712154017836,
+                                3.666921674464924,
+                                -0.9619214832782745
+                            ],
+                            "color": [
+                                "black",
+                                "aqua",
+                                "N/A"
+                            ],
+                            "size": 0.15684705036934382,
+                            "color_used": "black ",
+                            "size_used": ""
+                        }
+                    }
+                }
+            ],
+            "region": "47204840"
+        }
+    }
+}

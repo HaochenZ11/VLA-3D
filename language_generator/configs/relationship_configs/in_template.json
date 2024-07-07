@@ -12,7 +12,9 @@
 
   "synonyms": {
     "relation": [
-      "in"
+      "in",
+      "inside",
+      "within"
     ]
   }
 }

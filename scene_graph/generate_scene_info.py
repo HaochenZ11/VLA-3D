@@ -12,13 +12,13 @@ import argparse
 import os
 # import pandas as pd
 from shapely.geometry import Polygon
-from webcolors import CSS21_NAMES_TO_HEX
-from webcolors import hex_to_rgb, rgb_to_name, hex_to_name
 from bbox_utils import *
 from colors import *
 from special_relation_classes import *
 from tqdm import tqdm
 from time import perf_counter
+import multiprocessing as mp
+from itertools import repeat
 
 # - relax above assumption by not necessitating overlap
 # - something on the floor
@@ -215,7 +215,7 @@ def relate_below(vertical_iom,under_thres, anchor_idx, objects):
     return below_obj_ids
 
 
-def relate_between(between_iom, anchor_idx, objects, overlap_thres):
+def relate_between(between_iom, anchor_idx, objects, overlap_thres, symmetry_thres, distance_thres, anchor_size_thres):
     between_objs = []
     obj_inds = list(range(len(objects)))
     obj_inds.remove(anchor_idx)
@@ -283,7 +283,11 @@ def relate_between(between_iom, anchor_idx, objects, overlap_thres):
 
     dist_sums_xy = -iom1_1d_xy - iom2_1d_xy
 
-    filter_xy = (iom1_1d_xy < overlap_thres) & (iom2_1d_xy < overlap_thres)
+    filter_xy = (iom1_1d_xy < overlap_thres) \
+        & (iom2_1d_xy < overlap_thres) \
+        & (np.abs(iom1_1d_xy - iom2_1d_xy) < symmetry_thres) \
+        & (-iom1_1d_xy < distance_thres) \
+        & (-iom2_1d_xy < distance_thres) 
 
     dist_sums_xy = dist_sums_xy[filter_xy]
     pairs_filt_xy = pairs_filt_xy[filter_xy]
@@ -430,6 +434,9 @@ def compute_spatial_relationships(args, region_struct):
     vertical_iom = args.vertical_iom
     near_thres = args.near_thres
     overlap_thres = args.overlap_thres
+    symmetry_thres = args.symmetry_thres
+    distance_thres = args.distance_thres
+    anchor_size_thres = args.anchor_size_thres
     on_thres = args.on_thres
     under_thres = args.under_thres
     hanging_thres_h = args.hanging_thres_h
@@ -462,7 +469,7 @@ def compute_spatial_relationships(args, region_struct):
 
         # triple object (ternary) relations: between
         # init_time = perf_counter()
-        between_objs = relate_between(between_iom, i, objects, overlap_thres)
+        between_objs = relate_between(between_iom, i, objects, overlap_thres, symmetry_thres, distance_thres, anchor_size_thres)
         # end_time = perf_counter() - init_time
         # between_time += end_time
 
@@ -485,7 +492,15 @@ def compute_spatial_relationships(args, region_struct):
     return relations
 
 
-def csv_to_json(args, scene_name, region_file, object_file):
+def csv_to_json(scene_name, i, total_num_scenes):
+
+    input_folder = args.input_path
+    scene_path = os.path.join(input_folder, scene_name)
+    if not os.path.isdir(scene_path):
+        return
+    region_file = os.path.join(scene_path, scene_name + '_region_result.csv')
+    object_file = os.path.join(scene_path, scene_name + '_object_result.csv')
+
     scene_data = {"scene_name":scene_name, "regions": {}}
     # output_folder = args.output_folder
     # objects to remove based on nyu label
@@ -527,7 +542,8 @@ def csv_to_json(args, scene_name, region_file, object_file):
                 "nyu_label": row["nyu_label"],
                 "nyu40_label": row["nyu40_label"],
                 "color_vals": get_color_vals(row),
-                "color_labels": get_color_labels_old(get_color_vals(row)),
+                "color_labels": get_color_labels(row),
+                "color_percentages": get_color_percentages(row),
                 "bbox": get_bbox_coords_heading('object', row),
                 "center": [float(row["object_bbox_cx"]), float(row["object_bbox_cy"]), float(row["object_bbox_cz"])],
                 "volume": float(get_obj_volume(row)),
@@ -543,27 +559,25 @@ def csv_to_json(args, scene_name, region_file, object_file):
         scene_data["regions"][r] = region_data
         #print(region_data)
 
-    output_path = os.path.join(os.path.join(args.input_path, scene_name), scene_name + '.json')
+    output_path = os.path.join(os.path.join(args.input_path, scene_name), scene_name + '_scene_graph.json')
 
     # write one file per region in Matterport scene
     with open(output_path, 'w', encoding='utf-8') as out:
         json.dump(scene_data, out, indent=4)
+    
+    print(f'Processed {scene_name} ({i}/{total_num_scenes})')
 
 
-def process_data(args):
+def process_data():
     input_folder = args.input_path
     # iterate over scene folders in dataset
     # scene_list = ['uNb9QFRL6hY']
     # scene_list = ['00062-ACZZiU6BXLz']
     scene_list = os.listdir(input_folder)
-    for scene in (pbar := tqdm(scene_list)):
-        scene_path = os.path.join(input_folder, scene)
-        if not os.path.isdir(scene_path):
-            continue
-        pbar.set_description(f'Processing {scene}')
-        region_file = os.path.join(scene_path, scene + '_region_result.csv')
-        object_file = os.path.join(scene_path, scene + '_object_result.csv')
-        csv_to_json(args, scene, region_file, object_file)
+    start_time = perf_counter()
+    with mp.Pool(mp.cpu_count()) as pool:
+        pool.starmap(csv_to_json, zip(scene_list, range(len(scene_list)), repeat(int(len(scene_list)))))
+    print(f'Time taken: {perf_counter() - start_time}')
 
 
 # TODO: put into config file
@@ -575,10 +589,13 @@ if __name__ == '__main__':
     parser.add_argument("--vertical_iom", default=0.5, help="minimum intersection over minimum (IOM) threshold between bboxes for above/below relationship")
     parser.add_argument("--near_thres", default=0.01, help="distance threshold for near relationship")
     parser.add_argument("--overlap_thres", default=0.3, help="allowable overlap threshold for calculating between relationship")
+    parser.add_argument("--symmetry_thres", default=0.5, help="allowable symmetry threshold for calculating between relationship")
+    parser.add_argument("--distance_thres", default=1, help="allowable distance threshold for calculating between relationship")
+    parser.add_argument("--anchor_size_thres", default=1.5, help="allowable anchor size threshold for calculating between relationship")
     parser.add_argument("--on_thres", default=0.01, help="allowable overlap threshold for calculating between relationship")
     parser.add_argument("--under_thres", default=0.01, help="allowable overlap threshold for calculating between relationship")
     parser.add_argument("--hanging_thres_h", default=0.01, help="allowable overlap threshold for calculating between relationship")
     parser.add_argument("--hanging_thres_v", default=0.5, help="allowable overlap threshold for calculating between relationship")
     args = parser.parse_args()
 
-    process_data(args)
+    process_data()

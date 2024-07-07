@@ -1,0 +1,332 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Plane,plane,20,38,unknown,otherstructure
+SM_BlockWoodenFramed,wooden floor/wall/ceiling panel,20,38,unknown,otherstructure
+SM_LampS2_LOD0,lamp,144,35,lamp,lamp
+SM_LampS2_LOD1,lamp,144,35,lamp,lamp
+SM_LampS2_LOD2,lamp,144,35,lamp,lamp
+SM_LampS2_LOD3,lamp,144,35,lamp,lamp
+SM_PannelV1_Poster,panel poster,406,40,poster board,otherprop
+SM_LampS1_LOD0,lamp,144,35,lamp,lamp
+SM_LampS1_LOD1,lamp,144,35,lamp,lamp
+SM_LampS1_LOD2,lamp,144,35,lamp,lamp
+SM_LampS1_LOD3,lamp,144,35,lamp,lamp
+SM_PannelV1_Frame5,panel frame,116,39,poster case,otherfurniture
+SM_BlackPot_LOD0,pot,16,40,pot,otherprop
+SM_BlackPot_LOD1,pot,16,40,pot,otherprop
+SM_BigEvergreenIvy_LOD0,evergreen ivy,82,40,plant,otherprop
+SM_BigEvergreenIvy_LOD1,evergreen ivy,82,40,plant,otherprop
+SM_BigEvergreenIvy_LOD2,evergreen ivy,82,40,plant,otherprop
+SM_BigEvergreenIvy_LOD3,evergreen ivy,82,40,plant,otherprop
+SM_PortsS2,ports,301,40,light switch,otherprop
+SM_FireExtinguisherBoxS_LOD0,fire extinguisher box,10,40,fire extinguisher,otherprop
+SM_FireExtinguisherBoxS_LOD1,fire extinguisher box,10,40,fire extinguisher,otherprop
+SM_FireExtinguisherBoxS_LOD2,fire extinguisher box,10,40,fire extinguisher,otherprop
+SM_FireExtinguisherBoxS_LOD3,fire extinguisher box,10,40,fire extinguisher,otherprop
+SM_ScannerS_LOD0,scanner,537,40,flatbed scanner,otherprop
+SM_ScannerS_LOD1,scanner,537,40,flatbed scanner,otherprop
+SM_ScannerS_LOD2,scanner,537,40,flatbed scanner,otherprop
+SM_ScannerS_LOD3,scanner,537,40,flatbed scanner,otherprop
+SM_MetallicOrganizerS_LOD0,organizer,3,3,cabinet,cabinet
+SM_MetallicOrganizerS_LOD1,organizer,3,3,cabinet,cabinet
+SM_MetallicOrganizerS_LOD2,organizer,3,3,cabinet,cabinet
+SM_MetallicOrganizerS_LOD3,organizer,3,3,cabinet,cabinet
+SM_PaperBoxStorageSBlack_LOD0,paper box,503,40,box of paper,otherprop
+SM_PaperBoxStorageSBlack_LOD1,paper box,503,40,box of paper,otherprop
+SM_PaperBoxStorageSBlack_LOD2,paper box,503,40,box of paper,otherprop
+SM_PaperBoxStorageSBlack_LOD3,paper box,503,40,box of paper,otherprop
+SM_ColorfulPaperBoxStorage,paper box,503,40,box of paper,otherprop
+SM_Paint,paint,20,40,unknown,otherprop
+SM_FireAlarm,fire alarm,338,40,fire alarm,otherprop
+SM_Camera_LOD0,camera,40,40,camera,otherprop
+SM_Camera_LOD1,camera,40,40,camera,otherprop
+SM_Camera_LOD2,camera,40,40,camera,otherprop
+SM_Camera_LOD3,camera,40,40,camera,otherprop
+SM_BlockGlassFramed,block glass framed,21,1,wall,wall
+SM_WhiteHeadphones_LOD0,headphones,160,40,headphones,otherprop
+SM_WhiteHeadphones_LOD1,headphones,160,40,headphones,otherprop
+SM_WhiteHeadphones_LOD2,headphones,160,40,headphones,otherprop
+SM_WhiteHeadphones_LOD3,headphones,160,40,headphones,otherprop
+SM_HeadphonesSBlack_LOD0,headphones,160,40,headphones,otherprop
+SM_HeadphonesSBlack_LOD1,headphones,160,40,headphones,otherprop
+SM_HeadphonesSBlack_LOD2,headphones,160,40,headphones,otherprop
+SM_HeadphonesSBlack_LOD3,headphones,160,40,headphones,otherprop
+SM_ReadingLightS_LOD0,reading light,144,35,lamp,lamp
+SM_ReadingLightS_LOD1,reading light,144,35,lamp,lamp
+SM_RecycleMetalS_LOD0,recycle bin,12,40,garbage bin,otherprop
+SM_RecycleMetalS_LOD1,recycle bin,12,40,garbage bin,otherprop
+SM_RecycleMetalS_LOD2,recycle bin,12,40,garbage bin,otherprop
+SM_RecycleMetalS_LOD3,recycle bin,12,40,garbage bin,otherprop
+SM_Shelf,shelf,855,39,shelf frame,otherfurniture
+SM_SmallEvergreenIvy_LOD0,evergreen ivy,82,40,plant,otherprop
+SM_SmallEvergreenIvy_LOD1,evergreen ivy,82,40,plant,otherprop
+SM_SmallEvergreenIvy_LOD2,evergreen ivy,82,40,plant,otherprop
+SM_SmallEvergreenIvy_LOD3,evergreen ivy,82,40,plant,otherprop
+SM_BrownSmallPot_LOD0,pot,16,40,pot,otherprop
+SM_BrownSmallPot_LOD1,pot,16,40,pot,otherprop
+SM_BrownSmallPot_LOD2,pot,16,40,pot,otherprop
+SM_BrownSmallPot_LOD3,pot,16,40,pot,otherprop
+SM_SmallPaperBoxStorageBlack_LOD0,paper box,503,40,box of paper,otherprop
+SM_SmallPaperBoxStorageBlack_LOD1,paper box,503,40,box of paper,otherprop
+SM_SmallPaperBoxStorageBlack_LOD2,paper box,503,40,box of paper,otherprop
+SM_SmallPaperBoxStorageBlack_LOD3,paper box,503,40,box of paper,otherprop
+SM_DocumentFolderS_LOD0,document folder,69,40,folder,otherprop
+SM_DocumentFolderS_LOD1,document folder,69,40,folder,otherprop
+SM_DocumentFolderS_LOD2,document folder,69,40,folder,otherprop
+SM_DocumentFolderS_LOD3,document folder,69,40,folder,otherprop
+SM_PenHolderMetalS_LOD0,pen holder,464,40,pen holder,otherprop
+SM_PenHolderMetalS_LOD1,pen holder,464,40,pen holder,otherprop
+SM_PenHolderMetalS_LOD2,pen holder,464,40,pen holder,otherprop
+SM_PenHolderMetalS_LOD3,pen holder,464,40,pen holder,otherprop
+SM_BeerGlassS_LOD0,beer glass,612,40,glass,otherprop
+SM_BeerGlassS_LOD1,beer glass,612,40,glass,otherprop
+SM_BeerGlassS_LOD2,beer glass,612,40,glass,otherprop
+SM_BeerGlassS_LOD3,beer glass,612,40,glass,otherprop
+SM_CoffeeCupPlate,coffe cup plate,233,40,plate,otherprop
+SM_CoffeeCup,coffee cup,621,40,plastic cup of coffee,otherprop
+SM_PillowColor8_LOD0,pillow,119,18,pillow,pillow
+SM_PillowColor8_LOD1,pillow,119,18,pillow,pillow
+SM_PillowColor8_LOD2,pillow,119,18,pillow,pillow
+SM_PillowColor8_LOD3,pillow,119,18,pillow,pillow
+SM_PillowColor6_LOD0,pillow,119,18,pillow,pillow
+SM_PillowColor6_LOD1,pillow,119,18,pillow,pillow
+SM_PillowColor6_LOD2,pillow,119,18,pillow,pillow
+SM_PillowColor6_LOD3,pillow,119,18,pillow,pillow
+SM_PillowColor26_LOD0,pillow,119,18,pillow,pillow
+SM_PillowColor26_LOD1,pillow,119,18,pillow,pillow
+SM_PillowColor26_LOD2,pillow,119,18,pillow,pillow
+SM_PillowColor26_LOD3,pillow,119,18,pillow,pillow
+SM_PillowColor19_LOD0,pillow,119,18,pillow,pillow
+SM_PillowColor19_LOD1,pillow,119,18,pillow,pillow
+SM_PillowColor19_LOD2,pillow,119,18,pillow,pillow
+SM_PillowColor12_LOD0,pillow,119,18,pillow,pillow
+SM_PillowColor12_LOD1,pillow,119,18,pillow,pillow
+SM_PillowColor12_LOD2,pillow,119,18,pillow,pillow
+SM_VideoBeamStraight,video beam straight,172,25,television,television
+SM_WelcomeDeskS_LOD0,welcome desk,36,14,desk,desk
+SM_WelcomeDeskS_LOD1,welcome desk,36,14,desk,desk
+SM_WelcomeDeskS_LOD2,welcome desk,36,14,desk,desk
+SM_WelcomeDeskS_LOD3,welcome desk,36,14,desk,desk
+SM_WelcomeSignS_LOD0,welcome sign,208,40,sign,otherprop
+SM_WelcomeSignS_LOD1,welcome sign,208,40,sign,otherprop
+SM_WelcomeSignS_LOD2,welcome sign,208,40,sign,otherprop
+SM_WelcomeSignS_LOD3,welcome sign,208,40,sign,otherprop
+SM_SoapHolderS_LOD0,soap holder,506,40,soap holder,otherprop
+SM_SoapHolderS_LOD1,soap holder,506,40,soap holder,otherprop
+SM_SoapHolderS_LOD2,soap holder,506,40,soap holder,otherprop
+SM_SoapHolderS_LOD3,soap holder,506,40,soap holder,otherprop
+SM_RinglFix,ring l fix,20,38,unknown,otherstructure
+SM_Fotel2LeatherBlack_LOD0,fotel,5,5,chair,chair
+SM_Fotel2LeatherBlack_LOD1,fotel,5,5,chair,chair
+SM_Fotel2LeatherBlack_LOD2,fotel,5,5,chair,chair
+SM_Fotel2LeatherBlack_LOD3,fotel,5,5,chair,chair
+SM_SmallDracaena_LOD0,dracaena,82,40,plant,otherprop
+SM_SmallDracaena_LOD1,dracaena,82,40,plant,otherprop
+SM_SmallDracaena_LOD2,dracaena,82,40,plant,otherprop
+SM_SmallDracaena_LOD3,dracaena,82,40,plant,otherprop
+SM_GoldenPot,pot,16,40,pot,otherprop
+SM_WallShelfWoodenMetalSmallS_LOD0,wall shelf,855,39,shelf frame,otherfurniture
+SM_WallShelfWoodenMetalSmallS_LOD1,wall shelf,855,39,shelf frame,otherfurniture
+SM_WallShelfWoodenMetalSmallS_LOD2,wall shelf,855,39,shelf frame,otherfurniture
+SM_WallShelfWoodenMetalSmallS_LOD3,wall shelf,855,39,shelf frame,otherfurniture
+SM_SmallSpeakersS_LOD0,speakers,54,40,speaker,otherprop
+SM_SmallSpeakersS_LOD1,speakers,54,40,speaker,otherprop
+SM_SmallSpeakersS_LOD2,speakers,54,40,speaker,otherprop
+SM_SmallSpeakersS_LOD3,speakers,54,40,speaker,otherprop
+SM_OrangeOfficeChairLeather_LOD0,office chair,5,5,chair,chair
+SM_OrangeOfficeChairLeather_LOD1,office chair,5,5,chair,chair
+SM_OrangeOfficeChairLeather_LOD2,office chair,5,5,chair,chair
+SM_OrangeOfficeChairLeather_LOD3,office chair,5,5,chair,chair
+SM_BrownOfficeChairLeather_LOD0,office chair,5,5,chair,chair
+SM_BrownOfficeChairLeather_LOD1,office chair,5,5,chair,chair
+SM_BrownOfficeChairLeather_LOD2,office chair,5,5,chair,chair
+SM_BrownOfficeChairLeather_LOD3,office chair,5,5,chair,chair
+SM_OfficeChairLeatherSBlack_LOD0,office chair,5,5,chair,chair
+SM_OfficeChairLeatherSBlack_LOD1,office chair,5,5,chair,chair
+SM_OfficeChairLeatherSBlack_LOD2,office chair,5,5,chair,chair
+SM_OfficeChairLeatherSBlack_LOD3,office chair,5,5,chair,chair
+SM_StandingLampS_LOD0,standing lamp,144,35,lamp,lamp
+SM_StandingLampS_LOD1,standing lamp,144,35,lamp,lamp
+SM_StandingLampS_LOD2,standing lamp,144,35,lamp,lamp
+SM_StandingLampS_LOD3,standing lamp,144,35,lamp,lamp
+SM_HandDryerS_LOD0,hand dryer,20,40,unknown,otherprop 
+SM_HandDryerS_LOD1,hand dryer,20,40,unknown,otherprop 
+SM_HandDryerS_LOD2,hand dryer,20,40,unknown,otherprop 
+SM_WashBase_LOD0,wash base,24,34,sink,sink
+SM_WashBase_LOD1,wash base,24,34,sink,sink
+SM_WashBase_LOD2,wash base,24,34,sink,sink
+SM_WashBase_LOD3,wash base,24,34,sink,sink
+SM_SimpleCoffeTableWoodS_LOD0,coffee table,356,7,coffee table,table
+SM_SimpleCoffeTableWoodS_LOD1,coffee table,356,7,coffee table,table
+SM_SimpleCoffeTableWoodS_LOD2,coffee table,356,7,coffee table,table
+SM_SimpleCoffeTableWoodS_LOD3,coffee table,356,7,coffee table,table
+SM_WallTree_LOD0,wall tree,82,40,plant,otherprop
+SM_WallTree_LOD1,wall tree,82,40,plant,otherprop
+SM_WallTree_LOD2,wall tree,82,40,plant,otherprop
+SM_WallTree_LOD3,wall tree,82,40,plant,otherprop
+SM_LampsS_LOD0,lamps,144,35,lamp,lamp
+SM_LampsS_LOD1,lamps,144,35,lamp,lamp
+SM_LampsS_LOD2,lamps,144,35,lamp,lamp
+SM_LampsS_LOD3,lamps,144,35,lamp,lamp
+SM_Door_LOD0,door,28,8,door,door
+SM_Door_LOD1,door,28,8,door,door
+SM_Door_LOD2,door,28,8,door,door
+SM_ToiletUnitS_LOD0,toilet,124,33,toilet,toilet
+SM_ToiletUnitS_LOD1,toilet,124,33,toilet,toilet
+SM_ToiletUnitS_LOD2,toilet,124,33,toilet,toilet
+SM_ToiletUnitS_LOD3,toilet,124,33,toilet,toilet
+SM_Evergreen_LOD0,evergreen,82,40,plant,otherprop
+SM_Evergreen_LOD1,evergreen,82,40,plant,otherprop
+SM_Evergreen_LOD2,evergreen,82,40,plant,otherprop
+SM_Evergreen_LOD3,evergreen,82,40,plant,otherprop
+SM_MultipleShelvesTrioS_LOD0,shelves,42,15,shelves,shelves
+SM_MultipleShelvesTrioS_LOD1,shelves,42,15,shelves,shelves
+SM_MultipleShelvesTrioS_LOD2,shelves,42,15,shelves,shelves
+SM_MultipleShelvesTrioS_LOD3,shelves,42,15,shelves,shelves
+SM_BlockGlass4m,block glass 4m,4,22,ceiling,ceiling
+SM_CoffeeCupEmpty,coffee cup,621,40,plastic cup of coffee,otherprop
+SM_LaptopBS,laptop,37,40,laptop,otherprop
+SM_WhiteGamingMouse_LOD0,mouse,103,40,mouse,otherprop
+SM_WhiteGamingMouse_LOD1,mouse,103,40,mouse,otherprop
+SM_WhiteGamingMouse_LOD2,mouse,103,40,mouse,otherprop
+SM_WhiteGamingMouse_LOD3,mouse,103,40,mouse,otherprop
+SM_GamingMouseSBlack_LOD0,mouse,103,40,mouse,otherprop
+SM_GamingMouseSBlack_LOD1,mouse,103,40,mouse,otherprop
+SM_GamingMouseSBlack_LOD2,mouse,103,40,mouse,otherprop
+SM_GamingMouseSBlack_LOD3,mouse,103,40,mouse,otherprop
+SM_SofaLeatherBlack_LOD0,sofa,83,6,sofa,sofa
+SM_SofaLeatherBlack_LOD1,sofa,83,6,sofa,sofa
+SM_SofaLeatherBlack_LOD2,sofa,83,6,sofa,sofa
+SM_SofaLeatherBlack_LOD3,sofa,83,6,sofa,sofa
+SM_CoffeeTableWodenLightS_LOD0,coffee table,356,7,coffee table,table
+SM_CoffeeTableWodenLightS_LOD1,coffee table,356,7,coffee table,table
+SM_CoffeeTableWodenLightS_LOD2,coffee table,356,7,coffee table,table
+SM_CoffeeTableWodenLightS_LOD3,coffee table,356,7,coffee table,table
+SM_BlueShellFotelS_LOD0,shell fotel,5,5,chair,chair
+SM_BlueShellFotelS_LOD1,shell fotel,5,5,chair,chair
+SM_BlueShellFotelS_LOD2,shell fotel,5,5,chair,chair
+SM_BlueShellFotelS_LOD3,shell fotel,5,5,chair,chair
+SM_WallShelfWoodenMetalS_LOD0,wall shelf,855,39,shelf frame,otherfurniture
+SM_WallShelfWoodenMetalS_LOD1,wall shelf,855,39,shelf frame,otherfurniture
+SM_WallShelfWoodenMetalS_LOD2,wall shelf,855,39,shelf frame,otherfurniture
+SM_WallShelfWoodenMetalS_LOD3,wall shelf,855,39,shelf frame,otherfurniture
+SM_BrownMenagerChairLeather_LOD0,manager chair,5,5,chair,chair
+SM_BrownMenagerChairLeather_LOD1,manager chair,5,5,chair,chair
+SM_BrownMenagerChairLeather_LOD2,manager chair,5,5,chair,chair
+SM_BrownMenagerChairLeather_LOD3,manager chair,5,5,chair,chair
+SM_KeyboardAS_LOD0,keyboard,47,40,keyboard,otherprop
+SM_KeyboardAS_LOD1,keyboard,47,40,keyboard,otherprop
+SM_KeyboardAS_LOD2,keyboard,47,40,keyboard,otherprop
+SM_KeyboardAS_LOD3,keyboard,47,40,keyboard,otherprop
+SM_WideMonitor_LOD0,monitor,49,40,monitor,otherprop
+SM_WideMonitor_LOD1,monitor,49,40,monitor,otherprop
+SM_WideMonitor_LOD2,monitor,49,40,monitor,otherprop
+SM_WideMonitor_LOD3,monitor,49,40,monitor,otherprop
+SM_ComputerCaseSilver_LOD0,computer case,46,40,computer,otherprop
+SM_ComputerCaseSilver_LOD1,computer case,46,40,computer,otherprop
+SM_ComputerCaseSilver_LOD2,computer case,46,40,computer,otherprop
+SM_WhiteDeskTableS_LOD0,desk table,36,14,desk,desk
+SM_WhiteDeskTableS_LOD1,desk table,36,14,desk,desk
+SM_WhiteDeskTableS_LOD2,desk table,36,14,desk,desk
+SM_WhiteDeskTableS_LOD3,desk table,36,14,desk,desk
+SM_ManagerChairLeatherCreamS_LOD0,manager chair,5,5,chair,chair
+SM_ManagerChairLeatherCreamS_LOD1,manager chair,5,5,chair,chair
+SM_ManagerChairLeatherCreamS_LOD2,manager chair,5,5,chair,chair
+SM_ManagerChairLeatherCreamS_LOD3,manager chair,5,5,chair,chair
+SM_BlackFolder,folder,69,40,folder,otherprop
+SM_ShelvesMultipleS_LOD0,shelves,42,15,shelves,shelves
+SM_ShelvesMultipleS_LOD1,shelves,42,15,shelves,shelves
+SM_OfficeBigPrinterPlasticWhiteS_LOD0,office printer,66,40,printer,otherprop
+SM_OfficeBigPrinterPlasticWhiteS_LOD1,office printer,66,40,printer,otherprop
+SM_OfficeBigPrinterPlasticWhiteS_LOD2,office printer,66,40,printer,otherprop
+SM_OfficeBigPrinterPlasticWhiteS_LOD3,office printer,66,40,printer,otherprop
+SM_OfficeDoubleDeskMetalWood_2_LOD0,office double desk,36,14,desk,desk
+SM_OfficeDoubleDeskMetalWood_2_LOD1,office double desk,36,14,desk,desk
+SM_OfficeDoubleDeskMetalWood_2_LOD2,office double desk,36,14,desk,desk
+SM_OfficeDoubleDeskMetalWood_2_LOD3,office double desk,36,14,desk,desk
+SM_WallMozaik_LOD0,wall mozaic,186,38,wall decoration,otherstructure
+SM_WallMozaik_LOD1,wall mozaic,186,38,wall decoration,otherstructure
+SM_WallMozaik_LOD2,wall mozaic,186,38,wall decoration,otherstructure
+SM_WallMozaik_LOD3,wall mozaic,186,38,wall decoration,otherstructure
+SM_Cable_LOD0,cable,450,40,cables,otherprop
+SM_Cable_LOD1,cable,450,40,cables,otherprop
+SM_Cable_LOD2,cable,450,40,cables,otherprop
+SM_Cable_LOD3,cable,450,40,cables,otherprop
+SM_TVBenchWoodenWhiteS_LOD0,tv bench,291,39,tv stand,otherfurniture
+SM_TVBenchWoodenWhiteS_LOD1,tv bench,291,39,tv stand,otherfurniture
+SM_TVBenchWoodenWhiteS_LOD2,tv bench,291,39,tv stand,otherfurniture
+SM_TVBenchWoodenWhiteS_LOD3,tv bench,291,39,tv stand,otherfurniture
+SM_BuildBlock,build block,21,1,wall,wall
+SM_WallSquaresTriangles4_LOD0,wall with squares and triangles,21,1,wall,wall
+SM_WallSquaresTriangles4_LOD1,wall with squares and triangles,21,1,wall,wall
+SM_WallSquaresTriangles4_LOD2,wall with squares and triangles,21,1,wall,wall
+SM_WallSquaresTriangles4_LOD3,wall with squares and triangles,21,1,wall,wall
+SM_StudioSpeakerWooden_LOD0,studio speaker,54,40,speaker,otherprop
+SM_StudioSpeakerWooden_LOD1,studio speaker,54,40,speaker,otherprop
+SM_StudioSpeakerWooden_LOD2,studio speaker,54,40,speaker,otherprop
+SM_StudioSpeakerWooden_LOD3,studio speaker,54,40,speaker,otherprop
+SM_TVStandWithBoxesS_LOD0,tv stand with boxes,291,39,tv stand,otherfurniture
+SM_TVStandWithBoxesS_LOD1,tv stand with boxes,291,39,tv stand,otherfurniture
+SM_TVStandWithBoxesS_LOD2,tv stand with boxes,291,39,tv stand,otherfurniture
+SM_TVStandWithBoxesS_LOD3,tv stand with boxes,291,39,tv stand,otherfurniture
+SM_FridgeDrinks_LOD0,fridge for drinks,17,24,refridgerator,refridgerator
+SM_FridgeDrinks_LOD1,fridge for drinks,17,24,refridgerator,refridgerator
+SM_FridgeDrinks_LOD2,fridge for drinks,17,24,refridgerator,refridgerator
+SM_FridgeDrinks_LOD3,fridge for drinks,17,24,refridgerator,refridgerator
+SM_WaterCoolerBlackWhiteS_LOD0,water cooler,509,39,water cooler,otherfurniture
+SM_WaterCoolerBlackWhiteS_LOD1,water cooler,509,39,water cooler,otherfurniture
+SM_WaterCoolerBlackWhiteS_LOD2,water cooler,509,39,water cooler,otherfurniture
+SM_WaterCoolerBlackWhiteS_LOD3,water cooler,509,39,water cooler,otherfurniture
+SM_MicrowaveS_LOD0,microwave,13,39,microwave,otherfurniture
+SM_MicrowaveS_LOD1,microwave,13,39,microwave,otherfurniture
+SM_MicrowaveS_LOD2,microwave,13,39,microwave,otherfurniture
+SM_MicrowaveS_LOD3,microwave,13,39,microwave,otherfurniture
+SM_EspressoMachineSilverS_LOD0,espresso machine,234,40,coffee machine,otherprop
+SM_EspressoMachineSilverS_LOD1,espresso machine,234,40,coffee machine,otherprop
+SM_EspressoMachineSilverS_LOD2,espresso machine,234,40,coffee machine,otherprop
+SM_EspressoMachineSilverS_LOD3,espresso machine,234,40,coffee machine,otherprop
+SM_KitchenetteRightSide_LOD0,kitchenette,7,12,counter,counter
+SM_KitchenetteRightSide_LOD1,kitchenette,7,12,counter,counter
+SM_KitchenetteRightSide_LOD2,kitchenette,7,12,counter,counter
+SM_KitchenetteRightSide_LOD3,kitchenette,7,12,counter,counter
+SM_KitchenetteLeftSide_LOD0,kitchenette,7,12,counter,counter
+SM_KitchenetteLeftSide_LOD1,kitchenette,7,12,counter,counter
+SM_KitchenetteLeftSide_LOD2,kitchenette,7,12,counter,counter
+SM_KitchenetteLeftSide_LOD3,kitchenette,7,12,counter,counter
+SM_LeatherBarChairS_LOD0,bar chair,5,5,chair,chair
+SM_LeatherBarChairS_LOD1,bar chair,5,5,chair,chair
+SM_LeatherBarChairS_LOD2,bar chair,5,5,chair,chair
+SM_LeatherBarChairS_LOD3,bar chair,5,5,chair,chair
+SM_AngledSofaLeatherBlack_LOD0,angled sofa,83,6,sofa,sofa
+SM_AngledSofaLeatherBlack_LOD1,angled sofa,83,6,sofa,sofa
+SM_AngledSofaLeatherBlack_LOD2,angled sofa,83,6,sofa,sofa
+SM_AngledSofaLeatherBlack_LOD3,angled sofa,83,6,sofa,sofa
+SM_KitchenBarPultS,kitchen bar,51,39,bar,otherfurniture
+SM_DeskTreewayBlackS_LOD0,desk,36,14,desk,desk
+SM_DeskTreewayBlackS_LOD1,desk,36,14,desk,desk
+SM_DeskTreewayBlackS_LOD2,desk,36,14,desk,desk
+SM_DeskTreewayBlackS_LOD3,desk,36,14,desk,desk
+SM_SimpleDeskWoodLightS_LOD0,desk,36,14,desk,desk
+SM_SimpleDeskWoodLightS_LOD1,desk,36,14,desk,desk
+SM_SimpleDeskWoodLightS_LOD2,desk,36,14,desk,desk
+SM_SimpleDeskWoodLightS_LOD3,desk,36,14,desk,desk
+SM_BlockGlassElevator,block glass elevator,609,38,door way,otherstructure
+SM_ReceptionDeskS_LOD0,reception desk,36,14,desk,desk
+SM_ReceptionDeskS_LOD1,reception desk,36,14,desk,desk
+SM_ReceptionDeskS_LOD2,reception desk,36,14,desk,desk
+SM_ReceptionDeskS_LOD3,reception desk,36,14,desk,desk
+SM_BuildGlass2,build glass,21,1,wall,wall
+SM_FloorSide_LOD0,floor side,11,2,floor,floor
+SM_FloorSide_LOD1,floor side,11,2,floor,floor
+SM_Column2,column,94,38,column,otherstructure
+SM_RedFrame,frame,20,38,unknown,otherstructure
+SM_DoorGlassSegment_LOD0,door glass segment,21,1,wall,wall
+SM_DoorGlassSegment_LOD1,door glass segment,21,1,wall,wall
+SM_DoorGlassSegment_LOD2,door glass segment,21,1,wall,wall
+SM_DoorGlassSegment_LOD3,door glass segment,21,1,wall,wall
+SM_BuildBlockDoor,build block door ,609,38,door way,otherstructure
+SM_BlockGlassAngled,block glass angled,21,1,wall,wall
+SM_FloorAngle_LOD0,floor angle,11,2,floor,floor
+SM_FloorAngle_LOD1,floor angle,11,2,floor,floor
+SM_FloorMiddle_LOD0,floor middle,11,2,floor,floor
+SM_FloorMiddle_LOD1,floor middle,11,2,floor,floor
+SM_BlockSimple4m,block simple 4m,21,1,wall,wall

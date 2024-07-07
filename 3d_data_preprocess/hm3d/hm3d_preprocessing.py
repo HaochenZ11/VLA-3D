@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import torch
 import sys
+import scipy.spatial
 from tqdm import tqdm
 from collections import defaultdict, Counter
 from scipy.spatial import KDTree
@@ -77,12 +78,13 @@ class HM3DPreprocessor:
         if not os.path.exists(Path(output_directory) / self.scan_name ):
             os.makedirs(Path(output_directory) / self.scan_name )
 
-        self.mesh_objects = load_meshes(str(self.color_mesh_path), str(self.semantic_mesh_path))
+        self.mesh_objects, self.semantic_mesh_objects = load_meshes(str(self.color_mesh_path), str(self.semantic_mesh_path))
 
         # self.mesh_objects = subdivide_mesh(self.mesh_objects, 0.1)
         
         self.points, self.point_triangle_indices = sample_semantic_pointcloud_from_uv_mesh(
             self.mesh_objects,
+            self.semantic_mesh_objects,
             n=num_pointcloud_samples,
             sampling_density=sampling_density,
             seed=seed,
@@ -90,9 +92,9 @@ class HM3DPreprocessor:
 
         self.semantic_colors = self.points[:, 6:9].int()
 
-        self.point_region_ids = torch.zeros_like(self.points[:, 0], dtype=torch.int32)
+        self.point_region_ids = -torch.ones_like(self.points[:, 0], dtype=torch.int32)
 
-        self.point_object_ids = torch.zeros_like(self.points[:, 0], dtype=torch.int32)
+        self.point_object_ids = -torch.ones_like(self.points[:, 0], dtype=torch.int32)
 
         self.semantic_config = pd.read_csv(
             self.semantic_config_path, 
@@ -109,17 +111,6 @@ class HM3DPreprocessor:
 
         self.nobjects = len(self.semantic_config)
 
-        # self.output_region_folder = Path(self.output_directory) / self.scan_name / 'regions'
-        # if os.path.exists(self.output_region_folder):
-        #     shutil.rmtree(self.output_region_folder)
-        # os.makedirs(self.output_region_folder)
-
-        # self.output_object_folder = Path(self.output_directory) / self.scan_name / 'objects'
-        # if os.path.exists(self.output_object_folder):
-        #     shutil.rmtree(self.output_object_folder)
-        # os.makedirs(self.output_object_folder)
-
-        # Region number remapping
 
         self.region_remapping_dict = {region_id: i for i, region_id in enumerate(list(set(self.semantic_config.region_id)))}
         self.semantic_config.region_id = self.semantic_config.region_id.map(self.region_remapping_dict)
@@ -152,7 +143,12 @@ class HM3DPreprocessor:
         if len(object_points) < self.filter_objs_less_than:
             return None, None, None, None, None, None
 
-        center, size, heading = calculate_bbox_hull(object_points[:, :3].cpu().numpy())
+        try:
+            center, size, heading = calculate_bbox_hull(object_points[:, :3].cpu().numpy())
+        except scipy.spatial._qhull.QhullError as e:
+            print(e)
+            print(object_points)
+            return None, None, None, None, None, None
 
         colors = object_points[:, 3:6]/255
         color_3 = judge_color(colors.cpu().numpy(), self.tree, self.anchor_colors_array, self.anchor_colors_name)
@@ -202,15 +198,12 @@ class HM3DPreprocessor:
                 semantic_row,
                 self.points)
             
-            if point_filter is None:
-                continue
-
-            if (size < np.array([1e-5, 1e-5, 1e-5])).any():
+            if point_filter is None or (size < np.array([1e-5, 1e-5, 1e-5])).any():
                 continue
 
             self.point_region_ids[point_filter] = semantic_row.region_id
 
-            if (self.point_object_ids[point_filter] != 0).any():
+            if (self.point_object_ids[point_filter] != -1).any():
                 ids, counts = torch.unique(self.point_object_ids[point_filter], return_counts=True)
                 print(ids, counts)
                 print("Sum: ", counts.sum())
@@ -244,18 +237,11 @@ class HM3DPreprocessor:
 
             object_out_list.append(object_line)
 
-            # output_object_path = self.output_object_folder / f'{self.scan_name}_region_{semantic_row.region_id}_object_{object_id}_pc_result'
-
-            # object_vertex = object_points[:, :6]
-        
-            # write_ply_file(object_vertex, f'{output_object_path}.ply', region_id=False, obj_id=False)
-
             object_id += 1
         
         object_file_name = Path(self.output_directory) / self.scan_name /  f'{self.scan_name}_object_result.csv'
 
         object_out_df = pd.DataFrame(object_out_list, columns=OBJECT_HEADER)
-        object_out_df['region_id'] -= object_out_df['region_id'].min()
         object_out_df.set_index('object_id', inplace=True)
         object_out_df.to_csv(object_file_name)
 
@@ -311,16 +297,8 @@ class HM3DPreprocessor:
 
             region_points_lengths.append(len(region_points))
             
-            # output_region_path = self.output_region_folder / f'{self.scan_name}_region_{remapped_id}_pc_result'
-
-            # region_vertex = torch.concatenate([
-            #     region_points[:, :6],
-            #     self.point_object_ids[region_points_filter, None],
-            #     ], dim=1)
-            # write_ply_file(region_vertex, f'{output_region_path}.ply', region_id=False)
         
         region_out_df = pd.DataFrame(region_list, columns=REGION_HEADER)
-        region_out_df['region_id'] -= region_out_df['region_id'].min()
         region_out_df.set_index('region_id', inplace=True)
         region_file_name = Path(self.output_directory) / self.scan_name /  f'{self.scan_name}_region_result.csv'
         region_out_df.to_csv(region_file_name)
@@ -343,8 +321,8 @@ class HM3DPreprocessor:
 
         vertex, region_indices_out, object_indices_out = sort_pointcloud(vertex)
 
-        torch.save(region_indices_out, self.output_path / f'{self.scan_name}_region_split.pt')
-        torch.save(object_indices_out, self.output_path / f'{self.scan_name}_object_split.pt')
+        torch.save(region_indices_out, self.output_path / f'{self.scan_name}_region_split.npy')
+        torch.save(object_indices_out, self.output_path / f'{self.scan_name}_object_split.npy')
         write_ply_file(vertex[:, :6], self.output_path / f'{self.scan_name}_pc_result.ply')
 
 
@@ -358,15 +336,15 @@ if __name__ == "__main__":
     parser.add_argument('--semantic_mesh_directory', 
         default='/media/navigation/easystore1/Dataset/hm3d/hm3d-train-semantic-annots-v0.2')
     parser.add_argument('--category_mappings_path', 
-        default='hm3d/category_mappings/hm3dsem_full_mappings.csv')
+        default='category_mappings/hm3dsem_full_mappings.csv')
     parser.add_argument('--raw_category_mappings_path', 
-        default='hm3d/category_mappings/hm3dsem_category_mappings.tsv')
+        default='category_mappings/hm3dsem_category_mappings.tsv')
     parser.add_argument('--region_categories_path', 
-        default='hm3d/orig_hm3d_statistics/Per_Scene_Region_Weighted_Votes.csv')
+        default='orig_hm3d_statistics/Per_Scene_Region_Weighted_Votes.csv')
     parser.add_argument('--output_directory',
         default='/home/navigation/Dataset/VLA_Dataset')
     parser.add_argument('--num_points', type=int, default=5000000)
-    parser.add_argument('--sampling_density', type=float, default=1e-4)
+    parser.add_argument('--sampling_density', type=float, default=2e-4)
     parser.add_argument('--num_region_points', type=int, default=500000)
     parser.add_argument('--filter_objs_less_than', type=int, default=10)
     # parser.add_argument('--device', default='cuda:0')
@@ -378,6 +356,7 @@ if __name__ == "__main__":
     skipped_scans = ['00023-zepmXAdrpjR', '00476-NtnvZSMK3en', '00546-nS8T59Aw3sf', # Mismatching semantic and color meshes
         '00172-bB6nKqfsb1z', '00643-ggNAcMh8JPT']
     meshes = [mesh for mesh in meshes if mesh not in skipped_scans]
+    # meshes = ['00033-oPj9qMxrDEa']
 
     # counter = mp.Value('i', 0)
 

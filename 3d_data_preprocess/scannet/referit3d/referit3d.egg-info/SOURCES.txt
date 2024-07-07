@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+referit3d/__init__.py
+referit3d.egg-info/PKG-INFO
+referit3d.egg-info/SOURCES.txt
+referit3d.egg-info/dependency_links.txt
+referit3d.egg-info/not-zip-safe
+referit3d.egg-info/requires.txt
+referit3d.egg-info/top_level.txt

@@ -1,7 +1,6 @@
 import open3d as o3d
 import csv
 import numpy as np
-import torch
 import pandas as pd
 import open3d.visualization.gui as gui
 import open3d.visualization.rendering as rendering
@@ -18,23 +17,25 @@ class DatasetVisualizer:
             scene_path: str,
             optional_mesh_path = None,
             region_name='none',
-            anchor_idx=-1,
+            target_idx=-1,
             relationship='all',
-            num_closest=3,
-            num_farthest=3,
-            display_bbox_labels=False,
-            dont_crop_region=False
+            display_labels_and_colors=True,
+            colored_color_labels=True,
+            dont_crop_region=False,
+            hide_legend=False
     ):
         self.scene_name = Path(scene_path).name
         self.pcd_path = os.path.join(scene_path, f'{self.scene_name}_pc_result.ply')
-        self.scene_graph_path = os.path.join(scene_path, f'{self.scene_name}.json')
+        self.scene_graph_path = os.path.join(scene_path, f'{self.scene_name}_scene_graph.json')
         self.object_csv_path = os.path.join(scene_path, f'{self.scene_name}_object_result.csv')
         self.region_csv_path = os.path.join(scene_path, f'{self.scene_name}_region_result.csv')
-        self.language_path = os.path.join(scene_path, f'{self.scene_name}_label_data.json')
-        self.region_split_path = os.path.join(scene_path, f'{self.scene_name}_region_split.pt')
+        self.language_path = os.path.join(scene_path, f'{self.scene_name}_referential_statements.json')
+        self.region_split_path = os.path.join(scene_path, f'{self.scene_name}_region_split.npy')
         self.optional_mesh_path = optional_mesh_path
+        self.hide_legend = hide_legend
 
-        self.display_bbox_labels = display_bbox_labels
+        self.display_labels_and_colors = display_labels_and_colors
+        self.colored_color_labels = True
         self.dont_crop_region = dont_crop_region
 
         if optional_mesh_path is None:
@@ -58,7 +59,7 @@ class DatasetVisualizer:
 
         self.regions = self.scene_graph['regions']
 
-        self.region_pcds = self.split_regions(os.path.join(scene_path, f'{self.scene_name}_region_split.pt'), self.pcd)
+        self.region_pcds = self.split_regions(self.region_split_path, self.pcd)
 
         self.region_selector_names = {}
 
@@ -66,7 +67,6 @@ class DatasetVisualizer:
 
             objects_dict = {}
             for object in region['objects']:
-                object['idx'] = object['object_id']
                 if object['nyu_label'] not in objects_dict:
                     objects_dict[object['nyu_label']] = [object]
                 else:
@@ -85,63 +85,25 @@ class DatasetVisualizer:
             'closest',
             'farthest',
             'between',
-            'beside',
             'near',
             'in',
             'on',
             'hanging_on'
         ]
 
-        self.num_closest = num_closest
-        self.num_farthest = num_farthest
-
         self.bbox_colors = {
-            'anchor': [1, 0, 0],
-            'above': [1, 1, 0],
-            'below': [1, 0, 1],
-            'closest': [[1, (i+1) / 4, (i+1) / 4] for i in range(3)],
-            'farthest': [[(i+1) / 4, 1, (i+1) / 4] for i in range(3)],
-            'between': [0, 0, 1],
-            'beside': [0, 0, 0],
-            'near': [0, 1, 1],
-            'in': [0, 1, 0.5],
-            'on': [0, 0.5, 1],
-            'hanging_on': [0, 0.5, 0.5],
+            'target': [0, 1, 0],
+            'distractor': [1, 0, 0],
+            'anchor': [0, 0, 1]
         }
 
-        # self.objects = None
-        # self.object_types_dict = None
-        # self.object_types = None
-        # self.relationships = None
-        
-
-        print(region_name)
         self.cur_region_idx = -1 if region_name == 'none' else self.region_selector_names[region_name]
-        self.cur_anchor_idx = anchor_idx
+        self.cur_target_idx = target_idx
         self.cur_object_type = None
         self.cur_relationship = relationship
 
         self.cur_bboxes = []
         self.scene_labels = []
-
-        # Legend
-
-        self.legend_heights = {
-            'all': 16.5 + self.num_closest + self.num_farthest,
-            'above': 4.5,
-            'below': 4.5,
-            'closest': 4.5 + self.num_closest,
-            'farthest': 4.5 + self.num_farthest,
-            'between': 4.5,
-            'beside': 4.5,
-            'near': 4.5,
-            'in': 4.5,
-            'on': 4.5,
-            'hanging_on': 4.5,
-        }
-
-        self.legend_height = None
-        self.legend_width = None
 
         self.set_objects()
 
@@ -150,17 +112,13 @@ class DatasetVisualizer:
 
     def split_regions(self, region_split_path, pcd):
 
-        region_ids_and_split = torch.load(region_split_path)
-        region_split = np.cumsum(region_ids_and_split[:, 1].numpy())[:-1]
-        region_ids = region_ids_and_split[:, 0].numpy()
-
-        print(region_split, region_ids)
+        region_ids_and_split = np.load(region_split_path)
+        region_split = region_ids_and_split[:-1, 1]
+        region_ids = region_ids_and_split[:, 0]
 
         positions_split = np.split(pcd.point.positions.numpy(), region_split)
         colors_split = np.split(pcd.point.colors.numpy(), region_split)
 
-        print(pcd.point.positions.numpy())
-        print(pcd.point.colors.numpy())
 
         region_pcds = {}
         
@@ -186,11 +144,24 @@ class DatasetVisualizer:
 
         self.object_types_dict = self.regions[str(self.cur_region_idx)]['objects_dict']
 
-        self.object_types = list(self.object_types_dict.keys())
+        self.object_types = ['all'] + sorted(list(self.object_types_dict.keys()))
 
         self.relationships = self.regions[str(self.cur_region_idx)]['relationships']
 
-        self.cur_object_type = self.objects[self.cur_anchor_idx]['nyu_label'] if self.cur_anchor_idx != "-1" else None
+        self.relationship_targets = {}
+        for rel in self.relationship_types:
+            if rel == "all":
+                pass
+            elif rel == "between":
+                self.relationship_targets[rel] = self.relationships[rel]
+            else:
+                self.relationship_targets[rel] = {obj_id: [] for obj_id in self.relationships[rel].keys()}
+                for anchor, targets in self.relationships[rel].items():
+                    for target in targets:
+                        self.relationship_targets[rel][target].append(anchor)
+        
+
+        self.cur_object_type = self.objects[self.cur_target_idx]['nyu_label'] if self.cur_target_idx != "-1" else None
 
         self.statements = self.language_queries['regions'][str(self.cur_region_idx)]
         
@@ -199,7 +170,7 @@ class DatasetVisualizer:
 
         gui.Application.instance.initialize()
 
-        self.window = gui.Application.instance.create_window(f'Scene: {self.scene_name}', 1400, 900)
+        self.window = gui.Application.instance.create_window(f'Scene: {self.scene_name}', 1920, 1080)
 
         self.scene_size_ratio = 0.8
 
@@ -219,6 +190,8 @@ class DatasetVisualizer:
 
         self.populate_selector()
 
+        self.create_options()
+
         self.update_widget_sizes()
 
         self.window.add_child(self.scene_widget)
@@ -232,41 +205,30 @@ class DatasetVisualizer:
         gui.Application.instance.run()
 
     def update_legend(self):
+        
+        if self.hide_legend:
+            return
 
         self.legend.set_widget(gui.VGrid(
             2,
             0,
             gui.Margins(0.25 * self.em, 0.25 * self.em, 0.25 * self.em, 0.25 * self.em)))
     
-        self.legend_height = self.legend_heights[self.cur_relationship] * self.em
+        self.legend_height = 6.5 * self.em
         self.legend_width = 9.5 * self.em
 
         self.legend.add_child(gui.Label('Legend'))
         self.legend.add_child(gui.Label(''))
         for key, value in self.bbox_colors.items():
-            if key == 'anchor' or self.cur_relationship == 'all' or self.cur_relationship == key:
-                if key == 'farthest' or key == 'closest':
-                    ordinals = ['1st', '2nd', '3rd']
-                    for i in range(self.num_closest if key == 'closest' else self.num_farthest):
-                        label_str = f'{ordinals[i]} {key}:'
-                        label_str += ' ' * (40 - len(label_str))
-                        label = gui.Label(label_str)
-                        self.legend.add_child(label)
-                        # colorbox = gui.ColorEdit()
-                        # colorbox.color_value = gui.Color(*(value[i]))
-                        color_image = (np.array(value[i])*255)[None, None, :] * np.ones((int(self.em)+6, int(self.em)+6, 1))
-                        colorbox = gui.ImageWidget(o3d.geometry.Image(color_image.astype(np.uint8)))
-                        self.legend.add_child(colorbox)
-                else:
-                    label_str = f'{key}:'
-                    label_str += ' ' * (40 - len(label_str))
-                    label = gui.Label(label_str)
-                    self.legend.add_child(label)
-                    # colorbox = gui.ColorEdit()
-                    # colorbox.color_value = gui.Color(*value)
-                    color_image = (np.array(value)*255)[None, None, :] * np.ones((int(self.em)+6, int(self.em)+6, 1))
-                    colorbox = gui.ImageWidget(o3d.geometry.Image(color_image.astype(np.uint8)))
-                    self.legend.add_child(colorbox)
+            label_str = f'{key}:'
+            label_str += ' ' * (40 - len(label_str))
+            label = gui.Label(label_str)
+            self.legend.add_child(label)
+            # colorbox = gui.ColorEdit()
+            # colorbox.color_value = gui.Color(*value)
+            color_image = (np.array(value)*255)[None, None, :] * np.ones((int(self.em)+6, int(self.em)+6, 1))
+            colorbox = gui.ImageWidget(o3d.geometry.Image(color_image.astype(np.uint8)))
+            self.legend.add_child(colorbox)
         
         
         self.legend.frame = gui.Rect(
@@ -289,12 +251,13 @@ class DatasetVisualizer:
             self.scene_widget.frame.height,
             self.window.content_rect.width,
             self.window.content_rect.height - self.scene_widget.frame.height)
-        self.legend.frame = gui.Rect(
-            self.window.content_rect.width - self.legend_width,
-            self.window.content_rect.height * self.scene_size_ratio - self.legend_height,
-            self.legend_width,
-            self.legend_height,            
-        )
+        if not self.hide_legend:
+            self.legend.frame = gui.Rect(
+                self.window.content_rect.width - self.legend_width,
+                self.window.content_rect.height * self.scene_size_ratio - self.legend_height,
+                self.legend_width,
+                self.legend_height,            
+            )
 
 
     def populate_selector(self):
@@ -336,9 +299,9 @@ class DatasetVisualizer:
         self.draw_region()
         if self.cur_object_type is not None:
             self.object_type_selector.selected_index = self.object_types.index(self.cur_object_type)
-            idxs = [str(obj['idx']) for obj in self.object_types_dict[self.cur_object_type]]
+            idxs = [str(obj['object_id']) for obj in self.object_types_dict[self.cur_object_type]]
             self.object_instance_selector.set_items(idxs)
-            self.object_instance_selector.selected_index = self.objects[self.cur_anchor_idx]['dict_idx']
+            self.object_instance_selector.selected_index = self.objects[self.cur_target_idx]['dict_idx']
         else:
             self.object_type_selector.selected_index = -1
             self.object_instance_selector.selected_index = -1
@@ -364,9 +327,31 @@ class DatasetVisualizer:
         self.selector.add_child(self.relationship_vert)
         self.selector.add_child(self.language_vert)
     
+
+    def create_options(self):
+        self.options_vert = gui.CollapsableVert(
+            'Visualization Options', 
+            0,
+            gui.Margins(0.5 * self.em, 0.5 * self.em, 0.5 * self.em, 0.5 * self.em))
+        
+        self.show_colors_cb = gui.Checkbox("Show color labels")
+        self.show_colors_cb.checked = self.display_labels_and_colors
+        self.show_colors_cb.set_on_checked(self.show_color_labels)
+        self.options_vert.add_child(self.show_colors_cb)
+
+        self.colored_labels_cb = gui.Checkbox("Display label colors")
+        self.colored_labels_cb.checked = self.colored_color_labels
+        self.colored_labels_cb.set_on_checked(self.show_color_label_colors)
+        self.colored_labels_cb.tooltip = "Color 3D labels with dominant object colors"
+        self.colored_labels_cb.visible = self.display_labels_and_colors
+        self.options_vert.add_child(self.colored_labels_cb)
+
+        self.selector.add_child(self.options_vert)
+        
+    
     def select_region(self, new_val: str, is_dbl_click):
         self.cur_region_idx = self.region_selector_names[new_val]
-        self.cur_anchor_idx = "-1"
+        self.cur_target_idx = "-1"
         self.set_objects()
         self.object_type_selector.set_items(self.object_types)
         self.object_instance_selector.set_items([' '*20])
@@ -375,21 +360,24 @@ class DatasetVisualizer:
         self.set_language_queries()
         
     def select_object_type(self, new_val: str, is_dbl_click):
-        idxs = [' '*10 + str(obj['idx']) + ' '*10 for obj in self.object_types_dict[new_val]]
-        self.object_instance_selector.set_items(idxs)
-        self.object_instance_selector.selected_index = 0
-        self.draw_bboxes(anchor_idx=idxs[0].strip())
+        if new_val != 'all':
+            idxs = [' '*10 + str(obj['object_id']) + ' '*10 for obj in self.object_types_dict[new_val]]
+            self.object_instance_selector.set_items(idxs)
+            self.object_instance_selector.selected_index = 0
+            self.draw_bboxes(target_idx=idxs[0].strip())
+        else:
+            self.object_instance_selector.set_items([' '*20])
+            self.draw_bboxes(target_idx="-1")
         self.set_language_queries()
 
         
     def select_object_instance(self, new_val: str, is_dbl_click):
-        self.draw_bboxes(anchor_idx=new_val.strip())
+        self.draw_bboxes(target_idx=new_val.strip())
         self.set_language_queries()
 
     def select_relationship(self, new_val, is_dbl_click):
         self.draw_bboxes(relationship=new_val)
         self.set_language_queries()
-        self.update_legend()
     
     def set_language_queries(self):
         if self.cur_region_idx == -1:
@@ -400,9 +388,7 @@ class DatasetVisualizer:
                 continue
             for instance in instances:
                 if self.cur_relationship == 'all' or self.cur_relationship == instance['relation']:
-                    if self.cur_anchor_idx == "-1" \
-                    or instance['relation_type'] == 'ternary' and instance['target_index'] == self.cur_anchor_idx \
-                    or instance['relation_type'] == 'binary' and instance['anchor_index'] == self.cur_anchor_idx:
+                    if self.cur_target_idx == "-1" or instance['target_index'] == self.cur_target_idx:
                         filtered_statements.append(statement)
                         break
 
@@ -415,16 +401,17 @@ class DatasetVisualizer:
         relation_type = instances[0]['relation_type']
         new_relation = instances[0]['relation']
         for instance in instances:
-            if relation_type == 'ternary':
-                anchor_idx = instance['target_index']
-                target_idx = (instance['anchor1_index'], instance['anchor2_index'])
-                break
-            elif relation_type == 'binary':
-                anchor_idx = instance['anchor_index']
-                target_idx = instance['target_index']
-                break
-        self.draw_bboxes(anchor_idx=anchor_idx, relationship=new_relation, target_idx=target_idx)
-        self.update_legend()
+            target_idx = instance['target_index']
+            anchor_idx = (instance['anchor1_index'], instance['anchor2_index']) \
+                if relation_type == 'ternary' else instance['anchor_index']
+            break
+        self.draw_bboxes(target_idx=target_idx, anchor_idx=anchor_idx, relationship=new_relation)
+
+        cur_object = self.objects[target_idx]
+        self.object_type_selector.selected_index = self.object_types.index(cur_object['nyu_label'])
+        idxs = [' '*10 + str(obj['object_id']) + ' '*10 for obj in self.object_types_dict[cur_object['nyu_label']]]
+        self.object_instance_selector.set_items(idxs)
+        self.object_instance_selector.selected_index = int(cur_object['dict_idx'])
 
 
     def add_object_bbox(self, object_idx, color, line_width=10):
@@ -454,10 +441,51 @@ class DatasetVisualizer:
         mat.line_width = line_width
 
         self.scene_widget.scene.add_geometry(str(object_idx), bbox, mat)
-        if self.display_bbox_labels:
-            self.scene_labels.append(self.scene_widget.add_3d_label(center, f'{name} {object_idx}'))
+        if self.display_labels_and_colors:
+            self.add_color_label(object_idx)
 
         self.cur_bboxes.append(str(object_idx))
+    
+    def add_color_label(self, object_idx):
+        object = self.objects[object_idx]
+        name = object['nyu_label']
+        center = object["center"]          
+
+        color_labels = [label for label in object['color_labels'] if label != "N/A"]
+        color_vals = [val for val in object['color_vals'] if -1 not in val]
+        color_percentages = [p for p in object['color_percentages'] if p != "N/A"]
+        label_str = f'{name} {object_idx}:'
+        for label, percentage in zip(color_labels, color_percentages):
+            label_str += f'\n{label}: {float(percentage)*100:.2f}%'
+        label = self.scene_widget.add_3d_label(center, label_str)
+        if self.colored_color_labels:
+            label.color = gui.Color(color_vals[0][0]/255, color_vals[0][1]/255, color_vals[0][2]/255)
+        else:
+            label.color = gui.Color(0.0, 0.0, 0.0)
+        label.scale = 1.5
+        self.scene_labels.append(label)
+
+    def show_color_labels(self, is_checked):
+        for label in self.scene_labels:
+            self.scene_widget.remove_3d_label(label)
+        self.scene_labels = []
+        if is_checked:
+            self.display_labels_and_colors = True
+            self.colored_labels_cb.visible = True
+            for object_idx in self.cur_bboxes:
+                self.add_color_label(object_idx)
+        else:
+            self.display_labels_and_colors = False
+            self.colored_labels_cb.visible = False
+        
+    def show_color_label_colors(self, is_checked):
+        if is_checked:
+            self.colored_color_labels = True
+            self.show_color_labels(True)
+        else:
+            self.colored_color_labels = False
+            for label in self.scene_labels:
+                label.color = gui.Color(0.0, 0.0, 0.0)
 
     def draw_region(self):
 
@@ -516,69 +544,62 @@ class DatasetVisualizer:
         #     )
 
 
-    def draw_bboxes(self, anchor_idx = None, relationship = None, target_idx = None):
+    def draw_bboxes(
+            self, 
+            target_idx = None,
+            anchor_idx = None, 
+            relationship = None): 
 
         if self.cur_region_idx == -1:
             return
 
         for bbox in self.cur_bboxes:
             self.scene_widget.scene.remove_geometry(bbox)
+        self.cur_bboxes = []
         
-        if self.display_bbox_labels:
+        if self.display_labels_and_colors:
             for label in self.scene_labels:
                 self.scene_widget.remove_3d_label(label)
             self.scene_labels = []
 
-        if anchor_idx is not None:
-            self.cur_anchor_idx = anchor_idx
+        if target_idx is not None:
+            self.cur_target_idx = target_idx
         if relationship is not None:
             self.cur_relationship = relationship
             self.relationship_selector.selected_index = self.relationship_types.index(self.cur_relationship)
 
-        if self.cur_anchor_idx == "-1":
+        if self.cur_target_idx == "-1":
             for i in self.objects.keys():
-                self.add_object_bbox(i, self.bbox_colors['anchor'], line_width=5)
+                self.add_object_bbox(i, self.bbox_colors['target'], line_width=5)
         else:
-            self.add_object_bbox(self.cur_anchor_idx, self.bbox_colors['anchor'])
+            self.add_object_bbox(self.cur_target_idx, self.bbox_colors['target'])
 
-            for binary_relationship in ['above', 'below', 'near', 'in', 'on', 'hanging_on']:
 
-                if self.cur_relationship == binary_relationship or self.cur_relationship == 'all':
-                    above_idxs = self.relationships[binary_relationship][str(self.cur_anchor_idx)]
-                    if target_idx is not None:
-                        self.add_object_bbox(target_idx, self.bbox_colors[binary_relationship])
-                    else:
-                        for idx in above_idxs:
-                            self.add_object_bbox(idx, self.bbox_colors[binary_relationship])
-
-            if self.cur_relationship == 'closest' or self.cur_relationship == 'all':
-                closest_idxs = self.relationships["closest"][str(self.cur_anchor_idx)][:self.num_closest]
-                if target_idx is not None:
-                    order = closest_idxs.index(target_idx)
-                    self.add_object_bbox(target_idx, self.bbox_colors['closest'][order])                    
+            if self.cur_relationship == 'all':
+                pass
+            elif self.cur_relationship == 'between':
+                if anchor_idx is not None:
+                    self.add_object_bbox(anchor_idx[0], self.bbox_colors['anchor'])
+                    self.add_object_bbox(anchor_idx[1], self.bbox_colors['anchor'])
                 else:
-                    for i in range(self.num_closest):
-                        self.add_object_bbox(closest_idxs[i], self.bbox_colors['closest'][i])
-
-            if self.cur_relationship == 'farthest' or self.cur_relationship == 'all':
-                farthest_idxs = self.relationships["farthest"][str(self.cur_anchor_idx)][:self.num_farthest]
-                if target_idx is not None:
-                    order = farthest_idxs.index(target_idx)
-                    self.add_object_bbox(target_idx, self.bbox_colors['farthest'][order])                      
+                    anchor_idxs = self.relationship_targets[self.cur_relationship][str(self.cur_target_idx)]
+                    for idx in anchor_idxs:
+                        self.add_object_bbox(idx[0], self.bbox_colors['anchor'])
+                        self.add_object_bbox(idx[1], self.bbox_colors['anchor'])
+            else: 
+                if anchor_idx is not None:
+                    self.add_object_bbox(anchor_idx, self.bbox_colors['anchor'])
                 else:
-                    for i in range(self.num_farthest):
-                        self.add_object_bbox(farthest_idxs[i], self.bbox_colors['farthest'][i])
+                    anchor_idxs = self.relationship_targets[self.cur_relationship][str(self.cur_target_idx)]
+                    for idx in anchor_idxs:
+                        self.add_object_bbox(idx, self.bbox_colors['anchor'])
 
-            if self.cur_relationship == 'between' or self.cur_relationship == 'all':
-                between_idxs = self.relationships["between"][str(self.cur_anchor_idx)]
-                if target_idx is not None:
-                    self.add_object_bbox(target_idx[0], self.bbox_colors['between'])
-                    self.add_object_bbox(target_idx[1], self.bbox_colors['between'])
-                else:
-                    for idx in between_idxs:
-                        self.add_object_bbox(idx[0], self.bbox_colors['between'])
-                        self.add_object_bbox(idx[1], self.bbox_colors['between'])
 
+            cur_object_type = self.objects[self.cur_target_idx]['nyu_label']
+            for distractor in self.object_types_dict[cur_object_type]:
+                if distractor['object_id'] == self.cur_target_idx:
+                    continue
+                self.add_object_bbox(distractor['object_id'], self.bbox_colors['distractor'])
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -593,14 +614,12 @@ if __name__ == '__main__':
                         help="Initial index for the anchor object (default is no index chosen)")
     parser.add_argument('--relationship', default='all',
                         help="relationship to visualize (default is all)")
-    parser.add_argument('--num_closest', default='3', type=int,
-                        help="Number of closest objects to visualize")
-    parser.add_argument('--num_farthest', default='3', type=int,
-                        help="Number of farthest objects to visualize")
-    parser.add_argument('--display_bbox_labels', action='store_const', const=True, default=False,
-                        help="Display labels on bounding boxes directly")
+    parser.add_argument('--display_labels_and_colors', action='store_const', const=True, default=False,
+                        help="Display labels and colors on bounding boxes directly")
     parser.add_argument('--dont_crop_region', action='store_const', const=True, default=False,
                         help="Do not crop region on selection")
+    parser.add_argument('--hide_legend', action='store_const', const=True, default=False,
+                        help="Hide legend")
 
     args = parser.parse_args()
 
@@ -610,8 +629,7 @@ if __name__ == '__main__':
         args.region,
         args.anchor_idx,
         args.relationship,
-        args.num_closest,
-        args.num_farthest,
-        args.display_bbox_labels,
-        args.dont_crop_region
+        args.display_labels_and_colors,
+        args.dont_crop_region,
+        args.hide_legend
     )

@@ -12,7 +12,11 @@
 
   "synonyms": {
     "relation": [
-      "near"
+      "near",
+      "next to",
+      "close to",
+      "adjacent to",
+      "beside"
     ]
   }
 }

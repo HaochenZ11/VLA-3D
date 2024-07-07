@@ -1,0 +1,104 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Book 1,book,1,23,book,books
+Book 1 (1),book,1,23,book,books
+Book 1 (2),book,1,23,book,books
+Book 1 (3),book,1,23,book,books
+Book 2,book,1,23,book,books
+Book 2 (1),book,1,23,book,books
+Book 2 (2),book,1,23,book,books
+Book 2 (3),book,1,23,book,books
+Book 2 (4),book,1,23,book,books
+Book 2 (5),book,1,23,book,books
+Book 2 (6),book,1,23,book,books
+Book 2 (7),book,1,23,book,books
+Book 3,book,1,23,book,books
+Book 3 (1),book,1,23,book,books
+Book 3 (2),book,1,23,book,books
+Book 3 (3),book,1,23,book,books
+Book 3 (4),book,1,23,book,books
+Book 3 (5),book,1,23,book,books
+Book 3 (6),book,1,23,book,books
+Book 3 (7),book,1,23,book,books
+Book 4,book,1,23,book,books
+Book 4 (1),book,1,23,book,books
+Book 4 (2),book,1,23,book,books
+Book 4 (3),book,1,23,book,books
+Book 4 (4),book,1,23,book,books
+Book 5,book,1,23,book,books
+Book 6,book,1,23,book,books
+Bookcase,bookcase,88,10,bookshelf,book shelf
+Cabinet,cabinet,3,3,cabinet,cabinet
+Candle 1,candle,137,40,candle,otherprop
+Candle 2,candle,137,40,candle,otherprop
+Candle 3,candle,137,40,candle,otherprop
+Candle 3 (1),candle,137,40,candle,otherprop
+Candle holder,candlestick,148,40,candlestick,otherprop
+Candle holder (1),candlestick,148,40,candlestick,otherprop
+Carpet,carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling Lamp,lamp,144,35,lamp,lamp
+Ceiling Lamp (1),lamp,144,35,lamp,lamp
+Ceiling Lamp 2,lamp,144,35,lamp,lamp
+Chair 1,chair,5,5,chair,chair
+Chair 1 (1),chair,5,5,chair,chair
+Chair 1 (2),chair,5,5,chair,chair
+Chair 1 (3),chair,5,5,chair,chair
+Chair 1 (4),chair,5,5,chair,chair
+Chair 1 (5),chair,5,5,chair,chair
+Clock,clock,56,40,clock,otherprop
+Column,column,94,38,column,otherstructure
+Column (1),column,94,38,column,otherstructure
+Column (2),column,94,38,column,otherstructure
+Column (3),column,94,38,column,otherstructure
+Curtain,curtain,89,16,curtain,curtain
+curtain support,unknown,20,40,unknown,otherprop
+Door,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+drawer A,drawer,174,3,drawer,cabinet
+drawer B,drawer,174,3,drawer,cabinet
+Fireplace,fireplace,372,38,fireplace,otherstructure
+Fireplace fire,firewood,552,38,piece of wood,otherstructure
+Floor,floor,11,2,floor,floor
+Flowers,flowers,81,40,flower,otherprop
+Focus light,focus light,62,35,light,lamp
+Focus light (1),focus light,62,35,light,lamp
+Focus light (2),focus light,62,35,light,lamp
+Focus light (3),focus light,62,35,light,lamp
+Focus light (4),focus light,62,35,light,lamp
+Fossil 1,fossil decoration,842,40,decoration item,otherprop
+Fossil 2,fossil decoration,842,40,decoration item,otherprop
+Horse,horse figurine,842,40,decoration item,otherprop
+Mirror,mirror,122,19,mirror,mirror
+Phone,phone,32,40,telephone,otherprop
+Picture 1,picture,64,11,picture,picture
+Picture 2,picture,64,11,picture,picture
+Picture 3,picture,64,11,picture,picture
+Picture 4,picture,64,11,picture,picture
+Picture 5,picture,64,11,picture,picture
+Picture 6,picture,64,11,picture,picture
+Picture 7,picture,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 1 (1),pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 2 (1),pillow,119,18,pillow,pillow
+Pillow 3,pillow,119,18,pillow,pillow
+Pillow 4,pillow,119,18,pillow,pillow
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 2,potted plant,82,40,plant,otherprop
+Plant 3,potted plant,82,40,plant,otherprop
+Plant 4,potted plant,82,40,plant,otherprop
+Plant 5,potted plant,82,40,plant,otherprop
+Sofa,sofa,83,6,sofa,sofa
+Sofa 2,sofa,83,6,sofa,sofa
+Sofa 2 (1),sofa,83,6,sofa,sofa
+Switch,light switch,301,40,light switch,otherprop
+Table 1,table,19,7,table,table
+Table 3,table,19,7,table,table
+Vase 1,vase,78,40,vase,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+window A,window,59,9,window,window
+window B,window,59,9,window,window
+window frame,window frame,477,38,window frame,otherstructure

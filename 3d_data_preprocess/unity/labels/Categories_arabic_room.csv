@@ -1,0 +1,93 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Arabic coffee pot,coffee pot,893,40,coffee pot,otherprop
+Arabic jar 1,Arabic jar,70,40,jar,otherprop
+Arabic table 1,table,19,7,table,table
+Arabic table 1 (1),table,19,7,table,table
+Arabic vase 1,vase,78,40,vase,otherprop
+Arabic vase 2,vase,78,40,vase,otherprop
+Arcs wall,wall,21,1,wall,wall
+Candle,unknown,20,40,unknown,otherprop
+Candle (1),unknown,20,40,unknown,otherprop
+Carpet,carpet,130,40,rug,otherprop
+Carpet (1),carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling Lamp,ceiling lamp,144,35,lamp,lamp
+Ceiling Lamp (1),ceiling lamp,144,35,lamp,lamp
+Column,column,94,38,column,otherstructure
+Column (1),column,94,38,column,otherstructure
+Coran,book,1,40,book,otherprop
+Door A,door,28,8,door,door
+Door B,door,28,8,door,door
+Door Frame,door frame,615,38,door frame,otherstructure
+Exterior walls,exterior walls,21,1,wall,wall
+Flame,unknown,20,40,unknown,otherprop
+Flame (1),unknown,20,40,unknown,otherprop
+Floor,floor,11,2,floor,floor
+Floor 2,floor,11,2,floor,floor
+Focus light,focus light,62,35,light,lamp
+Focus light (1),focus light,62,35,light,lamp
+Focus light (10),focus light,62,35,light,lamp
+Focus light (11),focus light,62,35,light,lamp
+Focus light (12),focus light,62,35,light,lamp
+Focus light (2),focus light,62,35,light,lamp
+Focus light (3),focus light,62,35,light,lamp
+Focus light (4),focus light,62,35,light,lamp
+Focus light (5),focus light,62,35,light,lamp
+Focus light (6),focus light,62,35,light,lamp
+Focus light (7),focus light,62,35,light,lamp
+Focus light (8),focus light,62,35,light,lamp
+Focus light (9),focus light,62,35,light,lamp
+Glass 1,glass,612,38,glass,otherstructure
+Glass 2,glass,612,38,glass,otherstructure
+Glass 3,glass,612,38,glass,otherstructure
+Hookah,hookah,187,40,hookah,otherprop
+Hookah wire,hookah wire,92,40,wire,otherprop
+Lantern 1,lantern,144,35,lamp,lamp
+Lantern 1 (1),lantern,144,35,lamp,lamp
+Palm 1,palm,82,38,plant,otherstructure
+Palm 1 (1),palm,82,38,plant,otherstructure
+Palm 1 (2),palm,82,38,plant,otherstructure
+Palm 1 (3),palm,82,38,plant,otherstructure
+Palm 1 (4),palm,82,38,plant,otherstructure
+Palm2,palm,82,38,plant,otherstructure
+Palm2 (1),palm,82,38,plant,otherstructure
+Palm2 (2),palm,82,38,plant,otherstructure
+Palm2 (3),palm,82,38,plant,otherstructure
+Palm2 (4),palm,82,38,plant,otherstructure
+Picture 1,picture,64,11,picture,picture
+Picture 2,picture,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 1 (1),pillow,119,18,pillow,pillow
+Pillow 1 (2),pillow,119,18,pillow,pillow
+Pillow 1 (3),pillow,119,18,pillow,pillow
+Pillow 1 (4),pillow,119,18,pillow,pillow
+Pillow 1 (5),pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 2 (1),pillow,119,18,pillow,pillow
+Pillow 2 (2),pillow,119,18,pillow,pillow
+Pillow 3,pillow,119,18,pillow,pillow
+Pillow 3 (1),pillow,119,18,pillow,pillow
+Pillow 3 (2),pillow,119,18,pillow,pillow
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 1 (1),potted plant,82,40,plant,otherprop
+Plant 2,potted plant,82,40,plant,otherprop
+Plant 2 (1),potted plant,82,40,plant,otherprop
+Plant 3,potted plant,82,40,plant,otherprop
+Shoes,shoes,149,40,shoe,otherprop
+Sofa,sofa,83,6,sofa,sofa
+Sofa (1),sofa,83,6,sofa,sofa
+Sofa (2),sofa,83,6,sofa,sofa
+Stool,stool,150,40,stool,otherprop
+Stool (1),stool,150,40,stool,otherprop
+Tray,tray,179,40,tray,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall lamp,wall lamp,144,35,lamp,lamp
+Wall lamp (1),wall lamp,144,35,lamp,lamp
+Wall lamp (2),wall lamp,144,35,lamp,lamp
+Wall lamp (3),wall lamp,144,35,lamp,lamp
+Window,window,59,9,window,window
+Window (1),window,59,9,window,window
+Window (2),window,59,9,window,window
+Window (3),window,59,9,window,window

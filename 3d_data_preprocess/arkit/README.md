@@ -1,1 +1,1 @@
-# ARKitScenes dataset
+ARKit dataset

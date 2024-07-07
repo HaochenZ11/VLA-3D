@@ -1,0 +1,85 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Ball,soccer ball,60,40,ball,otherprop
+Basket,basket,39,40,basket,otherprop
+Beer,beer bottle,857,40,can of beer,otherprop
+Beer (1),beer bottle,857,40,can of beer,otherprop
+Books 1,books,85,23,books,books
+Books 2,books,85,23,books,books
+Books 3,books,85,23,books,books
+Books 4,books,85,23,books,books
+Bottle 1,bottle,2,40,bottle,otherprop
+Bread,bread,246,40,bread,otherprop
+Bread 1,sliced bread,246,40,bread,otherprop
+Bread 2,sliced bread,246,40,bread,otherprop
+Cabinet,TV cabinet,3,3,cabinet,cabinet
+Candle,candle,137,40,candle,otherprop
+Candle 2,candle,137,40,candle,otherprop
+candle 2,candle,137,40,candle,otherprop
+Candle 2 (1),candle,137,40,candle,otherprop
+Candle 2 (2),candle,137,40,candle,otherprop
+candle 3,candle,137,40,candle,otherprop
+Carpet,carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,ceiling lamp,144,35,lamp,lamp
+Chair 1,chair,5,5,chair,chair
+Chair 2,stool,150,5,stool,chair
+Chair 2 (1),stool,150,5,stool,chair
+Coffee,coffee cup,35,40,cup,otherprop
+Couch,couch,83,6,sofa,sofa
+Couch 2,couch,83,6,sofa,sofa
+Couch 2 (1),couch,83,6,sofa,sofa
+Crystal ball,crystal ball decoration,842,40,decoration item,otherprop
+Cup,cup,35,40,cup,otherprop
+Dice,dice decoration,842,40,decoration item,otherprop
+Dish,dish,867,40,serving dish,otherprop
+door,door,28,8,door,door
+Door 1,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+Dvd,dvd,197,40,dvd,otherprop
+Exhaust hood,range hood,380,39,range hood,otherfurniture
+Exterior Table,table,19,7,table,table
+Exterior Walls,wall,21,1,wall,wall
+Floor,floor,11,2,floor,floor
+Fresh cola,can of coke,297,40,coke bottle,otherprop
+Fridge,fridge,17,24,refridgerator,refridgerator
+handle,handle,758,40,handle,otherprop
+Hotplate,tray,179,40,tray,otherprop
+hours,unknown,20,40,unknown,otherprop
+Kitchen furniture 1,kitchen counter,7,39,counter,otherfurniture
+Kitchen furniture 2,kitchen island,524,39,furniture,otherfurniture
+Lamp,lamp,144,35,lamp,lamp
+Lamp 2,lamp,144,35,lamp,lamp
+Lamp 2 (1),lamp,144,35,lamp,lamp
+Lamp 2 (2),lamp,144,35,lamp,lamp
+Led spotlight,spot light,353,40,spot light,otherprop
+Led spotlight (1),spot light,353,40,spot light,otherprop
+Led spotlight (2),spot light,353,40,spot light,otherprop
+Led spotlight (3),spot light,353,40,spot light,otherprop
+Led spotlight (4),spot light,353,40,spot light,otherprop
+Led spotlight (5),spot light,353,40,spot light,otherprop
+Microwave,microwave,13,39,microwave,otherfurniture
+minutes,unknown,20,40,unknown,otherprop
+numbers,clock,56,40,clock,otherprop
+Picture 1,painting,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 3,pillow,119,18,pillow,pillow
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 3,potted plant,82,40,plant,otherprop
+Plant 3 (1),potted plant,82,40,plant,otherprop
+Screen,tv,172,25,television,television
+Shelving,shelf,42,15,shelves,shelves
+Sink,sink,24,34,sink,sink
+Sofa,sofa,83,6,sofa,sofa
+Switch,light switch,301,40,light switch,otherprop
+Tap,tap,9,39,faucet,otherfurniture
+Tea table,coffee table,356,7,coffee table,table
+tv,tv,172,25,television,television
+Tv remote,tv remote,175,40,remote control,otherprop
+Utensils,utensils,317,40,utensils,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+Window,window,59,9,window,window
+Wine bottle,wine bottle,333,40,wine bottle,otherprop

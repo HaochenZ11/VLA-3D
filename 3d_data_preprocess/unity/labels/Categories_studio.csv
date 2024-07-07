@@ -1,0 +1,69 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Beer,beer bottle,2,40,bottle,otherprop
+Beer (1),beer bottle,2,40,bottle,otherprop
+Books 1,books,85,23,books,books
+Books 2,books,85,23,books,books
+Books 3,books,85,23,books,books
+Books 3 (1),books,85,23,books,books
+Books 4,books,85,23,books,books
+Books 5,books,85,23,books,books
+Box,box,26,29,box,box
+Box 2,round box,26,29,box,box
+Canvas 1,canvas,20,40,unknown,otherprop
+Canvas 2,canvas,20,40,unknown,otherprop
+Ceiling A,ceiling,4,22,ceiling,ceiling
+Chair,chair,5,5,chair,chair
+Closet,shelf,42,15,shelves,shelves
+Closet 2,bookcase,88,10,bookshelf,book shelf
+Closet 3,cabinet,3,3,cabinet,cabinet
+Clothes,clothes,141,21,clothes,clothes
+couch,couch,83,6,sofa,sofa
+cover,unknown,20,40,unknown,otherprop
+Door,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+Easel 2,easel,50,40,stand,otherprop
+Figure 1,bird decoration,842,40,decoration item,otherprop
+Figure 2,gymnastics decoration,842,40,decoration item,otherprop
+Floor,floor,11,2,floor,floor
+Focus,focus light,62,35,light,lamp
+Focus (1),focus light,62,35,light,lamp
+Focus (2),focus light,62,35,light,lamp
+Focus (3),focus light,62,35,light,lamp
+Focus (4),focus light,62,35,light,lamp
+Focus (5),focus light,62,35,light,lamp
+Focus (6),focus light,62,35,light,lamp
+Focus (7),focus light,62,35,light,lamp
+Guitar,guitar,300,40,guitar,otherprop
+Hanger,hanger,209,40,hangers,otherprop
+Hat,hat,193,40,hat,otherprop
+Lamp,lamp,144,35,lamp,lamp
+molding 1,unknown,20,40,unknown,otherprop
+molding 2,unknown,20,40,unknown,otherprop
+molding 3,unknown,20,40,unknown,otherprop
+molding 4,unknown,20,40,unknown,otherprop
+newspaper,newspaper,873,40,newspapers,otherprop
+Phone,phone,32,40,telephone,otherprop
+Picture,drawing,64,11,picture,picture
+picture 1,framed record,20,40,unknown,otherprop
+picture 2,framed record,20,40,unknown,otherprop
+picture 3,framed record,64,11,picture,picture
+Pictures 2,picture,64,11,picture,picture
+Pillow,pillow,119,18,pillow,pillow
+Pilows,pillows,119,18,pillow,pillow
+Plant,potted plant,82,40,plant,otherprop
+Structure,structure,20,38,unknown,otherstructure
+Switch,light switch,301,40,light switch,otherprop
+Table 1,table,19,7,table,table
+Tv,tv,172,25,television,television
+vase 1,vase,78,40,vase,otherprop
+Vase 1,vase,78,40,vase,otherprop
+vase 2,vase,78,40,vase,otherprop
+Vase 2,vase,78,40,vase,otherprop
+vase 3,vase,78,40,vase,otherprop
+Vase 3,vase,78,40,vase,otherprop
+wall1,wall,21,1,wall,wall
+wall2,wall,21,1,wall,wall
+wall3,wall,21,1,wall,wall
+wall4,wall,21,1,wall,wall
+Windows,windows,59,9,window,window
+Windows (1),windows,59,9,window,window

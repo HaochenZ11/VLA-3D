@@ -2,18 +2,17 @@ import open3d as o3d
 import numpy as np
 import numpy.lib.recfunctions as rf
 import argparse
-from webcolors import CSS21_NAMES_TO_HEX
-from webcolors import hex_to_rgb, rgb_to_name, hex_to_name, rgb_to_hex
 import csv
 import time
 import torch
-from typing import List
+from typing import List, Dict
 from trimesh.remesh import subdivide_to_size
+from plyfile import PlyData
 
 SEED = 42
 
-# DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-DEVICE = 'cpu'
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
+# DEVICE = 'cpu'
 
 def subdivide_mesh(
     mesh_objects: List[torch.Tensor],
@@ -79,6 +78,7 @@ def sample_points_uniformly_pytorch(
         vertices: torch.Tensor,
         triangles: torch.Tensor,
         triangle_uvs_list: List[torch.Tensor],
+        semantic_triangle_props : Dict[str, torch.Tensor] = {},
         num_points = None,
         sampling_density = None,
         filtered_triangle_indices: torch.Tensor = None,
@@ -130,17 +130,16 @@ def sample_points_uniformly_pytorch(
             + c * triangle_uvs[triangle_indices, 2, :]
         point_uvs_list.append(point_uvs)
     
-    return triangle_indices, points, point_uvs_list
+    point_props_list = []
+    for prop, triangle_props in semantic_triangle_props.items():
+        point_props_list.append(triangle_props[triangle_indices, 0])
+    
+    return triangle_indices, points, point_uvs_list, point_props_list
 
-def load_meshes(
-    path='habitat-matterport-3dresearch/example/hm3d-example-glb-v0.2/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.glb',
-    semantic_path='habitat-matterport-3dresearch/example/hm3d-example-semantic-annots-v0.2/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.semantic.glb'
-    ):
+
+def load_meshes(path, semantic_path, semantic_ply_props=[]):
     mesh = o3d.io.read_triangle_mesh(path, True)
     mesh.compute_vertex_normals()
-
-    semantic_mesh = o3d.io.read_triangle_mesh(semantic_path, True)
-    semantic_mesh.compute_vertex_normals()
 
     vertices = torch.from_numpy(np.asarray(mesh.vertices)).to(DEVICE)
     triangles = torch.from_numpy(np.asarray(mesh.triangles)).to(DEVICE)
@@ -150,27 +149,42 @@ def load_meshes(
     material_ids = torch.from_numpy(np.asarray(mesh.triangle_material_ids)).to(DEVICE)
     textures = torch.from_numpy(np.array([np.asarray(texture) for texture in mesh.textures])).to(DEVICE)
 
-    semantic_triangle_uvs = torch.from_numpy(np.asarray(semantic_mesh.triangle_uvs)).to(DEVICE).view(-1, 3, 2)
-    semantic_material_ids = torch.from_numpy(np.asarray(semantic_mesh.triangle_material_ids)).to(DEVICE)
-    semantic_textures = torch.from_numpy(
-        np.array([np.asarray(texture) for texture in semantic_mesh.textures])).to(DEVICE)
-    
     mesh_objects = (
         vertices,
         triangles,
         triangle_normals,
         triangle_uvs,
         material_ids,
-        textures,
-        semantic_triangle_uvs,
-        semantic_material_ids,
-        semantic_textures
+        textures
     )
 
-    return mesh_objects
+    if str(semantic_path).endswith('.ply'):
+        semantic_ply = PlyData.read(semantic_path)
+        semantic_triangles = np.vstack(semantic_ply['face']['vertex_indices'])
+        semantic_triangle_props = {prop: torch.from_numpy(semantic_ply['vertex'][prop][semantic_triangles.ravel()].astype(np.int32).reshape(-1, 3)).to(DEVICE) for prop in semantic_ply_props}
+        semantic_mesh_objects = (
+            'vertex_colors',
+            semantic_triangle_props
+        )
+    else:
+        semantic_mesh = o3d.io.read_triangle_mesh(semantic_path, True)
+        semantic_triangle_uvs = torch.from_numpy(np.asarray(semantic_mesh.triangle_uvs)).to(DEVICE).view(-1, 3, 2)
+        semantic_material_ids = torch.from_numpy(np.asarray(semantic_mesh.triangle_material_ids)).to(DEVICE)
+        semantic_textures = torch.from_numpy(
+            np.array([np.asarray(texture) for texture in semantic_mesh.textures])).to(DEVICE)
+    
+        semantic_mesh_objects = (
+            'uv',
+            semantic_triangle_uvs,
+            semantic_material_ids,
+            semantic_textures
+        )
+
+    return mesh_objects, semantic_mesh_objects
 
 def sample_semantic_pointcloud_from_uv_mesh(
         mesh_objects,
+        semantic_mesh_objects,
         filtered_triangle_indices = None,
         n=500000,
         sampling_density = None,
@@ -186,47 +200,74 @@ def sample_semantic_pointcloud_from_uv_mesh(
         triangle_normals,
         triangle_uvs,
         material_ids,
-        textures,
-        semantic_triangle_uvs,
-        semantic_material_ids,
-        semantic_textures
+        textures
     ) = mesh_objects
 
-    point_triangle_indices, points, point_uvs_list = sample_points_uniformly_pytorch(
-        vertices, triangles, [triangle_uvs, semantic_triangle_uvs], n, sampling_density, filtered_triangle_indices, seed)
+    if semantic_mesh_objects[0] == 'uv':
+        _, semantic_triangle_uvs, semantic_material_ids, semantic_textures = semantic_mesh_objects
 
-    point_normals = triangle_normals[point_triangle_indices]
+        point_triangle_indices, points, point_uvs_list, _ = sample_points_uniformly_pytorch(
+            vertices, 
+            triangles, 
+            [triangle_uvs, semantic_triangle_uvs], 
+            {}, 
+            n, 
+            sampling_density, 
+            filtered_triangle_indices, 
+            seed
+            )
 
+    else:
+        _, semantic_triangle_props = semantic_mesh_objects
+
+        point_triangle_indices, points, point_uvs_list, point_props_list = sample_points_uniformly_pytorch(
+            vertices, 
+            triangles, 
+            [triangle_uvs],
+            semantic_triangle_props, 
+            n, 
+            sampling_density, 
+            filtered_triangle_indices, 
+            seed
+            )
 
     point_material_ids = material_ids[point_triangle_indices]
-    semantic_point_material_ids = semantic_material_ids[point_triangle_indices]
 
     point_colors = textures[
         point_material_ids,
-        torch.round(textures.shape[1] * point_uvs_list[0][:, 1]).int(),
-        torch.round(textures.shape[2] * point_uvs_list[0][:, 0]).int(),
-        :
-        ]
-    semantic_point_colors = semantic_textures[
-        semantic_point_material_ids,
-        torch.round(semantic_textures.shape[1] * point_uvs_list[1][:, 1]).int(),
-        torch.round(semantic_textures.shape[2] * point_uvs_list[1][:, 0]).int(),
+        torch.clip(torch.round(textures.shape[1] * point_uvs_list[0][:, 1]).int(), 0, textures.shape[1]-1),
+        torch.clip(torch.round(textures.shape[2] * point_uvs_list[0][:, 0]).int(), 0, textures.shape[2]-1),
         :
         ]
 
+    if semantic_mesh_objects[0] == 'uv':
+        semantic_point_material_ids = semantic_material_ids[point_triangle_indices]
+        semantic_point_colors = semantic_textures[
+            semantic_point_material_ids,
+            torch.round(semantic_textures.shape[1] * point_uvs_list[1][:, 1]).int(),
+            torch.round(semantic_textures.shape[2] * point_uvs_list[1][:, 0]).int(),
+            :
+            ]
 
-    vertex = torch.concatenate(
-        [
-            points, 
-            point_colors, 
-            semantic_point_colors
-            ], 
-        dim=1)
+        vertex = torch.concatenate(
+            [
+                points, 
+                point_colors, 
+                semantic_point_colors
+                ], 
+            dim=1)
+    else:
+        vertex = torch.concatenate(
+            [
+                points, 
+                point_colors, 
+                torch.vstack(point_props_list).T
+                ], 
+            dim=1)        
 
     if visualize:
         pcd = o3d.geometry.PointCloud(o3d.utility.Vector3dVector(points.cpu().numpy()))
         pcd.colors = o3d.utility.Vector3dVector(point_colors.cpu().numpy().astype(np.float64)/255)
-        pcd.normals = o3d.utility.Vector3dVector(point_normals.cpu().numpy())
 
         o3d.visualization.draw_geometries([pcd])
 
@@ -245,13 +286,14 @@ if __name__=="__main__":
                         help="Number of points to sample from mesh (uniform sampling)")
     
     args = parser.parse_args()
-
-    pcd, semantic_pcd, vertex = sample_semantic_pointcloud_from_uv_mesh(
-        path=args.mesh_path,
-        semantic_path=args.semantic_path,
-        n=args.num_points,
-        visualize=True
+    
+    mesh_objects, semantic_mesh_objects = load_meshes(
+        args.mesh_path,
+        args.semantic_path,
+        ['objectId']
     )
 
-    
+    vertex, point_triangle_indices = sample_semantic_pointcloud_from_uv_mesh(mesh_objects, semantic_mesh_objects)
+
+    print(vertex.shape)
     

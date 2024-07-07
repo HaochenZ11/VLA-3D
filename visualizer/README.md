@@ -2,7 +2,7 @@
 
 ## Usage
 
-This visualizer has been tested on Python 3.8.10, using Open3D 0.17.0. It should work with newer versions of python up to 3.10, according to [the official Open3D documentation](http://www.open3d.org/docs/release/getting_started.html). 
+This visualizer has been tested on Python 3.8.10, using Open3D 0.18.0. It should work with newer versions of python up to 3.10, according to [the official Open3D documentation](http://www.open3d.org/docs/release/getting_started.html). 
 
 **Make sure you have the latest version of pip for your Python version.**
 
@@ -44,7 +44,7 @@ DatasetVisualizer(**args)
 
 ## Features
 
-- Visualize bounding boxes of anchor objects in each scene and objects that have relationships with the anchor object as different colored bounding boxes.
+- Visualize bounding boxes of objects that are targets of referential statements (green), along with the anchor objects used in that statement (blue), and distractor objects from the same class (red).
 - When you open a scene, the entire scene is initially visualized.
 - Click on a region in the left region selector (labeled **Region**) to pick a region. Initially, all the object bounding boxes are visualized.
 - You may visualize relationships in one of two ways:

@@ -59,9 +59,10 @@ def sort_pointcloud(vertex: torch.Tensor):
     object_indices = torch.cat([o[0] for o in object_indices_and_counts])
     object_splits = torch.cat([o[1] for o in object_indices_and_counts])
 
-    region_indices_out = torch.stack([region_indices.int(), region_splits.int()], dim=1)
 
-    object_indices_out = torch.stack([object_indices.int(), object_splits.int()], dim=1)
+    region_indices_out = np.stack([region_indices.int().cpu().numpy(), np.cumsum(region_splits.int().cpu().numpy())], axis=1)
+
+    object_indices_out = np.stack([object_indices.int().cpu().numpy(), np.cumsum(object_splits.int().cpu().numpy())], axis=1)
 
     vertex = torch.vstack(vertex_split)
 

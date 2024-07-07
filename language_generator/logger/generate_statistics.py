@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
     total_start_time = timer()
 
-    target_dir = "../sample_data"
+    target_dir = "../../VLA_Dataset"
 
     target_paths = []
 

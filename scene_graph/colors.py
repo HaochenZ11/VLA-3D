@@ -1,12 +1,12 @@
 import numpy as np
-from webcolors import CSS21_NAMES_TO_HEX
+from webcolors._definitions import _CSS21_NAMES_TO_HEX
 from webcolors import hex_to_rgb, rgb_to_name, hex_to_name
 
 def closest_color(color_vals):
     color_dists = {}
 
     # get closest CSS21 color based on RGB values
-    for name, key in CSS21_NAMES_TO_HEX.items():
+    for name, key in _CSS21_NAMES_TO_HEX.items():
         exact_vals = [val for val in hex_to_rgb(key)]
         dist = np.linalg.norm(np.array(exact_vals) - np.array(color_vals))
         color_dists[dist] = name
@@ -53,5 +53,19 @@ def get_color_labels_old(color_vals):
     return colors
 
 def get_color_labels(row):
-    colors = [row[f'object_color_scheme{i}'] for i in range(1, 4)]
-    return colors
+    color_labels = []
+    for i in range(1, 4):
+        if row[f'object_color_scheme{i}'] in ['_', '', None]:
+            color_labels.append('N/A')
+        else:
+            color_labels.append(row[f'object_color_scheme{i}'])
+    return color_labels
+
+def get_color_percentages(row):
+    color_percentages = []
+    for i in range(1, 4):
+        if row[f'object_color_scheme_percentage{i}'] in ['_', '', None]:
+            color_percentages.append('N/A')
+        else:
+            color_percentages.append(row[f'object_color_scheme_percentage{i}'])
+    return color_percentages

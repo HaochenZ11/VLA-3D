@@ -50,7 +50,7 @@ class UnityPreprocessor:
         self.name_list = name_list
 
         
-    def my_compute_box_3d(self, center, size, heading): # function for calculating the corner points of a bbox based on its center, size and heading
+    def compute_box_3d(self, center, size, heading): # function for calculating the corner points of a bbox based on its center, size and heading
 
         h = float(size[2])
         w = float(size[1])
@@ -311,24 +311,6 @@ class UnityPreprocessor:
 
         pcd_colors = np.array(pcd_colors)
 
-        # region_folder = os.path.join(out_path, 'regions')
-        # if not os.path.exists(region_folder):
-        #     os.makedirs(region_folder)
-        # get_regions(
-        #     pcd_vertices.astype(np.float32), 
-        #     pcd_colors.astype(np.uint8), 
-        #     np.array(region_ids).reshape(-1, 1).astype(np.int32), 
-        #     np.array(object_ids).reshape(-1, 1).astype(np.int32), region_folder, self.scan_name)
-
-        # object_folder = os.path.join(out_path, 'objects')
-        # if not os.path.exists(object_folder):
-        #     os.makedirs(object_folder)
-        # get_objects(
-        #     pcd_vertices.astype(np.float32), 
-        #     pcd_colors.astype(np.uint8), 
-        #     np.array(region_ids).reshape(-1, 1).astype(np.int32), 
-        #     np.array(object_ids).reshape(-1, 1).astype(np.int32), object_folder, self.scan_name)
-
         vertex = np.concatenate([
             pcd_vertices,
             pcd_colors,
@@ -341,15 +323,9 @@ class UnityPreprocessor:
         if not os.path.exists(out_path):
             os.makedirs(out_path)
 
-        torch.save(region_indices_out, os.path.join(out_path, f'{self.scan_name}_region_split.pt'))
-        torch.save(object_indices_out, os.path.join(out_path, f'{self.scan_name}_object_split.pt'))
+        torch.save(region_indices_out, os.path.join(out_path, f'{self.scan_name}_region_split.npy'))
+        torch.save(object_indices_out, os.path.join(out_path, f'{self.scan_name}_object_split.npy'))
         write_ply_file(vertex[:, :6], os.path.join(out_path, f'{self.scan_name}_pc_result.ply'))
-
-        # pcd = o3d.t.geometry.PointCloud()
-        # pcd.point.positions = pcd_vertices.astype(np.float32)
-        # pcd.point.colors = pcd_colors.astype(np.uint8)
-        # pcd.point.obj_id = np.array(object_ids).reshape(-1, 1).astype(np.int32)
-        # pcd.point.region_id = np.array(region_ids).reshape(-1, 1).astype(np.int32)
 
         return vertex.cpu().numpy()
 
@@ -388,7 +364,7 @@ class UnityPreprocessor:
                 region_center = np.array([region['centroid']['x'], region['centroid']['y'], region['centroid']['z']]) # have a rotation difference, need to switch axis
                 region_size = np.array([region['dimensions']['length'], region['dimensions']['width'], region['dimensions']['height']]) # have a rotation difference, need to switch axis
                 region_heading = region['rotations']['z']/360*2*np.pi # have a rotation difference, need to switch axis
-                region_corners_3d = self.my_compute_box_3d(region_center, region_size, region_heading)
+                region_corners_3d = self.compute_box_3d(region_center, region_size, region_heading)
                 region_limits = np.vstack((np.max(region_corners_3d, axis=0), np.min(region_corners_3d, axis=0)))
                 self.region_names.append(region_name)
                 self.region_dict[region_index] = region_limits
@@ -497,7 +473,7 @@ if __name__=="__main__":
                         help="Input FBX file of the mesh")
     parser.add_argument('--num_points_per_object', default=100000, type=int,
                         help="Number of points to sample from mesh (uniform sampling)")
-    parser.add_argument('--out_path', default='/home/navigation/VLA_Dataset',
+    parser.add_argument('--out_path', default='/home/navigation/Dataset/VLA_Dataset',
                         help="Output PLY file to save")
     parser.add_argument('--floor_height', default=0.1,
                         help="floor heigh for generating free space")

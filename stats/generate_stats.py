@@ -10,21 +10,29 @@ import numpy as np
 
 def get_scenes(args):
     scannet_scenes = [x for x in os.listdir(args.data_path) if x.startswith('scene')]
-    hm3d_scenes = [x for x in os.listdir(args.data_path) if "-" in x and os.path.isdir(os.path.join(args.data_path, x))]
+    
     unity_names = ["arabic_room", "chinese_room", "home_building_1", "home_building_2", "home_building_3", "hotel_room_1", 
                     "hotel_room_2", "hotel_room_3", "japanese_room", "livingroom_1", "livingroom_2", "livingroom_3", "livingroom_4", 
                     "loft", "office_1", "office_2", "office_3", "studio"]
     unity_scenes = [x for x in os.listdir(args.data_path) if x in unity_names]
-    matterport_scenes = [x for x in os.listdir(args.data_path) if x not in scannet_scenes and x not in hm3d_scenes and x not in unity_scenes 
+
+    hm3d_scenes = [x for x in os.listdir(args.data_path) if "-" in x and (len(x.split("-"))==2) and os.path.isdir(os.path.join(args.data_path, x))]
+
+    rscan_scenes = [x for x in os.listdir(args.data_path) if "-" in x and (len(x.split("-"))==5) and os.path.isdir(os.path.join(args.data_path, x))]
+
+    arkit_scenes = [x for x in os.listdir(args.data_path) if x.isnumeric() and os.path.isdir(os.path.join(args.data_path, x))]
+    
+    matterport_scenes = [x for x in os.listdir(args.data_path) if x not in (scannet_scenes + unity_scenes + hm3d_scenes + rscan_scenes + arkit_scenes)
                          and os.path.isdir(os.path.join(args.data_path, x))]
-    arkit_scenes = [x for x in os.listdir(args.data_path_arkit) if os.path.isdir(os.path.join(args.data_path_arkit, x))]
+    
 
     return {
         "scannet":scannet_scenes, 
         "hm3d":hm3d_scenes, 
         "unity":unity_scenes, 
         "matterport":matterport_scenes,
-        "arkit": arkit_scenes
+        "arkit": arkit_scenes,
+        "3rscan": rscan_scenes
         }
     # return {"unity":unity_scenes}
 
@@ -62,7 +70,7 @@ def get_counts(args, dataset, scene_list):
     }
 
     for scene in tqdm(scene_list, desc=dataset):
-        scene_path = os.path.join(args.data_path_arkit if dataset=='arkit' else args.data_path, scene)
+        scene_path = os.path.join(args.data_path, scene)
 
         if os.path.isdir(scene_path + '/'):
 
@@ -73,7 +81,6 @@ def get_counts(args, dataset, scene_list):
             with open(relation_json, 'r') as f:
                 relation_dict = json.load(f)
             
-
 
             scene_totals[scene]['Number of Objects'] = int(object_df['object_id'].count())
             scene_totals[scene]['Number of Regions'] = int(object_df['region_id'].nunique())
@@ -134,6 +141,7 @@ def get_counts(args, dataset, scene_list):
         },
 
         'Regions': {
+            'Total': int(np.sum([scene_totals[scene]['Number of Regions'] for scene in scene_list])),
             'Mean Per Scene': np.mean([scene_totals[scene]['Number of Regions'] for scene in scene_list]),
             'Std Per Scene': np.std([scene_totals[scene]['Number of Regions'] for scene in scene_list]),
             'Objects': {
@@ -213,23 +221,37 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--data_path', default='VLA_Dataset')
-    parser.add_argument('--data_path_arkit', default='VLA_Dataset_more')
     parser.add_argument('--class_file', default='NYU_Object_Classes.csv')
     parser.add_argument('--pad_idx', default=900)
+    parser.add_argument('--output_path', required=True)
 
     args = parser.parse_args()
 
     all_scenes = get_scenes(args)
 
     scene_totals = {}
-    scene_stats = {}
+    scene_stats = {
+            "totals": {
+                "Scenes": 0,
+                "Regions": 0,
+                "Objects": 0,
+                "Relations": 0,
+            }
+        }
     for dataset, scene_list in all_scenes.items():
         scene_totals_dataset, scene_stats_dataset = get_counts(args, dataset, scene_list)
         scene_totals[dataset] = scene_totals_dataset
         scene_stats[dataset] = scene_stats_dataset
+        scene_stats['totals']['Scenes'] += scene_stats[dataset]['Total Number of Scenes']
+        scene_stats['totals']['Regions'] += scene_stats[dataset]['Regions']['Total']
+        scene_stats['totals']['Objects'] += scene_stats[dataset]['Objects']['Total']
+        scene_stats['totals']['Relations'] += scene_stats[dataset]['Relations']['Total']
     
-    with open('scene_totals.json', 'w') as f:
+    if not os.path.exists(args.output_path):
+        os.makedirs(args.output_path)
+
+    with open(os.path.join(args.output_path, 'scene_totals.json'), 'w') as f:
         json.dump(scene_totals, f, indent=4)
 
-    with open('scene_stats.json', 'w') as f:
+    with open(os.path.join(args.output_path, 'scene_stats.json'), 'w') as f:
         json.dump(scene_stats, f, indent=4)

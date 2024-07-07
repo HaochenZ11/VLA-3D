@@ -1,0 +1,111 @@
+name,cleaned,nyuId,nyu40id,nyuClass,nyu40class
+Apples,bowl of apples,334,40,apple,otherprop
+Bamboo,potted bamboo,82,40,plant,otherprop
+Bed,bed,157,4,bed,bed
+Big picture,painting,64,11,picture,picture
+Blanket,blanket,312,40,blanket,otherprop
+Book 1,book,1,23,book,books
+Book 2,book,1,23,book,books
+Cabinet,cabinet,3,3,cabinet,cabinet
+Cabinet 2,TV cabinet,3,3,cabinet,cabinet
+Carpet,carpet,130,40,rug,otherprop
+Carpet 2,carpet,130,40,rug,otherprop
+Ceiling,ceiling,4,22,ceiling,ceiling
+Ceiling lamp,lamp,144,35,lamp,lamp
+Ceiling lamp (1),lamp,144,35,lamp,lamp
+Ceiling lamp (2),lamp,144,35,lamp,lamp
+Ceiling lamp (3),lamp,144,35,lamp,lamp
+Ceiling lamp (4),lamp,144,35,lamp,lamp
+Ceiling lamp 2,lamp,144,35,lamp,lamp
+Chair 1,chair,5,5,chair,chair
+Chair 2,chair,5,5,chair,chair
+Chair 2 (1),chair,5,5,chair,chair
+Chair 2 (2),chair,5,5,chair,chair
+Chair 2 (3),chair,5,5,chair,chair
+Chair 2 (4),chair,5,5,chair,chair
+Chair 2 (5),chair,5,5,chair,chair
+Chair 2 (6),chair,5,5,chair,chair
+Chair 2 (7),chair,5,5,chair,chair
+Clock,clock,56,40,clock,otherprop
+Coffee,coffee cup,35,40,cup,otherprop
+Cup,cup,35,40,cup,otherprop
+Cup (1),cup,35,40,cup,otherprop
+Deckchair,chair,5,5,chair,chair
+Deckchair (1),chair,5,5,chair,chair
+Door,door,28,8,door,door
+door A,door,28,8,door,door
+door A2,door,28,8,door,door
+door B,door,28,8,door,door
+door B2,door,28,8,door,door
+door frame,door frame,615,38,door frame,otherstructure
+Dvd,dvd,197,40,dvd,otherprop
+Fence,fence,497,38,railing,otherstructure
+Fence (1),fence,497,38,railing,otherstructure
+Fireplace,fireplace,372,38,fireplace,otherstructure
+Floor,floor,11,2,floor,floor
+Floor structure,floor,11,2,floor,floor
+Flower,flower,81,40,flower,otherprop
+Focus,focus light,62,35,light,lamp
+Focus (1),focus light,62,35,light,lamp
+Focus (2),focus light,62,35,light,lamp
+frame doors,door frame,615,38,door frame,otherstructure
+Glass,glass,612,40,glass,otherprop
+Lamp,lamp,144,35,lamp,lamp
+Lamp 2,lamp,144,35,lamp,lamp
+Left boot,boot,149,40,shoe,otherprop
+Magazine,magazine,71,40,magazine,otherprop
+Mirror,mirror,122,19,mirror,mirror
+Mirror 2,mirror,122,19,mirror,mirror
+Newspaper,newspaper,873,26,newspapers,paper
+Notebook,book,1,23,book,books
+Phone,phone,32,40,telephone,otherprop
+Photo,photo,508,11,photo,picture
+Picture 1,painting,64,11,picture,picture
+Picture 2,painting,64,11,picture,picture
+Picture 3,painting,64,11,picture,picture
+Pillow 1,pillow,119,18,pillow,pillow
+Pillow 2,pillow,119,18,pillow,pillow
+Pillow 2 (1),pillow,119,18,pillow,pillow
+Pillow 2 (2),pillow,119,18,pillow,pillow
+Pillow 3,pillow,119,18,pillow,pillow
+Pillow 3 (1),pillow,119,18,pillow,pillow
+Pillow 3 (2),pillow,119,18,pillow,pillow
+Pillow 3 (3),pillow,119,18,pillow,pillow
+Pillow 3 (4),pillow,119,18,pillow,pillow
+Pillow 3 (5),pillow,119,18,pillow,pillow
+Plant 1,potted plant,82,40,plant,otherprop
+Plant 1 (1),potted plant,82,40,plant,otherprop
+Right boot,boot,149,40,shoe,otherprop
+Shoe holder,shoe rack,614,40,shoe rack,otherprop
+Side table,table,19,7,table,table
+Sofa 1,sofa,83,6,sofa,sofa
+Sofa 2,sofa,83,6,sofa,sofa
+Sofa 2 (1),sofa,83,6,sofa,sofa
+Sofa 2 (2),sofa,83,6,sofa,sofa
+Sofa 2 (3),sofa,83,6,sofa,sofa
+Spheres,sphere decoration,842,40,decoration item,otherprop
+Stairs,stairs,215,38,stairs,otherstructure
+Switch,light switch,301,40,light switch,otherprop
+Switch (1),light switch,301,40,light switch,otherprop
+Switch (2),light switch,301,40,light switch,otherprop
+Table 1,table,19,7,table,table
+Table 2,table,19,7,table,table
+Table 3,table,19,7,table,table
+Table 4,table,19,7,table,table
+TV,tv,172,25,television,television
+TV Remote,tv remote,175,40,remote control,otherprop
+Vase 1,vase,78,40,vase,otherprop
+Vase 2,vase,78,40,vase,otherprop
+Vase 3,vase,78,40,vase,otherprop
+Vase 4,vase,78,40,vase,otherprop
+Vase 5,vase,78,40,vase,otherprop
+Wall 1,wall,21,1,wall,wall
+Wall 2,wall,21,1,wall,wall
+Wall 3,wall,21,1,wall,wall
+Wall 4,wall,21,1,wall,wall
+Wall 5,wall,21,1,wall,wall
+Wall lamp,wall lamp,144,35,lamp,lamp
+Wardrobe,wardrobe,772,3,wardrobe,cabinet
+WaterProDaytime,water pro daytime,20,38,unknown,otherstructure
+Window 1,window,59,9,window,window
+Window 2,window,59,9,window,window

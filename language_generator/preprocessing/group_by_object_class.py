@@ -2,6 +2,7 @@ import json
 import os
 import multiprocessing as mp
 from timeit import default_timer as timer
+from pathlib import Path
 
 
 def group_by_nyu_label(relation_dict):
@@ -101,16 +102,16 @@ def process_file(target_file):
     object_index, object_class  = index_by_object_id_and_class(relation_dict)
 
     # Save the output to a JSON file
-    grouped_output_file = target_file.replace('.json', '_grouped.json')
+    grouped_output_file = target_file.replace('_scene_graph.json', '_grouped.json')
     with open(grouped_output_file, 'w') as file:
         json.dump(grouped_relationships, file)
 
     # Save the object data to a JSON file
-    object_output_file = target_file.replace('.json', '_object_data.json')
+    object_output_file = target_file.replace('_scene_graph.json', '_object_data.json')
     with open(object_output_file, 'w') as file:
         json.dump(object_index, file)
 
-    object_class_output_file = target_file.replace('.json', '_object_class.json')
+    object_class_output_file = target_file.replace('_scene_graph.json', '_object_class.json')
     with open(object_class_output_file, 'w') as file:
         json.dump(object_class, file)
 
@@ -119,20 +120,26 @@ if __name__ == '__main__':
 
     total_start_time = timer()
 
-    target_dir = "./sample_data"
+    configs_path = Path(__file__).parents[1].resolve() / 'configs' / 'language_generation_configs.json'
+    print(configs_path)
+    with open(configs_path) as c:
+        generation_configs = json.load(c)
+
+    target_dir = generation_configs["scene_data_root"]
 
     target_paths = []
 
     # Open the JSON file
     scene_dirs = next(os.walk(target_dir))[1]
-    for dir in scene_dirs:
-        scene_path = os.path.join(target_dir, dir)
-        for file in os.listdir(scene_path):
-            if (file != f'{dir}.json'):
-                continue
+    for dataset in scene_dirs:
+        for dir in os.listdir(os.path.join(target_dir, dataset)):
+            scene_path = os.path.join(target_dir, dataset, dir)
+            for file in os.listdir(scene_path):
+                if (file != f'{dir}_scene_graph.json'):
+                    continue
 
-            file_path = os.path.join(scene_path, file)
-            target_paths.append(file_path)
+                file_path = os.path.join(scene_path, file)
+                target_paths.append(file_path)
 
     with mp.Pool(mp.cpu_count()) as pool:
         pool.map(process_file, target_paths)
