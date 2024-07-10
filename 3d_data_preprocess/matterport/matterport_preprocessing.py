@@ -20,7 +20,7 @@ from utils.dominant_colors_new_lab import judge_color, generate_color_anchors
 from scipy.spatial import ConvexHull
 from utils.bbox_utils import calculate_bbox, calculate_bbox_hull
 from utils.headers import OBJECT_HEADER, REGION_HEADER
-from utils.pointcloud_utils import write_ply_file, sort_pointcloud, get_regions, get_objects
+from utils.pointcloud_utils import save_pointcloud, write_ply_file, sort_pointcloud, get_regions, get_objects
 
 class MatterportPreprocessor:
     def __init__(
@@ -37,7 +37,7 @@ class MatterportPreprocessor:
                                 'm': "meetingroom/conferenceroom",'n': "lounge",'o': "office",'p': "porch/terrace/deck/driveway",'r': "rec/game",'s': "stairs",'t': "toilet",'u': "utilityroom/toolroom",'v': "tv", \
                                 'w': "workout/gym/exercise",'x': "outdoor areas",'y': "balcony",'z': "other room",'B': "bar",'C': "classroom",'D': "dining booth",'S': "spa/sauna",'Z': "junk",'-': "no label"}
         self.top_scan_dir = top_scan_dir
-        self.save_dir = save_dir
+        self.save_dir = os.path.join(save_dir, 'Matterport')
         self.mapping_file = mapping_file
         self.scan_names = os.listdir(top_scan_dir)
         self.floor_height = floor_height
@@ -303,10 +303,8 @@ class MatterportPreprocessor:
             ], dim=1)
 
             vertex, region_indices_out, object_indices_out = sort_pointcloud(vertex)
+            save_pointcloud(vertex, region_indices_out, object_indices_out, '', scan_name)
 
-            torch.save(region_indices_out, f'{scan_name}_region_split.npy')
-            torch.save(object_indices_out, f'{scan_name}_object_split.npy')
-            write_ply_file(vertex[:, :6], f'{scan_name}_pc_result.ply')
 
             # generate free space
             if self.generate_freespace:

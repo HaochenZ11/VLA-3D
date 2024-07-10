@@ -20,7 +20,7 @@ from utils.freespace_generation_new import generate_free_space
 from utils.dominant_colors_new_lab import judge_color, generate_color_anchors
 from utils.bbox_utils import calculate_bbox_hull
 from utils.headers import OBJECT_HEADER, REGION_HEADER
-from utils.pointcloud_utils import write_ply_file, sort_pointcloud, get_regions, get_objects
+from utils.pointcloud_utils import save_pointcloud, write_ply_file, sort_pointcloud, get_regions, get_objects
 
 class ScannetPreprocessor:
     def __init__(
@@ -194,11 +194,8 @@ class ScannetPreprocessor:
             ], axis=1, dtype=np.float32)
 
             vertex, region_indices_out, object_indices_out = sort_pointcloud(torch.from_numpy(vertex))
-            # print(vertex.shape)
+            save_pointcloud(vertex, region_indices_out, object_indices_out, '', scan_name)
 
-            torch.save(region_indices_out, f'{scan_name}_region_split.npy')
-            torch.save(object_indices_out, f'{scan_name}_object_split.npy')
-            write_ply_file(vertex[:, :6], f'{scan_name}_pc_result.ply')
 
 if __name__=='__main__':
 
@@ -214,7 +211,7 @@ if __name__=='__main__':
 
     scannet_directory = args.scannet_directory
     scannet_data = osp.join(scannet_directory, 'data')
-    output_directory = args.output_directory
+    output_directory = osp.join(args.output_directory, 'Scannet')
     scans_directory = osp.join(scannet_directory, 'scans')
 
     class_mapping_file = osp.join(scannet_data, 'scannetv2-labels.combined.tsv')

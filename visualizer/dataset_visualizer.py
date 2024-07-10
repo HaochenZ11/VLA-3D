@@ -158,7 +158,7 @@ class DatasetVisualizer:
                 self.relationship_targets[rel] = {obj_id: [] for obj_id in self.relationships[rel].keys()}
                 for anchor, targets in self.relationships[rel].items():
                     for target in targets:
-                        self.relationship_targets[rel][target].append(anchor)
+                        self.relationship_targets[rel][target].append([anchor])
         
 
         self.cur_object_type = self.objects[self.cur_target_idx]['nyu_label'] if self.cur_target_idx != "-1" else None
@@ -402,8 +402,7 @@ class DatasetVisualizer:
         new_relation = instances[0]['relation']
         for instance in instances:
             target_idx = instance['target_index']
-            anchor_idx = (instance['anchor1_index'], instance['anchor2_index']) \
-                if relation_type == 'ternary' else instance['anchor_index']
+            anchor_idx = [anchor['index'] for anchor in instance['anchors'].values()]
             break
         self.draw_bboxes(target_idx=target_idx, anchor_idx=anchor_idx, relationship=new_relation)
 
@@ -577,22 +576,15 @@ class DatasetVisualizer:
 
             if self.cur_relationship == 'all':
                 pass
-            elif self.cur_relationship == 'between':
+            else:
                 if anchor_idx is not None:
-                    self.add_object_bbox(anchor_idx[0], self.bbox_colors['anchor'])
-                    self.add_object_bbox(anchor_idx[1], self.bbox_colors['anchor'])
-                else:
-                    anchor_idxs = self.relationship_targets[self.cur_relationship][str(self.cur_target_idx)]
-                    for idx in anchor_idxs:
-                        self.add_object_bbox(idx[0], self.bbox_colors['anchor'])
-                        self.add_object_bbox(idx[1], self.bbox_colors['anchor'])
-            else: 
-                if anchor_idx is not None:
-                    self.add_object_bbox(anchor_idx, self.bbox_colors['anchor'])
-                else:
-                    anchor_idxs = self.relationship_targets[self.cur_relationship][str(self.cur_target_idx)]
-                    for idx in anchor_idxs:
+                    for idx in anchor_idx:
                         self.add_object_bbox(idx, self.bbox_colors['anchor'])
+                else:
+                    anchor_idxs = self.relationship_targets[self.cur_relationship][str(self.cur_target_idx)]
+                    for anchor_list in anchor_idxs:
+                        for idx in anchor_list:
+                            self.add_object_bbox(idx, self.bbox_colors['anchor'])
 
 
             cur_object_type = self.objects[self.cur_target_idx]['nyu_label']

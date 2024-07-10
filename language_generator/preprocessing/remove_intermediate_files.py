@@ -19,11 +19,9 @@ if __name__ == '__main__':
         print(dataset)
         for scene in os.listdir(os.path.join(target_dir, dataset)):
             try:
-                # os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_grouped.json'))
-                # os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_object_class.json'))
-                # os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_object_data.json'))
-                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_scene_graph_referential_statements.json'))
-                # os.remove(os.path.join(target_dir, scene, f'{scene}_statement.json'))
+                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_grouped.json'))
+                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_object_class.json'))
+                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_object_data.json'))
                 print(os.path.join(target_dir, dataset, scene))
             except:
                 pass

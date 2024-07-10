@@ -9,14 +9,11 @@ from typing import List, Dict
 from trimesh.remesh import subdivide_to_size
 from plyfile import PlyData
 
-SEED = 42
-
-DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-# DEVICE = 'cpu'
 
 def subdivide_mesh(
     mesh_objects: List[torch.Tensor],
-    max_edge: float 
+    max_edge: float,
+    device
 ):
     (
         vertices,
@@ -47,9 +44,9 @@ def subdivide_mesh(
         max_iter=10,
         return_index=True)
     
-    verts_out = torch.from_numpy(verts_out).to(DEVICE)
-    triangles_out = torch.from_numpy(triangles_out).to(DEVICE)
-    index = torch.from_numpy(index).to(DEVICE)
+    verts_out = torch.from_numpy(verts_out).to(device)
+    triangles_out = torch.from_numpy(triangles_out).to(device)
+    index = torch.from_numpy(index).to(device)
 
     vertices_out = verts_out[:, :3]
     vertex_uvs_out_list = [verts_out[:, 2*i+3:2*i+5] for i in range(len(triangle_uvs_list))]
@@ -82,8 +79,8 @@ def sample_points_uniformly_pytorch(
         num_points = None,
         sampling_density = None,
         filtered_triangle_indices: torch.Tensor = None,
-        seed=SEED,
-        device=DEVICE):
+        seed=42,
+        device='cuda'):
     
     
     side_1 = vertices[triangles[:, 1]] - vertices[triangles[:, 0]]
@@ -103,6 +100,8 @@ def sample_points_uniformly_pytorch(
     # Indices of triangles corresponding to each point
 
     if sampling_density is not None:
+        print(total_surface_area)
+        print(sampling_density)
         num_points = int(total_surface_area / sampling_density)
         print(f'Sampling based on density.\nTotal surface area: {total_surface_area}\nNumber of samples: {num_points}')
     
@@ -137,17 +136,17 @@ def sample_points_uniformly_pytorch(
     return triangle_indices, points, point_uvs_list, point_props_list
 
 
-def load_meshes(path, semantic_path, semantic_ply_props=[]):
+def load_meshes(path, semantic_path, semantic_ply_props=[], device='cuda'):
     mesh = o3d.io.read_triangle_mesh(path, True)
     mesh.compute_vertex_normals()
 
-    vertices = torch.from_numpy(np.asarray(mesh.vertices)).to(DEVICE)
-    triangles = torch.from_numpy(np.asarray(mesh.triangles)).to(DEVICE)
-    triangle_normals = torch.from_numpy(np.asarray(mesh.triangle_normals)).to(DEVICE)
+    vertices = torch.from_numpy(np.asarray(mesh.vertices)).to(device)
+    triangles = torch.from_numpy(np.asarray(mesh.triangles)).to(device)
+    triangle_normals = torch.from_numpy(np.asarray(mesh.triangle_normals)).to(device)
 
-    triangle_uvs = torch.from_numpy(np.asarray(mesh.triangle_uvs)).to(DEVICE).view(-1, 3, 2)
-    material_ids = torch.from_numpy(np.asarray(mesh.triangle_material_ids)).to(DEVICE)
-    textures = torch.from_numpy(np.array([np.asarray(texture) for texture in mesh.textures])).to(DEVICE)
+    triangle_uvs = torch.from_numpy(np.asarray(mesh.triangle_uvs)).to(device).view(-1, 3, 2)
+    material_ids = torch.from_numpy(np.asarray(mesh.triangle_material_ids)).to(device)
+    textures = torch.from_numpy(np.array([np.asarray(texture) for texture in mesh.textures])).to(device)
 
     mesh_objects = (
         vertices,
@@ -161,17 +160,17 @@ def load_meshes(path, semantic_path, semantic_ply_props=[]):
     if str(semantic_path).endswith('.ply'):
         semantic_ply = PlyData.read(semantic_path)
         semantic_triangles = np.vstack(semantic_ply['face']['vertex_indices'])
-        semantic_triangle_props = {prop: torch.from_numpy(semantic_ply['vertex'][prop][semantic_triangles.ravel()].astype(np.int32).reshape(-1, 3)).to(DEVICE) for prop in semantic_ply_props}
+        semantic_triangle_props = {prop: torch.from_numpy(semantic_ply['vertex'][prop][semantic_triangles.ravel()].astype(np.int32).reshape(-1, 3)).to(device) for prop in semantic_ply_props}
         semantic_mesh_objects = (
             'vertex_colors',
             semantic_triangle_props
         )
     else:
         semantic_mesh = o3d.io.read_triangle_mesh(semantic_path, True)
-        semantic_triangle_uvs = torch.from_numpy(np.asarray(semantic_mesh.triangle_uvs)).to(DEVICE).view(-1, 3, 2)
-        semantic_material_ids = torch.from_numpy(np.asarray(semantic_mesh.triangle_material_ids)).to(DEVICE)
+        semantic_triangle_uvs = torch.from_numpy(np.asarray(semantic_mesh.triangle_uvs)).to(device).view(-1, 3, 2)
+        semantic_material_ids = torch.from_numpy(np.asarray(semantic_mesh.triangle_material_ids)).to(device)
         semantic_textures = torch.from_numpy(
-            np.array([np.asarray(texture) for texture in semantic_mesh.textures])).to(DEVICE)
+            np.array([np.asarray(texture) for texture in semantic_mesh.textures])).to(device)
     
         semantic_mesh_objects = (
             'uv',
@@ -188,7 +187,8 @@ def sample_semantic_pointcloud_from_uv_mesh(
         filtered_triangle_indices = None,
         n=500000,
         sampling_density = None,
-        seed=SEED,
+        seed=42,
+        device='cuda',
         visualize=False):
     
     # o3d.utility.random.seed(seed)
@@ -214,7 +214,8 @@ def sample_semantic_pointcloud_from_uv_mesh(
             n, 
             sampling_density, 
             filtered_triangle_indices, 
-            seed
+            seed,
+            device
             )
 
     else:

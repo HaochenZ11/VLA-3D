@@ -17,11 +17,11 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from utils.freespace_generation_new import generate_free_space
 from utils.transformations import rotz
-from utils.glb_to_pointcloud import sample_points_uniformly_pytorch, DEVICE
+from utils.glb_to_pointcloud import sample_points_uniformly_pytorch
 from utils.dominant_colors_new_lab import judge_color, generate_color_anchors
 from utils.bbox_utils import calculate_bbox_hull
 from utils.headers import OBJECT_HEADER, REGION_HEADER
-from utils.pointcloud_utils import write_ply_file, sort_pointcloud, get_regions, get_objects
+from utils.pointcloud_utils import save_pointcloud, write_ply_file, sort_pointcloud, get_regions, get_objects
 import torch
 import warnings
 
@@ -34,20 +34,26 @@ class UnityPreprocessor:
         num_points_per_object: int, # number of points to sample per object
         out_path: str, # the path to store the processed results
         floor_height: float, # the floor height for generating free space
-        color_standard: str, # colors standars to use for domain color calculation (css21, css3, html4, css2)
+        color_standard: str, # color standard to use for domain color calculation (css21, css3, html4, css2)
         name_list: list,
-        generate_freespace = False # whether generate free space or not
+        sampling_density = None,
+        generate_freespace = False, # whether to generate free space or not
+        device='cuda',
+        seed=42
     ):
         
         self.in_path = in_path 
         self.num_points_per_object = num_points_per_object
-        self.out_path = out_path
+        self.out_path = os.path.join(out_path, 'Unity')
         self.floor_height = floor_height
         self.anchor_colors_array, self.anchor_colors_array_hsv, self.anchor_colors_name = generate_color_anchors(color_standard)
         self.tree = KDTree(self.anchor_colors_array_hsv)
 
         self.generate_freespace = generate_freespace
         self.name_list = name_list
+        self.device = 'cuda' if (device=='cuda' and torch.cuda.is_available()) else 'cpu'
+        self.seed = seed
+        self.sampling_density = sampling_density
 
         
     def compute_box_3d(self, center, size, heading): # function for calculating the corner points of a bbox based on its center, size and heading
@@ -247,8 +253,8 @@ class UnityPreprocessor:
 
     def convert_fbx_to_pointcloud( # sample points to convert fbx to point cloud
             self,
-            path, out_path,
-            n=100000):
+            path, 
+            out_path):
 
         vertices = np.vstack(self.vertices_global)
         triangles = np.vstack(self.faces_global)
@@ -279,20 +285,25 @@ class UnityPreprocessor:
             textures[none_texture_remaining[i]] = texture[:, :, 0:3]
         
 
-        pt_triangle_indices, pcd_vertices, pcd_uvs = sample_points_uniformly_pytorch(
-            torch.from_numpy(vertices).to(DEVICE),
-            torch.from_numpy(triangles).to(DEVICE),
-            [torch.from_numpy(triangle_uvs).to(DEVICE)],
-            n
+        pt_triangle_indices, pcd_vertices, pcd_uvs, _ = sample_points_uniformly_pytorch(
+            torch.from_numpy(vertices).to(self.device),
+            torch.from_numpy(triangles).to(self.device),
+            [torch.from_numpy(triangle_uvs).to(self.device)],
+            num_points=int(self.num_points_per_object*self.count),
+            sampling_density=self.sampling_density,
+            device=self.device,
+            seed=self.seed
         )
 
         pt_triangle_indices, pcd_vertices, pcd_uvs = pt_triangle_indices.cpu().numpy(), pcd_vertices.cpu().numpy(), pcd_uvs[0].cpu().numpy()
+        print(int(self.num_points_per_object*self.count))
+        num_points = len(pt_triangle_indices)
 
         pcd_colors = []
         object_ids = []
         region_ids = []
 
-        for i in tqdm(range(n)):
+        for i in tqdm(range(num_points)):
             object_id = self.object_ids_global[int(pt_triangle_indices[i])]
             object_ids.append(object_id)
             region_id = self.object_region_map[object_id]
@@ -323,9 +334,7 @@ class UnityPreprocessor:
         if not os.path.exists(out_path):
             os.makedirs(out_path)
 
-        torch.save(region_indices_out, os.path.join(out_path, f'{self.scan_name}_region_split.npy'))
-        torch.save(object_indices_out, os.path.join(out_path, f'{self.scan_name}_object_split.npy'))
-        write_ply_file(vertex[:, :6], os.path.join(out_path, f'{self.scan_name}_pc_result.ply'))
+        save_pointcloud(vertex, region_indices_out, object_indices_out, out_path, self.scan_name)
 
         return vertex.cpu().numpy()
 
@@ -388,14 +397,11 @@ class UnityPreprocessor:
             volume = scale[0]*scale[1]*scale[2]
             dis_thred = 0.01*203.74/volume
             area_thred = 0.01*203.74/volume
-            num_points = int(args.num_points_per_object*self.count)
-            print(num_points)
             pcd = self.convert_fbx_to_pointcloud(
-                os.path.join(args.in_path, 'meshes', scan_name), os.path.join(args.out_path, scan_name),
-                num_points
+                os.path.join(args.in_path, 'meshes', scan_name), os.path.join(self.out_path, scan_name)
             )
 
-            out_dir = os.path.join(args.out_path, scan_name)
+            out_dir = os.path.join(self.out_path, scan_name)
             if not os.path.exists(out_dir):
                 os.makedirs(out_dir)
             os.chdir(out_dir)
@@ -479,11 +485,25 @@ if __name__=="__main__":
                         help="floor heigh for generating free space")
     parser.add_argument('--color_standard', default='css3',
                         help="color standard, chosen from css2, css21, css3, html4")
+    parser.add_argument('--sampling_density', type=float, default=None)
     parser.add_argument('--generate_freespace', action='store_true', help='Generate free spaces')
-    
+    parser.add_argument('--device', default='cpu')
+    parser.add_argument('--seed', type=int, default=42)    
+
     args = parser.parse_args()
 
     name_list = ['arabic_room', 'chinese_room', 'home_building_1', 'home_building_2', 'home_building_3', 'hotel_room_1', 'hotel_room_2', 'hotel_room_3', 'japanese_room', 'livingroom_1', 'livingroom_2', 'livingroom_3', 'livingroom_4', 'loft', 'office_1', 'office_2', 'office_3', 'studio']
     print('====================Start processing unity====================')
-    UnityPreprocessor(args.in_path, args.num_points_per_object, args.out_path, args.floor_height, args.color_standard, name_list, args.generate_freespace).create_unity()
+    UnityPreprocessor(
+        args.in_path, 
+        args.num_points_per_object, 
+        args.out_path, 
+        args.floor_height, 
+        args.color_standard, 
+        name_list, 
+        args.sampling_density,
+        args.generate_freespace,
+        args.device,
+        args.seed
+        ).create_unity()
     print('====================End processing unity====================')

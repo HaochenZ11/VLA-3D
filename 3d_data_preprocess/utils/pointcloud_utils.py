@@ -97,3 +97,9 @@ def write_ply_file(vertex: torch.Tensor | np.ndarray, output_ply_path, obj_id=Fa
     out_ply = PlyData([vertex_element])
 
     out_ply.write(output_ply_path)
+
+def save_pointcloud(vertex, region_indices_out, object_indices_out, output_path, scan_name):
+
+    np.save(os.path.join(output_path, f'{scan_name}_region_split.npy'), region_indices_out)
+    np.save(os.path.join(output_path, f'{scan_name}_object_split.npy'), object_indices_out)
+    write_ply_file(vertex[:, :6], os.path.join(output_path, f'{scan_name}_pc_result.ply'))

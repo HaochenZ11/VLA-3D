@@ -1,3 +1,4 @@
+from time import perf_counter
 from scipy.spatial import KDTree
 import os
 import os.path as osp
@@ -17,7 +18,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from utils.freespace_generation_new import generate_free_space
 from utils.dominant_colors_new_lab import judge_color, generate_color_anchors
 from utils.bbox_utils import calculate_bbox_hull
-from utils.pointcloud_utils import get_regions, get_objects, sort_pointcloud, write_ply_file
+from utils.pointcloud_utils import get_regions, get_objects, save_pointcloud, sort_pointcloud, write_ply_file
 from utils.headers import OBJECT_HEADER, REGION_HEADER
 
 import warnings
@@ -32,7 +33,8 @@ class ARKitPreprocessor:
         floor_height: float, # the floor height for generating free space
         color_standard: str, # colors standars to use for domain color calculation (css21, css3, html4, css2)
         generate_freespace=False,
-        skipped_scenes = []
+        skipped_scenes = [],
+        device='cuda'
     ):
         self.input_folder = input_folder
         self.mapping_file = mapping_file
@@ -41,6 +43,7 @@ class ARKitPreprocessor:
         self.anchor_colors_array, self.anchor_colors_array_hsv, self.anchor_colors_name = generate_color_anchors(color_standard)
         self.tree = KDTree(self.anchor_colors_array_hsv)
         self.skipped_scenes = skipped_scenes
+        self.device = 'cuda' if (device=='cuda' and torch.cuda.is_available()) else 'cpu'
 
         self.generate_freespace = generate_freespace
 
@@ -54,26 +57,26 @@ class ARKitPreprocessor:
         b1, b2, b3, b4, t1, t2, t3, t4 = cube3d
 
         dir1 = (t1-b1)
-        size1 = np.linalg.norm(dir1)
+        size1 = torch.norm(dir1)
         dir1 = dir1 / size1
 
         dir2 = (b2-b1)
-        size2 = np.linalg.norm(dir2)
+        size2 = torch.norm(dir2)
         dir2 = dir2 / size2
 
         dir3 = (b4-b1)
-        size3 = np.linalg.norm(dir3)
+        size3 = torch.norm(dir3)
         dir3 = dir3 / size3
 
         cube3d_center = (b1 + t3)/2.0
 
         dir_vec = points - cube3d_center
 
-        res1 = np.where((np.absolute(dir_vec @ dir1) * 2) <= size1)[0]
-        res2 = np.where((np.absolute(dir_vec @ dir2) * 2) <= size2)[0]
-        res3 = np.where((np.absolute(dir_vec @ dir3) * 2) <= size3)[0]
+        res1 = torch.abs(dir_vec @ dir1) <= size1/2
+        res2 = torch.abs(dir_vec @ dir2) <= size2/2
+        res3 = torch.abs(dir_vec @ dir3) <= size3/2
 
-        return list(set(res1) & set(res2) & set(res3))
+        return res1 & res2 & res3
 
     def get_bbox(self, center, size, R): # function for calculating the corner points of a bbox based on its center, size and a 3x3 rotation matrix
 
@@ -94,7 +97,7 @@ class ARKitPreprocessor:
         corners_3d[0,:] += center[0]
         corners_3d[1,:] += center[1]
         corners_3d[2,:] += center[2]
-        return np.transpose(corners_3d)
+        return torch.from_numpy(corners_3d).T.to(self.device)
 
 
     def crop_pc(self, xyz, bbox_center, bbox_length, bbox_rotation): # based on bbox information, crop the points inside it
@@ -108,7 +111,7 @@ class ARKitPreprocessor:
         bbox = o3d.geometry.LineSet()
         bbox.lines  = o3d.utility.Vector2iVector(bbox_lines)
         bbox.colors = o3d.utility.Vector3dVector(colors)
-        bbox.points = o3d.utility.Vector3dVector(cube3d)
+        bbox.points = o3d.utility.Vector3dVector(cube3d.cpu().numpy())
         return index, bbox
             
 
@@ -140,15 +143,15 @@ class ARKitPreprocessor:
             x = np.asarray(pc.elements[0].data['x'])
             y = np.asarray(pc.elements[0].data['y'])
             z = np.asarray(pc.elements[0].data['z'])
-            xyz = np.vstack((x,y,z)).transpose()
+            xyz = torch.from_numpy(np.vstack((x,y,z)).transpose()).to(self.device)
             region_id = 0
             # region_ids = np.repeat(np.array([[region_id]]), len(xyz), axis = 0)
-            unlabeled_obj_filter = np.ones(xyz.shape[0], dtype=bool)
-            rgba = np.vstack((r,g,b,a)).transpose()
+            unlabeled_obj_filter = torch.ones(xyz.shape[0], dtype=bool)
+            rgba = torch.from_numpy(np.vstack((r,g,b,a)).transpose()).to(self.device)
             obj_pcs, obj_rgbs, obj_ids = [], [], []
 
-            region_center = (np.max(xyz, axis=0) + np.min(xyz, axis=0))/2
-            region_size = np.max(xyz, axis=0) - np.min(xyz, axis=0)
+            region_center = (torch.max(xyz, dim=0)[0] + torch.min(xyz, dim=0)[0])/2
+            region_size = torch.max(xyz, dim=0)[0] - torch.min(xyz, dim=0)[0]
 
             object_file_name = scan_name + '_object_result.csv'
             with open(object_file_name, 'w', newline='') as f:
@@ -174,7 +177,7 @@ class ARKitPreprocessor:
                     # draw.append(bbox_to_draw)
                     object_pc = xyz[index, :]
                     # obj_vertex = np.vstack((obj_vertex, object_pc))
-                    center, size, heading = calculate_bbox_hull(object_pc.astype(np.float64))
+                    center, size, heading = calculate_bbox_hull(object_pc.to(torch.float64).cpu().numpy())
                     
                     front_heading = ['_']
 
@@ -185,10 +188,10 @@ class ARKitPreprocessor:
 
                     object_colors = rgba[index, 0:3]/255
                     # obj_colors = np.vstack((obj_colors, object_colors))
-                    color_3 = judge_color(object_colors, self.tree, self.anchor_colors_array, self.anchor_colors_name)
+                    color_3 = judge_color(object_colors.cpu().numpy(), self.tree, self.anchor_colors_array, self.anchor_colors_name)
 
                     unlabeled_obj_filter[index] = False
-                    obj_ids.append(np.ones(object_pc.shape[0]) * object_id)
+                    obj_ids.append(torch.ones(object_pc.shape[0], device=self.device) * object_id)
                     obj_pcs.append(object_pc)
                     obj_rgbs.append(rgba[index, 0:3])
 
@@ -217,21 +220,21 @@ class ARKitPreprocessor:
                 region_info = []
                 region_info.append(region_id)
                 region_info.append(region_label)
-                region_info += list(region_center)
-                region_info += list(region_size)
+                region_info += region_center.cpu().tolist()
+                region_info += region_size.cpu().tolist()
                 region_info.append(region_heading)
                 region_writer.writerow(region_info)
 
             unlabeled_obj_pc = xyz[unlabeled_obj_filter]
             unlabeled_obj_color = rgba[unlabeled_obj_filter, :3]
-            obj_ids.append(np.ones(unlabeled_obj_pc.shape[0]) * -1)
+            obj_ids.append(torch.ones(unlabeled_obj_pc.shape[0], device=self.device) * -1)
             obj_pcs.append(unlabeled_obj_pc)
             obj_rgbs.append(unlabeled_obj_color)
 
-            obj_ids = np.concatenate(obj_ids)
-            obj_pcs = np.vstack(obj_pcs)
-            obj_rgbs = np.vstack(obj_rgbs)
-            region_ids = np.zeros_like(obj_ids)
+            obj_ids = torch.concatenate(obj_ids)
+            obj_pcs = torch.vstack(obj_pcs)
+            obj_rgbs = torch.vstack(obj_rgbs)
+            region_ids = torch.zeros_like(obj_ids)
 
 
             # region_folder = osp.join(output_scan_folder, 'regions')
@@ -255,18 +258,14 @@ class ARKitPreprocessor:
             # o3d.t.io.write_point_cloud(ply_file_name, pcd)
 
             vertex = torch.cat([
-                torch.from_numpy(obj_pcs),
-                torch.from_numpy(obj_rgbs),
-                torch.from_numpy(obj_ids)[:, None],
-                torch.from_numpy(region_ids)[:, None]
+                obj_pcs,
+                obj_rgbs,
+                obj_ids[:, None],
+                region_ids[:, None]
             ], dim=1)
 
             vertex, region_indices_out, object_indices_out = sort_pointcloud(vertex)
-
-            torch.save(region_indices_out, f'{scan_name}_region_split.npy')
-            torch.save(object_indices_out, f'{scan_name}_object_split.npy')
-            write_ply_file(vertex[:, :6], f'{scan_name}_pc_result.ply')
-
+            save_pointcloud(vertex, region_indices_out, object_indices_out, '', scan_name)
 
             if self.generate_freespace:
                 floor_center, floor_size, floor_heading = calculate_bbox_hull(xyz)
@@ -284,13 +283,14 @@ if __name__ == '__main__':
                         help="Input file of the mesh")
     parser.add_argument('--mapping_folder', default='./arkit_cat_mapping.csv',
                         help="Input folder of the category mapping")
-    parser.add_argument('--output_folder', default='/home/navigation/Dataset/VLA_Dataset_more',
+    parser.add_argument('--output_folder', default='/home/navigation/Dataset/VLA_Dataset/ARKitScenes',
                         help="Output PLY file to save")
     parser.add_argument('--floor_height', default=0.35,
                         help="floor heigh for generating free space")
     parser.add_argument('--color_standard', default='css3',
                         help="color standard, chosen from css2, css21, css3, html4")
     parser.add_argument('--generate_freespace', action='store_true', help='Generate free spaces')
+    parser.add_argument('--device', default='cuda')
     
     args = parser.parse_args()
 
@@ -310,7 +310,8 @@ if __name__ == '__main__':
         args.output_folder, 
         args.floor_height, 
         args.color_standard, 
-        args.generate_freespace
+        args.generate_freespace,
+        device=args.device
         ).create_arkit()
     print('====================End processing arkit training set====================')
 

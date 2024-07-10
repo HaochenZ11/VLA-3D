@@ -492,10 +492,11 @@ def compute_spatial_relationships(args, region_struct):
     return relations
 
 
-def csv_to_json(scene_name, i, total_num_scenes):
+def csv_to_json(scene_tuple, i, total_num_scenes):
 
+    dataset_name, scene_name = scene_tuple
     input_folder = args.input_path
-    scene_path = os.path.join(input_folder, scene_name)
+    scene_path = os.path.join(input_folder, dataset_name, scene_name)
     if not os.path.isdir(scene_path):
         return
     region_file = os.path.join(scene_path, scene_name + '_region_result.csv')
@@ -559,7 +560,7 @@ def csv_to_json(scene_name, i, total_num_scenes):
         scene_data["regions"][r] = region_data
         #print(region_data)
 
-    output_path = os.path.join(os.path.join(args.input_path, scene_name), scene_name + '_scene_graph.json')
+    output_path = os.path.join(scene_path, scene_name + '_scene_graph.json')
 
     # write one file per region in Matterport scene
     with open(output_path, 'w', encoding='utf-8') as out:
@@ -573,7 +574,8 @@ def process_data():
     # iterate over scene folders in dataset
     # scene_list = ['uNb9QFRL6hY']
     # scene_list = ['00062-ACZZiU6BXLz']
-    scene_list = os.listdir(input_folder)
+    dataset_list = [dataset for dataset in os.listdir(input_folder) if os.path.isdir(os.path.join(input_folder, dataset))]
+    scene_list = [(dataset, scene) for dataset in dataset_list for scene in os.listdir(os.path.join(input_folder, dataset))]
     start_time = perf_counter()
     with mp.Pool(mp.cpu_count()) as pool:
         pool.starmap(csv_to_json, zip(scene_list, range(len(scene_list)), repeat(int(len(scene_list)))))

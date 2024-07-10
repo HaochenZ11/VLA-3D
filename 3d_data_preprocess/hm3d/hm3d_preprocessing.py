@@ -18,11 +18,9 @@ from utils.glb_to_pointcloud import (
     load_meshes, 
     subdivide_mesh, 
     sample_semantic_pointcloud_from_uv_mesh, 
-    SEED, 
-    DEVICE
 )
 from utils.bbox_utils import calculate_bbox, calculate_bbox_hull, calculate_axis_aligned_bbox
-from utils.pointcloud_utils import sort_pointcloud, write_ply_file
+from utils.pointcloud_utils import save_pointcloud, sort_pointcloud, write_ply_file
 from utils.freespace_generation_new import generate_free_space
 from utils.dominant_colors_new_lab import judge_color, generate_color_anchors
 from utils.headers import REGION_HEADER, OBJECT_HEADER
@@ -41,8 +39,8 @@ class HM3DPreprocessor:
         sampling_density=None,
         num_region_samples=70000,
         filter_objs_less_than=10,
-        seed=SEED,
-        device=DEVICE
+        seed=42,
+        device='cuda'
         ):
 
         # Color Tree
@@ -60,12 +58,12 @@ class HM3DPreprocessor:
         self.category_mappings_path = category_mappings_path
         self.raw_category_mappings_path = raw_category_mappings_path
         self.region_categories_path = region_categories_path
-        self.output_directory = output_directory
+        self.output_directory = os.path.join(output_directory, 'HM3D')
         self.num_pointcloud_samples = num_pointcloud_samples
         self.num_region_samples = num_region_samples
         self.filter_objs_less_than = filter_objs_less_than
         self.seed = seed
-        self.device=device
+        self.device = 'cuda' if (device=='cuda' and torch.cuda.is_available()) else 'cpu'
         
         self.scan_prefix, self.scan_suffix = self.scan_name.split('-')
 
@@ -73,12 +71,15 @@ class HM3DPreprocessor:
         self.semantic_mesh_path = Path(semantic_mesh_directory) / self.scan_name / f'{self.scan_suffix}.semantic.glb'
         self.semantic_config_path = Path(semantic_mesh_directory) / self.scan_name / f'{self.scan_suffix}.semantic.txt'
 
-        self.output_path = Path(output_directory) / self.scan_name
+        self.output_path = Path(self.output_directory) / self.scan_name
 
-        if not os.path.exists(Path(output_directory) / self.scan_name ):
-            os.makedirs(Path(output_directory) / self.scan_name )
+        if not os.path.exists(Path(self.output_directory) / self.scan_name ):
+            os.makedirs(Path(self.output_directory) / self.scan_name )
 
-        self.mesh_objects, self.semantic_mesh_objects = load_meshes(str(self.color_mesh_path), str(self.semantic_mesh_path))
+        self.mesh_objects, self.semantic_mesh_objects = load_meshes(
+            str(self.color_mesh_path), 
+            str(self.semantic_mesh_path),
+            device=self.device)
 
         # self.mesh_objects = subdivide_mesh(self.mesh_objects, 0.1)
         
@@ -88,6 +89,7 @@ class HM3DPreprocessor:
             n=num_pointcloud_samples,
             sampling_density=sampling_density,
             seed=seed,
+            device=self.device
         )
 
         self.semantic_colors = self.points[:, 6:9].int()
@@ -320,14 +322,15 @@ class HM3DPreprocessor:
         ], dim=1)
 
         vertex, region_indices_out, object_indices_out = sort_pointcloud(vertex)
+        save_pointcloud(vertex, region_indices_out, object_indices_out, self.output_path, self.scan_name)
 
-        torch.save(region_indices_out, self.output_path / f'{self.scan_name}_region_split.npy')
-        torch.save(object_indices_out, self.output_path / f'{self.scan_name}_object_split.npy')
-        write_ply_file(vertex[:, :6], self.output_path / f'{self.scan_name}_pc_result.ply')
+
 
 
 
 if __name__ == "__main__":
+
+
 
     parser = argparse.ArgumentParser()
 
@@ -347,7 +350,8 @@ if __name__ == "__main__":
     parser.add_argument('--sampling_density', type=float, default=2e-4)
     parser.add_argument('--num_region_points', type=int, default=500000)
     parser.add_argument('--filter_objs_less_than', type=int, default=10)
-    # parser.add_argument('--device', default='cuda:0')
+    parser.add_argument('--device', default='cuda')
+    parser.add_argument('--seed', type=int, default=42)
     
     args = parser.parse_args()
     
@@ -375,8 +379,9 @@ if __name__ == "__main__":
             args.num_points,
             args.sampling_density,
             args.num_region_points,
-            args.filter_objs_less_than
-            # args.device
+            args.filter_objs_less_than,
+            args.seed,
+            args.device,
         ).create_hm3d()
 
     # with mp.Pool(mp.cpu_count()) as p:

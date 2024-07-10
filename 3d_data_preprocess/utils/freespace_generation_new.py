@@ -4,7 +4,6 @@ from tqdm import tqdm
 import csv
 from numba import jit
 from utils.transformations import rotz, rot_2d
-import cv2
 
 
 occupied_length = 0.49

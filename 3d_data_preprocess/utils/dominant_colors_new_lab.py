@@ -20,9 +20,9 @@ color_scheme = {
     'pink': 'pink', 'lightpink': 'pink', 'hotpink': 'pink', 'deeppink': 'pink', 'palevioletred': 'pink', 'mediumvioletred': 'pink', \
     'white': 'white', 'snow': 'white', 'honeydew': 'white', 'mintcream': 'white', 'azure': 'white', 'aliceblue': 'white', 'ghostwhite': 'white', 'whitesmoke': 'white', 'seashell': 'white', \
     'beige': 'white', 'oldlace': 'white', 'floralwhite': 'white', 'ivory': 'white', 'antiquewhite': 'white', 'linen': 'white', 'lavenderblush': 'white', 'mistyrose': 'white', \
-    'gainsboro': 'gray', 'lightgray': 'gray', 'silver': 'gray', 'darkgray': 'gray', 'gray': 'gray', 'dimgray': 'gray', 'lightslategray': 'gray', 'slategray': 'gray', 'darkslategray': 'aqua', \
+    'gainsboro': 'gray', 'lightgray': 'gray', 'silver': 'gray', 'darkgray': 'gray', 'gray': 'gray', 'dimgray': 'gray', 'lightslategray': 'gray', 'slategray': 'gray', 'darkslategray': 'gray', \
     'black': 'black', \
-    'cornsilk': 'yellow', 'blanchedalmond': 'brown', 'bisque': 'brown', 'navajowhite': 'brown', 'wheat': 'brown', 'burlywood': 'brown', 'tan': 'brown', 'rosybrown': 'purple', 'sandybrown': 'brown', \
+    'cornsilk': 'yellow', 'blanchedalmond': 'brown', 'bisque': 'brown', 'navajowhite': 'brown', 'wheat': 'brown', 'burlywood': 'brown', 'tan': 'brown', 'rosybrown': 'pink', 'sandybrown': 'brown', \
     'goldenrod': 'yellow', 'darkgoldenrod': 'yellow', 'peru': 'brown', 'chocolate': 'orange', 'saddlebrown': 'brown', 'sienna': 'brown', 'brown': 'maroon', 'maroon': 'maroon'
     }
                 
