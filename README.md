@@ -1,7 +1,27 @@
 # VLA-3D Dataset
 
 ## Introduction
-This dataset is a 3D object referential dataset designed for vision-language grounding that can be used for the higher-level task of vision-language navigation (VLN). This dataset contains 9M+ language statements that are synthetically generated for 7635 3D scenes containing a total of 11619 regions from a combination of datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Access to the full dataset can be found [HERE]().
+This dataset is a 3D object referential dataset designed for vision-language grounding that can be used for the higher-level task of vision-language navigation (VLN). This dataset contains 9M+ language statements that are synthetically generated for 7635 3D scenes containing a total of 11619 regions from a combination of datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Refer to the [Download](#download) section for instructions on downloading the dataset.
+
+## News
+
+- [2024-07] We release the first version of our dataset. Refer to the [Download](#download) section for download instructions.
+
+## Download
+
+Install [`minio`](https://min.io/):
+
+```bash
+pip install minio
+```
+
+Run [`download_dataset.py`](download_dataset.py), specifying the download folder. This will create a folder named `VLA_Dataset` in the specified directory and download 6 zip files, each corresponding to a dataset.
+
+```bash
+python download_dataset.py --output /path/to/output
+```
+
+The [visualization](visualizer/README.md) section contains instructions on how to use the visualizer.
 
 ## Raw Data
 Following a template-based synthetic language generation method similar to [ReferIt3D](https://referit3d.github.io/) [1], referential natural-language statements were generated that refer to objects in scenes from six 3D scan datasets:
