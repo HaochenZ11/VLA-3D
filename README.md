@@ -1,7 +1,7 @@
 # VLA-3D Dataset
 
 ## Introduction
-This dataset is a 3D object referential dataset designed for vision-language grounding that can be used for the higher-level task of vision-language navigation (VLN). This dataset contains 9M+ language statements that are synthetically generated for 7635 3D scenes containing a total of 11619 regions from a combination of datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Refer to the [Download](#download) section for instructions on downloading the dataset.
+This dataset is a 3D object referential dataset designed for vision-language grounding that can be used for the higher-level task of vision-language navigation (VLN). This dataset contains 9M+ language statements that are synthetically generated for 7635 3D scenes containing a total of 11619 regions from a combination of 3D scan datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Refer to the [Download](#download) section for instructions on downloading the dataset
 
 ## News
 
@@ -9,19 +9,23 @@ This dataset is a 3D object referential dataset designed for vision-language gro
 
 ## Download
 
-Install [`minio`](https://min.io/):
+Install [`minio`](https://min.io/) and [tqdm](https://pypi.org/project/tqdm/):
 
 ```bash
-pip install minio
+pip install minio tqdm
 ```
 
-Run [`download_dataset.py`](download_dataset.py), specifying the download folder. This will create a folder named `VLA_Dataset` in the specified directory and download 6 zip files, each corresponding to a dataset.
+Run the [`download_dataset.py`](download_dataset.py) script. The script can be run with the following arguments:
+
+- `--download_path`: path to output folder where dataset is downloaded. Defaults to `VLA-3D_dataset`.
+
+- `--subset`: specify name of dataset source to download only a subset of the data. One of Matterport/Scannet/HM3D/Unity/ARKitScenes/3RScan. If argument not given, the full dataset will be downloaded.
+
+The data will be downloaded as zip files in the output directory, each corresponding to a 3D dataset source.
 
 ```bash
-python download_dataset.py --output /path/to/output
+python download_dataset.py --download_path full_dataset
 ```
-
-The [visualization](visualizer/README.md) section contains instructions on how to use the visualizer.
 
 ## Raw Data
 Following a template-based synthetic language generation method similar to [ReferIt3D](https://referit3d.github.io/) [1], referential natural-language statements were generated that refer to objects in scenes from six 3D scan datasets:
@@ -185,7 +189,7 @@ The scene with the most statements is from the HM3D dataset and the scene with t
 
 The scripts to generate the language data are found under [language_generator/](language_generator/).
 
-## Dataset Tools
+## Dataset Visualizer
 An [Open3D](https://www.open3d.org/)-based visualization tool is provided to visualize the language statements along with the scene. Details on installing and using the visualizer can be found in [visualizer/README.md](visualizer/README.md).
 
 ## References
