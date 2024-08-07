@@ -101,7 +101,7 @@ def get_scene_statement(scene_graph, spatial_relations_file, objects_file, objec
 
         scene_language_data["regions"][region_idx] = region_statements
 
-        scene_language_data["regions"][region_idx]['region'] = scene_graph_region["region_name"]
+        # scene_language_data["regions"][region_idx]["region"] = scene_graph_region["region_name"]
 
 
     scene_logger['generation_time'] = timer()-scene_start_time
@@ -207,23 +207,27 @@ if __name__ == '__main__':
 
         scene_paths = []
 
-        scene_dirs = next(os.walk(scene_data_root))[1]
-        for dataset in scene_dirs:
-            for dir in os.listdir(os.path.join(scene_data_root, dataset)):
-                scene_path = os.path.join(scene_data_root, dataset, dir)
+        dataset_dirs = next(os.walk(scene_data_root))[1]
+        for dataset in dataset_dirs:
+            scene_dirs = next(os.walk(os.path.join(scene_data_root, dataset)))[1]
+            for scene_dir in scene_dirs:
+                scene_path = os.path.join(scene_data_root, dataset, scene_dir)
+                # breakpoint()
                 for file in os.listdir(scene_path):
+                    # print(file)
+                    # breakpoint()
 
                     already_processed = False
                     if not generation_configs["purge_existing_data"]:
-                        for file1 in os.listdir(os.path.join(scene_data_root, dir)):
+                        for file1 in os.listdir(os.path.join(scene_data_root, dataset, scene_dir)):
                             if 'label_data_new' in file1 or 'statement_new' in file1:
                                 already_processed = True
                                 break
 
                     if already_processed:
                         break
-
-                    if (file != f'{dir}_scene_graph.json'):
+                    print(file)
+                    if (file != f'{scene_dir}_scene_graph.json'):
                         continue
 
 

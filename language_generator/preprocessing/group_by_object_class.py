@@ -129,13 +129,16 @@ if __name__ == '__main__':
 
     target_paths = []
 
+
+    print(target_dir)
     # Open the JSON file
-    scene_dirs = next(os.walk(target_dir))[1]
-    for dataset in scene_dirs:
-        for dir in os.listdir(os.path.join(target_dir, dataset)):
-            scene_path = os.path.join(target_dir, dataset, dir)
+    dataset_dirs = next(os.walk(target_dir))[1]
+    for dataset in dataset_dirs:
+        scene_dirs = next(os.walk(os.path.join(target_dir, dataset)))[1]
+        for scene_dir in scene_dirs:
+            scene_path = os.path.join(target_dir, dataset, scene_dir)
             for file in os.listdir(scene_path):
-                if (file != f'{dir}_scene_graph.json'):
+                if (file != f'{scene_dir}_scene_graph.json'):
                     continue
 
                 file_path = os.path.join(scene_path, file)
