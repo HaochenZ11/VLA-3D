@@ -1,0 +1,895 @@
+nyuId,nyuClass,affordance
+1, Book,Read
+2, Bottle,Contain liquid
+3, Cabinet,Storage
+4, Ceiling,Shelter
+5, Chair,Sit
+6, Cone,Warn
+7, Counter,Support
+8, Dishwasher,Clean dishes
+9, Faucet,Dispense water
+10, Fire extinguisher,Extinguish fire
+11, Floor,Stand
+12, Garbage bin,Dispose waste
+13, Microwave,Heat food
+14, Paper towel dispenser,Dispense towels
+15, Paper,Write
+16, Pot,Cook food
+17, Refrigerator,Cool
+18, Stove burner,Heat
+19, Table,Support
+20, Unknown,Undefined
+21, Wall,"Structural support, Divide space"
+22, Bowl,Contain food
+23, Magnet,Attach objects
+24, Sink,Wash
+25, Air vent,Ventilate
+26, Box,Contain
+27, Door knob,Open door
+28, Door,Enter/Exit
+29, Scissors,Cut
+30, Tape dispenser,Dispense tape
+31, Telephone cord,Connect
+32, Telephone,Communicate
+33, Track light,Illuminate
+34, Cork board,Pin
+35, Cup,Contain liquid
+36, Desk,Support
+37, Laptop,Compute
+38, Air duct,Ventilate
+39, Basket,Contain
+40, Camera,Capture photo
+41, Pipe,Transport
+42, Shelves,Storage
+43, Stacked chairs,Sit
+44, Styrofoam object,Cushion
+45, Whiteboard,Write
+46, Computer,Compute
+47, Keyboard,Type
+48, Ladder,Climb
+49, Monitor,Display
+50, Stand,Support
+51, Bar,Support
+52, Motion camera,Capture motion
+53, Projector screen,Display
+54, Speaker,Amplify sound
+55, Bag,Carry items
+56, Clock,Tell time
+57, Green screen,Background
+58, Mantel,Display items
+59, Window,View
+60, Ball,Play
+61, Hole puncher,Punch holes
+62, Light,Illuminate
+63, Manilla envelope,Contain documents
+64, Picture,Decorate
+65, Mail shelf,Sort mail
+66, Printer,Print
+67, Stapler,Bind
+68, Fax machine,Transmit documents
+69, Folder,Organize
+70, Jar,Contain
+71, Magazine,Read
+72, Ruler,Measure
+73, Cable modem,Connect internet
+74, Fan,Cool
+75, File,Organize
+76, Hand sanitizer,Wash
+77, Paper rack,Organize papers
+78, Vase,Contain flowers
+79, Air conditioner,Cool
+80, Blinds,Block light
+81, Flower,Decorate
+82, Plant,Decorate
+83, Sofa,Sit
+84, Stereo,Play music
+85, Books,Read
+86, Exit sign,Guide
+87, Room divider,Divide space
+88, Bookshelf,Storage
+89, Curtain,Cover
+90, Projector,Display
+91, Modem,Connect internet
+92, Wire,Connect
+93, Water purifier,Purify water
+94, Column,Structural support
+95, Hooks,Hang
+96, Hanging hooks,Hang
+97, Pen,Write
+98, Electrical outlet,Power
+99, Doll,Play
+100, Eraser,Erase
+101, Pencil holder,Hold pencils
+102, Water carboy,Contain water
+103, Mouse,Control devices
+104, Cable rack,Organize cables
+105, Wire rack,Storage
+106, Flipboard,Display
+107, Map,"Navigate, Display"
+108, Paper cutter,Cut paper
+109, Tape,Adhere
+110, Thermostat,Control temperature
+111, Heater,Heat
+112, Circuit breaker box,Control electricity
+113, Paper towel,Dry
+114, Stamp,Mark
+115, Duster,Clean
+116, Poster case,Display
+117, Whiteboard marker,Write
+118, Ethernet jack,Connect internet
+119, Pillow,Sleep
+120, Hair brush,Groom
+121, Makeup brush,Apply makeup
+122, Mirror,Reflect
+123, Shower curtain,Cover
+124, Toilet,Waste disposal
+125, Toiletries bag,Store toiletries
+126, Toothbrush holder,Hold toothbrush
+127, Toothbrush,Clean teeth
+128, Toothpaste,Clean teeth
+129, Platter,Serve
+130, Rug,Cover floor
+131, Squeeze tube,Dispense
+132, Shower cap,Protect hair
+133, Soap,Wash
+134, Towel rod,Hang towels
+135, Towel,Dry
+136, Bathtub,Bathe
+137, Candle,"Illuminate, Decorate"
+138, Tissue box,Dispense tissues
+139, Toilet paper,Clean
+140, Container,Storage
+141, Clothes,Wear
+142, Electric toothbrush,Clean teeth
+143, Floor mat,Cover floor
+144, Lamp,Illuminate
+145, Drum,Play
+146, Flower pot,Contain flowers
+147, Banana,Eat
+148, Candlestick,Hold candle
+149, Shoe,Wear
+150, Stool,Sit
+151, Urn,Contain ashes
+152, Earplugs,Block sound
+153, Mailshelf,Sort mail
+154, Placemat,Protect table
+155, Exercise ball,Exercise
+156, Alarm clock,Wakeup alert
+157, Bed,Sleep
+158, Nightstand,Support
+159, Deodorant,Deodorize
+160, Headphones,Listen
+161, Headboard,Support
+162, Basketball hoop,Play
+163, Footrest,Rest feet
+164, Laundry basket,Contain laundry
+165, Sock,Wear
+166, Football,Play
+167, Men's suit,Wear
+168, Cable box,Receive TV
+169, Dresser,Storage
+170, DVD player,Play DVDs
+171, Shaver,Groom
+172, Television,Display
+173, Contact lens solution bottle,Clean lenses
+174, Drawer,Storage
+175, Remote control,Control devices
+176, Cologne,Scent
+177, Stuffed animal,Cuddle
+178, Lint roller,Remove lint
+179, Tray,Serve
+180, Lock,Secure
+181, Purse,Carry items
+182, Toy bottle,Play
+183, Crate,Storage
+184, Vaseline,Moisturize
+185, Gift wrapping roll,Wrap gifts
+186, Wall decoration,Decorate
+187, Hookah,Smoke
+188, Radio,Listen
+189, Bicycle,Ride
+190, Pen box,Store pens
+191, Mask,Wear
+192, Shorts,Wear
+193, Hat,Wear
+194, Hockey glove,Protect
+195, Hockey stick,Play hockey
+196, Vuvuzela,Make noise
+197, DVD,Play media
+198, Chessboard,Play
+199, Suitcase,Storage
+200, Calculator,Calculate
+201, Flashcard,Learn
+202, Staple remover,Remove staples
+203, Umbrella,Shelter
+204, Bench,Sit
+205, Yoga mat,Exercise
+206, Backpack,Carry items
+207, CD,Play media
+208, Sign,Inform
+209, Hangers,Hang clothes
+210, Notebook,Write
+211, Hanger,Hang
+212, Security camera,Monitor
+213, Folders,Organize
+214, Clothing hanger,Hang clothes
+215, Stairs,Ascend/Descend
+216, Glass rack,Hold glasses
+217, Saucer,Hold cup
+218, Tag,Identify
+219, Dolly,Transport
+220, Machine,Operate
+221, Trolley,Transport
+222, Shopping baskets,Carry items
+223, Gate,Enter/Exit
+224, Bookrack,Storage
+225, Blackboard,Write
+226, Coffee bag,Store coffee
+227, Coffee packet,Contain coffee
+228, Hot water heater,Heat
+229, Muffins,Eat
+230, Napkin dispenser,Dispense napkins
+231, Plaque,Display
+232, Plastic tub,Contain
+233, Plate,Serve
+234, Coffee machine,Brew coffee
+235, Napkin holder,Hold napkins
+236, Radiator,Heat
+237, Coffee grinder,Grind coffee
+238, Oven,Cook
+239, Plant pot,Hold plant
+240, Scarf,Wear
+241, Spice rack,Store spices
+242, Stove,Cook
+243, Tea kettle,Boil water
+244, Napkin,Wipe
+245, Bag of chips,Eat
+246, Bread,Eat
+247, Cutting board,Cut
+248, Dish brush,Clean dishes
+249, Serving spoon,Serve
+250, Sponge,Clean
+251, Toaster,Toast
+252, Cooking pan,Cook
+253, Kitchen items,Cook
+254, Ladle,Serve
+255, Spatula,Flip
+256, Spice stand,Store spices
+257, Trivet,Protect surface
+258, Knife rack,Store knives
+259, Knife,Cut
+260, Baking dish,Bake
+261, Dish scrubber,Clean dishes
+262, Drying rack,Dry
+263, Vessel,Contain
+264, Kitchen towel,Dry
+265, Tin foil,Wrap
+266, Kitchen utensil,Cook
+267, Utensil,Help eat
+268, Blender,Blend
+269, Garbage bag,Dispose waste
+270, Sink protector,Protect sink
+271, Box of ziplock bags,Store items
+272, Spice bottle,Store spices
+273, Pitcher,Pour
+274, Pizza box,Hold pizza
+275, Toaster oven,Bake
+276, Step stool,Reach
+277, Vegetable peeler,Peel
+278, Washing machine,Wash clothes
+279, Can opener,Open cans
+280, Can of food,Eat
+281, Paper towel holder,Hold paper towels
+282, Spoon stand,Hold spoons
+283, Spoon,Help eat
+284, Wooden kitchen utensils,Cook
+285, Bag of flour,Cook
+286, Fruit,Eat
+287, Sheet of metal,Cover
+288, Waffle maker,Cook
+289, Cake,Eat
+290, Cell phone,Communicate
+291, TV stand,Hold TV
+292, Tablecloth,Cover table
+293, Wine glass,Drink
+294, Sculpture,Decorate
+295, Wall stand,Support
+296, iPhone,Communicate
+297, Coke bottle,Drink
+298, Piano,Play music
+299, Wine rack,Store wine
+300, Guitar,Play music
+301, Light switch,Control light
+302, Shirts in hanger,Wear
+303, Router,Connect internet
+304, Glass pot,Cook
+305, Cart,Transport
+306, Vacuum cleaner,Clean
+307, Bin,Storage
+308, Coins,Purchase
+309, Hand sculpture,Decorate
+310, iPod,Play music
+311, Jersey,Wear
+312, Blanket,Cover
+313, Ironing board,Iron clothes
+314, Pen stand,Hold pens
+315, Men's tie,Wear
+316, Glass baking dish,Bake
+317, Utensils,Help eat
+318, Frying pan,Cook
+319, Shopping cart,Transport
+320, Plastic bowl,Contain
+321, Wooden container,Contain
+322, Onion,Eat
+323, Potato,Eat
+324, Jacket,Wear
+325, DVDs,Play media
+326, Surge protector,Protect electronics
+327, Tumbler,Contain liquid
+328, Broom,Clean
+329, Can,Contain
+330, Crock pot,Cook
+331, Person,Interact
+332, Salt shaker,Season
+333, Wine bottle,Drink
+334, Apple,Eat
+335, Eyeglasses,See
+336, Menorah,Illuminate
+337, Bicycle helmet,Protect
+338, Fire alarm,Alert
+339, Water fountain,Drink
+340, Humidifier,Humidify
+341, Necklace,Wear
+342, Chandelier,Illuminate
+343, Barrel,Storage
+344, Chest,Storage
+345, Decanter,Pour
+346, Wooden utensils,Cook
+347, Globe,Decorate
+348, Sheets,Cover
+349, Fork,Help eat
+350, Napkin ring,Decorate
+351, Gift wrapping,Wrap gifts
+352, Bed sheets,Cover bed
+353, Spotlight,Illuminate
+354, Lighting track,Illuminate
+355, Canister,Contain
+356, Coffee table,Support
+357, Mortar and pestle,Crush
+358, Stack of plates,Serve
+359, Ottoman,Rest
+360, Server,Network services
+361, Salt container,Contain salt
+362, Utensil container,Store utensils
+363, Phone jack,Connect
+364, Switchbox,Control
+365, Casserole dish,Bake
+366, Oven handle,Open oven
+367, Whisk,"Mix, Cook"
+368, Dish cover,Cover dish
+369, Electric mixer,"Mix, Cook"
+370, Decorative platter,Decorate
+371, Drawer handle,Open drawer
+372, Fireplace,Heat
+373, Stroller,Transport child
+374, Bookend,Support books
+375, Table runner,Decorate
+376, Typewriter,Write
+377, Ashtray,Dispose ash
+378, Key,"Unlock, Open"
+379, Suit jacket,Wear
+380, Range hood,Ventilate
+381, Cleaning wipes,Clean
+382, Six pack of beer,Drink
+383, Decorative plate,Decorate
+384, Watch,Tell time
+385, Balloon,Decorate
+386, iPad,Compute
+387, Coaster,Protect surface
+388, Whiteboard eraser,Erase
+389, Toy,Play
+390, Toys basket,Store toys
+391, Toy truck,Play
+392, Classroom board,Write
+393, Chart stand,Display
+394, Picture of fish,Decorate
+395, Plastic box,Contain
+396, Pencil,Write
+397, Carton,Contain
+398, Walkie talkie,Communicate
+399, Binder,Organize
+400, Coat hanger,Hang clothes
+401, Filing shelves,Storage
+402, Plastic crate,Storage
+403, Plastic rack,Storage
+404, Plastic tray,Hold items
+405, Flag,Decorate
+406, Poster board,Decorate
+407, Lunch bag,Carry items
+408, Board,Write
+409, Leg of a girl,Support person
+410, File holder,Organize
+411, Chart,Display data
+412, Glass pane,Cover
+413, Cardboard tube,Contain
+414, Bassinet,Hold baby
+415, Toy car,Play
+416, Toy shelf,Store toys
+417, Toy bin,Store toys
+418, Toys shelf,Store toys
+419, Educational display,Inform
+420, Placard,Inform
+421, Soft toy group,Play
+422, Soft toy,Play
+423, Toy cube,Play
+424, Toy cylinder,Play
+425, Toy rectangle,Play
+426, Toy triangle,Play
+427, Bucket,Carry items
+428, Chalkboard,Write
+429, Game table,Play
+430, Storage shelves,Organize
+431, Toy cuboid,Play
+432, Toy tree,Play
+433, Wooden toy,Play
+434, Toy box,Store toys
+435, Toy phone,Play
+436, Toy sink,Play
+437, Toyhouse,Play
+438, Notecards,Write
+439, Toy trucks,Play
+440, Wall hand sanitizer dispenser,Dispense sanitizer
+441, Cap stand,Hold caps
+442, Music stereo,Play music
+443, Toys rack,Store toys
+444, Display board,Display
+445, Lid of jar,Cover jar
+446, Stacked bins boxes,Storage
+447, Stacked plastic racks,Storage
+448, Storage rack,Storage
+449, Roll of paper towels,Dispense towels
+450, Cables,Connect
+451, Power surge,Protect
+452, Cardboard sheet,Structural support
+453, Banister,Structural support
+454, Show piece,Decorate
+455, Pepper shaker,Season
+456, Kitchen island,Support
+457, Exercise equipment,Exercise
+458, Treadmill,Exercise
+459, Ornamental plant,Decorate
+460, Piano bench,Sit
+461, Sheet music,Display music
+462, Grandfather clock,Tell time
+463, Iron grill,Cook
+464, Pen holder,Hold pens
+465, Toy doll,Play
+466, Globe stand,Support globe
+467, Telescope,Observe
+468, Magazine holder,Organize
+469, File container,Organize
+470, Paper holder,Organize
+471, Flower box,Contain flowers
+472, Pyramid,Decorate
+473, Desk mat,Protect surface
+474, Cordless phone,Communicate
+475, Desk drawer,Storage
+476, Envelope,Contain
+477, Window frame,Structural support
+478, ID card,Identify
+479, File stand,Organize
+480, Paper weight,Hold paper
+481, Toy plane,Play
+482, Money,Purchase
+483, Papers,"Read, Write"
+484, Comforter,Cover
+485, Crib,Sleep
+486, Doll house,Play
+487, Toy chair,Play
+488, Toy sofa,Play
+489, Plastic chair,Sit
+490, Toy house,Play
+491, Child carrier,Transport child
+492, Cloth bag,Carry items
+493, Cradle,Sleep
+494, Baby chair,Sit
+495, Chart roll,Plot
+496, Toys box,Store toys
+497, Railing,Structural support
+498, Clothing dryer,Dry clothes
+499, Clothing washer,Wash clothes
+500, Laundry detergent jug,Contain detergent
+501, Clothing detergent,Wash clothes
+502, Bottle of soap,Wash
+503, Box of paper,Store paper
+504, Trolley,Transport
+505, Hand sanitizer dispenser,Dispense sanitizer
+506, Soap holder,Hold soap
+507, Water dispenser,Dispense water
+508, Photo,Decorate
+509, Water cooler,Dispense water
+510, Foosball table,Play
+511, Crayon,Draw
+512, Hoola hoop,Play
+513, Horse toy,Play
+514, Plastic toy container,Store toys
+515, Pool table,Play
+516, Game system,Play
+517, Pool sticks,Play
+518, Console system,Play
+519, Video game,Play
+520, Pool ball,Play
+521, Trampoline,Play
+522, Tricycle,Ride
+523, Wii,Play
+524, Furniture,"Sit, Support, Storage"
+525, Alarm,Alert
+526, Toy table,Play
+527, Ornamental item,Decorate
+528, Copper vessel,Contain
+529, Stick,Various
+530, Car,Transport
+531, Mezuza,Decorate
+532, Toy cash register,Play
+533, Lid,Cover
+534, Paper bundle,Organize
+535, Business cards,Inform
+536, Clipboard,Write
+537, Flatbed scanner,Scan
+538, Paper tray,Organize
+539, Mouse pad,Use mouse
+540, Display case,Showcase
+541, Tree sculpture,Decorate
+542, Basketball,Play
+543, Fiberglass case,Protect
+544, Framed certificate,Showcase
+545, Cordless telephone,Communicate
+546, Shofar,Sound
+547, Trophy,Award
+548, Cleaner,Clean
+549, Cloth drying stand,Dry clothes
+550, Electric box,Control electricity
+551, Furnace,Heat
+552, Piece of wood,Various
+553, Wooden pillar,Structural support
+554, Drying stand,Dry clothes
+555, Cane,Support person
+556, Clothing drying rack,Dry clothes
+557, Iron box,Iron clothes
+558, Exercise machine,Exercise
+559, Sheet,Cover
+560, Rope,Tie
+561, Sticks,Various
+562, Wooden planks,Construction
+563, Toilet plunger,Unclog
+564, Bar of soap,Wash
+565, Toilet bowl brush,Clean
+566, Light bulb,Illuminate
+567, Drain,Remove water
+568, Faucet handle,Control water
+569, Nail clipper,Groom
+570, Shaving cream,Shave
+571, Rolled carpet,Cover floor
+572, Clothing iron,Iron clothes
+573, Window cover,Cover
+574, Charger and wire,Charge
+575, Quilt,Cover
+576, Mattress,Sleep
+577, Hair dryer,Dry hair
+578, Stones,Decorate
+579, Pepper grinder,"Grind pepper, Season"
+580, Cat cage,Contain cat
+581, Dish rack,Dry dishes
+582, Curtain rod,Hang curtains
+583, Calendar,Organize
+584, Headphones,Listen
+585, CD disc,Play music
+586, Headphone,Listen
+587, USB drive,Store data
+588, Water heater,Heat water
+589, Pan,Cook
+590, Tuna cans,Eat
+591, Baby gate,Enter/Exit
+592, Spoon sets,Help eat
+593, Cans of cat food,Feed cat
+594, Cat,Interact
+595, Flower basket,Contain flowers
+596, Fruit platter,Eat
+597, Grapefruit,Eat
+598, Kiwi,Eat
+599, Hand blender,"Blend, Cook"
+600, Knobs,Turn
+601, Vessels,Contain
+602, Cell phone charger,Charge
+603, Wire basket,Carry items
+604, Tub of Tupperware,Contain
+605, Candelabra,Illuminate
+606, Litter box,Contain litter
+607, Shovel,Dig
+608, Cat bed,Sleep
+609, Doorway,Enter/Exit
+610, Belt,Wear
+611, Surge protector,Protect
+612, Glass,Various
+613, Console controller,Control devices
+614, Shoe rack,Organize
+615, Door frame,Structural support
+616, Computer disk,Store data
+617, Briefcase,Carry items
+618, Mail tray,Organize mail
+619, File pad,Organize
+620, Letter stand,Organize letters
+621, Plastic cup of coffee,Drink
+622, Glass box,Storage
+623, Ping pong ball,Play
+624, Ping pong racket,Play
+625, Ping pong table,Play
+626, Tennis racket,Play
+627, Ping pong racquet,Play
+628, Xbox,Play
+629, Electric toothbrush base,Charge
+630, Toilet brush,Clean toilet
+631, Toiletries,Groom
+632, Razor,Shave
+633, Bottle of contact lens solution,Clean contacts
+634, Contact lens case,Store contacts
+635, Cream,Moisturize
+636, Glass container,Contain
+637, Container of skin cream,Moisturize
+638, Soap dish,Hold soap
+639, Scale,Weigh
+640, Soap stand,Hold soap
+641, Cactus,Decorate
+642, Door window reflection,Reflect
+643, Ceramic frog,Decorate
+644, Incense candle,Emit fragrance
+645, Storage space,Storage
+646, Door lock,Secure
+647, Toilet paper holder,Hold toilet paper
+648, Tissue,Wipe
+649, Personal care liquid,Groom
+650, Shower head,Wash
+651, Shower knob,Control water
+652, Knob,Turn
+653, Cream tube,Moisturize
+654, Perfume box,Store perfume
+655, Perfume,Scent
+656, Back scrubber,Scrub
+657, Door facing trim reflection,Reflect
+658, Door reflection,Reflect
+659, Light switch reflection,Reflect
+660, Medicine tube,Apply
+661, Wallet,Hold money/cards
+662, Soap tray,Hold soap
+663, Door curtain,Cover
+664, Shower pipe,Deliver water
+665, Face wash cream,Wash
+666, Flashlight,Illuminate
+667, Shower base,Contain water
+668, Window shelf,Support items
+669, Shower hose,Dispense water
+670, Toothpaste holder,Hold toothpaste
+671, Soap box,Hold soap
+672, Incense holder,Hold incense
+673, Conch shell,Decorate
+674, Roll of toilet paper,Dispense toilet paper
+675, Shower tube,Deliver water
+676, Bottle of Listerine,Wash
+677, Bottle of hand wash liquid,Wash
+678, Tea pot,Brew tea
+679, Lazy Susan,Rotate
+680, Avocado,Eat
+681, Fruit stand,Display fruit
+682, Fruit plate,Serve
+683, Oil container,Contain
+684, Package of water,Drink
+685, Bottle of liquid,Contain liquid
+686, Doorway arch,Structural support
+687, Jug,Contain liquid
+688, Bulb,Illuminate
+689, Bagel,Eat
+690, Bag of bagels,Eat
+691, Banana peel,Discard
+692, Bag of Oreos,Eat
+693, Flask,Contain liquid
+694, Collander,Strain
+695, Brick,Build
+696, Torch,Illuminate
+697, Dog bowl,Feed dog
+698, Wooden plank,Various
+699, Eggs,Eat
+700, Grill,Cook
+701, Dog,Interact
+702, Chimney,Ventilation
+703, Dog cage,Contain dog
+704, Orange plastic cap,Cover
+705, Glass set,Serve drinks
+706, Vessel set,Contain
+707, Melon,Eat
+708, Aluminium foil,Wrap
+709, Orange,Eat
+710, Peach,Eat
+711, Tea coaster,Protect surface
+712, Butterfly sculpture,Decorate
+713, Corkscrew,Open bottles
+714, Heating tray,Heat food
+715, Food processor,Cook
+716, Corn,Eat
+717, Squash,Eat
+718, Watermelon,Eat
+719, Vegetables,Eat
+720, Celery,Eat
+721, Glass dish,Serve
+722, Hot dogs,Eat
+723, Plastic dish,Serve
+724, Vegetable,Eat
+725, Sticker,Adhere
+726, Chapstick,Moisturize
+727, Sifter,Strain
+728, Fruit basket,Contain fruit
+729, Glove,Wear
+730, Measuring cup,Measure
+731, Water filter,Filter water
+732, Wine accessory,Serve wine
+733, Dishes,Serve
+734, File box,Organize
+735, Ornamental pot,Decorate
+736, Dog toy,Play
+737, Salt and pepper,"Season, Cook"
+738, Electric kettle,Boil water
+739, Kitchen container plastic,Storage
+740, Pineapple,Eat
+741, Sugar jar,Store sugar
+742, Steamer,Steam
+743, Charger,Charge
+744, Mug holder,Hold mugs
+745, Orange juicer,Extract juice
+746, Juicer,Extract juice
+747, Bag of hot dog buns,Eat
+748, Hamburger bun,Eat
+749, Mug hanger,Hang mugs
+750, Bottle of ketchup,Dispense ketchup
+751, Toy kitchen,Play
+752, Food wrapped on a tray,Eat
+753, Kitchen utensils,Cook
+754, Oven mitt,Protect hand
+755, Bottle of Comet,Clean
+756, Wooden utensil,Cook
+757, Decorative dish,Decorate
+758, Handle,Grip
+759, Label,Identify
+760, Flask set,Contain liquid
+761, Cooking pot cover,Cover
+762, Tupperware,Contain
+763, Garlic,Eat
+764, Tissue roll,Dispense tissue
+765, Lemon,Eat
+766, Wine,Drink
+767, Decorative bottle,Decorate
+768, Wire tray,Organize
+769, Tea cannister,Store tea
+770, Clothing hamper,Store clothes
+771, Guitar case,Protect guitar
+772, Wardrobe,Storage
+773, Boomerang,Play
+774, Button,Fasten
+775, Karate belts,Wear
+776, Medal,Award
+777, Window seat,Sit
+778, Window box,Decorate
+779, Necklace holder,Store necklaces
+780, Beeper,Alert
+781, Webcam,Capture video
+782, Fish tank,Contain fish
+783, Luggage,Storage
+784, Life jacket,Provide buoyancy
+785, Shoelace,Tie shoes
+786, Pen cup,Hold pens
+787, Eyeball plastic ball,Play
+788, Toy pyramid,Play
+789, Model boat,Decorate
+790, Certificate,Award
+791, Puppy toy,Play
+792, Wire board,Organize wires
+793, Quill,Write
+794, Canister,Contain
+795, Toy boat,Play
+796, Antenna,Receive signals
+797, Bean bag,Sit
+798, Lint comb,Remove lint
+799, Travel bag,Carry items
+800, Wall divider,Divide space
+801, Toy chest,Store toys
+802, Headband,Wear
+803, Luggage rack,Hold luggage
+804, Bunk bed,Sleep
+805, Lego,Play
+806, Yarmulka,Wear
+807, Package of bedroom sheets,Cover
+808, Bedding package,"Cover, Sleep"
+809, Comb,Groom
+810, Dollar bill,Purchase
+811, Pig,Play
+812, Storage bin,Storage
+813, Storage chest,Storage
+814, Slide,Play
+815, Playpen,Contain child
+816, Electronic drumset,Play
+817, iPod dock,Charge
+818, Microphone,Amplify sound
+819, Music keyboard,Play music
+820, Music stand,Hold music
+821, Microphone stand,Hold microphone
+822, Album,Play music
+823, Kinect,Play
+824, Inkwell,Hold ink
+825, Baseball,Play
+826, Decorative bowl,Decorate
+827, Book holder,Hold books
+828, Toy horse,Play
+829, Dresser,Storage
+830, Toy apple,Play
+831, Toy dog,Play
+832, Scenery,Decorate
+833, Drawer knob,Open drawer
+834, Shoe hanger,Hang shoes
+835, Tent,Shelter
+836, Figurine,Decorate
+837, Soccer ball,Play
+838, Hand weight,Exercise
+839, Magic 8-ball,Play
+840, Bottle of perfume,Scent
+841, Sleeping bag,Sleep
+842, Decoration item,Decorate
+843, Envelopes,Mail
+844, Trinket,Decorate
+845, Hand fan,Cool
+846, Sculpture of the Chrysler Building,Decorate
+847, Sculpture of the Eiffel Tower,Decorate
+848, Sculpture of the Empire State Building,Decorate
+849, Jeans,Wear
+850, Garage door,Enter/Exit
+851, Case,Storage
+852, Rags,Clean
+853, Decorative item,Decorate
+854, Toy stroller,Play
+855, Shelf frame,Structural support
+856, Cat house,Contain cat
+857, Can of beer,Drink
+858, Dog bed,Sleep
+859, Lamp shade,Diffuse light
+860, Bracelet,Wear
+861, Reflection of window shutters,Reflect
+862, Decorative egg,Decorate
+863, Indoor fountain,Decorate
+864, Photo album,Contain photos
+865, Decorative candle,Decorate
+866, Walkie-talkie,Communicate
+867, Serving dish,Serve
+868, Floor trim,Decorate
+869, Mini display platform,Display items
+870, American flag,Decorate
+871, VHS tapes,Play media
+872, Throw,Decorate
+873, Newspapers,Read
+874, Mantle,Decorate
+875, Package of bottled water,Drink
+876, Serving platter,Serve
+877, Display platter,Display items
+878, Centerpiece,Decorate
+879, Tea box,Store tea
+880, Gold piece,Collect
+881, Wreath,Decorate
+882, Lectern,Support
+883, Hammer,Pound
+884, Matchbox,Ignite
+885, Pepper,Season
+886, Yellow pepper,Season
+887, Duck,Play
+888, Eggplant,Eat
+889, Glassware,Serve drinks
+890, Sewing machine,Sew
+891, Rolled up rug,Cover floor
+892, Doily,Decorate
+893, Coffee pot,Brew coffee
+894, Torah,Read

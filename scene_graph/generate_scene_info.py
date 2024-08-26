@@ -11,6 +11,7 @@ import numpy as np
 import argparse
 import os
 # import pandas as pd
+import pandas as pd
 from shapely.geometry import Polygon
 from bbox_utils import *
 from colors import *
@@ -19,20 +20,24 @@ from tqdm import tqdm
 from time import perf_counter
 import multiprocessing as mp
 from itertools import repeat
-
-# - relax above assumption by not necessitating overlap
-# - something on the floor
-# - do between relation, epsilon away from connecting line
-# - sideways iom for hanging on relation
-# - check hanging object is on nothing else in room
-# - for in, check object dimensions rather than volume
+from copy import deepcopy
 
 
-def relate_in(anchor_idx, objects):
+def group_by_class(objects):
+    same_class_objects = {}
+    for obj in objects:
+        if obj["nyu_id"] not in same_class_objects:
+            same_class_objects[obj["nyu_id"]] = [obj]
+        else:
+            same_class_objects[obj["nyu_id"]].append(obj)
+    return same_class_objects
+
+
+def relate_in(anchor_idx, objects, in_thres):
     # find objects inside anchor object
 
     anchor_obj = objects[anchor_idx]
-    if int(anchor_obj["nyu_id"]) not in IN_RELATION:
+    if int(anchor_obj["nyu_id"]) not in IN_RELATION and int(anchor_obj["nyu_id"]) not in IN_ON_RELATION:
         return []
     
     in_objs = []
@@ -49,14 +54,17 @@ def relate_in(anchor_idx, objects):
         if is_inside_bbox(np.array(objects[i]["center"]), np.array(anchor_obj["bbox"])) \
             and (np.array(anchor_obj["size"]) > np.array(objects[i]["size"])).all() \
             and max_z_tgt < max_z_anc and min_z_tgt > min_z_anc:
-            in_objs.append(i)
+            if int(anchor_obj["nyu_id"]) not in IN_ON_RELATION:
+                in_objs.append(i)
+            elif max_z_tgt < max_z_anc - in_thres * (max_z_anc - min_z_anc):
+                in_objs.append(i)
             # print(f"{objects[i]['raw_label']} in {anchor_obj['raw_label']}")
     
     in_obj_ids = [objects[ind]['object_id'] for ind in in_objs]
     return in_obj_ids
 
 
-def relate_on(vertical_iom, on_thres, under_thres, anchor_idx, objects):
+def relate_on(vertical_iom, on_thres, under_thres, in_thres, anchor_idx, objects):
     # find objects on another object
 
     anchor_obj = objects[anchor_idx]
@@ -87,7 +95,10 @@ def relate_on(vertical_iom, on_thres, under_thres, anchor_idx, objects):
             # and min_z_tgt > min_z_anc + under_thres:
 
             # print(f"{objects[i]['nyu_label']} on {anchor_obj['nyu_label']}")
-            on_objs.append(i)
+            if int(anchor_obj['nyu_id']) not in IN_ON_RELATION:
+                on_objs.append(i)
+            elif max_z_tgt > max_z_anc - in_thres * (max_z_anc - min_z_anc):
+                on_objs.append(i)
 
     on_obj_ids = [objects[ind]['object_id'] for ind in on_objs]
     return on_obj_ids
@@ -363,27 +374,68 @@ def relate_between(between_iom, anchor_idx, objects, overlap_thres, symmetry_thr
     return between_objs
 
 
-def relate_distance(anchor_idx, objects):
-    # get list of closest objects to anchor object
+# Group targets of the same class
+# Closest target must be close enough to anchor
+# Targets must be spaced enough apart such that humans can tell, otherwise discard relation
+# 
+
+def relate_ordered(anchor_idx: int, objects: list, same_class_objects: dict, ordered_thres: float):
+
     anchor_center = objects[anchor_idx]["center"]
-    distances = []
 
-    # calculate distance between all objects and anchor object
-    for i in range(len(objects)):
-        o = objects[i]
-        o_center = o["center"]
-        dist = np.linalg.norm(np.array(anchor_center)-np.array(o_center))
-        distances.append(float(dist))
+    # copy dictionary of same class objects
+    same_class_objects_copy = deepcopy(same_class_objects)
 
-    # sort objects based on closest distance
-    closest_objs = np.argsort(distances).tolist()
-    closest_objs.remove(anchor_idx)
+    closest_objs = []
+    farthest_objs = []
 
-    # change to obj ids
-    closest_obj_ids = [objects[ind]["object_id"] for ind in closest_objs]
+    # calculate distance between all objects and anchor object in dictionary
+    for nyu_id, obj_list in same_class_objects_copy.items():
+        distances = []
+        lengths = []
+        for obj in obj_list:
+            o_center = obj["center"]
+            dir_vec = np.array(anchor_center)-np.array(o_center)
+            dist = np.linalg.norm(dir_vec)
+            dir_vec /= dist
+            bbox = np.array(obj["bbox"])
+            projected_bounds = bbox @ dir_vec
 
-    return closest_obj_ids
+            lengths.append(projected_bounds.max() - projected_bounds.min())
+            distances.append(float(dist))
 
+        # sort entries in dictionary by ascending order of distance to anchor, remove anchor if found
+        dist_idxs_sorted: list = np.argsort(distances).tolist()
+        if obj_list[dist_idxs_sorted[0]]["object_id"] == objects[anchor_idx]["object_id"]:
+            removed_idx = dist_idxs_sorted.pop(0)
+
+        obj_list = [obj_list[idx] for idx in dist_idxs_sorted]
+        distances = np.array(distances)[dist_idxs_sorted]
+        lengths = np.array(lengths)[dist_idxs_sorted]
+
+        # populate closest
+        closest_obj_list = obj_list[:3]
+        closest_distances = distances[:3]
+        closest_lengths = lengths[:3]
+        
+        if len(closest_obj_list) >= 2:
+            avg_length = closest_lengths.sum() / len(closest_lengths)
+            dist_differences = np.abs(closest_distances[1:] - closest_distances[:-1])
+            if ((dist_differences * avg_length) > ordered_thres).all():
+                closest_objs.append([obj["object_id"] for obj in closest_obj_list])
+
+        # populate farthest
+        farthest_obj_list = list(reversed(obj_list))[:3]
+        farthest_distances = distances[::-1][:3]
+        farthest_lengths = lengths[::-1][:3]
+        
+        if len(farthest_obj_list) >= 2:
+            avg_length = farthest_lengths.sum() / len(farthest_lengths)
+            dist_differences = np.abs(farthest_distances[1:] - farthest_distances[:-1])
+            if ((dist_differences * avg_length) > ordered_thres).all():
+                farthest_objs.append([obj["object_id"] for obj in farthest_obj_list])
+
+    return closest_objs, farthest_objs
 
 # near_thres is some value between 0 and 1 for percentage of region size
 # IDEA: check for nearness based on faces?
@@ -429,7 +481,21 @@ def compute_spatial_relationships(args, region_struct):
     # compute spatial relationships: above/below, closest/farthest, between
     objects = region_struct["objects"] # list of dicts
     region_bbox = region_struct["region_bbox"]
-    relations = ["above", "below", "closest", "farthest", "between", "beside", "near", "in", "on", "hanging_on"]
+    relations = [
+        "above", 
+        "below", 
+        "closest", 
+        "second_closest", 
+        "third_closest", 
+        "farthest",
+        "second_farthest",
+        "third_farthest",
+        "between", 
+        "beside", 
+        "near", 
+        "in", 
+        "on", 
+        "hanging_on"]
     between_iom = args.between_iom
     vertical_iom = args.vertical_iom
     near_thres = args.near_thres
@@ -438,34 +504,50 @@ def compute_spatial_relationships(args, region_struct):
     distance_thres = args.distance_thres
     anchor_size_thres = args.anchor_size_thres
     on_thres = args.on_thres
+    in_thres = args.in_thres
     under_thres = args.under_thres
     hanging_thres_h = args.hanging_thres_h
     hanging_thres_v = args.hanging_thres_v
+    ordered_thres = args.ordered_thres
 
     for r in relations:
         region_struct["relationships"].update({r:{}})
 
-    # between_time = 0
+    same_class_objects = group_by_class(objects)
 
     # requires all objects: closest, farthest
     for i in range(len(objects)):
         object_id = objects[i]["object_id"]
-        closest_objs = relate_distance(i, objects)
-        farthest_objs = np.flip(np.array(closest_objs)).tolist()
+        closest_objs, farthest_objs = relate_ordered(i, objects, same_class_objects, ordered_thres)
 
+        # schema 1: anchor: [[closest, 2nd_closest, 3rd_closest], [closest, 2nd_closest, ...]]
+        # region_struct["relationships"]["closest"].update({object_id: closest_objs})
+        # region_struct["relationships"]["farthest"].update({object_id: farthest_objs})
+
+        # schema 2: split, anchor: [closest, ...], anchor: [second_closest, ...]
+        first_closest = [obj[0] for obj in closest_objs]
+        second_closest = [obj[1] for obj in closest_objs if len(obj)>1]
+        third_closest = [obj[2] for obj in closest_objs if len(obj)>2]
+
+        region_struct["relationships"]["closest"].update({object_id: first_closest})
+        region_struct["relationships"]["second_closest"].update({object_id: second_closest})
+        region_struct["relationships"]["third_closest"].update({object_id: third_closest})
+
+        first_farthest = [obj[0] for obj in farthest_objs]
+        second_farthest = [obj[1] for obj in farthest_objs if len(obj)>1]
+        third_farthest = [obj[2] for obj in farthest_objs if len(obj)>2]
+
+        region_struct["relationships"]["farthest"].update({object_id: first_farthest})
+        region_struct["relationships"]["second_farthest"].update({object_id: second_farthest})
+        region_struct["relationships"]["third_farthest"].update({object_id: third_farthest})
         # store sorted list of closest and farthest objects
-        #region_struct["relationships"]["closest"].update({object_id:closest_objs[:3]})
-        #region_struct["relationships"]["farthest"].update({object_id:farthest_objs[:3]})
-        region_struct["relationships"]["closest"].update({object_id: closest_objs})
-        region_struct["relationships"]["farthest"].update({object_id: farthest_objs})
 
         # pairwise (binary) relations: above, below, in
         above_objs = relate_above(vertical_iom, on_thres, i, objects)
         below_objs = relate_below(vertical_iom, under_thres, i, objects)
         near_objs = relate_near(near_thres, i, objects, region_bbox)
-        #beside_objs = relate_beside(i, objects)
-        in_objs = relate_in(i, objects)
-        on_objs = relate_on(vertical_iom, on_thres, under_thres, i, objects)
+        in_objs = relate_in(i, objects, in_thres)
+        on_objs = relate_on(vertical_iom, on_thres, under_thres, in_thres, i, objects)
 
         # triple object (ternary) relations: between
         # init_time = perf_counter()
@@ -497,10 +579,17 @@ def csv_to_json(scene_tuple, i, total_num_scenes):
     dataset_name, scene_name = scene_tuple
     input_folder = args.input_path
     scene_path = os.path.join(input_folder, dataset_name, scene_name)
+    
     if not os.path.isdir(scene_path):
         return
     region_file = os.path.join(scene_path, scene_name + '_region_result.csv')
     object_file = os.path.join(scene_path, scene_name + '_object_result.csv')
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    affordance_file = os.path.join(current_dir, 'NYUv2_ChatGPT_Affordances.csv')
+
+    affordance_df = pd.read_csv(affordance_file, index_col=0)
+    affordance_dict = affordance_df['affordance'].to_dict()
+    affordance_dict = {key: [v.strip() for v in val.split(',')] for key, val in affordance_dict.items()}
 
     scene_data = {"scene_name":scene_name, "regions": {}}
     # output_folder = args.output_folder
@@ -548,7 +637,8 @@ def csv_to_json(scene_tuple, i, total_num_scenes):
                 "bbox": get_bbox_coords_heading('object', row),
                 "center": [float(row["object_bbox_cx"]), float(row["object_bbox_cy"]), float(row["object_bbox_cz"])],
                 "volume": float(get_obj_volume(row)),
-                "size": list(get_obj_size(row))
+                "size": list(get_obj_size(row)),
+                "affordances": affordance_dict[int(row["nyu_id"])]
             }
             # separate based on region
             scene_data["regions"][region_id]["objects"].append(obj)
@@ -572,8 +662,6 @@ def csv_to_json(scene_tuple, i, total_num_scenes):
 def process_data():
     input_folder = args.input_path
     # iterate over scene folders in dataset
-    # scene_list = ['uNb9QFRL6hY']
-    # scene_list = ['00062-ACZZiU6BXLz']
     dataset_list = [dataset for dataset in os.listdir(input_folder) if os.path.isdir(os.path.join(input_folder, dataset))]
     scene_list = [(dataset, scene) for dataset in dataset_list for scene in os.listdir(os.path.join(input_folder, dataset))]
     start_time = perf_counter()
@@ -594,10 +682,12 @@ if __name__ == '__main__':
     parser.add_argument("--symmetry_thres", default=0.5, help="allowable symmetry threshold for calculating between relationship")
     parser.add_argument("--distance_thres", default=1, help="allowable distance threshold for calculating between relationship")
     parser.add_argument("--anchor_size_thres", default=1.5, help="allowable anchor size threshold for calculating between relationship")
-    parser.add_argument("--on_thres", default=0.01, help="allowable overlap threshold for calculating between relationship")
+    parser.add_argument("--on_thres", default=0.01, help="allowable height threshold for calculating on relationship")
+    parser.add_argument("--in_thres", default=0.1, help="allowable height threshold for calculating in relationship for certain classes")
     parser.add_argument("--under_thres", default=0.01, help="allowable overlap threshold for calculating between relationship")
     parser.add_argument("--hanging_thres_h", default=0.01, help="allowable overlap threshold for calculating between relationship")
     parser.add_argument("--hanging_thres_v", default=0.5, help="allowable overlap threshold for calculating between relationship")
+    parser.add_argument("--ordered_thres", default=0.2, help="allowable overlap threshold for calculating between relationship")
     args = parser.parse_args()
 
     process_data()

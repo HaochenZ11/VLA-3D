@@ -20,12 +20,14 @@ class DatasetVisualizer:
             target_idx=-1,
             relationship='all',
             display_labels_and_colors=True,
+            show_freespace_annotations = False,
             colored_color_labels=True,
             dont_crop_region=False,
             hide_legend=False
     ):
         self.scene_name = Path(scene_path).name
         self.pcd_path = os.path.join(scene_path, f'{self.scene_name}_pc_result.ply')
+        self.freespace_pcd_path = os.path.join(scene_path, f'{self.scene_name}_free_space_pc_result.ply')
         self.scene_graph_path = os.path.join(scene_path, f'{self.scene_name}_scene_graph.json')
         self.object_csv_path = os.path.join(scene_path, f'{self.scene_name}_object_result.csv')
         self.region_csv_path = os.path.join(scene_path, f'{self.scene_name}_region_result.csv')
@@ -35,7 +37,8 @@ class DatasetVisualizer:
         self.hide_legend = hide_legend
 
         self.display_labels_and_colors = display_labels_and_colors
-        self.colored_color_labels = True
+        self.show_freespace_annotations = show_freespace_annotations
+        self.colored_color_labels = colored_color_labels
         self.dont_crop_region = dont_crop_region
 
         if optional_mesh_path is None:
@@ -48,9 +51,18 @@ class DatasetVisualizer:
             self.pcd = mesh_info.mesh
             self.material_record = triangle_model.materials[mesh_info.material_idx]
         
+        # Free space pointcloud
+        self.freespace_pcd = o3d.io.read_point_cloud(self.freespace_pcd_path)
+        self.freespace_color = np.array([[1., 0., 0.]])
+        self.freespace_pcd.colors = o3d.utility.Vector3dVector((self.freespace_color * np.ones_like(np.array(self.freespace_pcd.points))).astype(np.float32))
+        self.freespace_material_record = rendering.MaterialRecord()
+        self.freespace_material_record.point_size = 10
+        
+        # Scene Graph
         with open(self.scene_graph_path, 'r') as f:
             self.scene_graph = json.load(f)
         
+        # Referential Statements
         with open(self.language_path, 'r') as f:
             self.language_queries = json.load(f)
         
@@ -346,6 +358,11 @@ class DatasetVisualizer:
         self.colored_labels_cb.visible = self.display_labels_and_colors
         self.options_vert.add_child(self.colored_labels_cb)
 
+        self.show_freespace_cb = gui.Checkbox("Show free space annotations")
+        self.show_freespace_cb.checked = self.show_freespace_annotations
+        self.show_freespace_cb.set_on_checked(self.draw_freespace_annotations)
+        self.options_vert.add_child(self.show_freespace_cb)
+
         self.selector.add_child(self.options_vert)
         
     
@@ -542,6 +559,13 @@ class DatasetVisualizer:
         #     np.array([np.sqrt(2)/2, 0., -np.sqrt(2)/2])
         #     )
 
+    def draw_freespace_annotations(self, is_checked):
+        if is_checked:
+            self.show_freespace_annotations = True
+            self.scene_widget.scene.add_geometry('freespace_pcd', self.freespace_pcd, self.material_record)
+        else:
+            self.show_freespace_annotations = False
+            self.scene_widget.scene.remove_geometry('freespace_pcd')
 
     def draw_bboxes(
             self, 
@@ -605,9 +629,11 @@ if __name__ == '__main__':
     parser.add_argument('--anchor_idx', default='-1',
                         help="Initial index for the anchor object (default is no index chosen)")
     parser.add_argument('--relationship', default='all',
-                        help="relationship to visualize (default is all)")
+                        help="Relationship to visualize (default is all)")
     parser.add_argument('--display_labels_and_colors', action='store_const', const=True, default=False,
                         help="Display labels and colors on bounding boxes directly")
+    parser.add_argument('--show_freespace_annotations', action='store_const', const=True, default=False,
+                        help="Display colors of labels")
     parser.add_argument('--dont_crop_region', action='store_const', const=True, default=False,
                         help="Do not crop region on selection")
     parser.add_argument('--hide_legend', action='store_const', const=True, default=False,
@@ -622,6 +648,7 @@ if __name__ == '__main__':
         args.anchor_idx,
         args.relationship,
         args.display_labels_and_colors,
+        args.show_freespace_annotations,
         args.dont_crop_region,
         args.hide_legend
     )

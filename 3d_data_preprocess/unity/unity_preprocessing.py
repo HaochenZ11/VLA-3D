@@ -131,7 +131,10 @@ class UnityPreprocessor:
                 lNbTextures = lLayeredTexture.GetSrcObjectCount(fbx.FbxCriteria.ObjectType(fbx.FbxTexture.ClassId))
 
                 for k in range(lNbTextures):
-                    lTextureName.append(lLayeredTexture.GetName())
+                    if self.scan_name == 'home_building_1':
+                        lTextureName.append(os.path.join(*Path(lLayeredTexture.GetRelativeFileName()).parts[1:]))
+                    else:
+                        lTextureName.append(os.path.join('Textures', f'{lLayeredTexture.GetName()}.png'))
         else:
             #no layered texture simply get on the property
             lNbTextures = pProperty.GetSrcObjectCount(fbx.FbxCriteria.ObjectType(fbx.FbxTexture.ClassId))
@@ -141,7 +144,11 @@ class UnityPreprocessor:
                 for j in range(lNbTextures):
                     lTexture = pProperty.GetSrcObject(fbx.FbxCriteria.ObjectType(fbx.FbxTexture.ClassId),j)
                     if lTexture:
-                        lTextureName.append(lTexture.GetName())
+                        if self.scan_name == 'home_building_1':
+                            lTextureName.append(os.path.join(*Path(lTexture.GetRelativeFileName()).parts[1:]))
+                        else:
+                            lTextureName.append(os.path.join('Textures', f'{lTexture.GetName()}.png'))
+
                 
         return lTextureName
 
@@ -150,7 +157,12 @@ class UnityPreprocessor:
         if pLayerObject == None:
             return
 
-        if pLayerObject.GetMappingMode() == fbx.FbxLayerElement.EMappingMode.eByControlPoint:
+        # print(pLayerObject.GetMappingMode())
+        # print(pLayerObject.GetMappingMode())
+        if pLayerObject.GetMappingMode() in [
+            fbx.FbxLayerElement.EMappingMode.eByControlPoint, 
+            fbx.FbxLayerElement.EMappingMode.eByPolygonVertex
+            ]:
             if pLayerObject.GetReferenceMode() == fbx.FbxLayerElement.EReferenceMode.eDirect:
                 fbxuv = pLayerObject.GetDirectArray().GetAt(vertexIndex)
                 u = fbxuv[0]
@@ -170,7 +182,10 @@ class UnityPreprocessor:
         if pLayerObject == None:
             raise Exception("Empty object!")
         
-        if pLayerObject.GetMappingMode() == fbx.FbxLayerElement.EMappingMode.eByPolygon:
+        # print(pLayerObject.GetMappingMode())
+        if pLayerObject.GetMappingMode() in [
+            fbx.FbxLayerElement.EMappingMode.eByPolygon,
+            fbx.FbxLayerElement.EMappingMode.eAllSame]:
             material_id = pLayerObject.GetIndexArray().GetAt(polygonIndex)
         else:
             raise Exception("Wrong type!")
@@ -199,24 +214,29 @@ class UnityPreprocessor:
             tmp_materials = mesh.GetMaterials()
             vertices = child_node.GetNodeAttribute().GetControlPoints()
             points = np.zeros((len(vertices),3))
-            for i, vertice in enumerate(vertices):
-                vertice = self.multT(child_node, vertice)
-                points[i, 0] = vertice[0]
-                points[i, 1] = vertice[1]
-                points[i, 2] = vertice[2]
+            for i, vertex in enumerate(vertices):
+                vertex = self.multT(child_node, vertex)
+                points[i, 0] = vertex[0]
+                points[i, 1] = vertex[1]
+                points[i, 2] = vertex[2]
             self.vertices_global.append(points)
             faces = child_node.GetNodeAttribute().GetPolygonVertices()
             faces = np.array(faces).reshape(-1,3)
             uvs = np.zeros((3*len(faces),2))
             node_ids = np.zeros((len(faces),1))
-            self.object_names_map[self.count] = child_node.GetName().strip()
+            self.object_names_map[self.count] = str(child_node.GetName()).strip()
+            if self.scan_name == 'home_building_1':
+                self.object_names_map[self.count] = self.object_names_map[self.count].split('_')[0]
             self.object_ids_global += [self.count]*len(faces)
             self.object_region_map[self.count] = self.find_region(points, faces)
             for i in range(len(faces)):
                 node_ids[i, 0] = self.node_id
                 assert child_node.GetNodeAttribute().GetPolygonSize(i) == 3
                 for j in range(3):
-                    lControlPointIndex =child_node.GetNodeAttribute().GetPolygonVertex(i, j)
+                    if tmp_uvs.GetMappingMode() == fbx.FbxLayerElement.EMappingMode.eByControlPoint:
+                        lControlPointIndex = child_node.GetNodeAttribute().GetPolygonVertex(i, j)
+                    elif tmp_uvs.GetMappingMode() == fbx.FbxLayerElement.EMappingMode.eByPolygonVertex:
+                        lControlPointIndex = child_node.GetNodeAttribute().GetTextureUVIndex(i, j)
                     u, v = self.readuv(tmp_uvs, lControlPointIndex)
                     uvs[3*i+j, 0] = u
                     uvs[3*i+j, 1] = v
@@ -267,21 +287,25 @@ class UnityPreprocessor:
         none_texture_remaining = []
         for i in range(len(self.texture_names)):
             if not self.texture_names[i] == 'None':
-                texture=cv2.imread(os.path.join(path, 'Textures', self.texture_names[i]+'.png'))
-                texture = texture[::-1, :, ::-1]
+                print(self.texture_names[i])
+                texture=cv2.imread(os.path.join(path, self.texture_names[i]))
+                if self.scan_name != 'home_building_1':
+                    texture = texture[::-1, :, ::-1]
+                else:
+                    texture = texture[:, :, ::-1]
                 number += 1
                 texture_flag = 1
                 available_texture_index = i
             else:
                 if texture_flag:
-                    texture = np.zeros(cv2.imread(os.path.join(path, 'Textures', self.texture_names[available_texture_index]+'.png')).shape)
+                    texture = np.zeros(cv2.imread(os.path.join(path, self.texture_names[available_texture_index])).shape)
                 else:
                     none_texture_remaining.append(i)
                     continue
             textures[i] = texture[:, :, 0:3]
         
         for i in range(len(none_texture_remaining)):
-            texture = np.zeros(cv2.imread(os.path.join(path, 'Textures', self.texture_names[available_texture_index]+'.png')).shape)
+            texture = np.zeros(cv2.imread(os.path.join(path, self.texture_names[available_texture_index])).shape)
             textures[none_texture_remaining[i]] = texture[:, :, 0:3]
         
 
@@ -353,7 +377,7 @@ class UnityPreprocessor:
             self.region_dict = {}
             self.region_names = []
             self.object_region_map = {}
-            self.unity_cate_mapping = {}
+            self.unity_cat_mapping = {}
             self.n_nodes = 0
             self.node_id = -1
 
@@ -361,8 +385,9 @@ class UnityPreprocessor:
             with open(cate_map_file_name, 'r', newline='') as f_map:
                 csv_reader = csv.reader(f_map)
                 for row in csv_reader:
-                    self.unity_cate_mapping[row[0].strip()] = {'cleaned_label': row[1].strip(), 'nyuid':row[2].strip(), 'nyu40id':row[3].strip(), 'nyuclass':row[4].strip(), 'nyu40class':row[5].strip()}
+                    self.unity_cat_mapping[row[0].strip()] = {'cleaned_label': row[1].strip(), 'nyuid':row[2].strip(), 'nyu40id':row[3].strip(), 'nyuclass':row[4].strip(), 'nyu40class':row[5].strip()}
 
+            print(os.path.join(args.in_path, 'regions', scan_name + '_region.json'))
             f = open(os.path.join(args.in_path, 'regions', scan_name + '_region.json'), 'r')
             content = f.read()
             region_json = json.loads(content)
@@ -433,12 +458,12 @@ class UnityPreprocessor:
                 object_bbox, object_color3 = self.calculate_bbox_and_top3_color3(pcd, i)
                 object_line = [i]
                 object_line.append(self.object_region_map[i])
-                object_line += [self.unity_cate_mapping[self.object_names_map[i]]['cleaned_label']]
-                object_line += [self.unity_cate_mapping[self.object_names_map[i]]['nyuid']]
-                object_line += [self.unity_cate_mapping[self.object_names_map[i]]['nyu40id']]
-                object_line += [self.unity_cate_mapping[self.object_names_map[i]]['nyuclass']]
-                object_line += [self.unity_cate_mapping[self.object_names_map[i]]['nyu40class']]
-                if self.unity_cate_mapping[self.object_names_map[i]]['nyu40class'] == 'floor' or self.object_names_map[i] == 'Floor structure':
+                object_line += [self.unity_cat_mapping[self.object_names_map[i]]['cleaned_label']]
+                object_line += [self.unity_cat_mapping[self.object_names_map[i]]['nyuid']]
+                object_line += [self.unity_cat_mapping[self.object_names_map[i]]['nyu40id']]
+                object_line += [self.unity_cat_mapping[self.object_names_map[i]]['nyuclass']]
+                object_line += [self.unity_cat_mapping[self.object_names_map[i]]['nyu40class']]
+                if self.unity_cat_mapping[self.object_names_map[i]]['nyu40class'] == 'floor' or self.object_names_map[i] == 'Floor structure':
                     floor_sizes.append(object_bbox + [self.object_region_map[i]])
 
                 object_line += object_bbox
@@ -492,7 +517,27 @@ if __name__=="__main__":
 
     args = parser.parse_args()
 
-    name_list = ['arabic_room', 'chinese_room', 'home_building_1', 'home_building_2', 'home_building_3', 'hotel_room_1', 'hotel_room_2', 'hotel_room_3', 'japanese_room', 'livingroom_1', 'livingroom_2', 'livingroom_3', 'livingroom_4', 'loft', 'office_1', 'office_2', 'office_3', 'studio']
+    # name_list = [
+    #     'arabic_room', 
+    #     'chinese_room', 
+    #     'home_building_1', 
+    #     'home_building_2', 
+    #     'home_building_3', 
+    #     'hotel_room_1', 
+    #     'hotel_room_2', 
+    #     'hotel_room_3', 
+    #     'japanese_room', 
+    #     'livingroom_1', 
+    #     'livingroom_2', 
+    #     'livingroom_3', 
+    #     'livingroom_4', 
+    #     'loft', 
+    #     'office_1', 
+    #     'office_2', 
+    #     'office_3', 
+    #     'studio'
+    #     ]
+    name_list = ['home_building_1']
     print('====================Start processing unity====================')
     UnityPreprocessor(
         args.in_path, 
