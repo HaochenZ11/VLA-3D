@@ -6,10 +6,12 @@ import os
 import pandas as pd
 from plyfile import PlyData
 from tqdm import tqdm
+from utils.ground_plane import ransac_1d
 
 def generate_free_space_all_scenes(dataset_dir, floor_height):
-    # datasets = os.listdir(dataset_dir)
-    datasets = ['ARKitScenes', 'Scannet', 'HM3D', 'Matterport', '3RScan', 'Unity']
+
+    # datasets = ['ARKitScenes', 'Scannet', 'HM3D', 'Matterport', '3RScan', 'Unity']
+    datasets = ['Unity']
     for dataset in datasets:
         pbar = tqdm(os.listdir(os.path.join(dataset_dir, dataset)))
         for scene in pbar:
@@ -35,16 +37,28 @@ def generate_free_space_all_scenes(dataset_dir, floor_height):
             region_pc_dict = {region_id: pc for region_id, pc in zip(region_ids, region_pc_split)}
 
             if dataset == 'ARKitScenes':
-                floor_sizes = [[
-                    row['region_bbox_cx'],
-                    row['region_bbox_cy'],
-                    row['region_bbox_cz'] - row['region_bbox_zlength'] / 2,
-                    row['region_bbox_xlength'],
-                    row['region_bbox_ylength'],
-                    0.02,
-                    row['region_bbox_heading'],
-                    row['region_id'],
-                    ] for i, row in region_result.iterrows()]
+
+                floor_sizes = []
+
+                for i, row in region_result.iterrows():
+
+                    candidate_points_filter = points[:, 2] < (row['region_bbox_cz'] - row['region_bbox_zlength'] / 4)
+                    candidate_points_z = points[candidate_points_filter, 2]
+
+                    floor_cz, inliers = ransac_1d(candidate_points_z, 0.1, 100)
+
+                    print(floor_cz, row['region_bbox_cz'] - row['region_bbox_zlength'] / 2)
+
+                    floor_sizes.append([
+                        row['region_bbox_cx'],
+                        row['region_bbox_cy'],
+                        floor_cz,
+                        row['region_bbox_xlength'],
+                        row['region_bbox_ylength'],
+                        floor_height,
+                        row['region_bbox_heading'],
+                        row['region_id'],
+                        ])
             else:
                 floors_df = object_result[object_result['nyu_label'] == 'floor']
 
@@ -54,12 +68,14 @@ def generate_free_space_all_scenes(dataset_dir, floor_height):
                     row['object_bbox_cz'],
                     row['object_bbox_xlength'],
                     row['object_bbox_ylength'],
-                    0.02,
+                    floor_height,
                     row['object_bbox_heading'],
                     row['region_id'],
                     ] for i, row in floors_df.iterrows()]
+                
+                print(floor_sizes)
 
-            generate_free_space(scene_path, scene, region_ids, region_pc_dict, floor_sizes, floor_height)
+            generate_free_space(scene_path, scene, region_ids, region_pc_dict, floor_sizes)
                 
 
 if __name__ == "__main__":

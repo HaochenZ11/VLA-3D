@@ -52,11 +52,12 @@ class DatasetVisualizer:
             self.material_record = triangle_model.materials[mesh_info.material_idx]
         
         # Free space pointcloud
-        self.freespace_pcd = o3d.io.read_point_cloud(self.freespace_pcd_path)
-        self.freespace_color = np.array([[1., 0., 0.]])
-        self.freespace_pcd.colors = o3d.utility.Vector3dVector((self.freespace_color * np.ones_like(np.array(self.freespace_pcd.points))).astype(np.float32))
-        self.freespace_material_record = rendering.MaterialRecord()
-        self.freespace_material_record.point_size = 10
+        if os.path.exists(self.freespace_pcd_path):
+            self.freespace_pcd = o3d.io.read_point_cloud(self.freespace_pcd_path)
+            self.freespace_color = np.array([[1., 0., 0.]])
+            self.freespace_pcd.colors = o3d.utility.Vector3dVector((self.freespace_color * np.ones_like(np.array(self.freespace_pcd.points))).astype(np.float32))
+            self.freespace_material_record = rendering.MaterialRecord()
+            self.freespace_material_record.point_size = 10
         
         # Scene Graph
         with open(self.scene_graph_path, 'r') as f:
@@ -513,6 +514,21 @@ class DatasetVisualizer:
 
             self.scene_widget.scene.add_geometry('pcd', self.region_pcds[self.cur_region_idx], self.material_record)
 
+            bbox_lines = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]]
+
+            colors = [[0, 0, 0] for _ in range(len(bbox_lines))]
+
+            self.region_bbox = o3d.geometry.LineSet()
+            self.region_bbox.lines = o3d.utility.Vector2iVector(bbox_lines)
+            self.region_bbox.colors = o3d.utility.Vector3dVector(colors)
+            self.region_bbox.points = o3d.utility.Vector3dVector(self.regions[str(self.cur_region_idx)]['region_bbox'])
+
+            mat = rendering.MaterialRecord()
+            mat.shader = "unlitLine"
+            mat.line_width = 10
+
+            self.scene_widget.scene.add_geometry('region_bbox', self.region_bbox, mat)
+
             bounds = self.region_pcds[self.cur_region_idx].get_axis_aligned_bounding_box()
         else:
             self.scene_widget.scene.add_geometry('pcd', self.pcd, self.material_record)
@@ -560,6 +576,8 @@ class DatasetVisualizer:
         #     )
 
     def draw_freespace_annotations(self, is_checked):
+        if self.freespace_pcd is None:
+            return
         if is_checked:
             self.show_freespace_annotations = True
             self.scene_widget.scene.add_geometry('freespace_pcd', self.freespace_pcd, self.material_record)

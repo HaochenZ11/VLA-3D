@@ -18,12 +18,12 @@ area_size = 50
 delta = np.array([[-1, 0], [0, -1], [0, 1], [1, 0]]) # searching direction
 
 
-def are_points_in_rectangle(point: np.ndarray, vertices: np.ndarray):
+def are_points_in_rectangle(points: np.ndarray, vertices: np.ndarray):
     direction_vecs = vertices[[1, 2, 3, 0], :] - vertices
     norms = np.vstack([direction_vecs[:, 1], -direction_vecs[:, 0]]).T # 4 x 2
     norms /= np.linalg.norm(norms, axis=-1, keepdims=True)
     biases = -np.sum(norms * vertices, axis=-1)
-    t = -np.sum(norms[None, :, :] * point[:, None, :], axis=-1) - biases
+    t = -np.sum(norms[None, :, :] * points[:, None, :], axis=-1) - biases
     return (t>0).all(axis=-1)
 
 
@@ -85,15 +85,15 @@ def find_connected_free_regions(arr, i, j):
 
 
 
-def sample_points(cx, cy, cz, xlength, ylength, zlength, heading, region_id, floor_height):
+def sample_points(cx, cy, cz, xlength, ylength, zlength, heading, region_id):
     xs = np.arange(-1/2*xlength, 1/2*xlength, sample_step)
     x_num = len(xs)
     ys = np.arange(-1/2*ylength, 1/2*ylength, sample_step)
     y_num = len(ys)
     xs, ys = np.meshgrid(xs, ys)
     xs, ys = xs.ravel(), ys.ravel()
-    zs = (floor_height-1/2*zlength+1/2*robot_height)*np.ones([len(xs),])
-    binary_array = np.ones([x_num, y_num])
+    zs = (1/2*zlength+1/2*robot_height)*np.ones([len(xs),])
+    binary_array = np.zeros([x_num, y_num])
 
     R = rotz(1*heading)
     sampled_points = np.dot(R, np.vstack([xs, ys, zs]))
@@ -106,33 +106,42 @@ def sample_points(cx, cy, cz, xlength, ylength, zlength, heading, region_id, flo
 def generate_region_free_space(
         point_positions: np.ndarray,
         already_sampled,
-        floor_size,
-        floor_height
+        floor_size
 ):
 
     cx, cy, cz, xlength, ylength, zlength, heading, region_id = floor_size
 
     
     # Create grid
-    sampled_points, binary_array = sample_points(cx, cy, cz, xlength, ylength, zlength, heading, region_id, floor_height)
+    sampled_points, binary_array = sample_points(cx, cy, cz, xlength, ylength, zlength, heading, region_id)
 
     # Filter out everything above robot height and below the floor
-    index, = np.where(point_positions[:, 2] <= cz-1/2*zlength+floor_height+robot_height)
-    vertices_array = point_positions[index, :]
-    index, = np.where(vertices_array[:, 2] >= cz-1/2*zlength+floor_height)
-    vertices_array = vertices_array[index, :]
 
     R = rot_2d(heading)
-    vertices_array_rot = (vertices_array[:, :2] - np.array([cx, cy])) @ R
-    vertices_array_rot = (vertices_array_rot + np.array([xlength/2, ylength/2])) / sample_step
-    vertices_array_rot = np.rint(vertices_array_rot).astype(np.int32)
+    point_positions_rot = (point_positions[:, :2] - np.array([cx, cy])) @ R
+    point_positions_rot = (point_positions_rot + np.array([xlength/2, ylength/2])) / sample_step
+    point_positions_rot = np.rint(point_positions_rot).astype(np.int32)
+    point_positions_z = point_positions[:, 2]
 
-    out_of_floor_filter = (vertices_array_rot[:, 0] < binary_array.shape[0]) & \
-        (vertices_array_rot[:, 0] >= 0) & \
-        (vertices_array_rot[:, 1] < binary_array.shape[1]) & \
-        (vertices_array_rot[:, 1] >= 0)
+    # vertices_array_rot = (vertices_array[:, :2] - np.array([cx, cy])) @ R
+    # vertices_array_rot = (vertices_array_rot + np.array([xlength/2, ylength/2])) / sample_step
+    # vertices_array_rot = np.rint(vertices_array_rot).astype(np.int32)
+
+    out_of_floor_filter = (point_positions_rot[:, 0] < binary_array.shape[0]) & \
+        (point_positions_rot[:, 0] >= 0) & \
+        (point_positions_rot[:, 1] < binary_array.shape[1]) & \
+        (point_positions_rot[:, 1] >= 0)
     
-    vertices_array_rot = vertices_array_rot[out_of_floor_filter]
+    point_positions_rot = point_positions_rot[out_of_floor_filter]
+    point_positions_z = point_positions_z[out_of_floor_filter]
+
+    binary_array[point_positions_rot[:, 0], point_positions_rot[:, 1]] = 1
+
+    index, = np.where(point_positions_z <= cz+1/2*zlength+robot_height)
+    vertices_array_rot = point_positions_rot[index, :]
+    point_positions_z = point_positions_z[index]
+    index, = np.where(point_positions_z >= cz+1/2*zlength)
+    vertices_array_rot = vertices_array_rot[index, :]
 
     binary_array[vertices_array_rot[:, 0], vertices_array_rot[:, 1]] = 0
 
@@ -164,8 +173,7 @@ def generate_free_space(
     scan_name,
     region_ids,
     point_positions_split,
-    floor_sizes,
-    floor_height
+    floor_sizes
 ):
     free_space_vertices = []
     previous_free_space = []
@@ -173,7 +181,7 @@ def generate_free_space(
 
         region = floor_size[-1]
         region_positions = point_positions_split[region]
-        free_regions, target_points, heading = generate_region_free_space(region_positions, previous_free_space, floor_size, floor_height)
+        free_regions, target_points, heading = generate_region_free_space(region_positions, previous_free_space, floor_size)
 
 
         for free_region in free_regions:
@@ -192,7 +200,7 @@ def generate_free_space(
     else:
         free_space_vertices = np.array(free_space_vertices)
     free_space_pcd = o3d.t.geometry.PointCloud()
-    free_space_pcd.point.positions=free_space_vertices[:, 0:3].astype(np.float32)
+    free_space_pcd.point.positions=free_space_vertices[:, :3].astype(np.float32)
     free_space_pcd.point.region_id=free_space_vertices[:, 3:].reshape(-1, 1).astype(np.int32)
     free_space_ply_file_name = os.path.join(scene_path, scan_name + '_free_space_pc_result.ply')
     o3d.t.io.write_point_cloud(free_space_ply_file_name, free_space_pcd)

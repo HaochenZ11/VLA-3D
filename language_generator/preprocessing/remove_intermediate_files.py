@@ -18,10 +18,9 @@ if __name__ == '__main__':
             continue
         print(dataset)
         for scene in os.listdir(os.path.join(target_dir, dataset)):
-            try:
-                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_grouped.json'))
-                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_object_class.json'))
-                os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_object_data.json'))
-                print(os.path.join(target_dir, dataset, scene))
-            except:
-                pass
+            for suffix in ['grouped', 'grouped_by_anchor', 'grouped_by_target', 'object_class', 'object_data', 'objects']:
+                try:
+                    os.remove(os.path.join(target_dir, dataset, scene, f'{scene}_{suffix}.json'))
+                    print(os.path.join(target_dir, dataset, scene, f'{scene}_{suffix}.json'))
+                except:
+                    pass
