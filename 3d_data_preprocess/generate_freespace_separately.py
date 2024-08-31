@@ -10,8 +10,7 @@ from utils.ground_plane import ransac_1d
 
 def generate_free_space_all_scenes(dataset_dir, floor_height):
 
-    # datasets = ['ARKitScenes', 'Scannet', 'HM3D', 'Matterport', '3RScan', 'Unity']
-    datasets = ['Unity']
+    datasets = ['ARKitScenes', 'Scannet', 'HM3D', 'Matterport', '3RScan', 'Unity']
     for dataset in datasets:
         pbar = tqdm(os.listdir(os.path.join(dataset_dir, dataset)))
         for scene in pbar:
@@ -48,6 +47,37 @@ def generate_free_space_all_scenes(dataset_dir, floor_height):
                     floor_cz, inliers = ransac_1d(candidate_points_z, 0.1, 100)
 
                     print(floor_cz, row['region_bbox_cz'] - row['region_bbox_zlength'] / 2)
+
+                    floor_sizes.append([
+                        row['region_bbox_cx'],
+                        row['region_bbox_cy'],
+                        floor_cz,
+                        row['region_bbox_xlength'],
+                        row['region_bbox_ylength'],
+                        floor_height,
+                        row['region_bbox_heading'],
+                        row['region_id'],
+                        ])
+            elif dataset == 'Unity':
+
+                floor_sizes = []
+
+                for i, row in region_result.iterrows():
+
+                    # Option 1: Cropping everything in region box, then RANSAC
+                    # Option 2: Checking which floors lie in which region box
+                    candidate_points_filter = points[:, 0] < (row['region_bbox_cx'] + row['region_bbox_xlength'] / 2)
+                    candidate_points_filter &= points[:, 0] > (row['region_bbox_cx'] - row['region_bbox_xlength'] / 2)
+                    candidate_points_filter &= points[:, 1] < (row['region_bbox_cy'] + row['region_bbox_ylength'] / 2)
+                    candidate_points_filter &= points[:, 1] > (row['region_bbox_cy'] - row['region_bbox_ylength'] / 2)
+                    candidate_points_filter &= points[:, 2] < (row['region_bbox_cz'] + row['region_bbox_zlength'] / 2 - floor_height)
+                    candidate_points_filter &= points[:, 2] > (row['region_bbox_cz'] - row['region_bbox_zlength'] / 2 - floor_height)
+
+                    candidate_points_z = points[candidate_points_filter, 2]
+
+                    floor_cz, inliers = ransac_1d(candidate_points_z, 0.1, 100)
+
+                    print(floor_cz, row['region_id'])
 
                     floor_sizes.append([
                         row['region_bbox_cx'],
