@@ -1,7 +1,9 @@
 import json
 import os
+from pathlib import Path
 import multiprocessing as mp
 from timeit import default_timer as timer
+from tqdm import tqdm
 
 
 def summarize_stats(stats):
@@ -12,7 +14,11 @@ def summarize_stats(stats):
         "between_statements": 0,
         "near_statements": 0,
         "closest_statements": 0,
+        "second_closest_statements": 0,
+        "third_closest_statements": 0,
         "farthest_statements": 0,
+        "second_farthest_statements": 0,
+        "third_farthest_statements": 0,
         "on_statements": 0,
         "in_statements": 0,
         "color_references": 0,
@@ -21,6 +27,24 @@ def summarize_stats(stats):
         "size_statements": 0,
         "unique_objects": 0,
     }
+
+    if generation_configs["generate_false_statements"]:
+        summary.update({
+            "false_all_statements": 0,
+            "false_target_statements": 0,
+            "false_anchor_statements": 0,
+            "false_color_statements": 0,
+            "false_class_statements": 0,
+            "false_target_color_statements": 0,
+            "false_target_class_statements": 0,
+            "false_anchor_color_statements": 0,
+            "false_anchor_class_statements": 0,
+        })
+
+        if generation_configs["generate_false_statements"]:
+            summary.update({
+                f"false_all_statements": 0,
+            })
 
     max_all_statements = {"key": None, "value": 0}
     min_all_statements = {"key": None, "value": float('inf')}
@@ -51,13 +75,43 @@ def generate_stats(target_file, stats, object_set, colors_set, sizes_set):
         "on_statements": 0,
         "in_statements": 0,
         "closest_statements": 0,
+        "second_closest_statements": 0,
+        "third_closest_statements": 0,
         "farthest_statements": 0,
+        "second_farthest_statements": 0,
+        "third_farthest_statements": 0,
         "color_references": 0,
         "size_references": 0,
         "color_statements": 0,
         "size_statements": 0,
         "unique_objects": 0,
     }
+
+    if generation_configs["generate_false_statements"]:
+        stats[data['scene_name']].update({
+            "false_all_statements": 0,
+            "false_target_statements": 0,
+            "false_anchor_statements": 0,
+            "false_color_statements": 0,
+            "false_class_statements": 0,
+            "false_target_color_statements": 0,
+            "false_target_class_statements": 0,
+            "false_anchor_color_statements": 0,
+            "false_anchor_class_statements": 0,
+        })
+
+        for relationship in relationships:
+            stats[data['scene_name']].update({
+                f"false_{relationship}_statements": 0,
+                f"false_color_{relationship}_statements": 0,
+                f"false_class_{relationship}_statements": 0,
+                f"false_target_{relationship}_statements": 0,
+                f"false_target_color_{relationship}_statements": 0,
+                f"false_target_class_{relationship}_statements": 0,
+                f"false_anchor_{relationship}_statements": 0,
+                f"false_anchor_color_{relationship}_statements": 0,
+                f"false_anchor_class_{relationship}_statements": 0,
+            })
 
     scene_stats = stats[data['scene_name']]
 
@@ -71,74 +125,107 @@ def generate_stats(target_file, stats, object_set, colors_set, sizes_set):
             for label in labels:
                 scene_stats[f"{label['relation']}_statements"] += 1
 
+                color_statement = False
+                size_statement = False
+
                 if len(label['target_color_used']) > 0:
                     scene_stats['color_references'] += 1
+                    color_statement = True
                     colors_set.add(label['target_color_used'])
                 if len(label['target_size_used']) > 0:
                     scene_stats['size_references'] += 1
+                    size_statement = True
                     sizes_set.add(label['target_size_used'])
-
                 object_set.add(label['target_class'])
 
-                if label['relation_type'] == 'ternary':
-                    if len(label['anchor1_color_used']) > 0:
+                for anchor, anchor_info in label['anchors'].items():
+                    if len(anchor_info['color_used']) > 0:
                         scene_stats['color_references'] += 1
-                        colors_set.add(label['anchor1_color_used'])
-                    if len(label['anchor2_color_used']) > 0:
-                        scene_stats['color_references'] += 1
-                        colors_set.add(label['anchor2_color_used'])
-                    if len(label['anchor1_size_used']) > 0:
+                        color_statement = True
+                        colors_set.add(anchor_info['color_used'])
+                    if len(anchor_info['size_used']) > 0:
                         scene_stats['size_references'] += 1
-                        sizes_set.add(label['anchor1_size_used'])
-                    if len(label['anchor2_size_used']) > 0:
-                        scene_stats['size_references'] += 1
-                        sizes_set.add(label['anchor2_size_used'])
-                    if len(label['target_color_used']) > 0 or len(label['anchor1_color_used']) > 0 or len(
-                            label['anchor2_color_used']) > 0:
-                        scene_stats['color_statements'] += 1
-                    if len(label['target_size_used']) > 0 or len(label['anchor1_size_used']) > 0 or len(
-                            label['anchor2_size_used']) > 0:
-                        scene_stats['size_statements'] += 1
+                        size_statement = True
+                        sizes_set.add(anchor_info['size_used'])
+                    object_set.add(anchor_info['class'])
 
-                    object_set.add(label['anchor1_class'])
-                    object_set.add(label['anchor2_class'])
+                if color_statement:
+                    scene_stats['color_statements'] += 1
+                if size_statement:
+                    scene_stats['size_statements'] += 1
 
-                else:
-                    if len(label['anchor_color_used']) > 0:
-                        scene_stats['color_references'] += 1
-                        colors_set.add(label['anchor_color_used'])
-                    if len(label['anchor_size_used']) > 0:
-                        scene_stats['size_references'] += 1
-                        sizes_set.add(label['anchor_size_used'])
-                    if len(label['target_color_used']) > 0 or len(label['anchor_color_used']) > 0:
-                        scene_stats['color_statements'] += 1
-                    if len(label['target_size_used']) > 0 or len(label['anchor_size_used']) > 0:
-                        scene_stats['size_statements'] += 1
+                if "false_statements" in label:
+                    if "false_target_color" in label['false_statements']:
+                        scene_stats['false_all_statements'] += 1
+                        scene_stats['false_target_statements'] += 1
+                        scene_stats['false_color_statements'] += 1
+                        scene_stats['false_target_color_statements'] += 1
+                        scene_stats[f'false_{label["relation"]}_statements'] += 1
+                        scene_stats[f'false_color_{label["relation"]}_statements'] += 1
+                        scene_stats[f'false_target_{label["relation"]}_statements'] += 1
+                        scene_stats[f'false_target_color_{label["relation"]}_statements'] += 1
 
-                    object_set.add(label['anchor_class'])
+                    if "false_target_class" in label['false_statements']:
+                        scene_stats['false_all_statements'] += 1
+                        scene_stats['false_target_statements'] += 1
+                        scene_stats['false_class_statements'] += 1
+                        scene_stats['false_target_class_statements'] += 1
+                        scene_stats[f'false_{label["relation"]}_statements'] += 1
+                        scene_stats[f'false_class_{label["relation"]}_statements'] += 1
+                        scene_stats[f'false_target_{label["relation"]}_statements'] += 1
+                        scene_stats[f'false_target_class_{label["relation"]}_statements'] += 1
 
+                    if "false_anchors" in label['false_statements']:
+                        for anchor, false_anchor_statements in label['anchors'].items():
+                            if "false_anchor_color" in false_anchor_statements:
+                                scene_stats['false_all_statements'] += 1
+                                scene_stats['false_anchor_statements'] += 1
+                                scene_stats['false_color_statements'] += 1
+                                scene_stats['false_anchor_color_statements'] += 1
+                                scene_stats[f'false_{label["relation"]}_statements'] += 1
+                                scene_stats[f'false_color_{label["relation"]}_statements'] += 1
+                                scene_stats[f'false_anchor_{label["relation"]}_statements'] += 1
+                                scene_stats[f'false_anchor_color_{label["relation"]}_statements'] += 1
+
+                            if "false_anchor_class" in false_anchor_statements:
+                                scene_stats['false_all_statements'] += 1
+                                scene_stats['false_anchor_statements'] += 1
+                                scene_stats['false_class_statements'] += 1
+                                scene_stats['false_anchor_class_statements'] += 1
+                                scene_stats[f'false_{label["relation"]}_statements'] += 1
+                                scene_stats[f'false_class_{label["relation"]}_statements'] += 1
+                                scene_stats[f'false_anchor_{label["relation"]}_statements'] += 1
+                                scene_stats[f'false_anchor_class_{label["relation"]}_statements'] += 1
 
 if __name__ == '__main__':
 
     total_start_time = timer()
 
-    target_dir = "../../VLA_Dataset"
+    configs_path = Path(__file__).parents[1].resolve() / 'configs' / 'language_generation_configs.json'
+    print(configs_path)
+    with open(configs_path) as c:
+        generation_configs = json.load(c)
+
+    target_dir = generation_configs["scene_data_root"]
+
+    relationships = generation_configs["relationships"]
 
     target_paths = []
 
-    # Open the JSON file
-    scene_dirs = next(os.walk(target_dir))[1]
-    for dir in scene_dirs:
-        scene_path = os.path.join(target_dir, dir)
-        file_path = os.path.join(scene_path, f'{dir}_label_data.json')
-        target_paths.append(file_path)
+    dataset_dirs = next(os.walk(target_dir))[1]
+    for dataset in dataset_dirs:
+        scene_dirs = next(os.walk(os.path.join(target_dir, dataset)))[1]
+        for scene_dir in scene_dirs:
+            scene_path = os.path.join(target_dir, dataset, scene_dir)
+            file_path = os.path.join(scene_path, f'{scene_dir}_referential_statements.json')
+            target_paths.append(file_path)
 
     stats = {}
     object_set = set()
     colors_set = set()
     sizes_set = set()
 
-    for target_file in target_paths:
+    for target_file in tqdm(target_paths):
         generate_stats(target_file, stats, object_set, colors_set, sizes_set)
 
     summary, max_all_statements, min_all_statements = summarize_stats(stats)

@@ -26,5 +26,9 @@ class Statement:
     def replace(self, a, b):
         self.sentence = self.sentence.replace(a, b)
 
+    def form_statement(self, key_dict):
+        for key, value in key_dict.items():
+            self.sentence = self.sentence.replace(key, value)
+
     def to_json(self):
         return json.dumps(self.__dict__)

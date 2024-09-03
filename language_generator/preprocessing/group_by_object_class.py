@@ -7,19 +7,22 @@ from pathlib import Path
 
 def group_by_nyu_label(relation_dict):
     # Initialize a dictionary to hold the grouped relationships
-    grouped_relationships = {}
+    grouped_by_anchor_relationships = {}
+    grouped_by_target_relationships = {}
 
     # Iterate over all regions
     for region_id, region in relation_dict['regions'].items():
-        grouped_relationships[region_id] = {}
+        grouped_by_anchor_relationships[region_id] = {}
+        grouped_by_target_relationships[region_id] = {}
         # Extract the objects and their labels
         objects = {obj['object_id']: obj['nyu_label'] for obj in region['objects']}
 
         # Iterate over the relationships
         for relation, related_objects in region['relationships'].items():
+            # breakpoint()
             if relation == 'between':
-                if relation not in grouped_relationships:
-                    grouped_relationships[region_id][relation] = {}
+                if relation not in grouped_by_anchor_relationships:
+                    grouped_by_anchor_relationships[region_id][relation] = {}
 
                 for target_id, anchors_ids in related_objects.items():
                     if len(anchors_ids) == 0:
@@ -27,15 +30,17 @@ def group_by_nyu_label(relation_dict):
                     # Get the label of the object
                     target_label = objects[target_id]
 
-                    if target_label not in grouped_relationships[region_id][relation]:
-                        grouped_relationships[region_id][relation][target_label] = {}
+                    if target_label not in grouped_by_anchor_relationships[region_id][relation]:
+                        grouped_by_anchor_relationships[region_id][relation][target_label] = {}
 
-                    grouped_relationships[region_id][relation][target_label][target_id] = anchors_ids
+                    grouped_by_anchor_relationships[region_id][relation][target_label][target_id] = anchors_ids
 
             else:
                 # Iterate over the related objects
-                if relation not in grouped_relationships:
-                    grouped_relationships[region_id][relation] = {}
+                if relation not in grouped_by_anchor_relationships:
+                    grouped_by_anchor_relationships[region_id][relation] = {}
+                if relation not in grouped_by_target_relationships:
+                    grouped_by_target_relationships[region_id][relation] = {}
 
                 for anchor_id, target_ids in related_objects.items():
 
@@ -44,24 +49,35 @@ def group_by_nyu_label(relation_dict):
                     # Get the label of the object
                     anchor_label = objects[anchor_id]
 
-                    if anchor_label not in grouped_relationships[region_id][relation]:
-                        grouped_relationships[region_id][relation][anchor_label] = {}
+                    if anchor_label not in grouped_by_anchor_relationships[region_id][relation]:
+                        grouped_by_anchor_relationships[region_id][relation][anchor_label] = {}
 
-                    grouped_relationships[region_id][relation][anchor_label][anchor_id] = {}
+                    grouped_by_anchor_relationships[region_id][relation][anchor_label][anchor_id] = {}
 
                     # Iterate over the related object ids
                     for target_id in target_ids:
                         # Get the label of the related object
                         target_label = objects[target_id]
 
-                        # Add the related object label to the grouped relationships
-                        if target_label not in grouped_relationships[region_id][relation][anchor_label][anchor_id]:
-                            grouped_relationships[region_id][relation][anchor_label][anchor_id][target_label] = []
+                        if target_label not in grouped_by_target_relationships[region_id][relation]:
+                            grouped_by_target_relationships[region_id][relation][target_label] = {}
 
-                        grouped_relationships[region_id][relation][anchor_label][anchor_id][target_label].append(
+                        if target_id not in grouped_by_target_relationships[region_id][relation][target_label]:
+                            grouped_by_target_relationships[region_id][relation][target_label][target_id] = {}
+
+                        if anchor_label not in grouped_by_target_relationships[region_id][relation][target_label][target_id]:
+                            grouped_by_target_relationships[region_id][relation][target_label][target_id][anchor_label] = []
+
+                        grouped_by_target_relationships[region_id][relation][target_label][target_id][anchor_label].append(anchor_id)
+
+                        # Add the related object label to the grouped relationships
+                        if target_label not in grouped_by_anchor_relationships[region_id][relation][anchor_label][anchor_id]:
+                            grouped_by_anchor_relationships[region_id][relation][anchor_label][anchor_id][target_label] = []
+
+                        grouped_by_anchor_relationships[region_id][relation][anchor_label][anchor_id][target_label].append(
                             target_id)
 
-    return grouped_relationships
+    return grouped_by_anchor_relationships, grouped_by_target_relationships
 
 
 def index_by_object_id_and_class(relation_dict):
@@ -98,13 +114,17 @@ def process_file(target_file):
         relation_dict = json.load(file)
 
     print(target_file)
-    grouped_relationships = group_by_nyu_label(relation_dict)
-    object_index, object_class  = index_by_object_id_and_class(relation_dict)
+    grouped_by_anchor_relationships, grouped_by_target_relationships = group_by_nyu_label(relation_dict)
+    object_index, object_class = index_by_object_id_and_class(relation_dict)
 
     # Save the output to a JSON file
-    grouped_output_file = target_file.replace('_scene_graph.json', '_grouped.json')
-    with open(grouped_output_file, 'w') as file:
-        json.dump(grouped_relationships, file)
+    grouped_by_target_output_file = target_file.replace('_scene_graph.json', '_grouped_by_target.json')
+    with open(grouped_by_target_output_file, 'w') as file:
+        json.dump(grouped_by_target_relationships, file)
+
+    grouped_by_anchor_output_file = target_file.replace('_scene_graph.json', '_grouped_by_anchor.json')
+    with open(grouped_by_anchor_output_file, 'w') as file:
+        json.dump(grouped_by_anchor_relationships, file)
 
     # Save the object data to a JSON file
     object_output_file = target_file.replace('_scene_graph.json', '_object_data.json')
@@ -126,6 +146,8 @@ if __name__ == '__main__':
         generation_configs = json.load(c)
 
     target_dir = generation_configs["scene_data_root"]
+    print(target_dir)
+    # relations = generation_configs["relations"]
 
     target_paths = []
 
@@ -144,7 +166,10 @@ if __name__ == '__main__':
                 file_path = os.path.join(scene_path, file)
                 target_paths.append(file_path)
 
-    with mp.Pool(mp.cpu_count()) as pool:
-        pool.map(process_file, target_paths)
+    # with mp.Pool(mp.cpu_count()) as pool:
+    #     pool.map(process_file, target_paths)
+    # process_file(target_paths[2])
+    for target_file in target_paths:
+        process_file(target_file)
 
     print(f"Took {timer() - total_start_time} to preprocess")
