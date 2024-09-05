@@ -1,5 +1,4 @@
 IN_RELATION = {
-    3:   'cabinet',
     8:	'dishwasher',
     12:	'garbage bin',
     13:	'microwave',
@@ -28,6 +27,10 @@ ON_RELATION = {
     153: 'mailshelf',
     157:	'bed',
     204:	'bench',
+}
+
+IN_ON_RELATION = {
+    3: 'cabinet'
 }
 
 VERTICAL_STRUCTURES = {

@@ -12,3 +12,4 @@ processed_data/
 *.glb
 *.bin
 *.gltf
+*.ply

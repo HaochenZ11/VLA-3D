@@ -29,7 +29,6 @@ class Binary(Relationship):
         else:
             self.target_anchors = {}
 
-
         self.relation_type = 'binary'
 
 
@@ -43,7 +42,6 @@ class Binary(Relationship):
         """
         statements = {}
         template_sets = self.relation_language_template['templates']
-
 
         for t_set in template_sets:
             conditions = t_set["conditions"]
@@ -75,7 +73,7 @@ class Binary(Relationship):
                                     target_size = self.objects[target_id]["volume"]
                                     anchor_size = self.objects[anchor_id]["volume"]
 
-                                    statements[statement.sentence].append({
+                                    statement_data = {
                                         "target_index": target_id,
                                         "target_class": target_class,
                                         "target_position": target_pos,
@@ -96,10 +94,17 @@ class Binary(Relationship):
                                                 "color_used": statement.anchor_color_used,
                                                 "size_used": statement.anchor_size_used
                                             }
-                                        }
-                                    })
+                                        },
+                                    }
 
+                                    if generation_configs['generate_false_statements']:
+                                        false_statements = self.object_filter.get_false_statements(statement,
+                                                                                                   target_class,
+                                                                                                   anchor_class,
+                                                                                                   self.relation)
+                                        statement_data["false_statements"] = false_statements
 
+                                    statements[statement.sentence].append(statement_data)
 
             if max_statements is not None and len(statements) == max_statements:
                 return statements
@@ -147,22 +152,26 @@ class Binary(Relationship):
 
                                 statement = Statement(sentence, self.relation_type, self.relation)
 
-                                statement.target_color_used = target_color
-                                statement.target_size_used = target_size
-                                statement.anchor_color_used = anchor_color
-                                statement.anchor_size_used = anchor_size
+                                statement.target_color_used = target_color.replace(" ", "")
+                                statement.target_size_used = target_size.replace(" ", "")
+                                statement.anchor_color_used = anchor_color.replace(" ", "")
+                                statement.anchor_size_used = anchor_size.replace(" ", "")
 
 
                                 if (target_class == anchor_class and not
                                 (len(target_color) > 0 or len(target_size) > 0 or len(anchor_color) > 0 or len(anchor_size) > 0)):
                                     statement.replace("%other%", "other ")
 
-                                statement.replace("%other%", "")
-                                statement.replace("%target_color%", target_color)
-                                statement.replace("%anchor_color%", anchor_color)
-                                statement.replace("%target_size%", target_size)
-                                statement.replace("%anchor_size%", anchor_size)
-                                statement.replace('%relation%', relation)
+                                statement.form_statement(
+                                    {
+                                        "%other%": "",
+                                        "%target_color%": target_color,
+                                        "%anchor_color%": anchor_color,
+                                        "%target_size%": target_size,
+                                        "%anchor_size%": anchor_size,
+                                        '%relation%': relation
+                                    })
+
                                 statement_candidates.append(statement)
 
         return statement_candidates

@@ -1,16 +1,50 @@
+import json
+from Statement import Statement
+import random
+import re
+
 class ObjectFilter:
     '''
     Class for ObjectFilter object responsible for filtering and ranking objects in scene by their attributes
     '''
-    def __init__(self, spatial_relations, objects, objects_class_region):
+    def __init__(self, spatial_relations_by_anchor, spatial_relations_by_target, objects, objects_class_region, metadata):
         """
         All children od the Relationship class must generate statements
             Params:
                region_graph(Dict): Scene data from a region
         """
-        self.spatial_relations = spatial_relations
+        self.spatial_relations_by_anchor = spatial_relations_by_anchor
+        self.spatial_relations_by_target = spatial_relations_by_target
         self.objects = objects
         self.objects_class_region = objects_class_region
+        with open(metadata) as c:
+            self.metadata = json.load(c)
+        self.all_colors = set(self.metadata['colors_used'])
+        self.all_objects = set(self.metadata['object_set'])
+        self.all_target_classes = self.metadata['target_objects_by_relation']
+        self.all_anchor_classes = self.metadata['anchor_objects_by_relation']
+
+    def __find_all_occurrences__(self, text, substring):
+        positions = []
+        pos = text.find(substring)
+
+        while pos != -1:
+            positions.append(pos)
+            pos = text.find(substring, pos + len(substring))
+
+        return positions
+
+    def __replace_range__(self, text, i, j, replacement):
+        # Ensure i and j are within the valid range
+        if i < 0:
+            i = 0
+        if j > len(text):
+            j = len(text)
+        if i > j:
+            raise ValueError("Start index cannot be greater than end index")
+
+        # Replace the substring from i to j with the replacement string
+        return text[:i] + replacement + text[j:]
 
 
     def get_distractors(self, object_id, object_class):
@@ -18,49 +52,299 @@ class ObjectFilter:
         distractors.remove(object_id)
         return distractors
 
+    def get_false_statements(
+            self,
+            statement,
+            target_class,
+            anchor_class,
+            relation
+    ):
+        false_statements = {}
 
-    def filter_objects(self, object, filters=None):
-        """
-        All children of the Relationship class must generate statements
-            Params:
-                object(int): Index of the object to find unique qualifier in the region
-                filters(List[string]): Order of importance for the attribute filters
-            Returns:
-                color(List): List of necessary color attributes to make object unique
-                size(List): List of necessary size attributes to make object unique
-        """
-        object_name = self.objects['nyu_label'][object]
-        object_list = self.objects[self.objects['nyu_label'] == object_name]
+        unavailable_target_colors = set()
+        unavailable_target_classes = set()
+        unavailable_anchor_colors = set()
+        unavailable_anchor_classes = set()
 
-        color, size = [], []
+        for a_id, targets in self.spatial_relations_by_anchor[relation][anchor_class].items():
+            for t_class, t_ids in targets.items():
+                unavailable_target_classes.add(t_class)
+                for t_id in t_ids:
+                    unavailable_target_colors.update(self.objects[t_id]['color_labels'])
 
-        if len(object_list) == 1 or object_name == "space":
-            return [""], [""]
+        for t_id, anchors in self.spatial_relations_by_target[relation][target_class].items():
+            for a_class, a_ids in anchors.items():
+                unavailable_anchor_classes.add(a_class)
+                for a_id in a_ids:
+                    unavailable_anchor_colors.update(self.objects[a_id]['color_labels'])
+
+        available_target_colors = list(self.all_colors - unavailable_target_colors)
+        available_target_classes = list(set(self.all_target_classes[relation]) - unavailable_target_classes)
+        available_anchor_colors = list(self.all_colors - unavailable_anchor_colors)
+        available_anchor_classes = list(set(self.all_anchor_classes[relation]) - unavailable_anchor_classes)
+
+        false_target_color = None
+        if len(available_target_colors) > 0:
+            false_target_color = random.choice(available_target_colors)
+
+        false_target_class = None
+        if len(available_target_classes) > 0:
+            false_target_class = random.choice(available_target_classes)
+
+        false_anchor_color = None
+        if len(available_anchor_colors) > 0:
+            false_anchor_color = random.choice(available_anchor_colors)
+
+        false_anchor_class = None
+        if len(available_anchor_classes) > 0:
+            false_anchor_class = random.choice(available_anchor_classes)
+
+        if false_target_color is not None:
+            if statement.target_color_used != "":
+                occurrences = self.__find_all_occurrences__(statement.sentence, statement.target_color_used)
+                if len(occurrences) > 1:
+                    false_statements['false_target_color'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(statement.target_color_used), f"{false_target_color}")
+                else:
+                    false_statements['false_target_color'] = statement.sentence.replace(statement.target_color_used, f"{false_target_color}")
+
+            else:
+                occurrences = self.__find_all_occurrences__(statement.sentence, target_class)
+                if len(occurrences) > 1:
+                    false_statements['false_target_color'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(target_class), f"{false_target_color} {target_class}")
+                else:
+                    false_statements['false_target_color'] = statement.sentence.replace(target_class, f"{false_target_color} {target_class}")
+
+        if false_target_class is not None:
+            occurrences = self.__find_all_occurrences__(statement.sentence, target_class)
+            if len(occurrences) > 1:
+                false_statements['false_target_class'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(target_class), f"{false_target_class}")
+            else:
+                false_statements['false_target_class'] = statement.sentence.replace(target_class, false_target_class)
+
+        false_statements['false_anchors'] = {"anchor1": {}}
+
+        if false_anchor_color is not None:
+            if statement.anchor_color_used != "":
+                occurrences = self.__find_all_occurrences__(statement.sentence, statement.anchor_color_used)
+                if len(occurrences) > 1:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(statement.anchor_color_used), f"{false_anchor_color}")
+                else:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = statement.sentence.replace(statement.anchor_color_used, f"{false_anchor_color}")
+
+            else:
+                occurrences = self.__find_all_occurrences__(statement.sentence, anchor_class)
+                if len(occurrences) > 1:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(anchor_class), f"{false_anchor_color} {anchor_class}")
+                else:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = statement.sentence.replace(anchor_class, f"{false_anchor_color} {anchor_class}")
+
+        if false_anchor_class is not None:
+            occurrences = self.__find_all_occurrences__(statement.sentence, anchor_class)
+            if len(occurrences) > 1:
+                false_statements['false_anchors']["anchor1"]['false_anchor_class'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(anchor_class), f"{false_anchor_class}")
+            else:
+                false_statements['false_anchors']["anchor1"]['false_anchor_class'] = statement.sentence.replace(anchor_class, false_anchor_class)
+
+        return false_statements
 
 
-        other_same_objects = object_list.drop(object)
+    def get_false_statements_ternary(
+            self,
+            statement,
+            target_class,
+            anchor1_id,
+            anchor2_id,
+            relation,
+    ):
 
-        for color in self.objects['color_labels'][object]:
-            if color != 'N/A':
-                unique_color = True
-                for other_colors in other_same_objects['color_labels']:
-                    if color in other_colors:
-                        unique_color = False
-                if unique_color:
-                    color, size = [color + " "], [""]
-                    break
+        false_statements = {}
+        target_anchors = self.spatial_relations_by_anchor[relation]
+        unavailable_target_colors = set()
+        unavailable_target_classes = set()
+        unavailable_anchor_classes = set()
+        unavailable_anchor_colors = set()
+
+        for t_class, target_anchors in target_anchors.items():
+            for t_id, anchors in target_anchors.items():
+                for anchor_set in anchors:
+                    if anchor_set == [anchor1_id, anchor2_id] or anchor_set == [anchor2_id, anchor1_id]:
+                        unavailable_target_classes.add(t_class)
+                        unavailable_target_colors.update(self.objects[t_id]['color_labels'])
+                    if t_class == target_class:
+                        unavailable_anchor_classes.update([self.objects[anchor1_id]['nyu_label'], self.objects[anchor2_id]['nyu_label']])
+                        unavailable_anchor_colors.update(self.objects[anchor1_id]['color_labels'])
 
 
-        object_list = object_list.sort_values(by=['size'])
-        if object_list.iloc[0]['nyu_label'] == object_name and object_list.iloc[0]['center'] == self.objects['center'][object]:
-            if 1.2 * object_list.iloc[0]['largest_face_area'] < object_list.iloc[1]['largest_face_area']:
-                color, size = [""], ["small "]
+        available_target_colors = list(self.all_colors - unavailable_target_colors)
+        available_target_classes = list(set(self.all_target_classes[relation]) - unavailable_target_classes)
+        available_anchor_colors = list(self.all_colors - unavailable_anchor_colors)
+        available_anchor_classes = list(set(self.all_anchor_classes[relation]) - unavailable_anchor_classes)
 
-        if object_list.iloc[-1]['nyu_label'] == object_name and object_list.iloc[-1]['center'] == self.objects['center'][object]:
-            if object_list.iloc[-1]['largest_face_area'] > 1.2 * object_list.iloc[-2]['largest_face_area']:
-                color, size = [""], ["big "]
+        false_target_color = None
+        if len(available_target_colors) > 0:
+            false_target_color = random.choice(available_target_colors)
 
-        return color, size
+        false_target_class = None
+        if len(available_target_classes) > 0:
+            false_target_class = random.choice(available_target_classes)
+
+        false_anchor1_color = None
+        if len(available_anchor_colors) > 0:
+            false_anchor1_color = random.choice(available_anchor_colors)
+
+        false_anchor2_color = None
+        if len(available_anchor_colors) > 0:
+            false_anchor2_color = random.choice(available_anchor_colors)
+
+        false_anchor1_class = None
+        if len(available_anchor_classes) > 0:
+            false_anchor1_class = random.choice(available_anchor_classes)
+
+        available_anchor_classes.remove(false_anchor1_class)
+        false_anchor2_class = None
+        if len(available_anchor_classes) > 0:
+            false_anchor2_class = random.choice(available_anchor_classes)
+
+        if false_target_color is not None:
+            if statement.target_color_used != "":
+                occurrences = self.__find_all_occurrences__(statement.sentence, statement.target_color_used)
+                if len(occurrences) > 1:
+                    false_statements['false_target_color'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(statement.target_color_used), f"{false_target_color}")
+                else:
+                    false_statements['false_target_color'] = statement.sentence.replace(statement.target_color_used, f"{false_target_color}")
+            else:
+                occurrences = self.__find_all_occurrences__(statement.sentence, target_class)
+                if len(occurrences) > 1:
+                    false_statements['false_target_color'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(target_class), f"{false_target_color} {target_class}")
+                else:
+                    false_statements['false_target_color'] = statement.sentence.replace(target_class, f"{false_target_color} {target_class}")
+
+        if false_target_class is not None:
+            occurrences = self.__find_all_occurrences__(statement.sentence, target_class)
+            if len(occurrences) > 1:
+                false_statements['false_target_class'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(target_class), f"{false_target_class}")
+            else:
+                false_statements['false_target_class'] = statement.sentence.replace(target_class, false_target_color)
+
+            false_statements['false_anchors'] = {"anchor1": {}, "anchor2": {}}
+
+        if false_anchor1_color is not None:
+            if statement.anchor1_color_used != "":
+                occurrences = self.__find_all_occurrences__(statement.sentence, statement.anchor1_color_used)
+                if len(occurrences) == 3 or len(occurrences) == 2 and statement.anchor1_color_used == statement.target_color_used:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(statement.anchor1_color_used), f"{false_anchor1_color}")
+                else:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = statement.sentence.replace(statement.anchor1_color_used, f"{false_anchor1_color}")
+            else:
+                occurrences = self.__find_all_occurrences__(statement.sentence, self.objects[anchor1_id]['nyu_label'])
+                if len(occurrences) > 1:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(self.objects[anchor1_id]['nyu_label']), f"{false_anchor1_color} {self.objects[anchor1_id]['nyu_label']}")
+                else:
+                    false_statements['false_anchors']["anchor1"]['false_anchor_color'] = statement.sentence.replace(self.objects[anchor1_id]['nyu_label'], f"{false_anchor1_color} {self.objects[anchor1_id]['nyu_label']}")
+
+        if false_anchor1_class is not None:
+            occurrences = self.__find_all_occurrences__(statement.sentence, self.objects[anchor1_id]['nyu_label'])
+            if len(occurrences) > 1:
+                false_statements['false_anchors']["anchor1"]['false_anchor_class'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(self.objects[anchor1_id]['nyu_label']), f"{false_anchor1_class}")
+            else:
+                false_statements['false_anchors']["anchor1"]['false_anchor_class'] = statement.sentence.replace(self.objects[anchor1_id]['nyu_label'], false_anchor1_class)
+
+        if false_anchor2_color is not None:
+            if statement.anchor2_color_used != "":
+                occurrences = self.__find_all_occurrences__(statement.sentence, statement.anchor2_color_used)
+                if len(occurrences) == 3:
+                    false_statements['false_anchors']["anchor2"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[2], occurrences[2] + len(statement.anchor2_color_used), f"{false_anchor2_color}")
+                elif len(occurrences) == 2 and statement.anchor2_color_used == statement.target_color_used:
+                    false_statements['false_anchors']["anchor2"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(statement.anchor2_color_used), f"{false_anchor2_color}")
+                else:
+                    false_statements['false_anchors']["anchor2"]['false_anchor_color'] = statement.sentence.replace(statement.anchor2_color_used, f"{false_anchor2_color}")
+            else:
+                occurrences = self.__find_all_occurrences__(statement.sentence, self.objects[anchor2_id]['nyu_label'])
+                if len(occurrences) > 1:
+                    false_statements['false_anchors']["anchor2"]['false_anchor_color'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(self.objects[anchor2_id]['nyu_label']), f"{false_anchor2_color} {self.objects[anchor2_id]['nyu_label']}")
+                else:
+                    false_statements['false_anchors']["anchor2"]['false_anchor_color'] = statement.sentence.replace(self.objects[anchor2_id]['nyu_label'], f"{false_anchor2_color} {self.objects[anchor2_id]['nyu_label']}")
+
+        if false_anchor2_class is not None:
+            occurrences = self.__find_all_occurrences__(statement.sentence, self.objects[anchor2_id]['nyu_label'])
+            if len(occurrences) > 1:
+                false_statements['false_anchors']["anchor2"]['false_anchor_class'] = self.__replace_range__(statement.sentence, occurrences[1], occurrences[1] + len(self.objects[anchor2_id]['nyu_label']), f"{false_anchor2_class}")
+            else:
+                false_statements['false_anchors']["anchor2"]['false_anchor_class'] = statement.sentence.replace(self.objects[anchor2_id]['nyu_label'], false_anchor2_class)
+
+        return false_statements
+
+
+    def filter_objects(self, object_id, object_list):
+
+        other_same_objects = object_list.copy()
+        other_same_objects.remove(object_id)
+
+        object_color, object_size = [""], [""]
+
+        if len(object_list) > 1:
+            # Sort by color
+            for i, color in enumerate(self.objects[object_id]['color_labels']):
+                if color != 'N/A' and (float)(self.objects[object_id]['color_percentages'][i])> 0.25:
+                    unique_color = True
+                    for i in other_same_objects:
+                        if color in self.objects[i]['color_labels']:
+                            unique_color = False
+                            # continue
+
+                    if unique_color:
+                        object_color, object_size = [color + " "], [""]
+                        object_list = [object_id]
+                        break
+
+            # TODO: sort further by color
+            if len(object_list) > 1:
+                # Sort by size (largest surface area)
+                sorted_size_list = sorted(object_list, key=lambda x: self.objects[x]['largest_face_area'])
+
+                if sorted_size_list[0] == object_id:
+                    if 1.2 * self.objects[sorted_size_list[0]]['largest_face_area'] < \
+                            self.objects[sorted_size_list[1]]['largest_face_area']:
+                        # TODO: relative size
+                        object_color, object_size = [""], ["small "]
+                        object_list = [object_id]
+
+                if sorted_size_list[-1] == object_id:
+                    if self.objects[sorted_size_list[-1]]['largest_face_area'] > 1.2 * \
+                            self.objects[sorted_size_list[-2]]['largest_face_area']:
+                        # TODO: relative size
+                        object_color, object_size = [""], ["big "]
+                        object_list = [object_id]
+
+            if len(object_list) > 1:
+                # Sort by dominant color and size
+                for i, color in enumerate(self.objects[object_id]['color_labels']):
+                    if color != 'N/A' and (float)(self.objects[object_id]['color_percentages'][i]) > 0.25:
+                        other_same_color_objects = []
+                        for i in other_same_objects:
+                            if color in self.objects[i]['color_labels']:
+                                other_same_color_objects.append(i)
+
+                        colored_sorted_size_list = sorted(other_same_color_objects, key=lambda x: self.objects[x]['largest_face_area'])
+
+                        if colored_sorted_size_list[0] == object_id:
+                            if 1.2 * self.objects[colored_sorted_size_list[0]]['largest_face_area'] < \
+                                    self.objects[colored_sorted_size_list[1]]['largest_face_area']:
+                                # TODO: relative size
+                                object_color, object_size = [color + " "], ["small "]
+                                object_list = [object_id]
+                                break
+
+                        if colored_sorted_size_list[-1] == object_id:
+                            if self.objects[colored_sorted_size_list[-1]]['largest_face_area'] > 1.2 * \
+                                    self.objects[colored_sorted_size_list[-2]]['largest_face_area']:
+                                # TODO: relative size
+                                object_color, object_size = [color + " "], ["big "]
+                                object_list = [object_id]
+                                break
+
+        return object_list, object_color, object_size
+
 
     def filter_targets_and_anchors(self, target, anchor, target_class, anchor_class, relation, filters=None):
         """
@@ -72,7 +356,7 @@ class ObjectFilter:
                 color(List): List of necessary color attributes to make object unique
                 size(List): List of necessary size attributes to make object unique
         """
-        target_anchors = self.spatial_relations[relation][anchor_class]
+        target_anchors = self.spatial_relations_by_anchor[relation][anchor_class]
 
         filtered_target_anchors = {}
 
@@ -92,90 +376,21 @@ class ObjectFilter:
         if len(target_list) == 1 and len(anchor_list) == 1:
             return target_color, target_size, anchor_color, anchor_size
 
-        other_same_targets = target_list.copy()
-        other_same_targets.remove(target)
-
-        other_same_anchors = anchor_list.copy()
-        other_same_anchors.remove(anchor)
-
-
         # ANCHOR FILTERING
         #TODO: Allow multi-color
-        if len(anchor_list) > 1:
-            for color in self.objects[anchor]['color_labels']:
-                if color != 'N/A':
-                    unique_color = True
-                    for i in other_same_anchors:
-                        if color in self.objects[i]['color_labels']:
-                            unique_color = False
-                            # continue
-
-                    if unique_color:
-                        anchor_color, anchor_size = [color + " "], [""]
-                        anchor_list = [anchor]
-                        break
-
-            #TODO: sort further by color
-            if len(anchor_list) > 1:
-
-                #Sort by largest surface area
-                sorted_anchor_list = sorted(anchor_list, key=lambda x: self.objects[x]['largest_face_area'])
-
-                if sorted_anchor_list[0] == anchor:
-                    if 1.2 * self.objects[sorted_anchor_list[0]]['largest_face_area'] < self.objects[sorted_anchor_list[1]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor_color, anchor_size = [""], ["small "]
-                        anchor_list = [anchor]
-
-                if sorted_anchor_list[-1] == anchor:
-                    if self.objects[sorted_anchor_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor_list[-2]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor_color, anchor_size = [""], ["big "]
-                        anchor_list = [anchor]
-
-        #Unique anchor
+        anchor_list, anchor_color, anchor_size = self.filter_objects(anchor, anchor_list)
+        #Non-unique anchor
         if len(anchor_list) > 1:
             return [], [], [], []
-
         if len(target_list) == 1 and (len(anchor_list) == 1 or target_class == "space"):
-
             return target_color, target_size, anchor_color, anchor_size
 
-
         #TARGET FILTERING
-        if len(target_list) > 1:
-            for color in self.objects[target]['color_labels']:
-                if color != 'N/A':
-                    unique_color = True
-                    for i in other_same_targets:
-                        if color in self.objects[i]['color_labels']:
-                            unique_color = False
-                            # continue
-
-                    if unique_color:
-                        target_color, target_size = [color + " "], [""]
-                        target_list = [target]
-                        break
-
-            #TODO: sort further by color
-            if len(target_list) > 1:
-
-                sorted_target_list = sorted(anchor_list, key=lambda x: self.objects[x]['largest_face_area'])
-
-                if sorted_target_list[0] == target:
-                    if 1.2 * self.objects[sorted_target_list[0]]['largest_face_area'] < self.objects[sorted_target_list[1]]['largest_face_area']:
-                        target_color, target_size = [""], ["small "]
-                        target_list = [target]
-
-                if sorted_target_list[-1] == target:
-                    if self.objects[sorted_target_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_target_list[-2]]['largest_face_area']:
-                        target_color, target_size = [""], ["big "]
-                        target_list = [target]
-
-            if len(target_list) == 1 and (len(anchor_list) == 1 or target_class == "space"):
-                return target_color, target_size, anchor_color, anchor_size
-
+        target_list, target_color, target_size = self.filter_objects(target, target_list)
+        if len(target_list) == 1 and (len(anchor_list) == 1 or target_class == "space"):
+            return target_color, target_size, anchor_color, anchor_size
         return [], [], [], []
+
 
     def filter_targets_and_anchors_ordered(self, target, anchor, target_class, anchor_class, relation, filters=None):
         """
@@ -187,7 +402,7 @@ class ObjectFilter:
                 color(List): List of necessary color attributes to make object unique
                 size(List): List of necessary size attributes to make object unique
         """
-        target_anchors = self.spatial_relations[relation][anchor_class]
+        target_anchors = self.spatial_relations_by_anchor[relation][anchor_class]
 
         filtered_target_anchors = {}
 
@@ -203,48 +418,12 @@ class ObjectFilter:
         #Making anchor unique in the scene
         # anchor_list = list(filtered_target_anchors.keys())
 
-        order, anchor_color, anchor_size = "", [""], [""]
-
         if len(target_list) == 1:
-
             return None, [], []
-
-        other_same_anchors = anchor_list.copy()
-        other_same_anchors.remove(anchor)
-
 
         # ANCHOR FILTERING
         #TODO: Allow multi-color
-        if len(anchor_list) > 1:
-            for color in self.objects[anchor]['color_labels']:
-                if color != 'N/A':
-                    unique_color = True
-                    for i in other_same_anchors:
-                        if color in self.objects[i]['color_labels']:
-                            unique_color = False
-                            # continue
-
-                    if unique_color:
-                        anchor_color, anchor_size = [color + " "], [""]
-                        anchor_list = [anchor]
-                        break
-
-            #TODO: sort further by color
-            if len(anchor_list) > 1:
-                sorted_anchor_list = sorted(anchor_list, key=lambda x: self.objects[x]['largest_face_area'])
-
-                if sorted_anchor_list[0] == anchor:
-                    if 1.2 * self.objects[sorted_anchor_list[0]]['largest_face_area'] < self.objects[sorted_anchor_list[1]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor_color, anchor_size = [""], ["small "]
-                        anchor_list = [anchor]
-
-                if sorted_anchor_list[-1] == anchor:
-                    if self.objects[sorted_anchor_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor_list[-2]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor_color, anchor_size = [""], ["big "]
-                        anchor_list = [anchor]
-
+        anchor_list, anchor_color, anchor_size = self.filter_objects(anchor, anchor_list)
 
         if len(anchor_list) > 1:
             return None, [], []
@@ -273,7 +452,7 @@ class ObjectFilter:
         anchor1_object_name = self.objects[anchor1]['nyu_label']
         anchor2_object_name = self.objects[anchor2]['nyu_label']
 
-        target_anchors = self.spatial_relations[relation][target_object_name]
+        target_anchors = self.spatial_relations_by_anchor[relation][target_object_name]
 
         filtered_target_anchors = {}
 
@@ -295,126 +474,26 @@ class ObjectFilter:
         if len(target_list) == 1:
             return target_color, target_size, anchor1_color, anchor1_size, anchor2_color, anchor2_size
 
-        other_same_targets = target_list.copy()
-        other_same_targets.remove(target)
-        other_same_anchor1 = anchor1_list.copy()
-        other_same_anchor1.remove(anchor1)
-        other_same_anchor2 = anchor2_list.copy()
-        other_same_anchor2.remove(anchor2)
-
-
-
-        #ANCHO1 FILTERING
-        if len(anchor1_list) > 1:
-            for color in self.objects[anchor1]['color_labels']:
-                if color != 'N/A':
-                    unique_color = True
-                    for i in other_same_anchor1:
-                        if color in self.objects[i]['color_labels']:
-                            unique_color = False
-                            # continue
-
-                    if unique_color:
-                        anchor1_color, anchor1_size = [color + " "], [""]
-                        anchor1_list = [anchor1]
-                        break
-
-            #TODO: sort further by color
-            if len(anchor1_list) > 1:
-
-                #Sort by largest surface area
-                sorted_anchor1_list = sorted(anchor1_list, key=lambda x: self.objects[x]['largest_face_area'])
-
-                if sorted_anchor1_list[0] == anchor1:
-                    if 1.2 * self.objects[sorted_anchor1_list[0]]['largest_face_area'] < self.objects[sorted_anchor1_list[1]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor1_color, anchor1_size = [""], ["small "]
-                        anchor1_list = [anchor1]
-
-                if sorted_anchor1_list[-1] == anchor1:
-                    if self.objects[sorted_anchor1_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor1_list[-2]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor1_color, anchor1_size = [""], ["big "]
-                        anchor1_list = [anchor1]
+        # ANCHOR FILTERING
+        anchor1_list = self.filter_objects(anchor1, anchor1_list)
 
         # Unique anchor
         if len(anchor1_list) > 1:
             return [], [], [], [], [], []
 
-
-
-
-        if len(anchor2_list) > 1:
-            for color in self.objects[anchor2]['color_labels']:
-                if color != 'N/A':
-                    unique_color = True
-                    for i in other_same_anchor2:
-                        if color in self.objects[i]['color_labels']:
-                            unique_color = False
-                            # continue
-
-                    if unique_color:
-                        anchor2_color, anchor2_size = [color + " "], [""]
-                        anchor2_list = [anchor2]
-                        break
-
-            #TODO: sort further by color
-            if len(anchor2_list) > 1:
-
-                #Sort by largest surface area
-                sorted_anchor2_list = sorted(anchor2_list, key=lambda x: self.objects[x]['largest_face_area'])
-
-                if sorted_anchor2_list[0] == anchor2:
-                    if 1.2 * self.objects[sorted_anchor2_list[0]]['largest_face_area'] < self.objects[sorted_anchor2_list[1]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor2_color, anchor2_size = [""], ["small "]
-                        anchor2_list = [anchor2]
-
-                if sorted_anchor2_list[-1] == anchor2:
-                    if self.objects[sorted_anchor2_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_anchor2_list[-2]]['largest_face_area']:
-                        #TODO: relative size
-                        anchor2_color, anchor2_size = [""], ["big "]
-                        anchor2_list = [anchor2]
+        anchor2_list = self.filter_objects(anchor2, anchor2_list)
 
         # Unique anchor
         if len(anchor2_list) > 1:
             return [], [], [], [], [], []
-
-
 
         #TARGET FILTERING
-        if len(target_list) > 1:
-            for color in self.objects[target]['color_labels']:
-                if color != 'N/A':
-                    unique_color = True
-                    for i in other_same_targets:
-                        if color in self.objects[i]['color_labels']:
-                            unique_color = False
-                            # continue
+        target_list, target_color, target_size = self.filter_objects(target, target_list)
 
-                    if unique_color:
-                        target_color, target_size = [color + " "], [""]
-                        target_list = [target]
-                        break
-            #TODO: sort further by color
-            if len(target_list) > 1:
-                sorted_target_list = sorted(target_list, key=lambda x: self.objects[x]['largest_face_area'])
-
-                if sorted_target_list[0] == target:
-                    if 1.2 * self.objects[sorted_target_list[0]]['largest_face_area'] < self.objects[sorted_target_list[1]]['largest_face_area']:
-                        target_color, target_size = [""], ["small "]
-                        target_list = [target]
-
-                if sorted_target_list[-1] == target:
-                    if self.objects[sorted_target_list[-1]]['largest_face_area'] > 1.2 * self.objects[sorted_target_list[-2]]['largest_face_area']:
-                        target_color, target_size = [""], ["big "]
-                        target_list = [target]
-
-            if len(target_list) == 1:
-                return target_color, target_size, anchor1_color, anchor1_size, anchor2_color, anchor2_size
+        if len(target_list) == 1:
+            return target_color, target_size, anchor1_color, anchor1_size, anchor2_color, anchor2_size
 
         return [], [], [], [], [], []
-
 
 
     def get_objects(self):

@@ -308,8 +308,8 @@ class MatterportPreprocessor:
 
             # generate free space
             if self.generate_freespace:
-                point_positions = vertex[:, :3].to_numpy()
-                point_region_ids = vertex[:, 7].astype(torch.uint8).to_numpy()
+                point_positions = vertex[:, :3].numpy()
+                point_region_ids = vertex[:, 7].to(torch.int32).numpy()
 
                 generate_free_space(scan_name, point_positions, floor_sizes, point_region_ids, self.floor_height)
 

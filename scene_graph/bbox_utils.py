@@ -271,7 +271,7 @@ def get_bbox_face_planes(bbox: np.ndarray):
     vec1 = bbox[BBOX_FACES[:, 1]] - bbox[BBOX_FACES[:, 0]]
     vec2 = bbox[BBOX_FACES[:, 3]] - bbox[BBOX_FACES[:, 0]]
     norm = np.cross(vec1, vec2)
-    norm /= np.linalg.norm(norm)
+    norm /= np.linalg.norm(norm, axis=-1, keepdims=True)
     bias = -np.sum(norm * bbox[BBOX_FACES[:, 0]], axis=-1)
 
     return norm, bias
