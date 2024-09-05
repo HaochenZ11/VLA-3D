@@ -85,8 +85,7 @@ class Ternary(Relationship):
                                 anchor2_color = self.objects[anchors_set[1]]["color_labels"]
                                 anchor2_size = self.objects[anchors_set[1]]["volume"]
 
-
-                                statements[statement.sentence].append({
+                                statement_data = {
                                     "target_index": target_id,
                                     "target_class": target_class,
                                     "target_position": target_pos,
@@ -115,9 +114,18 @@ class Ternary(Relationship):
                                             "color_used": statement.anchor2_color_used,
                                             "size_used": statement.anchor2_size_used
                                         }
-                                    }
-                                })
+                                    },
+                                }
 
+                                if generation_configs['generate_false_statements']:
+                                    false_statements = self.object_filter.get_false_statements_ternary(statement,
+                                                                                                       target_class,
+                                                                                                       anchors_set[0],
+                                                                                                       anchors_set[1],
+                                                                                                       self.relation)
+                                    statement_data["false_statements"] = false_statements
+
+                                statements[statement.sentence].append(statement_data)
 
             if max_statements is not None and len(statements) == max_statements:
                 return statements
@@ -178,12 +186,12 @@ class Ternary(Relationship):
 
                                         statement = Statement(sentence, self.relation_type, self.relation)
 
-                                        statement.target_color_used = target_color
-                                        statement.target_size_used = target_size
-                                        statement.anchor1_color_used = anchor1_color
-                                        statement.anchor1_size_used = anchor1_size
-                                        statement.anchor2_color_used = anchor2_color
-                                        statement.anchor2_size_used = anchor2_size
+                                        statement.target_color_used = target_color.replace(" ", "")
+                                        statement.target_size_used = target_size.replace(" ", "")
+                                        statement.anchor1_color_used = anchor1_color.replace(" ", "")
+                                        statement.anchor1_size_used = anchor1_size.replace(" ", "")
+                                        statement.anchor2_color_used = anchor2_color.replace(" ", "")
+                                        statement.anchor2_size_used = anchor2_size.replace(" ", "")
 
                                         if (self.objects[anchor1]['nyu_label']==self.objects[anchor2]['nyu_label'] and not
                                         (len(anchor1_color) > 0 or len(anchor1_size) > 0 or len(anchor2_color) > 0 or len(anchor2_size) > 0)):
@@ -195,16 +203,18 @@ class Ternary(Relationship):
                                         (len(target_color) > 0 or len(target_size) > 0 or len(anchor2_color) > 0 or len(anchor2_size) > 0)):
                                             statement.replace("%other2%", "other ")
 
-
-                                        statement.replace("%other1%", "")
-                                        statement.replace("%other2%", "")
-                                        statement.replace("%target_color%", target_color)
-                                        statement.replace("%anchor1_color%", anchor1_color)
-                                        statement.replace("%anchor2_color%", anchor2_color)
-                                        statement.replace("%target_size%", target_size)
-                                        statement.replace("%anchor1_size%", anchor1_size)
-                                        statement.replace("%anchor2_size%", anchor2_size)
-                                        statement.replace('%relation%', relation)
+                                        statement.form_statement(
+                                            {
+                                                "%other1%": "",
+                                                "%other2%": "",
+                                                "%target_color%": target_color,
+                                                "%anchor1_color%": anchor1_color,
+                                                "%anchor2_color%": anchor2_color,
+                                                "%target_size%": target_size,
+                                                "%anchor1_size%": anchor1_size,
+                                                "%anchor2_size%": anchor2_size,
+                                                '%relation%': relation
+                                            })
 
                                         statement_candidates.append(statement)
 

@@ -1,0 +1,19 @@
+{
+  "relation": "third_closest",
+  "relation_type": "binary",
+  "templates": [
+      {
+        "sentences": [
+          "the %target_size%%target_color%%target% that %target_verb% %relation% the %other%%anchor_size%%anchor_color%%anchor%"
+        ],
+        "conditions": []
+      }
+    ],
+
+  "synonyms": {
+    "relation": [
+      "third closest",
+      "third nearest"
+    ]
+  }
+}

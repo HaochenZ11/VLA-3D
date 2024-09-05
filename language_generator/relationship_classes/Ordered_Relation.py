@@ -74,6 +74,10 @@ class Ordered(Relationship):
                                     target_size = self.objects[target_id]["volume"]
                                     anchor_size = self.objects[anchor_id]["volume"]
 
+                                    false_statements = self.object_filter.get_false_statements(statement, target_class,
+                                                                                               anchor_class,
+                                                                                               self.relation)
+
                                     statements[statement.sentence].append({
                                         "target_index": target_id,
                                         "target_class": target_class,
@@ -95,7 +99,8 @@ class Ordered(Relationship):
                                                 "color_used": statement.anchor_color_used,
                                                 "size_used": statement.anchor_size_used
                                             }
-                                        }
+                                        },
+                                        "false_statements": false_statements
                                     })
 
             if max_statements is not None and len(statements) == max_statements:
@@ -147,21 +152,24 @@ class Ordered(Relationship):
 
                             statement = Statement(sentence, self.relation, self.relation_type)
 
-                            statement.anchor_color_used = anchor_color
-                            statement.anchor_size_used = anchor_size
+                            statement.anchor_color_used = anchor_color.replace(" ", "")
+                            statement.anchor_size_used = anchor_size.replace(" ", "")
                             statement.target_color_used = ""
                             statement.target_size_used = ""
 
                             if (target_class == anchor_class):
                                 continue
 
-                            statement.replace("%other%", "")
-                            statement.replace("%target_color%", "")
-                            statement.replace("%anchor_color%", anchor_color)
-                            statement.replace("%target_size%", "")
-                            statement.replace("%anchor_size%", anchor_size)
-                            statement.replace('%relation%', relation)
-                            statement.replace("%target_order%", o)
+                            statement.form_statement(
+                                {
+                                    "%other%": "",
+                                    "%target_order%": o,
+                                    "%target_color%": "",
+                                    "%anchor_color%": anchor_color,
+                                    "%target_size%": "",
+                                    "%anchor_size%": anchor_size,
+                                    '%relation%': relation
+                                })
 
                             statement_candidates.append(statement)
 
