@@ -34,7 +34,7 @@
   "metadata": "./configs/metadata/metadata.json",
   "single_file": false,
   "include_spaces": false,
-  "generate_false_statements": false,
+  "generate_false_statements": true,
   "log_output_dir": "./logger/output",
   "purge_existing_data": true,
   "exclude_classes": [

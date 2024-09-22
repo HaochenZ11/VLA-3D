@@ -224,7 +224,7 @@ class ObjectFilter:
             if len(occurrences) > 1:
                 false_statements['false_target_class'] = self.__replace_range__(statement.sentence, occurrences[0], occurrences[0] + len(target_class), f"{false_target_class}")
             else:
-                false_statements['false_target_class'] = statement.sentence.replace(target_class, false_target_color)
+                false_statements['false_target_class'] = statement.sentence.replace(target_class, false_target_class)
 
             false_statements['false_anchors'] = {"anchor1": {}, "anchor2": {}}
 

@@ -245,10 +245,11 @@ if __name__ == '__main__':
 
         print(f"Processing a total of {len(scene_paths)} scenes")
 
-        with mp.Pool(mp.cpu_count()) as pool:
-            for _ in tqdm(pool.imap(process_file, scene_paths), total=len(scene_paths)):
-                pass
-        # process_file(scene_paths[2])
+        # with mp.Pool(mp.cpu_count()) as pool:
+        #     for _ in tqdm(pool.imap(process_file, scene_paths), total=len(scene_paths)):
+        #         pass
+        # breakpoint()
+        process_file(scene_paths[2])
 
         logger.generate_logs(scene_data_root=scene_data_root)
 
