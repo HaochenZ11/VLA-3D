@@ -25,7 +25,17 @@ def get_from_server(client, bucket_name, source_name, target_name):
     Returns: True
     """
     print(f"Downloading {source_name} from {bucket_name}...")
-    client.fget_object(bucket_name, source_name, target_name)
+    try:
+        data = client.get_object(bucket_name, source_name)
+        file_size = int(data.headers.get('content-length'))
+
+        with open(target_name, 'wb') as file_data:
+            with tqdm(total=file_size, unit='B', unit_scale=True, desc=source_name) as pbar:
+                 for d in data.stream(1024):
+                    pbar.update(len(d))
+                    file_data.write(d)
+    except Exception as err:
+        print(F"Error while downloading {source_name} to {target_name}: {err}")
     print(f"Successfully downloaded {source_name} to {target_name}!")
 
     return True
