@@ -1,7 +1,9 @@
 # VLA-3D Dataset
 
 ## Introduction
-This dataset is a 3D object referential dataset designed for vision-language grounding that can be used for the higher-level task of vision-language navigation (VLN). This dataset contains 9M+ language statements that are synthetically generated for 7635 3D scenes containing a total of 11619 regions from a combination of 3D scan datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Refer to the [Download](#download) section for instructions on downloading the dataset
+This work is based on our [short paper](https://arxiv.org/abs/2411.03540), **VLA-3D: A Dataset for 3D Semantic Scene Understanding and Navigation**, first presented at the [Workshop on Semantic Reasoning and Goal Understanding in Robotics (SemRob)](https://semrob.github.io/), RSS 2024.
+
+The VLA-3D dataset is a 3D object referential dataset designed for vision-language grounding that can be used for the higher-level task of vision-language navigation (VLN). This dataset contains 9M+ language statements that are synthetically generated for 7635 3D scenes containing a total of 11619 regions from a combination of 3D scan datasets and is released as part of the [CMU Vision-Language-Autonomy (VLA) Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). A sample scene from each data source can be found under [sample_data](sample_data/). Please refer to the [Download](#download) section for instructions on downloading the dataset.
 
 ## News
 
