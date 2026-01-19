@@ -1,5 +1,7 @@
 # VLA-3D Dataset
 
+Note: This dataset has been filtered and extended with misaligned grounding statements in our follow-up work: [IRef-VLA](https://github.com/HaochenZ11/IRef-VLA). Please refer to that repository for more details and to download the data.
+
 ## Introduction
 This work is based on our [short paper](https://arxiv.org/abs/2411.03540), **VLA-3D: A Dataset for 3D Semantic Scene Understanding and Navigation**, first presented at the [Workshop on Semantic Reasoning and Goal Understanding in Robotics (SemRob)](https://semrob.github.io/), RSS 2024.
 
