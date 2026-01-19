@@ -5,12 +5,11 @@ from tqdm import tqdm
 
 # AirLab server config
 BUCKET = "vla"
-ENDPOINT = "airlab-share-01.andrew.cmu.edu:9000"
+ENDPOINT = "airlab-cloud.andrew.cmu.edu:8080"
 
 # Public keys (for downloading)
-ACCESS_KEY = "pLyVvRrA7KZiGdseXbUM"
-SECRET_KEY = "caXs1AynlxAUA47Sc4GdC5i7gcLjp5jElLE7v8Hu"
-
+ACCESS_KEY = "9d6f8aab81c14f75b6d027b392cb7c93"
+SECRET_KEY = "43b98da5d8ae4704a09a957b73615746"
 
 def get_from_server(client, bucket_name, source_name, target_name):
     """
