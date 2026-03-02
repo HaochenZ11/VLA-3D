@@ -1,22 +1,20 @@
 import os
 import argparse
-from minio import Minio
 from tqdm import tqdm
+import boto3
+from botocore import UNSIGNED
+from botocore.client import Config
 
 # AirLab server config
 BUCKET = "vla"
-ENDPOINT = "airlab-cloud.andrew.cmu.edu:8080"
-
-# Public keys (for downloading)
-ACCESS_KEY = "9d6f8aab81c14f75b6d027b392cb7c93"
-SECRET_KEY = "43b98da5d8ae4704a09a957b73615746"
+ENDPOINT = "https://airlab-cloud.andrew.cmu.edu:8080/swift/v1/AUTH_ac8533a83cff4d48bc8c608ad222d330"
 
 def get_from_server(client, bucket_name, source_name, target_name):
     """
-    Downloads a specific file from server using Minio
+    Downloads a specific file from server using boto3
 
     Args: 
-    client: Minio client object with set up with keys
+    client: boto3 S3 client object
     bucket_name: str name of data bucket
     source_name: name of file on server
     target_name: name of file locally
@@ -25,16 +23,24 @@ def get_from_server(client, bucket_name, source_name, target_name):
     """
     print(f"Downloading {source_name} from {bucket_name}...")
     try:
-        data = client.get_object(bucket_name, source_name)
-        file_size = int(data.headers.get('content-length'))
-
+        resp = client.get_object(Bucket=bucket_name, Key=source_name)
+        
+        # Create target directory if it does not exist
+        target_dir = os.path.dirname(target_name)
+        if not os.path.exists(target_dir):
+            os.makedirs(target_dir)
+        
+        # Get file size for progress bar
+        file_size = resp['ContentLength']
+        
         with open(target_name, 'wb') as file_data:
             with tqdm(total=file_size, unit='B', unit_scale=True, desc=source_name) as pbar:
-                 for d in data.stream(1024):
-                    pbar.update(len(d))
-                    file_data.write(d)
+                for chunk in resp["Body"].iter_chunks(chunk_size=1024 * 1024):
+                    if chunk:
+                        pbar.update(len(chunk))
+                        file_data.write(chunk)
     except Exception as err:
-        print(F"Error while downloading {source_name} to {target_name}: {err}")
+        print(f"Error while downloading {source_name} to {target_name}: {err}")
     print(f"Successfully downloaded {source_name} to {target_name}!")
 
     return True
@@ -45,13 +51,13 @@ def download(args):
     Configures download client and loops through files
     """
     source_files = {"matterport":"Matterport.zip", "scannet":"Scannet.zip", "hm3d":"HM3D.zip", "unity":"Unity.zip", "arkitscenes":"ARKitScenes.zip", "3rscan":"3RScan.zip"}
-    client = Minio(ENDPOINT,
-                access_key=ACCESS_KEY,
-                secret_key=SECRET_KEY,
-                secure=True)
+    
+    client = boto3.client("s3", 
+                         endpoint_url=ENDPOINT, 
+                         config=Config(signature_version=UNSIGNED))
     
     if not os.path.exists(args.download_path):
-        os.mkdir(args.download_path)
+        os.makedirs(args.download_path)
 
     file_list = [file for name, file in source_files.items()]
     
@@ -84,4 +90,4 @@ if __name__ == '__main__':
 
     download(args)
 
-    
+
